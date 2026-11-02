@@ -12,10 +12,11 @@ on it lands.
 
 ## Round 1. The git side statement (SB-5 to SB-12)
 
-Contract preparation only in this pass. The build opens
-when this repo's turn in the line's build order arrives.
-The stub's SB-1 fixes this round's scope: the git side
-only, one repo, one itemized statement.
+Built in Round 1. The stub's SB-1 fixes this round's
+scope: the git side only, one repo, one itemized
+statement. The round also added the amendments below
+(SB-5a to SB-11a before code, SB-5b, SB-6b, and SB-7b
+after the reviews, before the repair code).
 
 - SB-5. The input is one git repository, read through its
   history with a stated field set: sha, parents, author
