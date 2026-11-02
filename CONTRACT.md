@@ -165,3 +165,21 @@ after the reviews, before the repair code).
   the amount, and the total amount. Nothing else in
   the document changes, and determinism stands
   (SB-10). Test, tests/test_statement.py.
+
+## Round 2 post-review amendments, recorded before the repairs
+
+- SB-13a. A card is refused by name when any object
+  in it repeats a key, a repetition after JSON string
+  decoding included, and when its top level carries a
+  key besides currency and per_item. A rate's integer
+  part runs to at most thirty digits as written,
+  leading zeros counted: past that the card is refused
+  by name rather than priced, so no conversion or
+  rendering inside the run can meet a numeral the
+  interpreter refuses. The currency, rate, and month
+  forms are ASCII and match to the very end of the
+  string; a trailing newline is part of no form. The
+  first implementation priced a duplicated key at its
+  last value in silence, and an unbounded numeral met
+  the interpreter's conversion limit as a traceback.
+  Test, tests/test_statement.py.
