@@ -9,7 +9,8 @@ import sys
 import tempfile
 from pathlib import Path
 
-from .history import StatementError, read_history, worktree_root
+from .history import (StatementError, git_dir, read_history,
+                      worktree_root)
 from .statement import build_statement
 
 
@@ -67,9 +68,14 @@ def main(argv: list[str] | None = None) -> int:
     repo = Path(args.repo)
     try:
         if args.output is not None:
-            root = worktree_root(repo)
+            try:
+                roots = [worktree_root(repo)]
+            except StatementError:
+                roots = []
+            roots.append(git_dir(repo))
             target = Path(args.output).resolve()
-            if target == root or root in target.parents:
+            if any(target == root or root in target.parents
+                   for root in roots):
                 print("error, secondbill writes nothing inside "
                       "the repository it reads", file=sys.stderr)
                 return 1

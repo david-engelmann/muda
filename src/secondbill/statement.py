@@ -14,16 +14,18 @@ REVERT_SUBJECT = re.compile(r'^Revert "(.*)"$')
 CLASSES = ("revert", "fix-forward", "redone")
 
 
+MONTH_FORM = re.compile(r"^\d{4}-(0[1-9]|1[0-2])$")
+
+
 def _month_window(month: str):
-    try:
-        year, mon = (int(part) for part in month.split("-"))
-        start = datetime(year, mon, 1, tzinfo=timezone.utc)
-        end = (datetime(year + 1, 1, 1, tzinfo=timezone.utc)
-               if mon == 12 else
-               datetime(year, mon + 1, 1, tzinfo=timezone.utc))
-    except (ValueError, AttributeError):
+    if not isinstance(month, str) or not MONTH_FORM.match(month):
         raise StatementError(
-            f"month must be stated as YYYY-MM, {month}") from None
+            f"month must be stated as YYYY-MM, {month}")
+    year, mon = (int(part) for part in month.split("-"))
+    start = datetime(year, mon, 1, tzinfo=timezone.utc)
+    end = (datetime(year + 1, 1, 1, tzinfo=timezone.utc)
+           if mon == 12 else
+           datetime(year, mon + 1, 1, tzinfo=timezone.utc))
     return start, end
 
 
@@ -34,21 +36,35 @@ def _resolve_prefix(commits, prefix: str, own_sha: str):
     if len(matches) == 1:
         return matches[0], None
     if not matches:
+        if own_sha.startswith(prefix):
+            return None, (f"the trailer names the item itself, "
+                          f"{prefix}")
         return None, f"the trailer names no commit in the read, {prefix}"
     return None, f"the trailer names several commits in the read, {prefix}"
+
+
+def _trailer_item(commit, all_commits, lines, pattern,
+                  kind, join):
+    for line in lines:
+        match = pattern.match(line)
+        if match:
+            cause, reason = _resolve_prefix(
+                all_commits, match.group(1), commit["sha"])
+            return {"class": kind, "join": join,
+                    "cause": cause["sha"] if cause else None,
+                    "reason": reason}
+    return None
 
 
 def _classify(commit, all_commits, earlier_all, earlier_window):
     """One commit's item, or None. Classes are checked
     in the SB-6a order; the first match is the class."""
     body_lines = commit["body"].splitlines()
-    for line in body_lines:
-        match = REVERT_TRAILER.match(line.strip())
-        if match:
-            cause, reason = _resolve_prefix(all_commits, match.group(1), commit["sha"])
-            return {"class": "revert", "join": "revert trailer",
-                    "cause": cause["sha"] if cause else None,
-                    "reason": reason}
+    found = _trailer_item(commit, all_commits, body_lines,
+                          REVERT_TRAILER, "revert",
+                          "revert trailer")
+    if found is not None:
+        return found
     subject_match = REVERT_SUBJECT.match(commit["subject"])
     if subject_match:
         quoted = subject_match.group(1)
@@ -62,13 +78,11 @@ def _classify(commit, all_commits, earlier_all, earlier_window):
                   "several earlier commits carry the quoted subject")
         return {"class": "revert", "join": "revert subject",
                 "cause": None, "reason": reason}
-    for line in body_lines:
-        match = FIXES_TRAILER.match(line.strip())
-        if match:
-            cause, reason = _resolve_prefix(all_commits, match.group(1), commit["sha"])
-            return {"class": "fix-forward", "join": "fixes trailer",
-                    "cause": cause["sha"] if cause else None,
-                    "reason": reason}
+    found = _trailer_item(commit, all_commits, body_lines,
+                          FIXES_TRAILER, "fix-forward",
+                          "fixes trailer")
+    if found is not None:
+        return found
     matches = [c for c in earlier_window
                if c["subject"] == commit["subject"]
                and set(c["paths"]) & set(commit["paths"])]
