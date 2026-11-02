@@ -11,7 +11,8 @@ from pathlib import Path
 
 from .history import (StatementError, git_dir, read_history,
                       worktree_root)
-from .statement import build_statement
+from .statement import (build_statement, load_rates,
+                        price_statement)
 
 
 def _write_atomically(path: Path, text: str) -> None:
@@ -63,6 +64,7 @@ def main(argv: list[str] | None = None) -> int:
     st = sub.add_parser("statement", help="the monthly statement")
     st.add_argument("repo")
     st.add_argument("--month", required=True)
+    st.add_argument("--rates")
     st.add_argument("-o", "--output")
     args = parser.parse_args(argv)
     repo = Path(args.repo)
@@ -81,6 +83,15 @@ def main(argv: list[str] | None = None) -> int:
                 return 1
         commits = read_history(repo)
         document = build_statement(commits, args.month)
+        if args.rates is not None:
+            try:
+                data = Path(args.rates).read_bytes()
+            except OSError:
+                raise StatementError(
+                    f"cannot read the rates file, "
+                    f"{args.rates}") from None
+            document = price_statement(
+                document, load_rates(data))
     except StatementError as exc:
         print(f"error, {exc}", file=sys.stderr)
         return 1

@@ -1,4 +1,4 @@
-"""SB-5 to SB-12. The git side statement."""
+"""SB-5 to SB-16. The git side statement, priced."""
 import json
 import os
 import subprocess
@@ -6,7 +6,9 @@ import pytest
 
 from secondbill.cli import main
 from secondbill.history import StatementError, read_history
-from secondbill.statement import build_statement
+from secondbill.statement import (build_statement,
+                                  load_rates,
+                                  price_statement)
 
 ENV = {**os.environ,
        "GIT_CONFIG_NOSYSTEM": "1",
@@ -267,3 +269,107 @@ def test_an_indented_trailer_is_text_not_a_trailer(tmp_path):
            body=f"Example:\n\n    This reverts commit {first}.")
     document = build_statement(read_history(repo), "2026-01")
     assert document["totals"]["items"] == 0
+
+
+CARD = {"currency": "USD",
+        "per_item": {"revert": "10.00", "fix-forward": "0.10",
+                     "redone": "3.33"}}
+
+
+def _priced(history):
+    repo, s = history
+    document = build_statement(read_history(repo), "2026-01")
+    rates = load_rates(json.dumps(CARD).encode())
+    return price_statement(document, rates), document, s
+
+
+def test_the_priced_statement_closes(history):
+    priced, plain, s = _priced(history)
+    section = priced["priced"]
+    assert section["currency"] == "USD"
+    assert section["items_priced"] == 6
+    assert priced["totals"]["items"] == 8
+    assert section["per_class"] == {
+        "revert": {"items": 1, "rate": "10.00",
+                   "amount": "10.00"},
+        "fix-forward": {"items": 2, "rate": "0.10",
+                        "amount": "0.20"},
+        "redone": {"items": 3, "rate": "3.33",
+                   "amount": "9.99"}}
+    assert section["per_cause"] == [
+        {"cause": s["c1"], "amount": "6.86"},
+        {"cause": s["c2"], "amount": "10.00"},
+        {"cause": s["cY"], "amount": "3.33"}]
+    assert section["total"] == "20.19"
+    from decimal import Decimal
+    assert sum(Decimal(v["amount"])
+               for v in section["per_class"].values()) == \
+        Decimal(section["total"])
+    assert sum(Decimal(v["amount"])
+               for v in section["per_cause"]) == \
+        Decimal(section["total"])
+    for key in plain:
+        assert priced[key] == plain[key]
+    assert priced["unjoined"] == plain["unjoined"]
+
+
+def test_no_rates_no_priced_section(history):
+    repo, _ = history
+    document = build_statement(read_history(repo), "2026-01")
+    assert "priced" not in document
+
+
+def test_equivalent_cards_price_identically(history):
+    repo, _ = history
+    document = build_statement(read_history(repo), "2026-01")
+    other = {"currency": "USD",
+             "per_item": {"revert": "10", "fix-forward": "0.1",
+                          "redone": "3.33"}}
+    first = price_statement(document, load_rates(
+        json.dumps(CARD).encode()))["priced"]
+    second = price_statement(document, load_rates(
+        json.dumps(other).encode()))["priced"]
+    assert first == second
+
+
+def test_bad_cards_refuse_by_name():
+    def card(**kw):
+        base = json.loads(json.dumps(CARD))
+        base.update(kw)
+        return json.dumps(base).encode()
+
+    with pytest.raises(StatementError, match="prices no redone"):
+        load_rates(card(per_item={"revert": "1.00",
+                                  "fix-forward": "1.00"}))
+    with pytest.raises(StatementError, match="unknown class"):
+        load_rates(card(per_item={**CARD["per_item"],
+                                  "merge": "1.00"}))
+    with pytest.raises(StatementError, match="at most two"):
+        load_rates(card(per_item={**CARD["per_item"],
+                                  "revert": "1.005"}))
+    with pytest.raises(StatementError, match="not a decimal"):
+        load_rates(card(per_item={**CARD["per_item"],
+                                  "revert": 10.0}))
+    with pytest.raises(StatementError, match="at most two"):
+        load_rates(card(per_item={**CARD["per_item"],
+                                  "revert": "-1.00"}))
+    with pytest.raises(StatementError, match="currency"):
+        load_rates(card(currency="US"))
+    with pytest.raises(StatementError, match="not JSON"):
+        load_rates(b"rates go here")
+
+
+def test_the_rates_command_and_missing_file(
+        history, tmp_path, capsys):
+    repo, _ = history
+    rates = tmp_path / "rates.json"
+    rates.write_text(json.dumps(CARD))
+    out = tmp_path / "statement.json"
+    assert main(["statement", str(repo), "--month", "2026-01",
+                 "--rates", str(rates), "-o", str(out)]) == 0
+    document = json.loads(out.read_text())
+    assert document["priced"]["total"] == "20.19"
+    assert main(["statement", str(repo), "--month", "2026-01",
+                 "--rates", str(tmp_path / "missing.json")]) == 1
+    assert "cannot read the rates file" in \
+        capsys.readouterr().err
