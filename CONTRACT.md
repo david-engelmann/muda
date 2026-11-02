@@ -63,3 +63,50 @@ only, one repo, one itemized statement.
   by script at test time, per SB-4. No real repository's
   history is committed to this repo. Test,
   tests/test_statement.py.
+
+## Round 1 amendments, the pinned shapes (recorded before code)
+
+- SB-5a. The read is every commit reachable from the
+  repository's HEAD, oldest first, taken with
+  --no-optional-locks so the read itself writes
+  nothing. The month filter and every ordering judge
+  by author time, read in UTC. A path that is not a
+  readable git repository, and a repository with no
+  commits, are named refusals. Test,
+  tests/test_statement.py.
+- SB-6a. The mechanical forms: a revert trailer is a
+  body line "This reverts commit" followed by a hex
+  sha of 7 to 40 characters, as git itself writes it;
+  a quoted revert subject opens with Revert " and
+  closes with a quote, the quoted text being the
+  reverted subject; a fixes trailer is a body line
+  opening "Fixes: " followed by a hex sha of 7 to 40
+  characters. Classes are checked in the order
+  revert, fix-forward, redone, and the first match is
+  the item's one class. Test, tests/test_statement.py.
+- SB-7a. A sha named by a trailer resolves against
+  the whole read: exactly one commit whose sha opens
+  with it joins; none or several leaves the item
+  unjoined with the reason. A quoted revert subject
+  joins the earlier commit carrying that exact
+  subject; none or several leaves it unjoined with
+  the reason. A redone task's earlier commit must sit
+  in the same month window; its cause may be any
+  earlier commit in the window with the matching
+  subject and overlapping paths, and when several
+  qualify the earliest is the cause and the join says
+  so. A revert or fix-forward cause may sit outside
+  the month; the item is in the month by its own
+  author time. Test, tests/test_statement.py.
+- SB-8a. The statement document carries the month,
+  the window bounds, commits read, merges among them,
+  the causes in read order each with its items (sha,
+  class, the join rule that fired), the unjoined
+  items with their reasons, and totals: items per
+  class, items per cause, unjoined count. Items
+  within a cause stand in read order. Test,
+  tests/test_statement.py.
+- SB-11a. An output path inside the repository being
+  read is refused by name; secondbill writes nothing
+  there, not even its statement. Test,
+  tests/test_statement.py.
