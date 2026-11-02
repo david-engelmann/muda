@@ -132,3 +132,36 @@ after the reviews, before the repair code).
   joins the item to itself; the unjoined reason says
   the trailer names the item itself. Test,
   tests/test_statement.py.
+
+## Round 2. Priced statements (SB-13 to SB-16)
+
+- SB-13. A statement may be priced. The caller
+  supplies a rates file: a JSON object naming a
+  currency, a string of three letters, and a rate
+  for each of the three classes under per_item, each
+  rate a string holding a non-negative decimal with
+  at most two fraction digits. A card missing a
+  class, naming an unknown class, or carrying a
+  malformed currency or rate is refused by name.
+  With no rates file, the statement is Round 1's,
+  unchanged. Test, tests/test_statement.py.
+- SB-14. Pricing is exact. Each amount is its count
+  times its rate, computed in minor units by integer
+  arithmetic, and rendered as a decimal string with
+  exactly two fraction digits. The priced section's
+  arithmetic closes: the class amounts sum to the
+  total amount, and the cause amounts sum to the
+  total amount. Test, tests/test_statement.py.
+- SB-15. Only joined items are priced. Unjoined
+  items appear exactly as in the counts statement,
+  counts only, and the priced section states how
+  many items were priced beside the statement's
+  item total, so the difference is visible, never
+  silent. Test, tests/test_statement.py.
+- SB-16. The priced statement is the counts
+  statement plus one section, priced, carrying the
+  currency, the priced item count, per class the
+  item count, the rate, and the amount, per cause
+  the amount, and the total amount. Nothing else in
+  the document changes, and determinism stands
+  (SB-10). Test, tests/test_statement.py.
