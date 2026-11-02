@@ -16,9 +16,10 @@ REVERT_SUBJECT = re.compile(r'^Revert "(.*)"$')
 CLASSES = ("revert", "fix-forward", "redone")
 
 
-MONTH_FORM = re.compile(r"^\d{4}-(0[1-9]|1[0-2])$")
-RATE_FORM = re.compile(r"^(\d+)(?:\.(\d{1,2}))?$")
-CURRENCY_FORM = re.compile(r"^[A-Za-z]{3}$")
+MONTH_FORM = re.compile(r"^[0-9]{4}-(0[1-9]|1[0-2])\Z")
+RATE_FORM = re.compile(
+    r"^([0-9]{1,30})(?:\.([0-9]{1,2}))?\Z")
+CURRENCY_FORM = re.compile(r"^[A-Za-z]{3}\Z")
 
 
 def _rate_cents(value, name: str) -> int:
@@ -51,13 +52,30 @@ def load_rates(data: bytes) -> dict:
     except UnicodeDecodeError:
         raise StatementError(
             "the rates file is not utf-8") from None
+    def no_duplicates(pairs):
+        seen = {}
+        for key, value in pairs:
+            if key in seen:
+                raise StatementError(
+                    f"the rates file names {key} twice")
+            seen[key] = value
+        return seen
+
     try:
-        card = json.loads(text)
+        card = json.loads(text,
+                          object_pairs_hook=no_duplicates)
+    except StatementError:
+        raise
     except (ValueError, RecursionError):
         raise StatementError(
             "the rates file is not JSON") from None
     if not isinstance(card, dict):
         raise StatementError("the rates file is not an object")
+    for key in card:
+        if key not in ("currency", "per_item"):
+            raise StatementError(
+                f"the rates file carries an unknown key, "
+                f"{key}")
     currency = card.get("currency")
     if not isinstance(currency, str) \
             or not CURRENCY_FORM.match(currency):

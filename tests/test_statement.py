@@ -373,3 +373,115 @@ def test_the_rates_command_and_missing_file(
                  "--rates", str(tmp_path / "missing.json")]) == 1
     assert "cannot read the rates file" in \
         capsys.readouterr().err
+
+
+def _refuses(data, fragment):
+    with pytest.raises(StatementError, match=fragment):
+        load_rates(data)
+
+
+def test_duplicate_keys_refuse_by_name():
+    _refuses(b'{"currency": "USD", "currency": "EUR", '
+             b'"per_item": {"revert": "1.00", '
+             b'"fix-forward": "0.10", "redone": "3.33"}}',
+             "names currency twice")
+    _refuses(b'{"currency": "USD", "per_item": '
+             b'{"revert": "1.00", "revert": "999.00", '
+             b'"fix-forward": "0.10", "redone": "3.33"}}',
+             "names revert twice")
+    _refuses(b'{"currency": "USD", "per_item": '
+             b'{"rev\\u0065rt": "1.00", "revert": "9.00", '
+             b'"fix-forward": "0.10", "redone": "3.33"}}',
+             "names revert twice")
+    _refuses(b'{"currency": "USD", "per_item": '
+             b'{"revert": "1.00", "fix-forward": "0.10", '
+             b'"redone": "3.33"}, "per_item": {"revert": '
+             b'"7.00", "fix-forward": "0.10", '
+             b'"redone": "3.33"}}',
+             "names per_item twice")
+
+
+def test_card_level_refusals_are_all_named():
+    _refuses(b"\xff\xfe not utf-8", "not utf-8")
+    _refuses(b"[1, 2, 3]", "not an object")
+    _refuses(json.dumps({"currency": "USD"}).encode(),
+             "no per_item")
+    card = {**CARD, "discount": "0.50"}
+    _refuses(json.dumps(card).encode(), "unknown key, discount")
+    card = json.loads(json.dumps(CARD))
+    card["currency"] = "USD\n"
+    _refuses(json.dumps(card).encode(), "no currency")
+    card = json.loads(json.dumps(CARD))
+    card["per_item"]["revert"] = "1.00\n"
+    _refuses(json.dumps(card).encode(), "rate for revert")
+    card = json.loads(json.dumps(CARD))
+    card["per_item"]["revert"] = "\u0661\u0662.\u0663\u0664"
+    _refuses(json.dumps(card).encode(), "rate for revert")
+
+
+def test_oversized_rates_refuse_by_name():
+    card = json.loads(json.dumps(CARD))
+    card["per_item"]["revert"] = "9" * 5000
+    _refuses(json.dumps(card).encode(), "rate for revert")
+    card["per_item"]["revert"] = "0" * 5000 + "1.00"
+    _refuses(json.dumps(card).encode(), "rate for revert")
+    card["per_item"]["revert"] = "9" * 30 + ".99"
+    rates = load_rates(json.dumps(card).encode())
+    assert rates["cents"]["revert"] == int("9" * 30) * 100 + 99
+
+
+def test_the_priced_key_sets_are_exact(history):
+    priced, plain, _s = _priced(history)
+    assert set(priced) == set(plain) | {"priced"}
+    section = priced["priced"]
+    assert set(section) == {"currency", "items_priced",
+                            "per_class", "per_cause", "total"}
+    for entry in section["per_class"].values():
+        assert set(entry) == {"items", "rate", "amount"}
+    for entry in section["per_cause"]:
+        assert set(entry) == {"cause", "amount"}
+
+
+def test_pricing_is_deterministic_and_exact_at_scale(history):
+    priced, plain, _s = _priced(history)
+    rates = load_rates(json.dumps(CARD).encode())
+    assert price_statement(plain, rates) == priced
+    big = {"currency": "USD", "per_item": {
+        "revert": "9007199254740993.00",
+        "fix-forward": "0.10", "redone": "3.33"}}
+    document = {"causes": [{"cause": "c" * 40, "items": [
+        {"sha": "a" * 40, "class": "revert"},
+        {"sha": "b" * 40, "class": "revert"},
+        {"sha": "d" * 40, "class": "revert"}]}],
+        "unjoined": [], "totals": {"items": 3}}
+    section = price_statement(
+        document, load_rates(json.dumps(big).encode())
+    )["priced"]
+    assert section["per_class"]["revert"]["amount"] == \
+        "27021597764222979.00"
+    assert section["total"] == "27021597764222979.00"
+
+
+def test_no_rates_output_is_the_round_1_document(
+        history, tmp_path):
+    repo, _ = history
+    out = tmp_path / "plain.json"
+    assert main(["statement", str(repo), "--month",
+                 "2026-01", "-o", str(out)]) == 0
+    expected = json.dumps(
+        build_statement(read_history(repo), "2026-01"),
+        indent=2, ensure_ascii=False) + "\n"
+    assert out.read_bytes() == expected.encode()
+
+
+def test_a_malformed_card_through_the_command(
+        history, tmp_path, capsys):
+    repo, _ = history
+    rates = tmp_path / "rates.json"
+    rates.write_bytes(
+        b'{"currency": "USD", "currency": "EUR", '
+        b'"per_item": {"revert": "1.00", '
+        b'"fix-forward": "0.10", "redone": "3.33"}}')
+    assert main(["statement", str(repo), "--month",
+                 "2026-01", "--rates", str(rates)]) == 1
+    assert "names currency twice" in capsys.readouterr().err
