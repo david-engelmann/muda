@@ -110,3 +110,24 @@ only, one repo, one itemized statement.
   read is refused by name; secondbill writes nothing
   there, not even its statement. Test,
   tests/test_statement.py.
+
+## Round 1 amendments, after the reviews (recorded before the repair code)
+
+- SB-5b. The read is ordered by author time, ties
+  broken by read position, so earlier always means
+  earlier authored (SB-5a) even when commits were
+  cherry-picked or rebased. A shallow repository is
+  refused by name: a statement over a partial read
+  would price a fiction. Replace objects and grafts
+  are never honored; the read runs with replace
+  objects off and the graft file pointed at nothing.
+  Test, tests/test_statement.py.
+- SB-6b. Trailer lines match at the start of the
+  line; an indented trailer, for example inside a
+  quoted code block, is message text, not a trailer.
+  A commit message that is not valid UTF-8 makes the
+  read a named refusal. Test, tests/test_statement.py.
+- SB-7b. A trailer naming the item's own sha never
+  joins the item to itself; the unjoined reason says
+  the trailer names the item itself. Test,
+  tests/test_statement.py.
