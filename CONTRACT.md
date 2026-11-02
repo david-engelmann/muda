@@ -132,3 +132,54 @@ after the reviews, before the repair code).
   joins the item to itself; the unjoined reason says
   the trailer names the item itself. Test,
   tests/test_statement.py.
+
+## Round 2. Priced statements (SB-13 to SB-16)
+
+- SB-13. A statement may be priced. The caller
+  supplies a rates file: a JSON object naming a
+  currency, a string of three letters, and a rate
+  for each of the three classes under per_item, each
+  rate a string holding a non-negative decimal with
+  at most two fraction digits. A card missing a
+  class, naming an unknown class, or carrying a
+  malformed currency or rate is refused by name.
+  With no rates file, the statement is Round 1's,
+  unchanged. Test, tests/test_statement.py.
+- SB-14. Pricing is exact. Each amount is its count
+  times its rate, computed in minor units by integer
+  arithmetic, and rendered as a decimal string with
+  exactly two fraction digits. The priced section's
+  arithmetic closes: the class amounts sum to the
+  total amount, and the cause amounts sum to the
+  total amount. Test, tests/test_statement.py.
+- SB-15. Only joined items are priced. Unjoined
+  items appear exactly as in the counts statement,
+  counts only, and the priced section states how
+  many items were priced beside the statement's
+  item total, so the difference is visible, never
+  silent. Test, tests/test_statement.py.
+- SB-16. The priced statement is the counts
+  statement plus one section, priced, carrying the
+  currency, the priced item count, per class the
+  item count, the rate, and the amount, per cause
+  the amount, and the total amount. Nothing else in
+  the document changes, and determinism stands
+  (SB-10). Test, tests/test_statement.py.
+
+## Round 2 post-review amendments, recorded before the repairs
+
+- SB-13a. A card is refused by name when any object
+  in it repeats a key, a repetition after JSON string
+  decoding included, and when its top level carries a
+  key besides currency and per_item. A rate's integer
+  part runs to at most thirty digits as written,
+  leading zeros counted: past that the card is refused
+  by name rather than priced, so no conversion or
+  rendering inside the run can meet a numeral the
+  interpreter refuses. The currency, rate, and month
+  forms are ASCII and match to the very end of the
+  string; a trailing newline is part of no form. The
+  first implementation priced a duplicated key at its
+  last value in silence, and an unbounded numeral met
+  the interpreter's conversion limit as a traceback.
+  Test, tests/test_statement.py.
