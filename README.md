@@ -26,8 +26,10 @@ only. Setup landed earlier in October 2026.
 - Contract, SB-1 to SB-12 as amended, met for the Round 1 scope.
   SB-13 to SB-16 with amendment SB-13a, written ahead of
   the code and met in Round 2.
-- Local gate, python3 scripts/codepoint_scan.py and
-  python3 -m pytest tests -q. CI runs the same commands.
+- Local gate, python3 scripts/codepoint_scan.py,
+  cargo fmt --check, cargo clippy --all-targets with
+  warnings denied, and cargo test. CI runs the same
+  commands.
 
 ## Licence
 
