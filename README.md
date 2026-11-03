@@ -18,16 +18,25 @@ Round 2 is closed. A rates card prices the statement:
 one added section, exact integer amounts, joined items
 only. Setup landed earlier in October 2026.
 
+Round 3 is closed. The tool is a Rust library crate
+with a thin binary and no dependencies, reproducing
+the Python of Rounds 1 and 2 byte for byte across the
+whole command surface.
+
 ## Programme status
 
-- Closed perfection rounds, 2 of 100. A round counts only when a
+- Closed perfection rounds, 3 of 100. A round counts only when a
   full cycle of work, audit, review, red team, and approval has
   closed.
 - Contract, SB-1 to SB-12 as amended, met for the Round 1 scope.
   SB-13 to SB-16 with amendment SB-13a, written ahead of
-  the code and met in Round 2.
-- Local gate, python3 scripts/codepoint_scan.py and
-  python3 -m pytest tests -q. CI runs the same commands.
+  the code and met in Round 2. SB-17 to SB-24, the port
+  obligations, written ahead of the code and met in
+  Round 3.
+- Local gate, python3 scripts/codepoint_scan.py,
+  cargo fmt --check, cargo clippy --all-targets with
+  warnings denied, and cargo test. CI runs the same
+  commands.
 
 ## Licence
 

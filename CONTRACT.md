@@ -183,3 +183,82 @@ after the reviews, before the repair code).
   last value in silence, and an unbounded numeral met
   the interpreter's conversion limit as a traceback.
   Test, tests/test_statement.py.
+
+## Round 3. The Rust port (SB-17 to SB-24)
+
+- SB-17. The port reproduces the behavior of
+  Rounds 1 and 2 exactly, the Python on main at
+  918dc7e standing as the behavioral spec, its
+  tests included. Every divergence found is
+  repaired or named as a deviation in the round
+  dossier; an unnamed divergence is a defect.
+  Test, the ported suite and the differential
+  harness.
+- SB-18. The port is a library crate plus a thin
+  binary. It takes no dependency: the git read is
+  the standard library's subprocess, the rates
+  reader stands in this crate, and no sibling
+  crate is consumed, because secondbill reads a
+  repository, not tapes. Tests are cargo tests.
+  Test, tests/test_statement.rs.
+- SB-19. The git read keeps its posture and its
+  bytes: the same argv (the two --no- flags, -C,
+  the caller's repository), the same environment
+  scrubbed of the eight GIT_ variables with
+  GIT_GRAFT_FILE at the null device, the same call
+  order (the directory probe, the HEAD probe
+  unchecked, the shallow probe, the two logs), and
+  the same record surgery over the decoded output,
+  splits on the unit and record separators
+  included. A failure names the repository and
+  carries git's own detail or "git failed"; output
+  that is not UTF-8 is the SB-6b refusal. Test,
+  tests/test_statement.rs.
+- SB-20. The rates card is read by a strict
+  scanner in this crate that decides in parse
+  order: a duplicate key, decoded before it is
+  compared, refuses by name at the close of its
+  object; nesting past the reader's limit refuses
+  as not JSON where the text reaches it; an
+  integer literal past the interpreter's digit
+  limit refuses as not JSON; NaN and the infinities
+  read as floats, as the Python's reader takes
+  them. The card's own validation then runs in the
+  Python's order (unknown keys in document order,
+  the currency rendered by repr in its refusal,
+  per_item, the classes in their stated order, the
+  rates). Test, tests/test_statement.rs.
+- SB-21. Money never touches a float. Rates
+  convert to minor units by integer arithmetic
+  over the digit string (the thirty-digit bound of
+  SB-13a stands as written), amounts multiply and
+  add as integers, and rendering is the integer
+  part, a point, and two fraction digits. Test,
+  tests/test_statement.rs.
+- SB-22. Rendering and writing keep their shapes:
+  the document renders as json.dumps with an
+  indent of two and ensure_ascii off, keys in
+  insertion order, one trailing newline; the file
+  write is the mkstemp shape (a sibling temp named
+  with the file's name and a dot as prefix, mode
+  0600, replaced on success, unlinked on failure),
+  with no suffix; a failed write refuses by name;
+  a failed stdout write prints its refusal and
+  exits 1. The output guard stands: nothing is
+  written inside the repository being read, the
+  target resolved before the comparison. Test,
+  tests/test_statement.rs.
+- SB-23. The tests port file for file, fixtures
+  included: the suite builds its git repositories
+  with the same commits, dates, and messages on
+  both sides of the port. A differential harness
+  drives the whole command surface against the
+  Python, comparing exit codes, streams, and files
+  after every step. Test, the harness report in
+  the round dossier.
+- SB-24. The round dossier carries the port
+  report: port or rewrite with reasons, the Rust
+  and Python line shares measured on the landing
+  tree, the bindings determination made from the
+  tool's consumers, and every non-Rust remainder
+  with its justification.
