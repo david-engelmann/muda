@@ -19,12 +19,12 @@ use crate::value::{Text, Value};
 /// calibrated against the Python's reader at the
 /// shipped CLI: an array chain of 9993 under a key
 /// parses (total 9994) and 9994 refuses.
-pub const DEPTH_LIMIT: usize = 9994;
+pub(crate) const DEPTH_LIMIT: usize = 9994;
 
 /// An integer literal's digit limit, the
 /// interpreter's conversion bound: past it the
 /// Python's reader raises and the card is not JSON.
-pub const INT_DIGIT_LIMIT: usize = 4300;
+pub(crate) const INT_DIGIT_LIMIT: usize = 4300;
 
 #[derive(Debug, PartialEq)]
 pub enum CardError {
@@ -173,6 +173,14 @@ impl<'a> Scanner<'a> {
             if digits > INT_DIGIT_LIMIT {
                 return Err(CardError::NotJson);
             }
+            // CPython's int reading drops the sign of
+            // zero: -0 is the integer 0, and its repr
+            // is "0".
+            let token = if token == "-0" {
+                "0".to_string()
+            } else {
+                token
+            };
             Ok(Value::Int(token))
         }
     }

@@ -9,10 +9,11 @@
 
 use crate::value::{Text, Value};
 
-/// A document carrying text the destination cannot
-/// write: the CLI reports the cannot-write error for
-/// a view, and the append path meets the Python's
-/// own uncaught failure (named in the dossier).
+/// The statement document carrying text its
+/// destination cannot write: the CLI reports the
+/// cannot-write error for a file, and the stdout
+/// path meets the Python's own uncaught failure
+/// (named in the dossier).
 #[derive(Debug, PartialEq)]
 pub struct EmitError;
 
@@ -89,7 +90,7 @@ pub fn py_float(value: f64) -> String {
 /// shortest (the float renderer below, which searches
 /// the shortest string that parses back to the same
 /// double over this expansion).
-pub fn exact_decimal(value: f64) -> (String, i64) {
+fn exact_decimal(value: f64) -> (String, i64) {
     let bits = value.to_bits();
     let biased = ((bits >> 52) & 0x7FF) as i32;
     let fraction = bits & ((1u64 << 52) - 1);
@@ -256,38 +257,30 @@ pub(crate) fn escape_string(text: &Text, mode: Mode, out: &mut Vec<u8>) -> Resul
     let units = text.units();
     let mut index = 0;
     while index < units.len() {
-        let unit = units[index];
-        if (0xD800..=0xDBFF).contains(&unit)
-            && index + 1 < units.len()
-            && (0xDC00..=0xDFFF).contains(&units[index + 1])
-        {
-            let scalar = crate::util::decode_pair(unit, units[index + 1]);
-            push_scalar(scalar, out);
-            index += 2;
-            continue;
-        }
-        if mode == Mode::Stdout && (0xDC80..=0xDCFF).contains(&unit) {
-            out.push((unit - 0xDC00) as u8);
-            index += 1;
-            continue;
-        }
-        if (0xD800..=0xDFFF).contains(&unit) {
-            return Err(EmitError);
-        }
-        match unit {
-            0x22 => out.extend_from_slice(b"\\\""),
-            0x5C => out.extend_from_slice(b"\\\\"),
-            0x08 => out.extend_from_slice(b"\\b"),
-            0x09 => out.extend_from_slice(b"\\t"),
-            0x0A => out.extend_from_slice(b"\\n"),
-            0x0C => out.extend_from_slice(b"\\f"),
-            0x0D => out.extend_from_slice(b"\\r"),
-            0x00..=0x1F => {
-                out.extend_from_slice(format!("\\u{unit:04x}").as_bytes());
+        let (span, step) = crate::util::step_at(units, index);
+        match step {
+            crate::util::Step::Scalar(scalar) => match scalar {
+                0x22 => out.extend_from_slice(b"\\\""),
+                0x5C => out.extend_from_slice(b"\\\\"),
+                0x08 => out.extend_from_slice(b"\\b"),
+                0x09 => out.extend_from_slice(b"\\t"),
+                0x0A => out.extend_from_slice(b"\\n"),
+                0x0C => out.extend_from_slice(b"\\f"),
+                0x0D => out.extend_from_slice(b"\\r"),
+                0x00..=0x1F => {
+                    out.extend_from_slice(format!("\\u{scalar:04x}").as_bytes());
+                }
+                _ => push_scalar(scalar, out),
+            },
+            crate::util::Step::Lone(unit) => {
+                if mode == Mode::Stdout && (0xDC80..=0xDCFF).contains(&unit) {
+                    out.push((unit - 0xDC00) as u8);
+                } else {
+                    return Err(EmitError);
+                }
             }
-            _ => push_scalar(unit as u32, out),
         }
-        index += 1;
+        index += span;
     }
     out.push(b'"');
     Ok(())
@@ -324,7 +317,7 @@ fn write_number(value: &Value, out: &mut Vec<u8>) {
 /// json.dumps with an indent of two and
 /// ensure_ascii off: the statement document,
 /// trailing newline included.
-pub fn dumps_view(value: &Value, mode: Mode) -> Result<Vec<u8>, EmitError> {
+pub fn dumps_document(value: &Value, mode: Mode) -> Result<Vec<u8>, EmitError> {
     let mut out = Vec::new();
     write_indented(value, 0, mode, &mut out)?;
     out.push(b'\n');

@@ -9,7 +9,7 @@ use crate::pyrepr::repr_value;
 use crate::util::{py_is_space_char, Msg};
 use crate::value::{Text, Value};
 
-pub const CLASSES: [&str; 3] = ["revert", "fix-forward", "redone"];
+pub(crate) const CLASSES: [&str; 3] = ["revert", "fix-forward", "redone"];
 
 fn text(value: &str) -> Text {
     Text::from_str(value)
@@ -189,7 +189,7 @@ pub fn load_rates_bytes(data: &[u8]) -> Result<Rates, Fail> {
 /// The card's own validation over the scanned
 /// value, in the Python's order (SB-20). The
 /// scanner has already refused duplicates.
-pub fn load_rates(card: &Value) -> Result<Rates, Fail> {
+pub(crate) fn load_rates(card: &Value) -> Result<Rates, Fail> {
     let entries = match card.as_object() {
         Some(entries) => entries,
         None => return Err(Fail::Named(Msg::str("the rates file is not an object"))),
@@ -214,15 +214,15 @@ pub fn load_rates(card: &Value) -> Result<Rates, Fail> {
             return Err(Fail::Named(message));
         }
     };
-    let per_item = match card.get("per_item") {
-        Some(value @ Value::Object(_)) => value,
+    let (per_item, per_item_entries) = match card.get("per_item") {
+        Some(value @ Value::Object(entries)) => (value, entries),
         _ => {
             return Err(Fail::Named(Msg::str(
                 "the rates file carries no per_item rates",
             )))
         }
     };
-    for (name, _) in per_item.as_object().unwrap() {
+    for (name, _) in per_item_entries {
         let known = name
             .as_str()
             .map(|inner| CLASSES.iter().any(|&class| class == inner))

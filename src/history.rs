@@ -179,22 +179,27 @@ fn git(repo: &[u16], args: &[&str], check: bool) -> Result<String, Fail> {
         None => {
             // The timeout shape: the Python's
             // TimeoutExpired names the command list.
-            let mut list = String::from("Command '['git'");
+            // The repository travels as message units,
+            // as in every other phrase this module
+            // builds; that the Python renders each
+            // element with repr is named in the
+            // dossier.
+            let mut list = Msg::str("Command '['git'");
             for extra in ["--no-replace-objects", "--no-optional-locks", "-C"] {
                 list.push_str(", '");
                 list.push_str(extra);
-                list.push('\'');
+                list.push_str("'");
             }
             list.push_str(", '");
-            list.push_str(&String::from_utf16_lossy(repo));
-            list.push('\'');
+            list.push_units(repo);
+            list.push_str("'");
             for arg in args {
                 list.push_str(", '");
                 list.push_str(arg);
-                list.push('\'');
+                list.push_str("'");
             }
             list.push_str("]' timed out after 60 seconds");
-            return Err(cannot_read(repo, &Msg::str(&list)));
+            return Err(cannot_read(repo, &list));
         }
     };
     if !status.success() {
@@ -298,6 +303,14 @@ fn parse_author(text: &str) -> Option<i128> {
         };
         sign * (oh * 3600 + om * 60)
     };
+    // CPython's offset is a timedelta strictly
+    // inside 24 hours: components may overflow
+    // their fields and normalize (+05:99 is +06:39),
+    // but a total at or past 24 hours raises, and
+    // the raise is uncaught in the Python.
+    if !(-86_400..86_400).contains(&offset_seconds) {
+        return None;
+    }
     let days = days_from_civil(year, month, day);
     let local = days * 86_400 + hour * 3600 + minute * 60 + second;
     Some((local - offset_seconds) as i128 * 1_000_000)

@@ -77,10 +77,10 @@ pub fn repr_text(text: &Text) -> String {
 }
 
 /// CPython's repr of any JSON value, recursively:
-/// the form a fork defect's source id takes when the
-/// id is not a string (the Python's f-string renders
-/// str of the value, which for containers and
-/// numbers is the repr).
+/// the form a wrong-shaped rates value takes in its
+/// refusal, and an argument in an argparse message
+/// (the Python's f-string renders str of the value,
+/// which for containers and numbers is the repr).
 pub fn repr_value(value: &Value) -> String {
     match value {
         Value::Null => "None".to_string(),

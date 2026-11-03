@@ -6,7 +6,7 @@ use std::path::{Path, PathBuf};
 use std::process::{Command, Output};
 use std::sync::OnceLock;
 
-use secondbill::emit::{dumps_view, Mode};
+use secondbill::emit::{dumps_document, Mode};
 use secondbill::history::{read_history, Commit, Fail};
 use secondbill::statement::{build_statement, load_rates_bytes, price_statement};
 use secondbill::value::{Text, Value};
@@ -337,6 +337,98 @@ fn arr(value: &Value) -> &Vec<Value> {
     value.as_array().expect("an array")
 }
 
+/// The January statement over the shared fixture,
+/// byte for byte as the Python renders it. The pin
+/// is a literal, not the crate's own renderer over
+/// the crate's own builder, so a rendering drift
+/// fails here and not only in the differential
+/// harness.
+const JANUARY_DOCUMENT: &str = r#"{
+  "month": "2026-01",
+  "window": {
+    "from": "2026-01-01",
+    "to": "2026-02-01"
+  },
+  "commits_read": 17,
+  "merges_read": 1,
+  "causes": [
+    {
+      "cause": "6799ef527c8055da078336e8d5807ac40e195305",
+      "items": [
+        {
+          "sha": "6fa465cedc20c0899567389cba4faa0e8a38620a",
+          "class": "redone",
+          "join": "redone task"
+        },
+        {
+          "sha": "f3052c290163c8a0c775e9cdd60f06c2f7c9058e",
+          "class": "fix-forward",
+          "join": "fixes trailer"
+        },
+        {
+          "sha": "48e25e85e584eae359acf10749a660d7cd5effed",
+          "class": "redone",
+          "join": "redone task, earliest of several matches"
+        },
+        {
+          "sha": "e8305a126e8f837c1fada9592221a1c3f984a1e0",
+          "class": "fix-forward",
+          "join": "fixes trailer"
+        }
+      ]
+    },
+    {
+      "cause": "6fa465cedc20c0899567389cba4faa0e8a38620a",
+      "items": [
+        {
+          "sha": "29fc726aae854a645a13fe7997f32a6ed8a8f77a",
+          "class": "revert",
+          "join": "revert trailer"
+        }
+      ]
+    },
+    {
+      "cause": "cdc8d81cd01903ccab3e2130e556cd2b32e8e9c9",
+      "items": [
+        {
+          "sha": "aa77aca182be334a1c52af507c043398c28c7471",
+          "class": "redone",
+          "join": "redone task"
+        }
+      ]
+    }
+  ],
+  "unjoined": [
+    {
+      "sha": "f1038687b9210184ece4c7b8d981955142a72bcd",
+      "class": "revert",
+      "join": "revert subject",
+      "reason": "several earlier commits carry the quoted subject"
+    },
+    {
+      "sha": "bbbb25c6624495bfb8198e29f27ecbf4ddd35ee6",
+      "class": "fix-forward",
+      "join": "fixes trailer",
+      "reason": "the trailer names no commit in the read, deadbeef"
+    }
+  ],
+  "totals": {
+    "items": 8,
+    "per_class": {
+      "revert": 2,
+      "fix-forward": 3,
+      "redone": 3
+    },
+    "per_cause": {
+      "6799ef527c8055da078336e8d5807ac40e195305": 4,
+      "6fa465cedc20c0899567389cba4faa0e8a38620a": 1,
+      "cdc8d81cd01903ccab3e2130e556cd2b32e8e9c9": 1
+    },
+    "unjoined": 2
+  }
+}
+"#;
+
 #[test]
 fn the_january_statement() {
     let f = fixture();
@@ -354,6 +446,7 @@ fn the_january_statement() {
             .collect();
         by_cause.insert(s(j(cause, "cause")), items);
     }
+    assert_eq!(by_cause.len(), 3);
     let sh = |key: &str| f.shas[key].clone();
     assert_eq!(
         by_cause[&sh("c1")],
@@ -380,6 +473,7 @@ fn the_january_statement() {
         .iter()
         .map(|u| ((s(j(u, "sha")), s(j(u, "class"))), s(j(u, "reason"))))
         .collect();
+    assert_eq!(unjoined.len(), 2);
     assert_eq!(
         unjoined[&(sh("c5"), "revert".into())],
         "several earlier commits carry the quoted subject"
@@ -389,6 +483,9 @@ fn the_january_statement() {
         "the trailer names no commit in the read, deadbeef"
     );
     let totals = j(&document, "totals");
+    assert_eq!(totals.as_object().unwrap().len(), 4);
+    assert_eq!(j(totals, "per_class").as_object().unwrap().len(), 3);
+    assert_eq!(j(totals, "per_cause").as_object().unwrap().len(), 3);
     assert_eq!(n(j(totals, "items")), 8);
     assert_eq!(n(j(j(totals, "per_class"), "revert")), 2);
     assert_eq!(n(j(j(totals, "per_class"), "fix-forward")), 3);
@@ -429,13 +526,13 @@ fn the_february_statement_bills_an_out_of_month_cause() {
 fn the_statement_is_deterministic() {
     let f = fixture();
     let commits = read_history(&repo_units(f)).unwrap();
-    let first = dumps_view(
+    let first = dumps_document(
         &build_statement(&commits, &units("2026-01")).unwrap(),
         Mode::Stdout,
     )
     .unwrap();
     let commits = read_history(&repo_units(f)).unwrap();
-    let second = dumps_view(
+    let second = dumps_document(
         &build_statement(&commits, &units("2026-01")).unwrap(),
         Mode::Stdout,
     )
@@ -469,10 +566,11 @@ fn the_field_set_is_complete() {
     assert_eq!(c3.subject, "Repair the parser edge");
     assert!(c3.body.contains(&format!("Fixes: {}", &f.shas["c1"][..12])));
     assert_eq!(c3.paths, vec!["src/parser.py".to_string()]);
-    // 2026-01-13T09:00:00+00:00 in epoch microseconds.
-    let expected = secondbill::history::days_from_civil(2026, 1, 13) as i128 * 86_400_000_000
-        + 9 * 3_600_000_000;
-    assert_eq!(c3.author_micros, expected);
+    // 2026-01-13T09:00:00+00:00 in epoch
+    // microseconds, as a literal: the Python pins
+    // the instant itself, not a figure recomputed
+    // by the code under test.
+    assert_eq!(c3.author_micros, 1_768_294_800_000_000);
 }
 
 fn run_bin(args: &[&str]) -> Output {
@@ -502,13 +600,7 @@ fn the_cli_and_its_guards() {
         "{}",
         String::from_utf8_lossy(&run.stderr)
     );
-    let commits = read_history(&repo_units(f)).unwrap();
-    let expected = dumps_view(
-        &build_statement(&commits, &units("2026-01")).unwrap(),
-        Mode::Stdout,
-    )
-    .unwrap();
-    assert_eq!(std::fs::read(&out).unwrap(), expected);
+    assert_eq!(std::fs::read(&out).unwrap(), JANUARY_DOCUMENT.as_bytes());
     let inside = f.repo.join("statement.json");
     let run = run_bin(&[
         "statement",
@@ -551,13 +643,29 @@ fn a_shallow_repository_is_refused() {
 
 #[test]
 fn the_environment_never_redirects_the_read() {
+    // The surface that must scrub is the binary's
+    // own subprocess environment, so the case runs
+    // against the compiled binary with the variables
+    // set on that command alone. The Python set them
+    // through monkeypatch, which restores after the
+    // test; mutating this test process's environment
+    // would race every other test's git calls.
     let f = fixture();
-    std::env::set_var("GIT_DIR", "/nonexistent/elsewhere");
-    std::env::set_var("GIT_WORK_TREE", "/nonexistent");
-    let commits = read_history(&repo_units(f)).unwrap();
-    std::env::remove_var("GIT_DIR");
-    std::env::remove_var("GIT_WORK_TREE");
-    assert_eq!(commits.len(), 17);
+    let repo_text = f.repo.to_string_lossy().into_owned();
+    let run = Command::new(env!("CARGO_BIN_EXE_secondbill"))
+        .args(["statement", &repo_text, "--month", "2026-01"])
+        .env("GIT_DIR", "/nonexistent/elsewhere")
+        .env("GIT_WORK_TREE", "/nonexistent")
+        .output()
+        .expect("the binary runs");
+    assert_eq!(
+        run.status.code(),
+        Some(0),
+        "{}",
+        String::from_utf8_lossy(&run.stderr)
+    );
+    let text = String::from_utf8(run.stdout).unwrap();
+    assert!(text.contains("\"commits_read\": 17"), "{text}");
 }
 
 fn synthetic_commit(
@@ -695,6 +803,22 @@ fn the_priced_statement_closes() {
         assert_eq!(s(j(entry, "amount")), amount);
     }
     assert_eq!(s(j(section, "total")), "20.19");
+    // The closure the Python states: each family of
+    // amounts sums to the total.
+    let cents = |text: &str| -> i64 {
+        let (whole, frac) = text.split_once('.').unwrap();
+        whole.parse::<i64>().unwrap() * 100 + frac.parse::<i64>().unwrap()
+    };
+    let class_sum: i64 = ["revert", "fix-forward", "redone"]
+        .iter()
+        .map(|name| cents(&s(j(j(per_class, name), "amount"))))
+        .sum();
+    assert_eq!(class_sum, cents(&s(j(section, "total"))));
+    let cause_sum: i64 = per_cause
+        .iter()
+        .map(|entry| cents(&s(j(entry, "amount"))))
+        .sum();
+    assert_eq!(cause_sum, cents(&s(j(section, "total"))));
     // The counts statement is untouched beside the
     // priced section.
     if let (Value::Object(plain_entries), Value::Object(priced_entries)) = (&plain, &priced) {
@@ -878,17 +1002,10 @@ fn oversized_rates_refuse_by_name() {
         "rate for revert",
     );
     let rates = load_rates_bytes(&with_revert(&format!("{}.99", "9".repeat(30)))).unwrap();
-    let expected = {
-        // int("9" * 30) * 100 + 99 as a digit string.
-        let mut digits = "9".repeat(30);
-        digits.push_str("99");
-        // cents = (10^30 - 1) * 100 + 99 = 30 nines, then "99"
-        // computed as: int part 999...9 (30) times 100 is
-        // 999...900; plus 99 gives 999...999 (32 nines).
-        let _ = digits;
-        "9".repeat(32)
-    };
-    assert_eq!(rates.cents[0], expected);
+    // int("9" * 30) * 100 + 99: thirty nines of
+    // units times a hundred, plus 99, is thirty-two
+    // nines of minor units.
+    assert_eq!(rates.cents[0], "9".repeat(32));
 }
 
 #[test]
@@ -1010,13 +1127,7 @@ fn no_rates_output_is_the_round_1_document() {
         &out.to_string_lossy(),
     ]);
     assert_eq!(run.status.code(), Some(0));
-    let commits = read_history(&repo_units(f)).unwrap();
-    let expected = dumps_view(
-        &build_statement(&commits, &units("2026-01")).unwrap(),
-        Mode::Stdout,
-    )
-    .unwrap();
-    assert_eq!(std::fs::read(&out).unwrap(), expected);
+    assert_eq!(std::fs::read(&out).unwrap(), JANUARY_DOCUMENT.as_bytes());
 }
 
 #[test]

@@ -12,7 +12,7 @@
 use std::io::Write;
 use std::path::{Path, PathBuf};
 
-use crate::emit::{dumps_view, Mode};
+use crate::emit::{dumps_document, Mode};
 use crate::helptext::{STATEMENT_HELP, STATEMENT_USAGE, TOP_HELP, TOP_USAGE};
 use crate::history::{read_history, Fail};
 use crate::statement::{build_statement, price_statement};
@@ -177,47 +177,31 @@ enum LongMatch {
 
 fn match_long(token: &[u16]) -> LongMatch {
     // token starts with "--"; the name is the part
-    // before any '='.
+    // before any '='. The option names are encoded
+    // once, here, and compared as slices.
     let name: Vec<u16> = token[2..]
         .iter()
         .take_while(|&&unit| unit != 0x3D)
         .copied()
         .collect();
-    let options: [(&str, LongMatch); 4] = [
-        ("help", LongMatch::Help),
-        ("month", LongMatch::Month),
-        ("rates", LongMatch::Rates),
-        ("output", LongMatch::Output),
+    let options: [(Vec<u16>, LongMatch); 4] = [
+        ("help".encode_utf16().collect(), LongMatch::Help),
+        ("month".encode_utf16().collect(), LongMatch::Month),
+        ("rates".encode_utf16().collect(), LongMatch::Rates),
+        ("output".encode_utf16().collect(), LongMatch::Output),
     ];
     if name.is_empty() {
         // "--=..." prefix-matches every long option.
         return LongMatch::Ambiguous;
     }
+    if let Some((_, found)) = options.iter().find(|(option, _)| *option == name) {
+        return *found;
+    }
     let matches: Vec<LongMatch> = options
         .iter()
-        .filter(|(option, _)| {
-            option.encode_utf16().count() >= name.len()
-                && option
-                    .encode_utf16()
-                    .take(name.len())
-                    .eq(name.iter().copied())
-        })
+        .filter(|(option, _)| option.len() > name.len() && option[..name.len()] == name[..])
         .map(|(_, found)| *found)
         .collect();
-    let exact = options.iter().any(|(option, _)| {
-        option.encode_utf16().count() == name.len()
-            && option.encode_utf16().eq(name.iter().copied())
-    });
-    if exact {
-        return options
-            .iter()
-            .find(|(option, _)| {
-                option.encode_utf16().count() == name.len()
-                    && option.encode_utf16().eq(name.iter().copied())
-            })
-            .map(|(_, found)| *found)
-            .unwrap_or(LongMatch::Unknown);
-    }
     match matches.len() {
         1 => matches[0],
         0 => LongMatch::Unknown,
@@ -245,7 +229,11 @@ fn is_option_like(token: &[u16]) -> bool {
         return false;
     }
     if token.len() == 2 && token[1] == 0x2D {
-        return false; // "--" is never an option's value
+        // "--" is not option-like in itself; that it
+        // can never serve as an option's value is
+        // next_value's rule, and the parse loops meet
+        // it as the separator.
+        return false;
     }
     // argparse's negative number rule: a token that
     // is entirely a negative number is a value when
@@ -289,7 +277,10 @@ fn token_glued_value(token: &[u16]) -> Option<Vec<u16>> {
 
 fn next_value(tokens: &[Vec<u16>], at: usize) -> Option<Vec<u16>> {
     let candidate = tokens.get(at + 1)?;
-    if is_option_like(candidate) {
+    // "--" is never an option's value: argparse
+    // meets it as the separator and reports the
+    // option's value missing.
+    if is_option_like(candidate) || candidate == &vec![0x2D, 0x2D] {
         None
     } else {
         Some(candidate.clone())
@@ -358,11 +349,23 @@ fn parse_statement(tokens: &[Vec<u16>], closed: &ClosedFlags) -> SubOutcome {
     while at < tokens.len() {
         let token = &tokens[at];
         if !positional_only && token == &vec![0x2D, 0x2D] {
-            positional_only = true;
-            at += 1;
+            if repo.is_none() || month.is_none() {
+                positional_only = true;
+                at += 1;
+            } else {
+                // With every required argument already
+                // satisfied, argparse does not take
+                // the token as a separator: it and
+                // everything after it stand as extras,
+                // verbatim, reported by the top parser.
+                extras.extend(tokens[at..].iter().cloned());
+                break;
+            }
         } else if !positional_only && token.len() > 2 && token[0] == 0x2D && token[1] == 0x2D {
-            // A long option: match it in full, then act.
-            match match_long(token) {
+            // A long option: matched once, in full,
+            // then acted on.
+            let matched = match_long(token);
+            match matched {
                 LongMatch::Ambiguous => return SubOutcome::Done(ambiguous_sub(token, closed)),
                 LongMatch::Unknown => {
                     extras.push(token.clone());
@@ -377,7 +380,7 @@ fn parse_statement(tokens: &[Vec<u16>], closed: &ClosedFlags) -> SubOutcome {
                     return SubOutcome::Done(help_text(STATEMENT_HELP, closed));
                 }
                 LongMatch::Month | LongMatch::Rates | LongMatch::Output => {
-                    let (slot, name) = match match_long(token) {
+                    let (slot, name) = match matched {
                         LongMatch::Month => (&mut month, "--month"),
                         LongMatch::Rates => (&mut rates, "--rates"),
                         _ => (&mut output, "-o/--output"),
@@ -398,64 +401,75 @@ fn parse_statement(tokens: &[Vec<u16>], closed: &ClosedFlags) -> SubOutcome {
             && token[0] == 0x2D
             && !is_negative_number(token)
         {
-            // A short cluster, matched as a whole
-            // first: 'o' takes the rest of the token
-            // or the next token as its value. When the
-            // whole token matches, its actions run in
-            // order (help ahead of the value's use);
-            // when 'o' ends the token and no next
-            // value exists, the match fails and the
-            // missing error fires ahead of help.
-            enum Short {
-                Extra,
-                Output(Option<Vec<u16>>),
-                Plain,
-            }
+            // A short cluster, walked character by
+            // character as argparse matches it. 'h'
+            // records help, and an '=' glued to it is
+            // the ignored-explicit-argument error at
+            // this parser. 'o' ends the token, taking
+            // the rest as its value (one leading '='
+            // stripped) or the next token as its
+            // value. An unknown character ends the
+            // walk: the token is an extra only when
+            // nothing was matched before it, and help
+            // already recorded still fires. A missing
+            // value fires ahead of help; a fully
+            // matched token acts help first.
             let mut help = false;
-            let outcome = {
-                let mut outcome = Short::Plain;
-                let mut index = 1;
-                while index < token.len() {
-                    match token[index] {
-                        0x68 => {
-                            help = true;
-                            index += 1;
+            let mut extra = false;
+            let mut output_value: Option<Option<Vec<u16>>> = None;
+            let mut terminal: Option<i32> = None;
+            let mut index = 1;
+            while index < token.len() {
+                match token[index] {
+                    0x68 => {
+                        if token.get(index + 1) == Some(&0x3D) {
+                            terminal = Some(help_explicit(
+                                "secondbill statement",
+                                STATEMENT_USAGE,
+                                &token[index + 2..],
+                                closed,
+                            ));
+                            break;
                         }
-                        0x6F => {
-                            let rest: Vec<u16> = token[index + 1..].to_vec();
-                            if !rest.is_empty() {
-                                let value = if rest[0] == 0x3D {
-                                    rest[1..].to_vec()
-                                } else {
-                                    rest
-                                };
-                                outcome = Short::Output(Some(value));
-                            } else {
-                                outcome = Short::Output(None);
-                            }
-                            index = token.len();
+                        help = true;
+                        index += 1;
+                    }
+                    0x6F => {
+                        let rest: Vec<u16> = token[index + 1..].to_vec();
+                        if rest.is_empty() {
+                            output_value = Some(None);
+                        } else if rest[0] == 0x3D {
+                            output_value = Some(Some(rest[1..].to_vec()));
+                        } else {
+                            output_value = Some(Some(rest));
                         }
-                        _ => {
-                            outcome = Short::Extra;
-                            index = token.len();
+                        index = token.len();
+                    }
+                    _ => {
+                        if !help && output_value.is_none() {
+                            extra = true;
                         }
+                        break;
                     }
                 }
-                outcome
-            };
-            match outcome {
-                Short::Extra => {
-                    extras.push(token.clone());
-                    at += 1;
-                }
-                Short::Output(Some(value)) => {
+            }
+            if let Some(code) = terminal {
+                return SubOutcome::Done(code);
+            }
+            if extra {
+                extras.push(token.clone());
+                at += 1;
+                continue;
+            }
+            match output_value {
+                Some(Some(value)) => {
                     if help {
                         return SubOutcome::Done(help_text(STATEMENT_HELP, closed));
                     }
                     output = Some(value);
                     at += 1;
                 }
-                Short::Output(None) => match next_value(tokens, at) {
+                Some(None) => match next_value(tokens, at) {
                     Some(value) => {
                         if help {
                             return SubOutcome::Done(help_text(STATEMENT_HELP, closed));
@@ -467,7 +481,7 @@ fn parse_statement(tokens: &[Vec<u16>], closed: &ClosedFlags) -> SubOutcome {
                         return SubOutcome::Done(missing_value_sub("-o/--output", closed));
                     }
                 },
-                Short::Plain => {
+                None => {
                     if help {
                         return SubOutcome::Done(help_text(STATEMENT_HELP, closed));
                     }
@@ -546,6 +560,9 @@ fn run_with_args(args: &[Vec<u16>], closed: &ClosedFlags) -> i32 {
             return help_text(TOP_HELP, closed);
         }
         if short_help {
+            if token.get(2) == Some(&0x3D) {
+                return help_explicit("secondbill", TOP_USAGE, &token[3..], closed);
+            }
             return help_text(TOP_HELP, closed);
         }
         if token.len() >= 2 && token[0] == 0x2D {
@@ -600,6 +617,21 @@ fn fail_out(failure: Fail, closed: &ClosedFlags) -> i32 {
     }
 }
 
+/// The path forms this module keeps, and why the
+/// output guard may compare across them. Three
+/// normalizers serve three different Python shapes:
+/// normalize_pathlib is pathlib's string form, what
+/// the repository messages print and what git is
+/// handed; resolve_path is pathlib's resolve, the
+/// form the guard compares; normalize_lexical is
+/// resolve_path's own finisher for the part of a
+/// path that does not exist. The guard never
+/// compares across the forms: the target and both
+/// roots pass through resolve_path, so the compared
+/// values share one rule by construction, and
+/// path_components only splits a resolved value for
+/// the prefix test.
+///
 /// pathlib's string form over units: redundant
 /// separators collapse (a leading pair survives),
 /// dot components drop, the empty path is ".".
@@ -668,6 +700,13 @@ fn resolve_path(units: &[u16]) -> Vec<u16> {
     let resolved = match std::fs::canonicalize(&absolute) {
         Ok(found) => found,
         Err(_) => {
+            // Peel one component at a time, any kind:
+            // a ".." or "." component peels like a
+            // name, so a tail carrying one still gets
+            // its existing prefix resolved, and the
+            // lexical finish then pops the resolved
+            // prefix exactly as realpath does.
+            use std::path::Component;
             let mut prefix = absolute.clone();
             let mut rest: Vec<std::ffi::OsString> = Vec::new();
             loop {
@@ -679,19 +718,22 @@ fn resolve_path(units: &[u16]) -> Vec<u16> {
                         }
                         break normalize_lexical(&out);
                     }
-                    Err(_) => match prefix.file_name() {
-                        Some(name) => {
-                            rest.push(name.to_os_string());
-                            prefix = prefix
-                                .parent()
-                                .map(|parent| parent.to_path_buf())
-                                .unwrap_or_default();
-                            if prefix.as_os_str().is_empty() {
-                                break normalize_lexical(&absolute);
+                    Err(_) => {
+                        let last = prefix.components().next_back();
+                        let peeled = match last {
+                            Some(Component::Normal(name)) => Some(name.to_os_string()),
+                            Some(Component::ParentDir) => Some(std::ffi::OsString::from("..")),
+                            Some(Component::CurDir) => Some(std::ffi::OsString::from(".")),
+                            _ => None,
+                        };
+                        match (peeled, prefix.parent()) {
+                            (Some(name), Some(parent)) => {
+                                rest.push(name);
+                                prefix = parent.to_path_buf();
                             }
+                            _ => break normalize_lexical(&absolute),
                         }
-                        None => break normalize_lexical(&absolute),
-                    },
+                    }
                 }
             }
         }
@@ -853,7 +895,7 @@ fn emit(document: &Value, out: Option<&[u16]>, closed: &ClosedFlags) -> i32 {
                 // after the run's own effects.
                 return 1;
             }
-            let bytes = dumps_view(document, Mode::Stdout).unwrap_or_default();
+            let bytes = dumps_document(document, Mode::Stdout).unwrap_or_default();
             let mut stdout = std::io::stdout();
             match stdout.write_all(&bytes).and_then(|_| stdout.flush()) {
                 Ok(()) => 0,
@@ -869,7 +911,7 @@ fn emit(document: &Value, out: Option<&[u16]>, closed: &ClosedFlags) -> i32 {
             // its failure leaves no temp where the
             // Python leaves none either, and the
             // refusal is the same line.
-            let bytes = dumps_view(document, Mode::Strict);
+            let bytes = dumps_document(document, Mode::Strict);
             let result = match &bytes {
                 Ok(bytes) => write_atomically(&path, bytes),
                 Err(_) => Err(std::io::Error::new(

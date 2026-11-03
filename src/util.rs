@@ -1,9 +1,9 @@
 //! Shared constructions: argument and path text in
 //! CPython's filesystem decoding, the messages the
-//! record's and the wall's phrases are built from,
-//! the strerror table the OS error phrases read,
-//! and the Unicode tables the argument matcher and
-//! the sentence rule read.
+//! statement's phrases are built from, the strerror
+//! table the OS error phrases read, and the Unicode
+//! tables the argument matcher and the git read
+//! consult.
 
 use crate::value::Text;
 
@@ -80,36 +80,48 @@ pub fn decode_pair(high: u16, low: u16) -> u32 {
     0x10000 + (((high as u32) - 0xD800) << 10) + ((low as u32) - 0xDC00)
 }
 
-/// The decoded scalars of a unit string: surrogate
-/// pairs as their astral scalar, lone units at face
-/// value. The one decode walk every module shares.
-pub fn scalars_of(units: &[u16]) -> Vec<u32> {
-    let mut out = Vec::with_capacity(units.len());
-    let mut index = 0;
-    while index < units.len() {
-        let span = scalar_span(units, index);
-        if span == 2 {
-            out.push(decode_pair(units[index], units[index + 1]));
-        } else {
-            out.push(units[index] as u32);
-        }
-        index += span;
-    }
-    out
+/// One step of the decode walk every consumer
+/// shares: what the unit at an index holds, and how
+/// many units it spans. A valid pair decodes to its
+/// astral scalar; a BMP unit is its own scalar; an
+/// unpaired surrogate is a lone unit, and each
+/// destination applies its own law to it (a raw byte,
+/// a replacement, an escape, a refusal).
+pub enum Step {
+    Scalar(u32),
+    Lone(u16),
 }
 
-/// How many units the scalar starting at `index`
-/// spans: two for a surrogate pair, one otherwise.
-pub fn scalar_span(units: &[u16], index: usize) -> usize {
+/// The step at `index`, with its span in units.
+pub fn step_at(units: &[u16], index: usize) -> (usize, Step) {
     let unit = units[index];
     if (0xD800..=0xDBFF).contains(&unit)
         && index + 1 < units.len()
         && (0xDC00..=0xDFFF).contains(&units[index + 1])
     {
-        2
+        (2, Step::Scalar(decode_pair(unit, units[index + 1])))
+    } else if (0xD800..=0xDFFF).contains(&unit) {
+        (1, Step::Lone(unit))
     } else {
-        1
+        (1, Step::Scalar(unit as u32))
     }
+}
+
+/// The decoded scalars of a unit string: surrogate
+/// pairs as their astral scalar, lone units at face
+/// value.
+pub fn scalars_of(units: &[u16]) -> Vec<u32> {
+    let mut out = Vec::with_capacity(units.len());
+    let mut index = 0;
+    while index < units.len() {
+        let (span, step) = step_at(units, index);
+        out.push(match step {
+            Step::Scalar(scalar) => scalar,
+            Step::Lone(unit) => unit as u32,
+        });
+        index += span;
+    }
+    out
 }
 
 /// The inverse: encode text units back to OS bytes,
@@ -119,40 +131,30 @@ pub fn scalar_span(units: &[u16], index: usize) -> usize {
 /// a case argument strings from the OS never reach
 /// (their surrogates come only from fsdecode).
 #[cfg(unix)]
-pub fn fsencode_bytes(units: &[u16]) -> Vec<u8> {
+fn fsencode_bytes(units: &[u16]) -> Vec<u8> {
     let mut out = Vec::new();
     let mut index = 0;
     while index < units.len() {
-        let unit = units[index];
-        if (0xDC80..=0xDCFF).contains(&unit) {
-            out.push((unit - 0xDC00) as u8);
-            index += 1;
-        } else if (0xD800..=0xDBFF).contains(&unit)
-            && index + 1 < units.len()
-            && (0xDC00..=0xDFFF).contains(&units[index + 1])
-        {
-            let scalar = decode_pair(unit, units[index + 1]);
-            let mut buf = [0u8; 4];
-            out.extend_from_slice(
-                char::from_u32(scalar)
-                    .expect("a valid pair")
-                    .encode_utf8(&mut buf)
-                    .as_bytes(),
-            );
-            index += 2;
-        } else if (0xD800..=0xDFFF).contains(&unit) {
-            out.extend_from_slice("\u{FFFD}".as_bytes());
-            index += 1;
-        } else {
-            let mut buf = [0u8; 4];
-            out.extend_from_slice(
-                char::from_u32(unit as u32)
-                    .expect("a BMP scalar")
-                    .encode_utf8(&mut buf)
-                    .as_bytes(),
-            );
-            index += 1;
+        let (span, step) = step_at(units, index);
+        match step {
+            Step::Scalar(scalar) => {
+                let mut buf = [0u8; 4];
+                out.extend_from_slice(
+                    char::from_u32(scalar)
+                        .expect("a valid scalar")
+                        .encode_utf8(&mut buf)
+                        .as_bytes(),
+                );
+            }
+            Step::Lone(unit) => {
+                if (0xDC80..=0xDCFF).contains(&unit) {
+                    out.push((unit - 0xDC00) as u8);
+                } else {
+                    out.extend_from_slice("\u{FFFD}".as_bytes());
+                }
+            }
         }
+        index += span;
     }
     out
 }
@@ -165,21 +167,16 @@ pub fn stderr_render(units: &[u16]) -> String {
     let mut out = String::new();
     let mut index = 0;
     while index < units.len() {
-        let unit = units[index];
-        if (0xD800..=0xDBFF).contains(&unit)
-            && index + 1 < units.len()
-            && (0xDC00..=0xDFFF).contains(&units[index + 1])
-        {
-            let scalar = decode_pair(unit, units[index + 1]);
-            out.push(char::from_u32(scalar).expect("a valid pair"));
-            index += 2;
-        } else if (0xD800..=0xDFFF).contains(&unit) {
-            out.push_str(&format!("\\u{unit:04x}"));
-            index += 1;
-        } else {
-            out.push(char::from_u32(unit as u32).expect("a BMP scalar"));
-            index += 1;
+        let (span, step) = step_at(units, index);
+        match step {
+            Step::Scalar(scalar) => {
+                out.push(char::from_u32(scalar).expect("a valid scalar"));
+            }
+            Step::Lone(unit) => {
+                out.push_str(&format!("\\u{unit:04x}"));
+            }
         }
+        index += span;
     }
     out
 }
@@ -192,9 +189,6 @@ pub fn stderr_render(units: &[u16]) -> String {
 #[derive(Clone, Debug, PartialEq)]
 pub struct Msg(pub Vec<u16>);
 
-// new is the constructor every caller uses; a
-// Default implementation stood here unused and
-// went in the Round 3 prune.
 #[allow(clippy::new_without_default)]
 impl Msg {
     pub fn new() -> Msg {
@@ -280,7 +274,7 @@ pub fn decimal_digit(scalar: u32) -> Option<u32> {
 /// CPython's whitespace set, shared by str.strip()
 /// and the re module's \s: the ASCII whitespace and
 /// file separators plus the Unicode space characters.
-pub fn py_is_space(scalar: u32) -> bool {
+fn py_is_space(scalar: u32) -> bool {
     matches!(scalar,
         0x09..=0x0D
         | 0x1C..=0x1F

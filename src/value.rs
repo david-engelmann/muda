@@ -11,7 +11,7 @@
 /// Text as UTF-16 code units. A string carrying an
 /// unpaired surrogate is representable here, as it is
 /// in Python; `as_str` returns None for such text.
-#[derive(Clone, Debug, PartialEq, Eq, Hash)]
+#[derive(Clone, Debug, PartialEq, Eq)]
 pub struct Text(pub Vec<u16>);
 
 impl Text {
@@ -50,16 +50,6 @@ impl Value {
         match self {
             Value::Object(entries) => entries
                 .iter()
-                .find(|(name, _)| name.as_str().as_deref() == Some(key))
-                .map(|(_, value)| value),
-            _ => None,
-        }
-    }
-
-    pub fn get_mut(&mut self, key: &str) -> Option<&mut Value> {
-        match self {
-            Value::Object(entries) => entries
-                .iter_mut()
                 .find(|(name, _)| name.as_str().as_deref() == Some(key))
                 .map(|(_, value)| value),
             _ => None,
