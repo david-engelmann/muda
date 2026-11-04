@@ -618,19 +618,19 @@ fn fail_out(failure: Fail, closed: &ClosedFlags) -> i32 {
 }
 
 /// The path forms this module keeps, and why the
-/// output guard may compare across them. Three
-/// normalizers serve three different Python shapes:
+/// output guard may compare across them. Two
+/// normalizers serve two different Python shapes:
 /// normalize_pathlib is pathlib's string form, what
 /// the repository messages print and what git is
 /// handed; resolve_path is pathlib's resolve, the
-/// form the guard compares; normalize_lexical is
-/// resolve_path's own finisher for the part of a
-/// path that does not exist. The guard never
-/// compares across the forms: the target and both
-/// roots pass through resolve_path, so the compared
-/// values share one rule by construction, and
-/// path_components only splits a resolved value for
-/// the prefix test.
+/// interpreter's own walk finished lexically,
+/// failing where the interpreter's resolve raises.
+/// The guard's comparison keeps the Python's own
+/// asymmetry: the output target alone passes
+/// through resolve_path, while both roots enter
+/// as the unresolved strings git printed, and
+/// path_components splits target and roots alike
+/// for the prefix test.
 ///
 /// pathlib's string form over units: redundant
 /// separators collapse (a leading pair survives),
@@ -686,77 +686,233 @@ fn os_bytes(value: &std::ffi::OsStr) -> Vec<u8> {
     }
 }
 
+/// The kernel's symlink-loop errno on this
+/// platform family.
+const ELOOP: i32 = 40;
+
+/// The walk's recursion budget (SB-25): at the
+/// shipped CLI the interpreter's default recursion
+/// limit leaves room for 991 nested splices, and
+/// the 992nd raises RecursionError out of
+/// resolve(). The count is of nesting depth, not
+/// of splices in total: the top call of a
+/// resolution stands at depth 0 and each splice's
+/// call stands one deeper, so a spelling carrying
+/// two sequential chains nests only as deep as
+/// the deeper one. The number belongs to this
+/// CLI's stack as measured at it, not to the
+/// line: unheard's CLI, deeper at its call site,
+/// flips one splice earlier.
+const MAX_WALK_DEPTH: usize = 991;
+
+/// os.path.join on byte strings: an absolute
+/// second part stands alone, an empty or
+/// separator-ending first part takes the second
+/// as it is, anything else joins on a separator.
+fn join_bytes(first: &[u8], second: &[u8]) -> Vec<u8> {
+    if second.first() == Some(&0x2F) {
+        return second.to_vec();
+    }
+    let mut out = first.to_vec();
+    if !out.is_empty() && !out.ends_with(b"/") {
+        out.push(0x2F);
+    }
+    out.extend_from_slice(second);
+    out
+}
+
+/// os.path.split on byte strings: the head is
+/// everything up to the last separator, trailing
+/// separators stripped unless the head is nothing
+/// but separators, and the tail is what follows.
+fn split_bytes(path: &[u8]) -> (Vec<u8>, Vec<u8>) {
+    let index = path
+        .iter()
+        .rposition(|byte| *byte == 0x2F)
+        .map_or(0, |i| i + 1);
+    let (mut head, tail) = (path[..index].to_vec(), path[index..].to_vec());
+    if !head.is_empty() && !head.iter().all(|byte| *byte == 0x2F) {
+        while head.ends_with(b"/") {
+            head.pop();
+        }
+    }
+    (head, tail)
+}
+
+/// A transient path over raw bytes, for the
+/// walk's stats and link reads.
+fn path_from_bytes(bytes: &[u8]) -> PathBuf {
+    os_path_from_units(&fsdecode_units(bytes))
+}
+
+/// The interpreter's realpath walk itself
+/// (posixpath._joinrealpath with strict=False):
+/// `path` is the resolved prefix, `rest` the
+/// spelling still to walk, and `seen` the links
+/// already met, an open entry (None) marking a
+/// resolution still in progress and a finished
+/// one carrying its result. A component that is
+/// a symlink hands the walk its target spelling,
+/// resolved against the prefix the link stands
+/// in, and the walk continues against the splice,
+/// however long the chain runs and wherever in
+/// the spelling the link stands; a dangling link
+/// therefore lands the resolution on its target
+/// spelling rather than on its own name. A stat
+/// failure on a component (a missing name, an
+/// unsearchable prefix) reads the component as
+/// no link and the walk carries it lexically,
+/// the interpreter's non-strict rule. `depth` is
+/// the nesting of this call, the top call of a
+/// resolution standing at 0; a call entered past
+/// MAX_WALK_DEPTH aborts the walk, read here as
+/// None, the way the interpreter's RecursionError
+/// aborts the resolution. A link met again while
+/// its own resolution is still open is a loop:
+/// the walk leaves that component and the rest
+/// of the spelling standing in the result
+/// unresolved, and resolve_path's closing stat
+/// judges the finished path. A link whose target
+/// bytes cannot be read aborts the walk the way
+/// the interpreter's uncaught raise does,
+/// likewise read as None.
+fn joinrealpath(
+    mut path: Vec<u8>,
+    rest: Vec<u8>,
+    seen: &mut std::collections::HashMap<Vec<u8>, Option<Vec<u8>>>,
+    depth: usize,
+) -> Option<(Vec<u8>, bool)> {
+    if depth > MAX_WALK_DEPTH {
+        return None;
+    }
+    let mut rest: &[u8] = &rest;
+    if rest.first() == Some(&0x2F) {
+        rest = &rest[1..];
+        path = vec![0x2F];
+    }
+    while !rest.is_empty() {
+        let (name, tail) = match rest.iter().position(|byte| *byte == 0x2F) {
+            Some(index) => (&rest[..index], &rest[index + 1..]),
+            None => (rest, &rest[rest.len()..]),
+        };
+        rest = tail;
+        if name.is_empty() || name == b"." {
+            continue;
+        }
+        if name == b".." {
+            if !path.is_empty() {
+                let (head, popped) = split_bytes(&path);
+                path = head;
+                if popped == b".." {
+                    path = join_bytes(&join_bytes(&path, b".."), b"..");
+                }
+            } else {
+                path = b"..".to_vec();
+            }
+            continue;
+        }
+        let newpath = join_bytes(&path, name);
+        let is_link = match std::fs::symlink_metadata(path_from_bytes(&newpath)) {
+            Ok(meta) => meta.file_type().is_symlink(),
+            Err(_) => false,
+        };
+        if !is_link {
+            path = newpath;
+            continue;
+        }
+        if let Some(cached) = seen.get(&newpath) {
+            match cached {
+                Some(resolved) => {
+                    path = resolved.clone();
+                    continue;
+                }
+                None => return Some((join_bytes(&newpath, rest), false)),
+            }
+        }
+        seen.insert(newpath.clone(), None);
+        let target = match std::fs::read_link(path_from_bytes(&newpath)) {
+            Ok(target) => os_bytes(target.as_os_str()),
+            Err(_) => return None,
+        };
+        let (resolved, ok) = joinrealpath(path, target, seen, depth + 1)?;
+        if !ok {
+            return Some((join_bytes(&resolved, rest), false));
+        }
+        seen.insert(newpath, Some(resolved.clone()));
+        path = resolved;
+    }
+    Some((path, true))
+}
+
 /// pathlib's resolve, in unit form: absolute
-/// against the working directory, symlinks resolved
-/// where the path exists, the rest normalized
-/// lexically.
-fn resolve_path(units: &[u16]) -> Vec<u16> {
+/// against the working directory, then the
+/// interpreter's own walk (joinrealpath),
+/// finished lexically. It fails (None) where the
+/// interpreter's resolve raises: the working
+/// directory read behind a relative spelling
+/// failing, the walk nested past its budget, a
+/// link whose target bytes cannot be read, or
+/// the closing stat of the finished path
+/// reporting the kernel's loop errno. The output
+/// guard reads the failure as the interpreter's
+/// crash (SB-25).
+fn resolve_path(units: &[u16]) -> Option<Vec<u16>> {
     let path = os_path_from_units(units);
     let absolute = if path.is_absolute() {
         path
     } else {
-        std::env::current_dir().unwrap_or_default().join(&path)
+        // A relative spelling anchors at the
+        // working directory; from a deleted
+        // working directory the interpreter's
+        // getcwd raises out of resolve(), so a
+        // failed read fails the resolution rather
+        // than anchoring the walk at a fiction
+        // (SB-25a). An absolute spelling never
+        // consults the directory.
+        std::env::current_dir().ok()?.join(&path)
     };
-    let resolved = match std::fs::canonicalize(&absolute) {
-        Ok(found) => found,
-        Err(_) => {
-            // Peel one component at a time, any kind:
-            // a ".." or "." component peels like a
-            // name, so a tail carrying one still gets
-            // its existing prefix resolved, and the
-            // lexical finish then pops the resolved
-            // prefix exactly as realpath does.
-            use std::path::Component;
-            let mut prefix = absolute.clone();
-            let mut rest: Vec<std::ffi::OsString> = Vec::new();
-            loop {
-                match std::fs::canonicalize(&prefix) {
-                    Ok(found) => {
-                        let mut out = found;
-                        for part in rest.iter().rev() {
-                            out.push(part);
-                        }
-                        break normalize_lexical(&out);
-                    }
-                    Err(_) => {
-                        let last = prefix.components().next_back();
-                        let peeled = match last {
-                            Some(Component::Normal(name)) => Some(name.to_os_string()),
-                            Some(Component::ParentDir) => Some(std::ffi::OsString::from("..")),
-                            Some(Component::CurDir) => Some(std::ffi::OsString::from(".")),
-                            _ => None,
-                        };
-                        match (peeled, prefix.parent()) {
-                            (Some(name), Some(parent)) => {
-                                rest.push(name);
-                                prefix = parent.to_path_buf();
-                            }
-                            _ => break normalize_lexical(&absolute),
-                        }
-                    }
-                }
-            }
+    let spelling = os_bytes(absolute.as_os_str());
+    let mut seen = std::collections::HashMap::new();
+    let (resolved, _ok) = joinrealpath(Vec::new(), spelling, &mut seen, 0)?;
+    let walked = fsdecode_units(&resolved);
+    // The lexical finish over the walk's result:
+    // a dot component drops and a dot-dot pops
+    // the component before it, whatever kind of
+    // component that is, so the tail a standing
+    // loop remainder left behind (a cancelled
+    // loop's spelling) finishes the way the
+    // interpreter's resolve returns it, and an
+    // uncancelled remainder reaches the closing
+    // stat still naming its loop.
+    let mut parts: Vec<&[u16]> = Vec::new();
+    for part in walked.split(|&unit| unit == 0x2F) {
+        if part.is_empty() || (part.len() == 1 && part[0] == 0x2E) {
+            continue;
         }
-    };
-    fsdecode_units(&os_bytes(resolved.as_os_str()))
-}
-
-fn normalize_lexical(path: &Path) -> PathBuf {
-    use std::path::Component;
-    let mut out = PathBuf::new();
-    for component in path.components() {
-        match component {
-            Component::CurDir => {}
-            Component::ParentDir => {
-                out.pop();
-            }
-            other => out.push(other.as_os_str()),
+        if part.len() == 2 && part[0] == 0x2E && part[1] == 0x2E {
+            parts.pop();
+            continue;
+        }
+        parts.push(part);
+    }
+    let mut finished: Vec<u16> = vec![0x2F];
+    for (index, part) in parts.iter().enumerate() {
+        if index > 0 {
+            finished.push(0x2F);
+        }
+        finished.extend_from_slice(part);
+    }
+    // The closing stat of resolve(): only the
+    // kernel's loop report fails the resolution;
+    // any other stat failure (a missing tail, an
+    // unsearchable prefix) is swallowed there,
+    // as the interpreter swallows it.
+    if let Err(error) = std::fs::metadata(os_path_from_units(&finished)) {
+        if error.raw_os_error() == Some(ELOOP) {
+            return None;
         }
     }
-    if out.as_os_str().is_empty() {
-        out.push("/");
-    }
-    out
+    Some(finished)
 }
 
 /// The atomic write, tempfile.mkstemp's shape with
@@ -845,7 +1001,13 @@ fn statement(args: &StatementArgs, closed: &ClosedFlags) -> i32 {
             Err(failure) => return fail_out(failure, closed),
         };
         roots.push(path_components(&text_units(&git_dir)));
-        let target = path_components(&resolve_path(output));
+        // A resolution failure is the interpreter's
+        // crash at resolve(): the guard never gets
+        // to compare (SB-25).
+        let target = match resolve_path(output) {
+            Some(resolved) => path_components(&resolved),
+            None => return fail_out(Fail::Crash, closed),
+        };
         let inside = roots.iter().any(|root| {
             target == *root || (target.len() > root.len() && target[..root.len()] == root[..])
         });
