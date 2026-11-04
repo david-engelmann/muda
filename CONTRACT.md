@@ -283,3 +283,17 @@ after the reviews, before the repair code).
   posted no findings (zero entries on the
   review endpoints), so no disposition is owed
   from it.
+- SB-25a. Amendment, from the Round 4 red team.
+  A relative output spelling is resolved against
+  the working directory, and from a deleted
+  working directory the interpreter's getcwd
+  raises uncaught (the crash class). The port's
+  resolver therefore fails the resolution when
+  the cwd read fails on a relative spelling;
+  an absolute spelling never consults the cwd
+  and is unaffected. The amendment also carries
+  the reviews' comment corrections: the module
+  header counts two normalizers, and the
+  path-forms prose states the guard's actual
+  asymmetry (the target resolved, the roots
+  entering as git's unresolved strings).
