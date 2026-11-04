@@ -618,19 +618,19 @@ fn fail_out(failure: Fail, closed: &ClosedFlags) -> i32 {
 }
 
 /// The path forms this module keeps, and why the
-/// output guard may compare across them. Three
-/// normalizers serve three different Python shapes:
+/// output guard may compare across them. Two
+/// normalizers serve two different Python shapes:
 /// normalize_pathlib is pathlib's string form, what
 /// the repository messages print and what git is
 /// handed; resolve_path is pathlib's resolve, the
-/// form the guard compares, the interpreter's own
-/// walk finished lexically, failing where the
-/// interpreter's resolve raises. The guard never
-/// compares across the forms: the target and both
-/// roots pass through resolve_path, so the compared
-/// values share one rule by construction, and
-/// path_components only splits a resolved value for
-/// the prefix test.
+/// interpreter's own walk finished lexically,
+/// failing where the interpreter's resolve raises.
+/// The guard's comparison keeps the Python's own
+/// asymmetry: the output target alone passes
+/// through resolve_path, while both roots enter
+/// as the unresolved strings git printed, and
+/// path_components splits target and roots alike
+/// for the prefix test.
 ///
 /// pathlib's string form over units: redundant
 /// separators collapse (a leading pair survives),
@@ -848,18 +848,28 @@ fn joinrealpath(
 /// against the working directory, then the
 /// interpreter's own walk (joinrealpath),
 /// finished lexically. It fails (None) where the
-/// interpreter's resolve raises: the walk nested
-/// past its budget, a link whose target bytes
-/// cannot be read, or the closing stat of the
-/// finished path reporting the kernel's loop
-/// errno. The output guard reads the failure as
-/// the interpreter's crash (SB-25).
+/// interpreter's resolve raises: the working
+/// directory read behind a relative spelling
+/// failing, the walk nested past its budget, a
+/// link whose target bytes cannot be read, or
+/// the closing stat of the finished path
+/// reporting the kernel's loop errno. The output
+/// guard reads the failure as the interpreter's
+/// crash (SB-25).
 fn resolve_path(units: &[u16]) -> Option<Vec<u16>> {
     let path = os_path_from_units(units);
     let absolute = if path.is_absolute() {
         path
     } else {
-        std::env::current_dir().unwrap_or_default().join(&path)
+        // A relative spelling anchors at the
+        // working directory; from a deleted
+        // working directory the interpreter's
+        // getcwd raises out of resolve(), so a
+        // failed read fails the resolution rather
+        // than anchoring the walk at a fiction
+        // (SB-25a). An absolute spelling never
+        // consults the directory.
+        std::env::current_dir().ok()?.join(&path)
     };
     let spelling = os_bytes(absolute.as_os_str());
     let mut seen = std::collections::HashMap::new();
