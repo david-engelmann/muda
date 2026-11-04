@@ -262,3 +262,24 @@ after the reviews, before the repair code).
   tree, the bindings determination made from the
   tool's consumers, and every non-Rust remainder
   with its justification.
+- SB-25. Round 4 settles the output guard's
+  resolver against the oracle on the family the
+  line worked through in its Round 4 rotation:
+  the cancelled loop, the dangling family
+  (single link and chains), the recursion band
+  (the interpreter's walk budget, measured in
+  unheard's round at 990 nested splices
+  resolving and the 991st raising), and
+  whether this oracle's guard wraps an exists()
+  arm. Each shape is probed at the oracle CLI
+  first, and the port takes the oracle's
+  outcome, repairing in the settled forms
+  (finished-path judgment, iterated splice,
+  the walk budget) where it diverges.
+- SB-26. The round's verification is the full
+  local gate plus the differential harness at
+  zero failures, the new cells included.
+  CodeRabbit's advisory pass on Round 3's PR 4
+  posted no findings (zero entries on the
+  review endpoints), so no disposition is owed
+  from it.
