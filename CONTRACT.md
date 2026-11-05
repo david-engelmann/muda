@@ -390,3 +390,62 @@ after the reviews, before the repair code).
   reported as regression pins and never as
   repair evidence. No source change lands in
   this round.
+- SB-32. Amendment, from the Round 5 red team.
+  The temp's placement is a third law at the
+  write seam, and SB-30's third and fourth
+  points do not survive it in the link-pop
+  family. The temp is created under the
+  lexically absolutized parent of the
+  constructed path: the parent string is
+  joined with the working directory when it
+  is relative and then normalized lexically,
+  the interpreter's abspath step behind
+  mkstemp, with no link resolved at any point
+  in that computation. The rename destination
+  remains the constructed path itself. Where
+  a symlink component in the parent is popped
+  by a following dotdot, the lexical parent
+  and the parent the kernel resolves through
+  the spelled string can differ in existence,
+  and the placement then decides whether the
+  write lands at all: a lexical parent that
+  is missing, or stands as a file, refuses
+  with the cannot-write line and nothing is
+  written; a lexical parent standing as a
+  directory takes the temp invisibly, and
+  the rename lands or fails on the physical
+  path. Agreement returns at the boundaries:
+  the lexical parent exists as a directory
+  (both write the physical destination),
+  neither parent exists (both refuse), and
+  the popped component is a real directory
+  in place (the two parents coincide). This
+  clause governs the temp's placement
+  wherever SB-30's third point called the
+  decomposition difference unobservable and
+  its fourth denied a disagreement in either
+  direction: in this one direction, in this
+  family, there was one, in shipped code.
+  The pure tailed class stands absent as
+  SB-30 measured it, and SB-31's statement
+  that no source change lands in this round
+  is superseded by the repair this clause
+  licenses, confined to the temp's
+  placement: no other seam moves, and the
+  cannot-write message keeps the raw
+  spelling.
+- SB-33. The differential harness gains the
+  link-pop cells as the round's second pin
+  set: the convicted cells (the plain pop
+  and its tailed twin, the deep pop, the
+  absolute pop, the pop behind the
+  repository's own escape link and its
+  dot-tail twin, the lexical parent standing
+  as a file, the popped link whose target
+  carries a dotdot) and the boundary pins
+  (the lexical parent as a real directory,
+  neither parent existing, the real
+  directory popped, the double pop). The
+  control run against the pre-repair binary
+  fails exactly the convicted cells, and
+  the standing harness stays clean.
