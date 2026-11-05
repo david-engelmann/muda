@@ -940,11 +940,10 @@ fn normpath_bytes(path: &[u8]) -> Vec<u8> {
         if comp.is_empty() || comp == b"." {
             continue;
         }
-        if comp != b".." {
-            comps.push(comp);
-        } else if (initial == 0 && comps.is_empty())
-            || comps.last().map_or(false, |last| *last == b"..")
-        {
+        let append = comp != b".."
+            || (initial == 0 && comps.is_empty())
+            || comps.last().is_some_and(|last| *last == b"..");
+        if append {
             comps.push(comp);
         } else if !comps.is_empty() {
             comps.pop();
