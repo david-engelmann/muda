@@ -915,10 +915,88 @@ fn resolve_path(units: &[u16]) -> Option<Vec<u16>> {
     Some(finished)
 }
 
+/// posixpath.normpath over raw bytes: redundant
+/// separators collapse (a leading pair survives
+/// as the anchor, a longer run collapses to one),
+/// dot components drop, and a dotdot pops the
+/// component it follows lexically, standing only
+/// where a relative spelling leads with it and
+/// vanishing at an absolute spelling's root. The
+/// empty result reads as a dot. No link is
+/// consulted at any point: the computation is
+/// over the spelling alone.
+fn normpath_bytes(path: &[u8]) -> Vec<u8> {
+    if path.is_empty() {
+        return vec![0x2E];
+    }
+    let leading = path.iter().take_while(|&&byte| byte == 0x2F).count();
+    let initial = match leading {
+        2 => 2,
+        0 => 0,
+        _ => 1,
+    };
+    let mut comps: Vec<&[u8]> = Vec::new();
+    for comp in path.split(|&byte| byte == 0x2F) {
+        if comp.is_empty() || comp == b"." {
+            continue;
+        }
+        if comp != b".." {
+            comps.push(comp);
+        } else if (initial == 0 && comps.is_empty())
+            || comps.last().map_or(false, |last| *last == b"..")
+        {
+            comps.push(comp);
+        } else if !comps.is_empty() {
+            comps.pop();
+        }
+    }
+    let mut out = Vec::new();
+    out.resize(initial, 0x2F);
+    for (index, comp) in comps.iter().enumerate() {
+        if index > 0 {
+            out.push(0x2F);
+        }
+        out.extend_from_slice(comp);
+    }
+    if out.is_empty() {
+        out.push(0x2E);
+    }
+    out
+}
+
+/// os.path.abspath over a parent path: a relative
+/// spelling joins the working directory, and the
+/// joined spelling is normalized lexically. An
+/// absolute spelling never consults the working
+/// directory. A failed working-directory read
+/// fails the step the way the interpreter's
+/// getcwd raises inside abspath (a relative
+/// output from a deleted working directory has
+/// already died at the guard, so at the write
+/// seam the failure is mkstemp's own shape).
+fn lexical_abspath(parent: &Path) -> std::io::Result<PathBuf> {
+    let bytes = os_bytes(parent.as_os_str());
+    let joined = if bytes.first() == Some(&0x2F) {
+        bytes
+    } else {
+        let cwd = std::env::current_dir()?;
+        join_bytes(&os_bytes(cwd.as_os_str()), &bytes)
+    };
+    Ok(path_from_bytes(&normpath_bytes(&joined)))
+}
+
 /// The atomic write, tempfile.mkstemp's shape with
 /// no suffix: a sibling temp named with the file's
 /// name and a dot as prefix, mode 0600, replaced on
-/// success, unlinked on failure.
+/// success, unlinked on failure. The temp stands
+/// under the lexically absolutized parent of the
+/// path (SB-32), not under the parent as spelled:
+/// where a link in the parent is popped by a
+/// following dotdot, the interpreter's mkstemp
+/// reaches the lexical directory or fails trying,
+/// and the write's success boundary sits there,
+/// while the rename destination stays the path
+/// itself.
 fn write_atomically(path: &Path, bytes: &[u8]) -> std::io::Result<()> {
     use std::os::unix::fs::OpenOptionsExt;
     let parent = path.parent().unwrap_or(Path::new(""));
@@ -927,6 +1005,7 @@ fn write_atomically(path: &Path, bytes: &[u8]) -> std::io::Result<()> {
     } else {
         parent
     };
+    let parent = lexical_abspath(parent)?;
     let name = path
         .file_name()
         .unwrap_or_default()
