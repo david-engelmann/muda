@@ -297,3 +297,155 @@ after the reviews, before the repair code).
   path-forms prose states the guard's actual
   asymmetry (the target resolved, the roots
   entering as git's unresolved strings).
+- SB-27. Round 5 discharges the write-seam
+  probe filed for this crate after retroforge's
+  Round 5. The tailed output spelling:
+  retroforge's red team proved a pre-existing
+  class in that crate (spellings ending in a
+  separator or dot component write on the
+  oracle and refuse on the port, because the
+  port hands the raw spelling to rename while
+  pathlib's construction drops the tail), and
+  wallofwrong and bluepencil each convicted the
+  class in their own shapes. This crate's guard
+  and write seam are probed for the class in
+  full: tailed spellings onto the protected
+  roots and away, on names, links, and dangling
+  links, with the guard's own posture (the
+  resolve is uncaught and crash-class per SB-25,
+  the roots stand as git's unresolved strings)
+  deciding what faithful means here. The class
+  boundary is measured before any repair is
+  written.
+- SB-28. Repairs follow the measurements under
+  new clauses if the probe set expands; the
+  differential harness gains the proven cells
+  with control runs against the pre-repair
+  binary failing exactly the new cells, and the
+  standing harness stays clean.
+- SB-29. README records 5 of 100 only in the
+  closure commit written after this round's
+  three reviews, fixes, and owner verification.
+- SB-30. Amendment, from the Round 5 probes.
+  The tailed-spelling class is absent in this
+  crate, measured over 95 twin cells (tailed
+  names away and onto both roots, componentless
+  and anchor spellings, dotdot tails, live and
+  dangling links, links whose targets carry
+  tails, a file as a mid component, the escape
+  link hunt, worktree roots, deleted working
+  directory compositions), with a genuine
+  acceptance audit behind the agreements. Two
+  structural reasons. The write seam has
+  consumed the constructed spelling since the
+  port: normalize_pathlib is the construction
+  law (empty and dot components drop wherever
+  they stand, dotdot and every other component
+  stand whole, a leading separator pair is the
+  anchor and a longer run collapses to one, a
+  componentless spelling stands as dot or its
+  anchor). And the guard's walk over the raw
+  spelling skips exactly the components the
+  construction drops, so its target is the
+  constructed spelling's target on every tailed
+  shape; the double slash anchor collapses at
+  resolve on the oracle too, slipping neither
+  guard. write_atomically's decomposition of
+  the constructed path differs from pathlib's
+  only on spellings whose rename always fails
+  (the parent of the root read as the working
+  directory, a trailing dotdot's name read as
+  empty), moving only the temp's placement and
+  prefix during a write that cannot land;
+  measured, unobservable, and not repaired,
+  there being no behavior to repair. One
+  boundary stands outside the family: reading
+  a linked worktree, an output spelled into
+  the main repository's own .git directory is
+  under neither computed root, and both
+  implementations write it, tailed or not. That
+  is the shipped guard's root set, reproduced
+  faithfully, not a tail divergence. The
+  worktree family is probe pinned rather than
+  harness celled: a worktree gitfile carries
+  the side's own absolute path, so a twin
+  snapshot cannot compare it byte for byte.
+- SB-31. The differential harness gains the
+  tailed spelling cells as pins of the measured
+  law: the away tails and the sentinel
+  overwrite, the componentless and anchor
+  spellings, the dotdot tails, the onto cells
+  against the fixture repository and its .git,
+  the anchor spelled onto and away, the link
+  shapes (dangling with tails, targets carrying
+  tails, the dir link and the chain as the
+  output), the escape link with a tail, the
+  loop with a tail and the deleted working
+  directory's tailed output as dev steps. The
+  control run against the pre-repair binary
+  passes the new cells with the standing ones:
+  they pin standing behavior, and that pass,
+  over cells the audit showed genuinely write
+  and genuinely refuse, is the absence proof,
+  reported as regression pins and never as
+  repair evidence. No source change lands in
+  this round.
+- SB-32. Amendment, from the Round 5 red team.
+  The temp's placement is a third law at the
+  write seam, and SB-30's third and fourth
+  points do not survive it in the link-pop
+  family. The temp is created under the
+  lexically absolutized parent of the
+  constructed path: the parent string is
+  joined with the working directory when it
+  is relative and then normalized lexically,
+  the interpreter's abspath step behind
+  mkstemp, with no link resolved at any point
+  in that computation. The rename destination
+  remains the constructed path itself. Where
+  a symlink component in the parent is popped
+  by a following dotdot, the lexical parent
+  and the parent the kernel resolves through
+  the spelled string can differ in existence,
+  and the placement then decides whether the
+  write lands at all: a lexical parent that
+  is missing, or stands as a file, refuses
+  with the cannot-write line and nothing is
+  written; a lexical parent standing as a
+  directory takes the temp invisibly, and
+  the rename lands or fails on the physical
+  path. Agreement returns at the boundaries:
+  the lexical parent exists as a directory
+  (both write the physical destination),
+  neither parent exists (both refuse), and
+  the popped component is a real directory
+  in place (the two parents coincide). This
+  clause governs the temp's placement
+  wherever SB-30's third point called the
+  decomposition difference unobservable and
+  its fourth denied a disagreement in either
+  direction: in this one direction, in this
+  family, there was one, in shipped code.
+  The pure tailed class stands absent as
+  SB-30 measured it, and SB-31's statement
+  that no source change lands in this round
+  is superseded by the repair this clause
+  licenses, confined to the temp's
+  placement: no other seam moves, and the
+  cannot-write message keeps the raw
+  spelling.
+- SB-33. The differential harness gains the
+  link-pop cells as the round's second pin
+  set: the convicted cells (the plain pop
+  and its tailed twin, the deep pop, the
+  absolute pop, the pop behind the
+  repository's own escape link and its
+  dot-tail twin, the lexical parent standing
+  as a file, the popped link whose target
+  carries a dotdot) and the boundary pins
+  (the lexical parent as a real directory,
+  neither parent existing, the real
+  directory popped, the double pop). The
+  control run against the pre-repair binary
+  fails exactly the convicted cells, and
+  the standing harness stays clean.
