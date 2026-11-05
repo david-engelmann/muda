@@ -297,3 +297,32 @@ after the reviews, before the repair code).
   path-forms prose states the guard's actual
   asymmetry (the target resolved, the roots
   entering as git's unresolved strings).
+- SB-27. Round 5 discharges the write-seam
+  probe filed for this crate after retroforge's
+  Round 5. The tailed output spelling:
+  retroforge's red team proved a pre-existing
+  class in that crate (spellings ending in a
+  separator or dot component write on the
+  oracle and refuse on the port, because the
+  port hands the raw spelling to rename while
+  pathlib's construction drops the tail), and
+  wallofwrong and bluepencil each convicted the
+  class in their own shapes. This crate's guard
+  and write seam are probed for the class in
+  full: tailed spellings onto the protected
+  roots and away, on names, links, and dangling
+  links, with the guard's own posture (the
+  resolve is uncaught and crash-class per SB-25,
+  the roots stand as git's unresolved strings)
+  deciding what faithful means here. The class
+  boundary is measured before any repair is
+  written.
+- SB-28. Repairs follow the measurements under
+  new clauses if the probe set expands; the
+  differential harness gains the proven cells
+  with control runs against the pre-repair
+  binary failing exactly the new cells, and the
+  standing harness stays clean.
+- SB-29. README records 5 of 100 only in the
+  closure commit written after this round's
+  three reviews, fixes, and owner verification.
