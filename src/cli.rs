@@ -1005,11 +1005,13 @@ fn write_atomically(path: &Path, bytes: &[u8]) -> std::io::Result<()> {
         parent
     };
     let parent = lexical_abspath(parent)?;
-    let name = path
-        .file_name()
-        .unwrap_or_default()
-        .to_string_lossy()
-        .into_owned();
+    // SB-37: the temp's name is assembled from the
+    // path's raw bytes. A name carrying bytes that
+    // are not valid UTF-8 keeps its byte count at
+    // the temp, where a lossy decode would expand
+    // each raw byte to three and move the boundary
+    // of SB-35 two lengths early.
+    let name = os_bytes(path.file_name().unwrap_or_default());
     let mut seed = std::time::SystemTime::now()
         .duration_since(std::time::UNIX_EPOCH)
         .map(|d| d.subsec_nanos() as u64 ^ (std::process::id() as u64) << 16)
@@ -1032,7 +1034,10 @@ fn write_atomically(path: &Path, bytes: &[u8]) -> std::io::Result<()> {
             });
             value = value / 38 + 7;
         }
-        candidate = parent.join(format!("{name}.{random}"));
+        let mut tail = name.clone();
+        tail.push(b'.');
+        tail.extend_from_slice(random.as_bytes());
+        candidate = path_from_bytes(&join_bytes(&os_bytes(parent.as_os_str()), &tail));
         match std::fs::OpenOptions::new()
             .write(true)
             .create_new(true)
