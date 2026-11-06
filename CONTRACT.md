@@ -471,3 +471,16 @@ after the reviews, before the repair code).
 - SB-36. This round's closure: the README records
   6 of 100 only in the closure commit, after the
   round's reviews, fixes, and owner verification.
+- SB-37. The temp candidate is built from the
+  output name's raw bytes. A name carrying bytes
+  that are not valid UTF-8 keeps its byte count
+  at the temp: no lossy expansion may lengthen
+  the temp name, so the boundary of SB-35 stands
+  at the same byte lengths for raw-byte names as
+  for plain ones.
+- SB-38. The harness boundary section pins the
+  raw-byte boundary beside the plain one: names
+  carrying one raw byte at the byte lengths
+  around the flip, plain and through a pop,
+  write and refuse at the same lengths on both
+  sides.
