@@ -306,7 +306,7 @@ after the reviews, before the repair code).
   oracle and refuse on the port, because the
   port hands the raw spelling to rename while
   pathlib's construction drops the tail), and
-  wallofwrong and bluepencil each convicted the
+  tetlock and bluepencil each convicted the
   class in their own shapes. This crate's guard
   and write seam are probed for the class in
   full: tailed spellings onto the protected
