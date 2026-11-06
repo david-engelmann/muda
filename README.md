@@ -25,7 +25,7 @@ whole command surface.
 
 ## Programme status
 
-- Closed perfection rounds, 5 of 100. A round counts only when a
+- Closed perfection rounds, 6 of 100. A round counts only when a
   full cycle of work, audit, review, red team, and approval has
   closed.
 - Contract, SB-1 to SB-12 as amended, met for the Round 1 scope.
