@@ -449,3 +449,25 @@ after the reviews, before the repair code).
   control run against the pre-repair binary
   fails exactly the convicted cells, and
   the standing harness stays clean.
+- SB-34. Round 5's CodeRabbit disposition, carried
+  as a contracted absence: PR 6 carried zero inline
+  findings when it merged, and the 2026-11-05
+  read-back of the PR's review comments confirms
+  zero. The absence is this round's evidence; any
+  late finding on PR 6 is answered in this round's
+  gate report.
+- SB-35. The temp suffix at this crate's write is
+  measured against mkstemp's own: the observable
+  law is the suffix LENGTH, eight characters on
+  the oracle's side. The port's generator is read
+  from the current source and its width measured;
+  the name-length boundary is pinned executably
+  in the differential harness at the lengths where
+  the temp name crosses the filesystem limit,
+  plain and through a pop. A width that differs
+  from eight is convicted and repaired to eight;
+  the suffix alphabet is not behavior, since the
+  characters are random on both sides.
+- SB-36. This round's closure: the README records
+  6 of 100 only in the closure commit, after the
+  round's reviews, fixes, and owner verification.
