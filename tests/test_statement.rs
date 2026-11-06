@@ -6,10 +6,10 @@ use std::path::{Path, PathBuf};
 use std::process::{Command, Output};
 use std::sync::OnceLock;
 
-use secondbill::emit::{dumps_document, Mode};
-use secondbill::history::{read_history, Commit, Fail};
-use secondbill::statement::{build_statement, load_rates_bytes, price_statement};
-use secondbill::value::{Text, Value};
+use muda::emit::{dumps_document, Mode};
+use muda::history::{read_history, Commit, Fail};
+use muda::statement::{build_statement, load_rates_bytes, price_statement};
+use muda::value::{Text, Value};
 
 fn git(repo: &Path, args: &[&str], date: Option<&str>, author: Option<&str>) -> Output {
     let mut command = Command::new("git");
@@ -69,7 +69,7 @@ fn commit(
 
 fn temp_dir(tag: &str) -> PathBuf {
     let dir = std::env::temp_dir().join(format!(
-        "secondbill-test-{}-{}-{}",
+        "muda-test-{}-{}-{}",
         tag,
         std::process::id(),
         std::time::SystemTime::now()
@@ -574,7 +574,7 @@ fn the_field_set_is_complete() {
 }
 
 fn run_bin(args: &[&str]) -> Output {
-    Command::new(env!("CARGO_BIN_EXE_secondbill"))
+    Command::new(env!("CARGO_BIN_EXE_muda"))
         .args(args)
         .output()
         .expect("the binary runs")
@@ -652,7 +652,7 @@ fn the_environment_never_redirects_the_read() {
     // would race every other test's git calls.
     let f = fixture();
     let repo_text = f.repo.to_string_lossy().into_owned();
-    let run = Command::new(env!("CARGO_BIN_EXE_secondbill"))
+    let run = Command::new(env!("CARGO_BIN_EXE_muda"))
         .args(["statement", &repo_text, "--month", "2026-01"])
         .env("GIT_DIR", "/nonexistent/elsewhere")
         .env("GIT_WORK_TREE", "/nonexistent")
@@ -687,7 +687,7 @@ fn synthetic_commit(
 }
 
 fn jan(day: u32) -> i128 {
-    secondbill::history::days_from_civil(2026, 1, day) as i128 * 86_400_000_000
+    muda::history::days_from_civil(2026, 1, day) as i128 * 86_400_000_000
 }
 
 #[test]

@@ -1,4 +1,4 @@
-//! secondbill: the second bill, the itemized
+//! muda: the second bill, the itemized
 //! statement of what a repository's history cost in
 //! rework. It reads one git repository, finds the
 //! commits whose work was reverted, fixed forward,

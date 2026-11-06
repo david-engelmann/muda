@@ -5,7 +5,7 @@
 //! UTF-16 code units, the units the rules are stated
 //! in. The shape follows the flighttape crate's
 //! value model, which this line's ports share; the
-//! type stands in this crate because secondbill
+//! type stands in this crate because muda
 //! consumes no sibling crate (SB-18).
 
 /// Text as UTF-16 code units. A string carrying an

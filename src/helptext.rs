@@ -4,7 +4,7 @@
 //! terminal width, the port stays at 80).
 
 pub const TOP_HELP: &str = "\
-usage: secondbill [-h] {statement} ...
+usage: muda [-h] {statement} ...
 
 positional arguments:
   {statement}
@@ -14,10 +14,10 @@ options:
   -h, --help   show this help message and exit
 ";
 
-pub const TOP_USAGE: &str = "usage: secondbill [-h] {statement} ...";
+pub const TOP_USAGE: &str = "usage: muda [-h] {statement} ...";
 
 pub const STATEMENT_HELP: &str = "\
-usage: secondbill statement [-h] --month MONTH [--rates RATES] [-o OUTPUT]
+usage: muda statement [-h] --month MONTH [--rates RATES] [-o OUTPUT]
                             repo
 
 positional arguments:
@@ -31,5 +31,5 @@ options:
 ";
 
 pub const STATEMENT_USAGE: &str = "\
-usage: secondbill statement [-h] --month MONTH [--rates RATES] [-o OUTPUT]
+usage: muda statement [-h] --month MONTH [--rates RATES] [-o OUTPUT]
                             repo";

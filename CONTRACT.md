@@ -1,4 +1,4 @@
-# secondbill Contract, stub
+# muda Contract, stub
 
 The full Contract is the first build act of this repo phase. This
 stub records the obligations the setup already knows it owes. Each
@@ -7,7 +7,7 @@ on it lands.
 
 - SB-1. The first slice is the git side only, reverts, redone tasks, and fix forward commits, for one repo, as one itemized statement.
 - SB-2. Every item is billed to the instruction, prompt, or agent that caused it, with the join stated and auditable.
-- SB-3. Catchledger prices checks, secondbill prices work. The subjects never merge.
+- SB-3. Catchledger prices checks, muda prices work. The subjects never merge.
 - SB-4. Every fixture committed to this repo is synthetic.
 
 ## Round 1. The git side statement (SB-5 to SB-12)
@@ -55,7 +55,7 @@ after the reviews, before the repair code).
   repository state and month produce byte-identical
   output, commits taken in the order the history read
   states. Test, tests/test_statement.py.
-- SB-11. Secondbill never writes to the repository it
+- SB-11. Muda never writes to the repository it
   reads. Its only output is the statement, to stdout or
   a named path, written atomically, and every failure is
   a named error with exit 1. Test,
@@ -108,7 +108,7 @@ after the reviews, before the repair code).
   within a cause stand in read order. Test,
   tests/test_statement.py.
 - SB-11a. An output path inside the repository being
-  read is refused by name; secondbill writes nothing
+  read is refused by name; muda writes nothing
   there, not even its statement. Test,
   tests/test_statement.py.
 
@@ -198,7 +198,7 @@ after the reviews, before the repair code).
   binary. It takes no dependency: the git read is
   the standard library's subprocess, the rates
   reader stands in this crate, and no sibling
-  crate is consumed, because secondbill reads a
+  crate is consumed, because muda reads a
   repository, not tapes. Tests are cargo tests.
   Test, tests/test_statement.rs.
 - SB-19. The git read keeps its posture and its

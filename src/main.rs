@@ -1,3 +1,3 @@
 fn main() {
-    std::process::exit(secondbill::run_cli());
+    std::process::exit(muda::run_cli());
 }
