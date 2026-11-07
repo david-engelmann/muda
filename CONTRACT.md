@@ -572,3 +572,29 @@ after the reviews, before the repair code).
   four-check gate passes on the final tree, and
   only then does the README record 7 of 100 in
   the closure commit.
+- SB-45. SB-40's reach, restated by closure
+  amendment. The zero the clause reports is
+  measured on the product tree: the source,
+  the README, the help text constants, and
+  the fixtures hold no occurrence of the old
+  name in any case. The clause's own heading
+  names the old name as the rename's subject,
+  and occurrences standing in this contract's
+  dated clauses and headings, this amendment
+  included, are record references; they stand.
+- SB-46. Standing deviation, filed at closure:
+  the port pins its generated help text at
+  the COLUMNS=80 rendering, and src/helptext.rs
+  says so. The Python oracle wraps to the
+  terminal width, so on a terminal narrower
+  than 80 the statement parser's help and
+  usage-error surfaces differ from the oracle
+  in line breaking only. Measured at
+  COLUMNS=60, 12 of 25 surfaces diverge,
+  whitespace only, exit codes and stream
+  assignment identical; at COLUMNS=80 and
+  COLUMNS=200 all 25 agree, and no surface
+  at any width renders the old name's
+  two-line wrap. The repair, a width-aware
+  help render, is owed to a later
+  source-touching round, not this one.
