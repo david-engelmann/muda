@@ -484,3 +484,184 @@ after the reviews, before the repair code).
   around the flip, plain and through a pop,
   write and refuse at the same lengths on both
   sides.
+- SB-39. Round 6's CodeRabbit disposition,
+  discharged on read-back. PR 8 carries zero
+  review comments and zero reviews. Its issue
+  thread holds the trigger (6680302606), the
+  shell (6680302699), an auto-reply (6680304424),
+  and the landing comment. The shell's final form
+  is the free-review rate-limit notice: it
+  finalized at 2026-11-06T08:09:28Z, before the
+  merge at 08:16:23Z, stating the review limit
+  was reached and the next included review was
+  available in 23 seconds; the auto-reply
+  records the action not completed, review rate
+  limited. No review ever ran on PR 8, so no
+  late findings exist or are owed. Round 6's
+  record of zero inline findings stands as a
+  count and is corrected as a characterization:
+  the absence is a review that never ran, not a
+  review that found nothing.
+- SB-40. The secondbill-to-muda rename records,
+  verified on the current tree. PR 9 (e595059a,
+  merged 2026-11-07) moved the name in the
+  crate, the package, and the prose. This round
+  re-greps the whole tree: zero occurrences of
+  the old name remain in any case. The census's
+  one standing remnant is the generic concept
+  phrase in the library docs, "the second bill"
+  after the renamed product token in src/lib.rs,
+  PR 9's recorded judgment call; it stands. The
+  SB identifiers and the dated clauses stand
+  verbatim as historical identifiers.
+- SB-41. The rename's help bytes, measured
+  against a renamed oracle and repaired. The
+  Python oracle staged with the package renamed
+  and prog set to muda renders the statement
+  usage on one line: at 73 characters it fits
+  argparse's wrap width where the old name's
+  79-character line wrapped. The shipped port
+  renders the old two-line wrap with repo on a
+  continuation line, a substitution artifact of
+  PR 9, invisible to its binary-against-binary
+  differential. Three surfaces carry the byte:
+  statement --help on stdout, and the statement
+  usage printed on stderr when the subcommand
+  is given no arguments or its --month is
+  missing. The repair re-derives STATEMENT_HELP
+  and STATEMENT_USAGE in src/helptext.rs from
+  the renamed oracle's actual output; no other
+  surface moves. The top-level help, the
+  no-argument and bad-subcommand errors, and
+  the bad-month error already agree byte for
+  byte, measured on the same battery.
+- SB-42. The README brought to the fleet
+  storefront standard. First screen in order:
+  the title, the lede identical to the
+  repository description (read back from the
+  API; it carries no colon and no semicolon, so
+  no copy-bar exception is needed), one short
+  paragraph, the one ci badge (verified before
+  shipping: the workflow is active, its latest
+  run on main at the round's base completed
+  success, and the badge image renders
+  "ci - passing"), and one block of real
+  captured output. Then Install, Quickstart,
+  Usage, Status, and License. The Install and
+  Quickstart blocks run verbatim from clean
+  staging, cargo install into a scratch
+  CARGO_HOME included, and the Quickstart's
+  output is the captured statement over a small
+  synthetic git history, counts only, as the
+  tool's base form produces it. The Status
+  section tracks reality, including the rounds
+  the old README's status never reached. The
+  rounds line stays at 6 of 100 in this round;
+  SB-44 reserves 7 to closure.
+- SB-43. Checklist item 3, recorded open:
+  Cargo.toml carries no description field at
+  all, so the package-metadata side of the one
+  description is absent, not a third variant.
+  It is named here and in the round's readiness
+  block, and not repaired inside this round's
+  bound.
+- SB-44. This round's closure: the differential
+  harness runs byte-clean against the renamed
+  pairing (the renamed oracle of SB-41 against
+  the tip binary) on the final tree, the
+  four-check gate passes on the final tree, and
+  only then does the README record 7 of 100 in
+  the closure commit.
+- SB-45. SB-40's reach, restated by closure
+  amendment. The zero the clause reports is
+  measured on the product tree: the source,
+  the README, the help text constants, and
+  the fixtures hold no occurrence of the old
+  name in any case. The clause's own heading
+  names the old name as the rename's subject,
+  and occurrences standing in this contract's
+  dated clauses and headings, this amendment
+  included, are record references; they stand.
+- SB-46. Standing deviation, filed at closure:
+  the port pins its generated help text at
+  the COLUMNS=80 rendering, and src/helptext.rs
+  says so. The Python oracle wraps to the
+  terminal width, so on a terminal narrower
+  than 80 the statement parser's help and
+  usage-error surfaces differ from the oracle
+  in line breaking only. Measured at
+  COLUMNS=60, 12 of 25 surfaces diverge,
+  whitespace only, exit codes and stream
+  assignment identical; at COLUMNS=80 and
+  COLUMNS=200 all 25 agree, and no surface
+  at any width renders the old name's
+  two-line wrap. The repair, a width-aware
+  help render, is owed to a later
+  source-touching round, not this one.
+- SB-47. PR 11's CodeRabbit step 0,
+  discharged. Six findings came back on the
+  pull request, five repaired here and one
+  dismissed with its reason recorded.
+  Comment 4502026331 amends SB-41 by
+  reference. The three surfaces SB-41 names
+  are the measured examples of its battery,
+  not the whole reach of the changed usage
+  line. That line stands as the first line
+  of STATEMENT_HELP and as STATEMENT_USAGE,
+  and STATEMENT_USAGE is the usage printed
+  with every error the statement parser
+  itself reports, because sub_error in
+  src/cli.rs is the one constructor of the
+  parser's parse failure. Its callers are
+  the required-arguments error at the end
+  of the parse, the missing-value error
+  for --month, --rates, and -o/--output,
+  the last of those in both its long and
+  short forms, and the ambiguous-option
+  error for a long option matching several
+  names. The usage also prints on the two
+  ignored-explicit-argument help errors,
+  the long --help carrying a glued value
+  through help_token_outcome and the short
+  -h carrying one in the cluster walk. The
+  behavior across all of them is the red
+  team's 25-surface battery, already run,
+  so this amendment moves wording scope
+  only. Comments 4502026341, 4502026344,
+  4502026347, and 4502026352 repair the
+  README against the source, each claim
+  verified in the source before its
+  sentence was written. The opening
+  paragraph now states that the read
+  covers the commits reachable from the
+  checked out HEAD and that work on
+  unmerged branches is not read, verified
+  in read_history in src/history.rs, which
+  runs git log with no ref over the
+  verified HEAD. Install now states the
+  Unix environment the build needs,
+  verified in the unconditional Unix
+  import inside write_atomically in
+  src/cli.rs. Usage now states that a
+  commit is counted in the month its
+  author timestamp falls in read in UTC,
+  verified in the window construction in
+  src/statement.rs, and that the redone
+  join looks only at earlier commits
+  inside the stated month while the
+  revert and fix-forward joins resolve
+  against the whole read, verified in
+  classify in the same file. Comment
+  4502026334 is dismissed. It asks the
+  lede to drop the instruction-level
+  attribution the description promises.
+  The lede is the repository description
+  verbatim, and the first screen read
+  whole does not hide the gap, because the
+  paragraph states the commit reach
+  exactly and Status names the unbuilt
+  onward join to the instruction behind
+  the commit. The repair belongs to the
+  description line itself, which is the
+  repository owner's call and outside this
+  round's bound.
