@@ -484,3 +484,91 @@ after the reviews, before the repair code).
   around the flip, plain and through a pop,
   write and refuse at the same lengths on both
   sides.
+- SB-39. Round 6's CodeRabbit disposition,
+  discharged on read-back. PR 8 carries zero
+  review comments and zero reviews. Its issue
+  thread holds the trigger (6680302606), the
+  shell (6680302699), an auto-reply (6680304424),
+  and the landing comment. The shell's final form
+  is the free-review rate-limit notice: it
+  finalized at 2026-11-06T08:09:28Z, before the
+  merge at 08:16:23Z, stating the review limit
+  was reached and the next included review was
+  available in 23 seconds; the auto-reply
+  records the action not completed, review rate
+  limited. No review ever ran on PR 8, so no
+  late findings exist or are owed. Round 6's
+  record of zero inline findings stands as a
+  count and is corrected as a characterization:
+  the absence is a review that never ran, not a
+  review that found nothing.
+- SB-40. The secondbill-to-muda rename records,
+  verified on the current tree. PR 9 (e595059a,
+  merged 2026-11-07) moved the name in the
+  crate, the package, and the prose. This round
+  re-greps the whole tree: zero occurrences of
+  the old name remain in any case. The census's
+  one standing remnant is the generic concept
+  phrase in the library docs, "the second bill"
+  after the renamed product token in src/lib.rs,
+  PR 9's recorded judgment call; it stands. The
+  SB identifiers and the dated clauses stand
+  verbatim as historical identifiers.
+- SB-41. The rename's help bytes, measured
+  against a renamed oracle and repaired. The
+  Python oracle staged with the package renamed
+  and prog set to muda renders the statement
+  usage on one line: at 73 characters it fits
+  argparse's wrap width where the old name's
+  79-character line wrapped. The shipped port
+  renders the old two-line wrap with repo on a
+  continuation line, a substitution artifact of
+  PR 9, invisible to its binary-against-binary
+  differential. Three surfaces carry the byte:
+  statement --help on stdout, and the statement
+  usage printed on stderr when the subcommand
+  is given no arguments or its --month is
+  missing. The repair re-derives STATEMENT_HELP
+  and STATEMENT_USAGE in src/helptext.rs from
+  the renamed oracle's actual output; no other
+  surface moves. The top-level help, the
+  no-argument and bad-subcommand errors, and
+  the bad-month error already agree byte for
+  byte, measured on the same battery.
+- SB-42. The README brought to the fleet
+  storefront standard. First screen in order:
+  the title, the lede identical to the
+  repository description (read back from the
+  API; it carries no colon and no semicolon, so
+  no copy-bar exception is needed), one short
+  paragraph, the one ci badge (verified before
+  shipping: the workflow is active, its latest
+  run on main at the round's base completed
+  success, and the badge image renders
+  "ci - passing"), and one block of real
+  captured output. Then Install, Quickstart,
+  Usage, Status, and License. The Install and
+  Quickstart blocks run verbatim from clean
+  staging, cargo install into a scratch
+  CARGO_HOME included, and the Quickstart's
+  output is the captured statement over a small
+  synthetic git history, counts only, as the
+  tool's base form produces it. The Status
+  section tracks reality, including the rounds
+  the old README's status never reached. The
+  rounds line stays at 6 of 100 in this round;
+  SB-44 reserves 7 to closure.
+- SB-43. Checklist item 3, recorded open:
+  Cargo.toml carries no description field at
+  all, so the package-metadata side of the one
+  description is absent, not a third variant.
+  It is named here and in the round's readiness
+  block, and not repaired inside this round's
+  bound.
+- SB-44. This round's closure: the differential
+  harness runs byte-clean against the renamed
+  pairing (the renamed oracle of SB-41 against
+  the tip binary) on the final tree, the
+  four-check gate passes on the final tree, and
+  only then does the README record 7 of 100 in
+  the closure commit.
