@@ -598,3 +598,70 @@ after the reviews, before the repair code).
   two-line wrap. The repair, a width-aware
   help render, is owed to a later
   source-touching round, not this one.
+- SB-47. PR 11's CodeRabbit step 0,
+  discharged. Six findings came back on the
+  pull request, five repaired here and one
+  dismissed with its reason recorded.
+  Comment 4502026331 amends SB-41 by
+  reference. The three surfaces SB-41 names
+  are the measured examples of its battery,
+  not the whole reach of the changed usage
+  line. That line stands as the first line
+  of STATEMENT_HELP and as STATEMENT_USAGE,
+  and STATEMENT_USAGE is the usage printed
+  with every error the statement parser
+  itself reports, because sub_error in
+  src/cli.rs is the one constructor of the
+  parser's parse failure. Its callers are
+  the required-arguments error at the end
+  of the parse, the missing-value error
+  for --month, --rates, and -o/--output,
+  the last of those in both its long and
+  short forms, and the ambiguous-option
+  error for a long option matching several
+  names. The usage also prints on the two
+  ignored-explicit-argument help errors,
+  the long --help carrying a glued value
+  through help_token_outcome and the short
+  -h carrying one in the cluster walk. The
+  behavior across all of them is the red
+  team's 25-surface battery, already run,
+  so this amendment moves wording scope
+  only. Comments 4502026341, 4502026344,
+  4502026347, and 4502026352 repair the
+  README against the source, each claim
+  verified in the source before its
+  sentence was written. The opening
+  paragraph now states that the read
+  covers the commits reachable from the
+  checked out HEAD and that work on
+  unmerged branches is not read, verified
+  in read_history in src/history.rs, which
+  runs git log with no ref over the
+  verified HEAD. Install now states the
+  Unix environment the build needs,
+  verified in the unconditional Unix
+  import inside write_atomically in
+  src/cli.rs. Usage now states that a
+  commit is counted in the month its
+  author timestamp falls in read in UTC,
+  verified in the window construction in
+  src/statement.rs, and that the redone
+  join looks only at earlier commits
+  inside the stated month while the
+  revert and fix-forward joins resolve
+  against the whole read, verified in
+  classify in the same file. Comment
+  4502026334 is dismissed. It asks the
+  lede to drop the instruction-level
+  attribution the description promises.
+  The lede is the repository description
+  verbatim, and the first screen read
+  whole does not hide the gap, because the
+  paragraph states the commit reach
+  exactly and Status names the unbuilt
+  onward join to the instruction behind
+  the commit. The repair belongs to the
+  description line itself, which is the
+  repository owner's call and outside this
+  round's bound.

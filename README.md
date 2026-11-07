@@ -2,7 +2,7 @@
 
 Meters the rework tax across a fleet. Every reverted diff, redone task, and fix-forward is charged to the instruction that caused it, and the charges come back as an itemized statement.
 
-Muda is a command line tool that reads one git repository's whole history and writes an itemized statement for one stated calendar month as JSON. It finds the month's rework, commits that revert an earlier commit, commits that fix one forward, and tasks done twice, and it bills every item to the commit that caused it, with the join stated on the item itself. An item whose cause cannot be named from the record is listed as unjoined with the reason, never silently billed and never dropped. Catchledger prices checks, muda prices work.
+Muda is a command line tool that reads one git repository's whole history and writes an itemized statement for one stated calendar month as JSON. The read covers the commits reachable from the checked out HEAD, so work that lives only on unmerged branches is not read. Check out the branch whose history the statement should cover. It finds the month's rework, commits that revert an earlier commit, commits that fix one forward, and tasks done twice, and it bills every item to the commit that caused it, with the join stated on the item itself. An item whose cause cannot be named from the record is listed as unjoined with the reason, never silently billed and never dropped. Catchledger prices checks, muda prices work.
 
 [![ci](https://github.com/david-engelmann/muda/actions/workflows/ci.yml/badge.svg)](https://github.com/david-engelmann/muda/actions/workflows/ci.yml)
 
@@ -46,7 +46,7 @@ $ muda statement --month 2026-01 demo
 
 ## Install
 
-A Rust toolchain and Git are the prerequisites. Clone the repo and install the command from it.
+A Rust toolchain and Git are the prerequisites. The build needs a Unix environment, Linux or macOS, or WSL on Windows, because the file write behind the -o output uses Unix-only facilities and the crate does not compile on native Windows. Clone the repo and install the command from it.
 
 ```console
 $ git clone https://github.com/david-engelmann/muda
@@ -112,9 +112,9 @@ The statement reads the whole history and bills the one item in the window. The 
 
 ## Usage
 
-Traces end at the session while outcomes live in git, so no run can be priced by whether its work survived, and a fast run that generates tomorrow's revert looks identical to a fast run that shipped. Muda makes that join on the git side. Its one subcommand is statement. The month is named with --month and is required, in the form 2026-01. The document goes to stdout, or to a file with -o. A rates card passed with --rates adds a priced section to the same document.
+Traces end at the session while outcomes live in git, so no run can be priced by whether its work survived, and a fast run that generates tomorrow's revert looks identical to a fast run that shipped. Muda makes that join on the git side. Its one subcommand is statement. The month is named with --month and is required, in the form 2026-01. A commit is counted in the month its author timestamp falls in, read in UTC, so a commit near a month boundary can land in the neighbouring month against the local date its own timestamp carries. The document goes to stdout, or to a file with -o. A rates card passed with --rates adds a priced section to the same document.
 
-A revert joins by its quoted subject or by the trailer git itself writes, a fix-forward joins by its Fixes trailer naming the commit it fixes, and a task done twice joins by subject and shared paths to the earlier attempt. Adding two parser commits to the demo, the second repeating the first inside the same month, adds a redone item to the January statement.
+A revert joins by its quoted subject or by the trailer git itself writes, a fix-forward joins by its Fixes trailer naming the commit it fixes, and a task done twice joins by subject and shared paths to the earlier attempt. The revert and fix-forward joins resolve against the whole read, across month boundaries. The redone join looks only at earlier commits inside the stated month, so a task whose first attempt landed in an earlier month is not reported as redone. Adding two parser commits to the demo, the second repeating the first inside the same month, adds a redone item to the January statement.
 
 ```console
 $ cd demo
