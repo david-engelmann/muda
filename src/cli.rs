@@ -128,7 +128,7 @@ fn invalid_choice_top(value: &[u16], closed: &ClosedFlags) -> i32 {
     message.push_str(" (choose from 'statement')");
     parse_error(
         &ParseFailure {
-            prog: "secondbill",
+            prog: "muda",
             usage: TOP_USAGE,
             message,
         },
@@ -139,7 +139,7 @@ fn invalid_choice_top(value: &[u16], closed: &ClosedFlags) -> i32 {
 fn required_error_top(closed: &ClosedFlags) -> i32 {
     parse_error(
         &ParseFailure {
-            prog: "secondbill",
+            prog: "muda",
             usage: TOP_USAGE,
             message: Msg::str("the following arguments are required: command"),
         },
@@ -157,7 +157,7 @@ fn extras_error_top(extras: &[Vec<u16>], closed: &ClosedFlags) -> i32 {
     }
     parse_error(
         &ParseFailure {
-            prog: "secondbill",
+            prog: "muda",
             usage: TOP_USAGE,
             message,
         },
@@ -302,7 +302,7 @@ enum SubOutcome {
 fn sub_error(message: Msg, closed: &ClosedFlags) -> i32 {
     parse_error(
         &ParseFailure {
-            prog: "secondbill statement",
+            prog: "muda statement",
             usage: STATEMENT_USAGE,
             message,
         },
@@ -373,7 +373,7 @@ fn parse_statement(tokens: &[Vec<u16>], closed: &ClosedFlags) -> SubOutcome {
                 }
                 LongMatch::Help => {
                     if let Some(done) =
-                        help_token_outcome(token, "secondbill statement", STATEMENT_USAGE, closed)
+                        help_token_outcome(token, "muda statement", STATEMENT_USAGE, closed)
                     {
                         return SubOutcome::Done(done);
                     }
@@ -424,7 +424,7 @@ fn parse_statement(tokens: &[Vec<u16>], closed: &ClosedFlags) -> SubOutcome {
                     0x68 => {
                         if token.get(index + 1) == Some(&0x3D) {
                             terminal = Some(help_explicit(
-                                "secondbill statement",
+                                "muda statement",
                                 STATEMENT_USAGE,
                                 &token[index + 2..],
                                 closed,
@@ -555,13 +555,13 @@ fn run_with_args(args: &[Vec<u16>], closed: &ClosedFlags) -> i32 {
             && token[1] == 0x68;
         if help_shaped {
             if let Some(glued) = token_glued_value(token) {
-                return help_explicit("secondbill", TOP_USAGE, &glued, closed);
+                return help_explicit("muda", TOP_USAGE, &glued, closed);
             }
             return help_text(TOP_HELP, closed);
         }
         if short_help {
             if token.get(2) == Some(&0x3D) {
-                return help_explicit("secondbill", TOP_USAGE, &token[3..], closed);
+                return help_explicit("muda", TOP_USAGE, &token[3..], closed);
             }
             return help_text(TOP_HELP, closed);
         }
@@ -1096,7 +1096,7 @@ fn statement(args: &StatementArgs, closed: &ClosedFlags) -> i32 {
         });
         if inside {
             return error_line(
-                &Msg::str("secondbill writes nothing inside the repository it reads"),
+                &Msg::str("muda writes nothing inside the repository it reads"),
                 closed,
             );
         }

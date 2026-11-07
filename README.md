@@ -1,10 +1,10 @@
-# secondbill
+# muda
 
-It meters the tax a fleet pays in rework, reverted diffs, redone tasks, and fix-forward commits, and bills it to the cause, as an itemized monthly statement. Catchledger prices checks, secondbill prices work.
+It meters the tax a fleet pays in rework, reverted diffs, redone tasks, and fix-forward commits, and bills it to the cause, as an itemized monthly statement. Catchledger prices checks, muda prices work.
 
 ## What this is
 
-Traces end at the session while outcomes live in git, so no run can be priced by whether its work survived, and a fast run that generates tomorrow's revert looks identical to a fast run that shipped. Secondbill makes that join on the git side. It reads one repository's whole history and, for one stated calendar month, finds the rework: commits that revert an earlier commit, commits that fix one forward, and tasks done twice. Every item is billed to the commit that caused it, with the join stated on the item itself. An item whose cause cannot be named from the record is listed as unjoined with the reason, never silently billed and never dropped.
+Traces end at the session while outcomes live in git, so no run can be priced by whether its work survived, and a fast run that generates tomorrow's revert looks identical to a fast run that shipped. Muda makes that join on the git side. It reads one repository's whole history and, for one stated calendar month, finds the rework: commits that revert an earlier commit, commits that fix one forward, and tasks done twice. Every item is billed to the commit that caused it, with the join stated on the item itself. An item whose cause cannot be named from the record is listed as unjoined with the reason, never silently billed and never dropped.
 
 The statement itself prices in counts only, items per class and per cause. Round 2 adds pricing on top: given a rates card naming a currency and a rate for each class, the statement gains a priced section, exact in minor units, counting only the joined items, with the unpriced remainder visible beside the totals. The causes here are commits; joining causes onward to the instruction, prompt, or agent behind the commit is later work.
 
