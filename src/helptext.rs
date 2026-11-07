@@ -17,8 +17,7 @@ options:
 pub const TOP_USAGE: &str = "usage: muda [-h] {statement} ...";
 
 pub const STATEMENT_HELP: &str = "\
-usage: muda statement [-h] --month MONTH [--rates RATES] [-o OUTPUT]
-                            repo
+usage: muda statement [-h] --month MONTH [--rates RATES] [-o OUTPUT] repo
 
 positional arguments:
   repo
@@ -31,5 +30,4 @@ options:
 ";
 
 pub const STATEMENT_USAGE: &str = "\
-usage: muda statement [-h] --month MONTH [--rates RATES] [-o OUTPUT]
-                            repo";
+usage: muda statement [-h] --month MONTH [--rates RATES] [-o OUTPUT] repo";
