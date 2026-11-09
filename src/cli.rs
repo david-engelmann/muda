@@ -984,6 +984,52 @@ fn lexical_abspath(parent: &Path) -> std::io::Result<PathBuf> {
     Ok(path_from_bytes(&normpath_bytes(&joined)))
 }
 
+/// Sixteen bytes of operating system entropy for
+/// one temp candidate (SB-56): the urandom device
+/// on unix, read exactly. Any failure yields None,
+/// and the caller refuses the write rather than
+/// fall back to the computable draw.
+fn os_entropy() -> Option<[u8; 16]> {
+    #[cfg(unix)]
+    {
+        use std::io::Read;
+        let mut bytes = [0u8; 16];
+        let mut file = std::fs::File::open("/dev/urandom").ok()?;
+        file.read_exact(&mut bytes).ok()?;
+        Some(bytes)
+    }
+    #[cfg(not(unix))]
+    {
+        None
+    }
+}
+
+/// One temp candidate's suffix (SB-56): eight
+/// characters over the shipped 38-symbol alphabet,
+/// drawn from the LCG state's high bits folded
+/// with the candidate's entropy, the sixteen
+/// bytes' two u64 lanes XORed into the value
+/// before the first pick. The fold is what the
+/// plant cells measure; its order is pinned by
+/// the unit tests below.
+fn temp_suffix(state: u64, entropy: &[u8; 16]) -> String {
+    let fold = u64::from_le_bytes(entropy[..8].try_into().unwrap())
+        ^ u64::from_le_bytes(entropy[8..].try_into().unwrap());
+    let mut value = (state >> 11) ^ fold;
+    let mut random = String::new();
+    for _ in 0..8 {
+        let pick = (value % 38) as u8;
+        random.push(match pick {
+            0..=25 => (b'a' + pick) as char,
+            26..=35 => (b'0' + pick - 26) as char,
+            36 => '_',
+            _ => 'X',
+        });
+        value = value / 38 + 7;
+    }
+    random
+}
+
 /// The atomic write, tempfile.mkstemp's shape with
 /// no suffix: a sibling temp named with the file's
 /// name and a dot as prefix, mode 0600, replaced on
@@ -995,7 +1041,13 @@ fn lexical_abspath(parent: &Path) -> std::io::Result<PathBuf> {
 /// reaches the lexical directory or fails trying,
 /// and the write's success boundary sits there,
 /// while the rename destination stays the path
-/// itself.
+/// itself. Each candidate's suffix also draws
+/// fresh operating system entropy (SB-56): the
+/// shipped seed terms, the clock's sub-second
+/// nanos and the pid, remain as mixer inputs, but
+/// no candidate is a public function of them, and
+/// an entropy failure refuses the write before
+/// any create.
 fn write_atomically(path: &Path, bytes: &[u8]) -> std::io::Result<()> {
     use std::os::unix::fs::OpenOptionsExt;
     let parent = path.parent().unwrap_or(Path::new(""));
@@ -1019,21 +1071,22 @@ fn write_atomically(path: &Path, bytes: &[u8]) -> std::io::Result<()> {
     let mut candidate = PathBuf::new();
     let mut handle = None;
     for _ in 0..64 {
+        // SB-56: fresh entropy per candidate,
+        // folded into the draw by temp_suffix. A
+        // failed draw refuses the write outright
+        // with the loop's own exhaustion error;
+        // the computable terms alone never name a
+        // candidate.
+        let entropy = match os_entropy() {
+            Some(bytes) => bytes,
+            None => {
+                return Err(std::io::Error::from(std::io::ErrorKind::AlreadyExists));
+            }
+        };
         seed = seed
             .wrapping_mul(6364136223846793005)
             .wrapping_add(1442695040888963407);
-        let mut random = String::new();
-        let mut value = seed >> 11;
-        for _ in 0..8 {
-            let pick = (value % 38) as u8;
-            random.push(match pick {
-                0..=25 => (b'a' + pick) as char,
-                26..=35 => (b'0' + pick - 26) as char,
-                36 => '_',
-                _ => 'X',
-            });
-            value = value / 38 + 7;
-        }
+        let random = temp_suffix(seed, &entropy);
         let mut tail = name.clone();
         tail.push(b'.');
         tail.extend_from_slice(random.as_bytes());
@@ -1172,6 +1225,39 @@ fn emit(document: &Value, out: Option<&[u16]>, closed: &ClosedFlags) -> i32 {
                     error_line(&message, closed)
                 }
             }
+        }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::temp_suffix;
+
+    /// SB-56: the entropy fold's order, pinned
+    /// against vectors computed independently of
+    /// this implementation. A change to the lane
+    /// order, the shift, or the pick walk moves
+    /// the vectors.
+    #[test]
+    fn temp_suffix_fold_vectors() {
+        let ascending: [u8; 16] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+        assert_eq!(temp_suffix(0x0123_4567_89AB_CDEF, &ascending), "jb8d7h6m");
+        assert_eq!(temp_suffix(0, &[0u8; 16]), "ahhhhhhh");
+        assert_eq!(temp_suffix(u64::MAX, &[0xFFu8; 16]), "j2jXpv16");
+        assert_eq!(temp_suffix(1442695040888963407, &[0x9Eu8; 16]), "sc8319bi");
+    }
+
+    /// SB-56: the suffix keeps the contracted
+    /// shape, eight characters over the shipped
+    /// alphabet, at any state and entropy.
+    #[test]
+    fn temp_suffix_shape() {
+        for state in [0u64, 1, u64::MAX] {
+            let suffix = temp_suffix(state, &[0xA5u8; 16]);
+            assert_eq!(suffix.len(), 8);
+            assert!(suffix
+                .bytes()
+                .all(|b| b.is_ascii_lowercase() || b.is_ascii_digit() || b == b'_' || b == b'X'));
         }
     }
 }
