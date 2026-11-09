@@ -665,3 +665,244 @@ after the reviews, before the repair code).
   description line itself, which is the
   repository owner's call and outside this
   round's bound.
+- SB-48. Round 7's CodeRabbit disposition,
+  discharged on read-back. PR 11 carries 13
+  reviews and 18 review comments and 4 issue
+  comments. The one substantive review is
+  CodeRabbit's 5812634605, read to its end:
+  exactly the six inline findings, no
+  body-only items, and no Docstring Coverage
+  failure on this PR. Six reviews carry the
+  owner's replies and six carry the bot's
+  acknowledgments, all with empty bodies.
+  The 18 comments are the six findings, six
+  owner replies, and six bot acknowledgments
+  on the threads rooted at 4502026331,
+  4502026334, 4502026341, 4502026344,
+  4502026347, and 4502026352. Every
+  acknowledgment was read in full: five are
+  plain acceptances; 4502079054 confirms the
+  SB-47 amendment addresses its finding and
+  its thread stands resolved; 4502081083, on
+  the dismissed thread, accepts the
+  dismissal, in its words "I accept leaving
+  the lede unchanged this round", and offers
+  to open a follow-up issue, an unaccepted
+  offer and not a finding. The issue thread
+  holds the trigger (6707845066), the shell
+  (6707847151), its reply (6707929958), and
+  the landing comment (6708133706). The
+  shell's final form is the rate-limit
+  banner over a complete walkthrough of the
+  final head d8ea2863: pre-merge checks 5
+  passed, and Docstring Coverage passed with
+  "No eligible functions found" over 0
+  analyzed functions. The reply records the
+  action not completed, already reviewed the
+  last commit, and carries no findings.
+  SB-47 disposed all six findings in Round
+  7, five repaired and one dismissed with
+  its reason. Nothing undisposed stands,
+  and this round owes no disposition.
+- SB-49. The counts and pricing separation,
+  measured at the shipped binary over three
+  synthetic fixtures, a 64-cell battery. An
+  unpriced statement carries no priced
+  section and names no currency (SB-9). A
+  priced statement is the counts document
+  with the priced section added and nothing
+  else moved (SB-16). A statement document
+  fed back as a rates card refuses on its
+  first key in document order, the unknown
+  key month. Over the full fixture, three
+  joined items (a revert, a fix-forward, a
+  redone) and one unjoined, the priced
+  arithmetic closes both ways at the README
+  rates: the per-class amounts and the
+  per-cause amounts each sum to the total
+  of 17.50 (SB-14). Only the joined items
+  are priced: items_priced stands at 3
+  against totals.items at 4, and the
+  unjoined item stands counts-only (SB-15).
+- SB-50. The currency form, measured. The
+  card's currency prices when it is three
+  ASCII letters in any case: USD, usd, and
+  UsD all price, and the priced section
+  carries the currency verbatim as supplied.
+  Two letters, four letters, a digit among
+  the letters, the empty string, a trailing
+  newline inside the string, and a non-ASCII
+  letter each refuse on the one line, "the
+  rates file names no currency of three
+  letters", with the value rendered by repr.
+  An absent currency renders the same
+  refusal with None as the named value, and
+  the number 123 renders unquoted. NaN
+  reads as a float under SB-20 and the
+  refusal names it nan.
+- SB-51. The rate form and the rendering,
+  measured. A rate prices as digits with an
+  optional point and one or two fraction
+  digits, digits on both sides of any point:
+  "5." and ".50" refuse, as do a leading
+  plus, a minus at any value including
+  "-0.00", a leading space, an exponent
+  form, the empty string, and a trailing
+  newline inside the string, each refused
+  on the one form line naming the class and
+  the rate as written. A rate given as a
+  JSON number refuses as not a decimal
+  string, with the value rendered by repr.
+  The priced section renders each rate
+  normalized to exactly two fraction
+  digits, so "5.5" stands as 5.50 and
+  "007.50" as 7.50, and amounts render the
+  same way (SB-14, SB-21). The integer
+  part's bound stands at 30 digits as
+  written, leading zeros counted (SB-13a):
+  29 and 30 digits price, 31 refuses under
+  the same form line naming the rate, one
+  leading zero making 31 as written
+  refuses, and five leading zeros over 25
+  nines, 30 as written, prices at the
+  25-nine value. The minor-unit arithmetic
+  is exact at magnitude: three items at a
+  rate of 30 nines and .99 total
+  2999999999999999999999999999999.97,
+  checked in integer minor units. A zero
+  rate prices at 0.00.
+- SB-52. Duplicate keys, measured at every
+  level (SB-13a, SB-20). A repeated key
+  refuses by name at the close of its
+  object: currency and per_item at the top
+  level, revert inside per_item, a key
+  inside an unknown key's object, and a key
+  inside a class's object value. The
+  comparison is on the decoded key: a card
+  naming "curr\u0065ncy" beside currency
+  refuses as currency twice. The scanner
+  decides in parse order, before any
+  validation: a duplicate inside an unknown
+  key's object refuses as the duplicate,
+  not as the unknown key, and a duplicate
+  whose first value is a badly typed rate
+  refuses as the duplicate, not as the
+  rate. Validation otherwise names, in its
+  order: an unknown top-level key and an
+  unknown class, each rendered unquoted; a
+  missing class as "prices no <class>"; a
+  missing per_item as carrying no per_item
+  rates; a card that is not an object as
+  not an object.
+- SB-53. The strict scanner's limits,
+  re-measured at this binary (SB-20). An
+  integer literal of 4301 digits refuses as
+  not JSON, at the interpreter's digit
+  limit; 4300 digits parse and the value
+  reaches validation, named by its digits
+  under the currency refusal. Arrays nested
+  9993 deep under a key reach validation,
+  where the unknown key is named; 9994
+  refuse as not JSON, the reader's limit of
+  9994 containers from the root standing as
+  calibrated in src/card.rs. A card that is
+  not UTF-8 refuses as not utf-8. A card
+  file that does not exist refuses on the
+  line "cannot read the rates file",
+  naming the path as given.
+- SB-54. The output guard's walk constant,
+  measured fresh at this binary in the
+  harness's construction, the output spelled
+  as the head of a symlink chain standing in
+  one real directory, so the port's own
+  resolver is the only traversal. Chains of
+  990 and 991 splices resolve: the write
+  lands and replaces the head link, and a
+  chain of 991 onto the repository draws
+  the guard's refusal line. A chain of 992
+  splices aborts the walk into the silent
+  crash class, head link untouched, on both
+  targets. One extra head link agrees: over
+  a chain of 990 the write lands at 991
+  splices, and over a chain of 991 it aborts
+  at 992. The constant stands at 991
+  splices, as SB-25 calibrated it against
+  the interpreter; it is stated here from
+  this binary's own cells, not inherited.
+- SB-55. The temp draw, convicted. As
+  shipped through Round 7 the candidate
+  sequence is a public function of two
+  inputs: the seed is the clock's
+  sub-second nanos folded with the pid
+  shifted by 16, with a constant standing
+  in when the clock read fails, and each of
+  the 64 attempts steps the MMIX LCG once
+  and draws eight characters over the
+  38-symbol alphabet from the state's high
+  bits. Under the fleet's frozen-clock
+  plant method, the clock frozen by an
+  LD_PRELOAD shim and the pid fixed in a
+  pid namespace, the whole sequence is
+  computable in advance. At the reading
+  1700000000.123456789 with pid 1 and at
+  1800000000.987654321 with pid 250,
+  planting all 64 computed candidates
+  refuses the write on the standing
+  cannot-write line and no statement
+  lands, while planting 63 lands the write
+  on the 64th candidate with content
+  byte-identical to the unplanted
+  statement, at both readings. A bystander
+  who can set the clock and predict the pid
+  can deny the write outright.
+- SB-56. The draw repaired in the fleet
+  shape. Every candidate now draws 16 bytes
+  of operating system entropy from
+  /dev/urandom, read exactly, and
+  temp_suffix folds the sixteen bytes' two
+  u64 lanes into the draw value before the
+  first pick; the shipped clock and pid
+  terms remain as mixer inputs, but no
+  candidate is a public function of them.
+  An entropy failure returns the attempt
+  loop's own exhaustion error before any
+  create, so the write refuses on the
+  standing line and never falls back to the
+  computable draw. The name's shape is
+  unchanged: the file's name, a dot, eight
+  characters over the shipped alphabet, so
+  the boundaries of SB-35 and SB-37 stand
+  where they stood. The pins: two cargo
+  unit tests, the fold's vectors computed
+  independently of the implementation and
+  the suffix's shape at any state; the
+  plant battery re-run against the repaired
+  binary, where all 64 computed candidates
+  planted at both readings and both pids no
+  longer refuse anything, the write landing
+  byte-identical with all 64 plants left
+  standing; and the entropy-refusal cells,
+  where a shim refusing the urandom opens
+  makes the repaired binary refuse on the
+  standing line with the directory left
+  empty, the pre-repair binary writes
+  through the same shim, and the repaired
+  binary without the shim writes. The
+  differential harness runs byte-clean
+  against the Python oracle on the final
+  tree, and the pricing battery of SB-49 to
+  SB-53 re-runs against the repaired binary
+  with no verdict moved.
+- SB-57. This round's closure: the gate
+  passes on the final tree (cargo test with
+  the two new unit tests standing at 25,
+  clippy over all targets, the format
+  check), the harness stands byte-clean,
+  and only then does the README record 8
+  of 100 in the closure commit. Checklist
+  item 3 stands as SB-43 recorded it, open,
+  and the description's attribution clause
+  stands as SB-47 recorded it, the
+  repository owner's call; both are
+  restated in the round's readiness block
+  exactly as they stand.
