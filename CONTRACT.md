@@ -906,3 +906,228 @@ after the reviews, before the repair code).
   repository owner's call; both are
   restated in the round's readiness block
   exactly as they stand.
+- SB-58. Round 8's CodeRabbit
+  disposition, discharged on read-back.
+  PR 12 carries no reviews and no review
+  comments and 5 issue comments, all read
+  to their ends, and the PR body in full.
+  The shell is 6735669139: no actionable
+  comments were generated in the recent
+  review; its walkthrough covers the range
+  93e22396..99ddc2f5 over 3 files and
+  grades the merge risk Minimal; pre-merge
+  checks 5 passed, and Docstring Coverage
+  passed at 100.00% against the 80.00%
+  threshold, 4 functions analyzed across 1
+  file with 2 skipped as unsupported, so
+  no dismissal of a coverage failure is
+  owed on this PR. The trigger is
+  6735670496. The bot's auto-reply
+  6735728290 records the action not
+  completed, already reviewed the last
+  commit, and invites a full review to
+  rerun; it carries no findings and no
+  correction, and the Round 8 build
+  report's census did not enumerate it, so
+  it is recorded here in its exact form.
+  The owner's disposition 6735734971
+  records step 0 complete on head 99ddc2f5
+  with zero findings. The landing comment
+  6739797403 records the merge, 2703c0cc,
+  and the red team discharge's final form:
+  the red team had held its verdict on
+  evidence alone, the write fault refusing
+  every fixture write, with zero defect
+  findings, and an owner-armed cron run
+  after the merge rebuilt both trees from
+  the API, base tree 58f11d8f and head tree
+  2102aaa8, found its builds md5-identical
+  to the red team's report, and ran the
+  banked battery at 42 cells all PASS and
+  the differential harness at 14 cases,
+  240 steps, 0 failures, the full outputs
+  banked with Round 8's records. Nothing
+  undisposed stands on PR 12, and this
+  round owes no disposition.
+- SB-59. The pricing surfaces, measured
+  fresh at this binary against the shipped
+  oracle over one realistic synthetic
+  corpus: 46 commits from October 2025 to
+  March 2026 with 4 merges, features,
+  subject and trailer reverts, Fixes
+  trailers, redone tasks with an
+  earliest-of-several case, unjoined
+  items, and causes standing in earlier
+  months than their reverts. Statements
+  for the four populated months, November
+  and January carrying 5 joined items over
+  3 causes with 1 unjoined, December and
+  February carrying 4 joined items over 3
+  causes with 1 unjoined, priced under six
+  card shapes, 24 cells compared byte for
+  byte on exit, stdout, and stderr: no
+  card; USD at 10.00, 5.00, and 2.50; EUR
+  with a zero revert rate at 0.00, 12.34,
+  and 0.01; lowercase jpy at 150.00, 80.5,
+  and 0.07; a bound-edge card at the
+  30-digit edge as written, a revert rate
+  of 30 nines with .99, a fix-forward rate
+  of 29 nines with .09, and a redone rate
+  of 30 digits as written with five
+  leading zeros; and an all-zero card at
+  0, 0.00, and 0.0. Every priced document
+  also closed independently: per-class
+  amounts and per-cause amounts each sum
+  to the total in integer minor units,
+  every per-class amount closes on its
+  rate times its item count, items_priced
+  equals the joined item count of the
+  counts document, and the priced document
+  minus its priced section is the counts
+  document. Three -o cells landed bytes
+  equal to the stdout bytes on both
+  implementations. The unpriced documents
+  carry no priced section and name no
+  currency (SB-9); the join onward is not
+  built yet, as the README states, and
+  nothing beyond the shipped surfaces is
+  claimed.
+- SB-60. Duplicate keys, measured fresh
+  at this binary against the shipped
+  oracle (SB-13a, SB-20, SB-52) on every
+  surface that exists. The shipped CLI has
+  no stdin mode and no "-" convention; the
+  rates path is read as a plain file on
+  both implementations, so the stdin
+  surface is measured by naming /dev/stdin
+  as the path on both. On the file
+  surface, eleven cards refuse byte-
+  identically: currency and per_item
+  repeated at the top level, revert
+  repeated inside per_item, a key repeated
+  inside a class's object value (x inside
+  revert's object, y inside fix-forward's
+  object), a repeated inside an unknown
+  key's object, a repeated inside an
+  object nested in an array value, the
+  decoded-escape duplicate naming currency
+  twice, the two parse-order cells, a
+  duplicate standing before an unknown key
+  and a duplicate standing over a badly
+  typed rate, each refusing as the
+  duplicate, and empty input refusing as
+  not JSON. A valid card prices clean. On
+  the /dev/stdin surface, the top-level
+  currency duplicate, the per_item revert
+  duplicate, the decoded-escape duplicate,
+  empty input, and the valid card each
+  answer byte-identically to the file
+  surface on both implementations.
+- SB-61. The draw, measured fresh at this
+  binary after the SB-56 repair: ten cells,
+  no failures. A model of the draw written
+  from the contract text is pinned against
+  the four unit vectors in src/cli.rs
+  before any cell runs. Under entropy
+  refusal in both arms, the device open
+  refused and a short read of five bytes,
+  the port refuses on the standing
+  cannot-write line before any create and
+  the directory is left as seeded; the
+  oracle under the refusal arm lands its
+  statement, because its draw never opens
+  the device at statement time, and that
+  split is contracted, not smoothed over.
+  The clock-only plants stand inert at
+  both of Round 8's readings, the clock
+  frozen at 1700000000.123456789 with the
+  process as namespace init at pid 1 and
+  at 1800000000.987654321 at pid 250: all
+  64 candidates of the pre-repair
+  clock-only sequence planted, the write
+  lands byte-identical and every plant
+  stands, and the oracle under the frozen
+  clock at pid 1 with the same 64 planted
+  also lands. The positive control pins
+  entropy's causal role: with the entropy
+  block fixed to a known nonzero value
+  the 64 candidates are computable,
+  planting all 64 refuses the write, and
+  removing the 64th lands it; with the
+  block zeroed the fold is zero, the
+  candidate sequence is the clock-only
+  sequence again, and its plants refuse.
+- SB-62. The resolver walk, measured
+  fresh at this binary (SB-54): fourteen
+  cells, no failures. The hand walk's
+  constant, 991 splices, governs the
+  guard's decision: onto-repo chains at
+  990 and 991 splices refuse with the
+  guard's line, so the refusal still
+  speaks at the constant, and at 992 the
+  walk aborts into the crash class, the
+  port silent at exit 1 with both streams
+  empty and the oracle raising
+  RecursionError, the same split standing
+  at the away chain of 992 and at a head
+  link over a 991 chain. The write itself
+  travels the spelled path through the
+  kernel, whose own traversal limit is 40
+  links, and that limit governs the
+  physical write: away chains at 990 and
+  991 splices and a head link over a 990
+  chain, 991 splices in all, resolve in
+  the hand walk to targets outside the
+  repository, yet both implementations
+  refuse the write with the standing
+  cannot-write line and nothing lands.
+  In every one of these cells the chain
+  stands in the output's parent path,
+  the output spelled through the chain
+  (through the chain itself, or through
+  a head link into it), so the temp's
+  creation must traverse the chain in
+  the kernel. That is not SB-54's
+  shape, where the output is spelled as
+  the head of a chain standing in one
+  real directory, the port's resolver
+  is the only traversal, and the write
+  lands and replaces the head link. The
+  boundary is pinned inside the
+  battery: an away chain at 40 splices
+  lands on both implementations and at 41
+  the write is refused on both. The
+  cancelled loop's remainder is popped by
+  its dotdot in the hand walk, but the
+  kernel still traverses the cycle on the
+  write path, and both implementations
+  refuse with the write line and nothing
+  lands. The loop postures stand as
+  contracted: a self loop, a two-cycle,
+  and a cycle entered after a real splice
+  each leave the port silent and the
+  oracle answering with a traceback.
+  These cells were first drafted
+  expecting the long chains to land; both
+  implementations falsified that
+  expectation together, the temp open
+  through the chain refused with ELOOP,
+  and the contracted form above is the
+  measured one.
+- SB-63. This round's closure: the gate
+  passes on the final tree (cargo test
+  standing at 25, 2 unit and 23
+  integration, clippy over all targets
+  with warnings denied, the format
+  check), the codepoint scan stands at
+  zero em dashes and zero en dashes, the
+  harness stands byte-clean at 14 cases,
+  240 steps, 0 failures, and only then
+  does the README record 9 of 100 in the
+  closure commit. Checklist item 3 stands
+  as SB-43 recorded it, open, and the
+  description's attribution clause stands
+  as SB-47 recorded it, the repository
+  owner's call; both are restated in the
+  round's readiness block exactly as they
+  stand.
