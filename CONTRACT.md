@@ -1081,7 +1081,19 @@ after the reviews, before the repair code).
   repository, yet both implementations
   refuse the write with the standing
   cannot-write line and nothing lands.
-  The boundary is pinned inside the
+  In every one of these cells the chain
+  stands in the output's parent path,
+  the output spelled through the chain
+  (through the chain itself, or through
+  a head link into it), so the temp's
+  creation must traverse the chain in
+  the kernel. That is not SB-54's
+  shape, where the output is spelled as
+  the head of a chain standing in one
+  real directory, the port's resolver
+  is the only traversal, and the write
+  lands and replaces the head link. The
+  boundary is pinned inside the
   battery: an away chain at 40 splices
   lands on both implementations and at 41
   the write is refused on both. The
