@@ -1102,3 +1102,20 @@ after the reviews, before the repair code).
   through the chain refused with ELOOP,
   and the contracted form above is the
   measured one.
+- SB-63. This round's closure: the gate
+  passes on the final tree (cargo test
+  standing at 25, 2 unit and 23
+  integration, clippy over all targets
+  with warnings denied, the format
+  check), the codepoint scan stands at
+  zero em dashes and zero en dashes, the
+  harness stands byte-clean at 14 cases,
+  240 steps, 0 failures, and only then
+  does the README record 9 of 100 in the
+  closure commit. Checklist item 3 stands
+  as SB-43 recorded it, open, and the
+  description's attribution clause stands
+  as SB-47 recorded it, the repository
+  owner's call; both are restated in the
+  round's readiness block exactly as they
+  stand.
