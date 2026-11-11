@@ -1214,6 +1214,32 @@ after the reviews, before the repair code).
   silent and the oracle answering with a
   traceback, and the cancelled loop is
   write-refused on both.
+- SB-65a. A correction and a case the walk did
+  not stand in. CodeRabbit's step-0 pass on this
+  round's pull request raised the single-link
+  case, and it was measured fresh at this binary
+  in answer: a symbolic link standing inside the
+  repository as the output filename, pointing
+  outside it, passes the guard, whose resolution
+  judges the destination by its resolved target,
+  and the write then lands inside the repository,
+  the temp file created beside the link and
+  renamed over it, the link replaced by a regular
+  file holding the statement and the outside
+  target left unwritten, on a strace of the run
+  and the listings after it. SB-65's Shape B cells
+  stood their head links in the fixtures root
+  beside the repository, the geometry its text
+  states, so no contracted sentence falls; but
+  the case itself stands as a live divergence
+  between the guard's resolution law (SB-11,
+  SB-54) and the write's physical landing at the
+  final component when that component is a link,
+  carried open in SB-62's posture for the next
+  slice to decide, and the summary bullet in this
+  round's pull request body that spelled the walk
+  cell as a link inside the repository is
+  corrected by a comment on that pull request.
 - SB-66. The draw's posture, re-probed fresh at
   this binary: eleven cells, no failures. A model
   of the draw written from the contract text is
