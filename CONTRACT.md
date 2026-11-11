@@ -1131,3 +1131,273 @@ after the reviews, before the repair code).
   owner's call; both are restated in the
   round's readiness block exactly as they
   stand.
+- SB-64. PR 13's read-back, in full: 3 reviews,
+  3 review comments, and 4 issue comments, every
+  body read to its end, reply threads included.
+  The reviews: CodeRabbit's review 5842472713 on
+  the reviewed head de318bc7, COMMENTED with one
+  actionable comment; the owner's empty COMMENTED
+  review 5842734839 on the repair head; and the
+  bot's empty COMMENTED review 5842738870 on the
+  same head. The issue comments: the bot's shell
+  6768151249, the owner's trigger 6768162341, the
+  bot's auto-reply 6768418614, and the owner's
+  landing comment 6771329624. The shell was edited
+  into its final form after Round 9's in-round
+  read (created 13:08:17Z, updated 13:37:08Z, the
+  update postdating the repair commit 3caa85a2),
+  and it stands in that final form as follows: a
+  rate-limit banner stands at its head (the free
+  OSS review limit reached, the next included
+  review in 31 minutes, run ID 327308d7); the
+  walkthrough records the round's changes over
+  CONTRACT.md and README.md with an estimated
+  effort of 2; the merge risk reads Minimal with
+  previous review de318; and the pre-merge table
+  lists four checks, all passed, named
+  Description Check, Title check, Linked Issues
+  check, and Out of Scope Changes check, with no
+  Docstring Coverage check standing in the table.
+  The contracted disposition written against that
+  final form stands correct: no coverage dismissal
+  was owed on PR 13, the earlier in-round reading
+  of five passed checks having counted a check
+  the final form does not carry. The auto-reply
+  6768418614 stands in its exact form: action not
+  completed, already reviewed the last commit.
+  Inline comment 4525307799 (CodeRabbit, Minor,
+  Functional Correctness) asked SB-62 to name the
+  tested path shape; its thread reads to its end:
+  the owner's disposition 4525503327, valid and
+  repaired in-round by the CONTRACT.md-only commit
+  3caa85a2, the bot's confirmation 4525506441 that
+  the repair addresses the finding, and the thread
+  resolved. Nothing in the record falsifies any
+  Round 9 disposition; the one correction Round 9
+  itself recorded, the gate record's pre-merge
+  count moving from five to four, is the shell's
+  final form confirming it.
+- SB-65. The two-laws boundary, measured fresh at
+  this binary against the verified oracle (the
+  pristine 918dc7e tree, byte-identical in the
+  line's sb-oracle copy, the driven renamed copy
+  equal to it modulo the rename): fifteen cells,
+  no failures, the two laws kept separate by path
+  shape. Shape A, the chain standing in the
+  output's parent path with the output spelled
+  through it, so the kernel traverses the chain
+  when the temp is created: the guard's hand walk
+  decides at its constant for this shape, onto-repo
+  chains at 990 and 991 splices refusing with the
+  guard's line and the walk aborting into the
+  crash class at 992 (the port silent at exit 1,
+  the oracle raising RecursionError); and the
+  kernel's own link traversal decides the physical
+  write at its exact points, an away chain at 40
+  splices landing on both implementations and at
+  41 splices refused on both with the standing
+  cannot-write line, nothing landing, an away
+  chain at 991 splices likewise write-refused on
+  both. Shape B, the chain's head link standing as
+  the output filename itself inside one real
+  directory, which only the resolver traverses:
+  chains at 40 and at 41 splices both land on both
+  implementations, the write replacing the head
+  link, a chain at 991 splices lands the same way,
+  a chain of 991 splices onto the repository draws
+  the guard's refusal line with the head link left
+  standing, and at 992 splices the walk aborts
+  into the crash class with the head link
+  untouched. The loop postures stand as contracted
+  in SB-62: a self loop, a two-cycle, and a cycle
+  entered after a real splice each leave the port
+  silent and the oracle answering with a
+  traceback, and the cancelled loop is
+  write-refused on both.
+- SB-65a. A correction and a case the walk did
+  not stand in. CodeRabbit's step-0 pass on this
+  round's pull request raised the single-link
+  case, and it was measured fresh at this binary
+  in answer: a symbolic link standing inside the
+  repository as the output filename, pointing
+  outside it, passes the guard, whose resolution
+  judges the destination by its resolved target,
+  and the write then lands inside the repository,
+  the temp file created beside the link and
+  renamed over it, the link replaced by a regular
+  file holding the statement and the outside
+  target left unwritten, on a strace of the run
+  and the listings after it. SB-65's Shape B cells
+  stood their head links in the fixtures root
+  beside the repository, the geometry its text
+  states. The case is carried open by name
+  against SB-11. SB-11 states that muda never
+  writes to the repository it reads, without
+  qualification; this case is a write landing
+  inside the repository it reads, reached by
+  composing two sub-laws that each behaved as
+  contracted, the guard judging the resolved
+  target and SB-54's write replacing the head
+  link, so it contradicts SB-11 as written,
+  and no sentence in this item claims
+  otherwise. The red team's map (14 cells, no
+  disagreements) establishes the landing as
+  the pair's shared posture: the oracle lands
+  identically on the same geometry, so the
+  divergence is internal to each
+  implementation, between the guard's
+  resolution law and the write's physical
+  landing at the final component when that
+  component is a link, and not a port
+  divergence. The next slice must either
+  amend SB-11 to the resolution-scoped law,
+  which is the repository owner's word, or
+  close the landing; until one of those
+  lands, the case stands open in SB-62's
+  posture. The summary bullet in this round's
+  pull request body states Shape B outcomes
+  without their geometry; its defect is that
+  omission, the fixtures-root geometry never
+  stated, and the owner's body edit adds it.
+- SB-66. The draw's posture, re-probed fresh at
+  this binary: eleven cells, no failures. A model
+  of the draw written from the contract text is
+  pinned against the four unit vectors in
+  src/cli.rs before any cell runs (SB-56). Under
+  entropy refusal in both arms, the device open
+  refused and a short read of five bytes, the port
+  refuses on the standing cannot-write line before
+  any create and the directory is left as seeded;
+  the oracle under the refusal arm lands its
+  statement, the contracted split standing. The
+  clock-only plants stand inert at both of Round
+  8's readings. The positive control is now
+  bracketed at both ends: with the entropy block
+  fixed to a known nonzero value the 64 candidates
+  are computable, planting all 64 refuses the
+  write, and removing the first planted candidate
+  lands the write, as removing the last (the
+  64th) lands it; with the block zeroed the fold
+  is zero, the candidate sequence is the
+  clock-only sequence again, and its plants
+  refuse.
+- SB-67. The counting joints, measured fresh at
+  this binary: seven cells, no failures. A priced
+  statement never counts: over one fixture (a
+  revert, a fix-forward, and a redone item joined,
+  the priced arithmetic under SB-13 to SB-16), the
+  priced document on both implementations is the
+  unpriced counts document with the priced section
+  added and nothing else moved, totals standing
+  identical between the priced and unpriced
+  documents, and items_priced counting only the
+  joined items. Duplicate keys refuse by name at a
+  nested level on both surfaces that exist, the
+  file surface and the /dev/stdin surface: a key
+  repeated inside a class's object value inside
+  per_item refuses as "names amount twice", and a
+  key repeated inside an object nested in an
+  array value under an unknown key refuses as
+  "names k twice", byte-identically on both
+  implementations and across surfaces. A rate's
+  integer part at exactly 30 digits prices, and
+  at 31 digits refuses under the form line naming
+  the rate as written, on both implementations.
+- SB-68. The realistic pass, synthetic content
+  only, sanitization absolute: 588 cells measured,
+  no failures, and 22 cells standing unmeasured
+  for an environmental reason stated below. The
+  corpus, stated from the material itself: 22
+  team repositories, each carrying a full year of
+  history for 2026, in each month four base
+  commits, one revert joined by its trailer, one
+  fix-forward joined by its Fixes trailer, one
+  redone task standing as a repeated subject, one
+  shipping commit, four further base commits, and
+  in each quarter one merge commit, 12 commits in
+  an ordinary month and 14 in a merge month, 152
+  commits per repository, 3344 commits in all.
+  The statement cells: every repository at every
+  month of its year, 264 unpriced statements on
+  stdout and 264 priced with that repository's
+  own card, 528 cells compared byte for byte
+  between the shipped CLI and the oracle. The
+  price books: 30 cards, 18 valid and 12 planted
+  refusals, the valid set varying the currency
+  case, zero rates, leading zeros, one-digit
+  fractions, and integer parts up to exactly 30
+  digits, the refusal set planting duplicate keys
+  at the top level, inside per_item, inside a
+  class's object value, and inside an object
+  nested in an array value, an unknown top-level
+  key, an unknown class, two bad currency forms,
+  a number-typed rate, an integer part of 31
+  digits, and two malformed rate forms; every
+  card runs on the file surface and on the
+  /dev/stdin surface against one fixed repository
+  and month, 60 cells, compared exit for exit and
+  byte for byte across implementations and across
+  surfaces. The output-file cells, one month per
+  repository on both implementations, 22 cells,
+  were attempted repeatedly and stand unmeasured:
+  through this round's later hours the box's
+  write fault refused the measured writes
+  themselves, both implementations answering with
+  the standing cannot-write line and a strace
+  pinning the refusal to the temp file's write
+  returning EPERM, so no verdict is recorded for
+  those cells either way; the output-file surface
+  itself stands measured landing writes this
+  round in SB-65 and SB-66, whose cells ran
+  before the window closed. The counts close:
+  528 statement cells and 60 price-book cells
+  are the 588 measured, and the 22 output-file
+  cells stand apart, unmeasured.
+- SB-69. This round's closure: the gate passes
+  on the final tree (cargo test standing at 25,
+  2 unit and 23 integration, clippy over all
+  targets with warnings denied, the format
+  check), the codepoint scan stands at zero em
+  dashes and zero en dashes, and only then does
+  the README record 10 of 100 in the closure
+  commit. The differential harness's own run this
+  round was refused by the same write fault that
+  stands in SB-68 (its fixture writes returned
+  EPERM) and is not counted; the harness result
+  of record remains Round 9's, on source this
+  round did not change. Checklist item 3 stands
+  as SB-43 recorded it, open, and the
+  description's attribution clause stands as
+  SB-47 recorded it, the repository owner's call;
+  both are restated in the round's readiness
+  block exactly as they stand.
+- SB-70. The repair record for this round's
+  reviews. The spec fidelity review returned
+  NOT PASS with one Major and two Minors; the
+  standards review APPROVE with one Minor;
+  the red team APPROVE with no findings. The
+  Major and the first Minor stood against
+  SB-65a as first written (its concluding
+  claim against SB-11, and its port-only
+  evidence) and are repaired in SB-65a as
+  restated above; the second Minor and the
+  standards Minor stood against the pull
+  request body and are repaired by the
+  owner's body edit (the Verified block
+  naming the final head and tree, the SB-65
+  bullet carrying its geometry). The red
+  team also executed the 22 output-file
+  cells SB-68 left unmeasured (22 fresh
+  repositories at the round's shapes,
+  byte-identical output files on both
+  implementations, no write fault met), so
+  that surface stands measured on the review
+  record; SB-68's text stands as the round
+  battery's own record. The red team's
+  geometry map for SB-65a stands in its
+  report for the next slice's use. The spec
+  review's corpus enumeration note (a merge
+  month enumerated at 13 against the stated
+  14, the totals closing on the 14) is
+  charged to the next round's read-back if
+  the generator is rebuilt.
