@@ -1230,16 +1230,35 @@ after the reviews, before the repair code).
   and the listings after it. SB-65's Shape B cells
   stood their head links in the fixtures root
   beside the repository, the geometry its text
-  states, so no contracted sentence falls; but
-  the case itself stands as a live divergence
-  between the guard's resolution law (SB-11,
-  SB-54) and the write's physical landing at the
-  final component when that component is a link,
-  carried open in SB-62's posture for the next
-  slice to decide, and the summary bullet in this
-  round's pull request body that spelled the walk
-  cell as a link inside the repository is
-  corrected by a comment on that pull request.
+  states. The case is carried open by name
+  against SB-11. SB-11 states that muda never
+  writes to the repository it reads, without
+  qualification; this case is a write landing
+  inside the repository it reads, reached by
+  composing two sub-laws that each behaved as
+  contracted, the guard judging the resolved
+  target and SB-54's write replacing the head
+  link, so it contradicts SB-11 as written,
+  and no sentence in this item claims
+  otherwise. The red team's map (14 cells, no
+  disagreements) establishes the landing as
+  the pair's shared posture: the oracle lands
+  identically on the same geometry, so the
+  divergence is internal to each
+  implementation, between the guard's
+  resolution law and the write's physical
+  landing at the final component when that
+  component is a link, and not a port
+  divergence. The next slice must either
+  amend SB-11 to the resolution-scoped law,
+  which is the repository owner's word, or
+  close the landing; until one of those
+  lands, the case stands open in SB-62's
+  posture. The summary bullet in this round's
+  pull request body states Shape B outcomes
+  without their geometry; its defect is that
+  omission, the fixtures-root geometry never
+  stated, and the owner's body edit adds it.
 - SB-66. The draw's posture, re-probed fresh at
   this binary: eleven cells, no failures. A model
   of the draw written from the contract text is
@@ -1352,3 +1371,33 @@ after the reviews, before the repair code).
   SB-47 recorded it, the repository owner's call;
   both are restated in the round's readiness
   block exactly as they stand.
+- SB-70. The repair record for this round's
+  reviews. The spec fidelity review returned
+  NOT PASS with one Major and two Minors; the
+  standards review APPROVE with one Minor;
+  the red team APPROVE with no findings. The
+  Major and the first Minor stood against
+  SB-65a as first written (its concluding
+  claim against SB-11, and its port-only
+  evidence) and are repaired in SB-65a as
+  restated above; the second Minor and the
+  standards Minor stood against the pull
+  request body and are repaired by the
+  owner's body edit (the Verified block
+  naming the final head and tree, the SB-65
+  bullet carrying its geometry). The red
+  team also executed the 22 output-file
+  cells SB-68 left unmeasured (22 fresh
+  repositories at the round's shapes,
+  byte-identical output files on both
+  implementations, no write fault met), so
+  that surface stands measured on the review
+  record; SB-68's text stands as the round
+  battery's own record. The red team's
+  geometry map for SB-65a stands in its
+  report for the next slice's use. The spec
+  review's corpus enumeration note (a merge
+  month enumerated at 13 against the stated
+  14, the totals closing on the 14) is
+  charged to the next round's read-back if
+  the generator is rebuilt.
