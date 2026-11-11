@@ -1308,3 +1308,21 @@ after the reviews, before the repair code).
   528 statement cells and 60 price-book cells
   are the 588 measured, and the 22 output-file
   cells stand apart, unmeasured.
+- SB-69. This round's closure: the gate passes
+  on the final tree (cargo test standing at 25,
+  2 unit and 23 integration, clippy over all
+  targets with warnings denied, the format
+  check), the codepoint scan stands at zero em
+  dashes and zero en dashes, and only then does
+  the README record 10 of 100 in the closure
+  commit. The differential harness's own run this
+  round was refused by the same write fault that
+  stands in SB-68 (its fixture writes returned
+  EPERM) and is not counted; the harness result
+  of record remains Round 9's, on source this
+  round did not change. Checklist item 3 stands
+  as SB-43 recorded it, open, and the
+  description's attribution clause stands as
+  SB-47 recorded it, the repository owner's call;
+  both are restated in the round's readiness
+  block exactly as they stand.
