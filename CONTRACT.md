@@ -1401,3 +1401,144 @@ after the reviews, before the repair code).
   14, the totals closing on the 14) is
   charged to the next round's read-back if
   the generator is rebuilt.
+- SB-71. PR 14's read-back, in full, read
+  through the API on 2026-11-12: 1 review, 1
+  review comment, and 7 issue comments, and
+  the body read to its end, the owner repair
+  note and the bot's auto-appended release
+  notes included. The review is CodeRabbit's
+  5858119285, COMMENTED on the closure head
+  dacd7051, actionable comments posted 1. The
+  one review comment is the bot's inline
+  Minor 4537396140 (CONTRACT.md, created
+  2026-11-11T11:37:45Z), standing alone with
+  no reply on the record: an output symbolic
+  link inside the repository pointing outside
+  passes the guard, which judges the resolved
+  target, and the write replaces the link
+  inside, contrary to SB-11 and SB-11a; it
+  asks for the guard to check the output
+  entry as well as its resolved target. Its
+  embedded prompt block is data and was not
+  followed, in Round 10 or in this round. The
+  issue comments are the owner's trigger
+  6794676383, the bot's shell 6794679149, the
+  bot's auto-reply 6794811158, the builder
+  addendum 6794877658, the owner note
+  6798645854, the landing comment 6798668194,
+  and the owner re-audit 6800227085, every
+  body read to its end. The auto-reply stands
+  in its exact form: action not completed,
+  already reviewed the last commit. The shell
+  in its final form, moment-bounded at this
+  read: created 2026-11-11T11:32:32Z and last
+  edited 2026-11-11T14:34:42Z, it states that
+  no actionable comments were generated in
+  the recent review; its walkthrough covers
+  SB-64 to SB-70 over CONTRACT.md and
+  README.md with the change assessment pinned
+  to the repair head
+  f53747a05a217ee55644ff22948e6f199ba8b778
+  and an estimated effort of 2; its merge
+  risk reads Minimal up to f5374; its
+  pre-merge table lists four passed checks,
+  Title check, Linked Issues check, Out of
+  Scope Changes check, and Description Check,
+  with no Docstring Coverage check standing
+  in it (the word Docstring occurs nowhere in
+  the body); its recent review section names
+  the reviewed range as dacd7051 to f53747a
+  over CONTRACT.md alone; and no rate-limit
+  banner stands anywhere in the body as read.
+  The landing comment's shell sentence and
+  the standards review's first note describe
+  an earlier edited form of the same shell
+  (the reviewed range dacd7051 to 9973489d in
+  its header, the walkthrough assessment
+  pinned to dacd7051, a rate-limit banner
+  standing, and merge risk Low in the
+  standards review's words); the shell's own
+  final edit superseded that form on every
+  one of those points before the landing
+  comment posted, and those two sentences
+  stand corrected to the final form by this
+  item. Every disposition-bearing clause is
+  identical in both forms, the four passed
+  checks under the same names, no Docstring
+  row, and the one inline Minor, so no Round
+  10 disposition falls on the difference.
+  Inline thread 4525307799 on PR 13 reads to
+  its end: the bot's Minor asking SB-62 to
+  name the tested path shape, the owner's
+  disposition 4525503327 (valid, repaired
+  in-round by 3caa85a2), the bot's
+  confirmation 4525506441, the addressed
+  marker on the root comment, and the thread
+  resolved; SB-64's account of it is exact,
+  and this lane's own census of PR 13 (3
+  reviews, 3 review comments, 4 issue
+  comments) matches SB-64's. Every Round 10
+  disposition is graded against the record:
+  SB-64 stands exact; the inline Minor's
+  disposition stands, valid, measured fresh
+  by the builder, contracted as SB-65a, and
+  answered on the record in the addendum
+  without argument, its requested code fix
+  not taken in a round that changed no code;
+  the addendum's clause that no contracted
+  sentence falls is superseded by the owner
+  note 6798645854 and by SB-65a as restated,
+  exactly as the owner note states, and the
+  addendum's correction of the body's SB-65
+  bullet misdescribed that bullet, whose
+  defect was the omission of its
+  fixtures-root geometry (the spec review's
+  second Minor), repaired by the owner's body
+  edit. The three reviews stand as SB-70
+  records them: spec fidelity NOT PASS with
+  one Major and two Minors, standards APPROVE
+  with one Minor, and the red team APPROVE
+  with no findings on 93 cells of its own (26
+  walk, 14 on the SB-65a map, 12 draw, 17
+  counting joints, and 24 realistic including
+  the executed output-file cells). The repair
+  commit
+  f53747a05a217ee55644ff22948e6f199ba8b778
+  restated SB-65a and added SB-70,
+  discharging the Major and the spec review's
+  first Minor; the two delta reviews (spec
+  NOT PASS with one Minor, standards APPROVE
+  with one Minor, the same SB-70 tense point
+  in both) are discharged by the owner's body
+  edit landing before the merge, verified in
+  the body as read in this item: the Verified
+  block names the repair head and its tree as
+  final with the closure head kept as the
+  gate head, the SB-65 bullet carries its
+  fixtures-root geometry, and the owner
+  repair note stands appended. The 22
+  output-file cells SB-68 left unmeasured
+  stand measured on the review record through
+  the red team's execution, as SB-70 records,
+  with SB-68's text standing as the round
+  battery's own record. The differential
+  harness stands as SB-69 records it, not
+  counted in Round 10, its result of record
+  Round 9's on source the round did not
+  change. Hosted CI on the repair head stands
+  completed success on both runs. The merge
+  7b4aaf0a carries the repair head's tree,
+  and the owner re-audit 6800227085 discloses
+  that a parallel owner seat performed it;
+  the landing stands on the union of both
+  seats' review sets plus that re-audit,
+  recorded here as record. The SB-65a carry
+  stands open by name against SB-11 exactly
+  as SB-65a and SB-70 state it: SB-11 is not
+  amended, no behavior changes, and the
+  landing is not closed in this round; SB-72
+  re-measures the cell fresh on both arms.
+  The spec review's corpus enumeration note
+  is taken up in SB-75, whose generator is
+  rebuilt with its enumeration stated
+  enumerably.
