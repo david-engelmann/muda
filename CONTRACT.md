@@ -1542,3 +1542,45 @@ after the reviews, before the repair code).
   is taken up in SB-75, whose generator is
   rebuilt with its enumeration stated
   enumerably.
+- SB-72. The two-laws boundary re-probed
+  fresh at this binary against the verified
+  oracle, at exact points by path shape, the
+  two laws never conflated: eleven cells, no
+  failures. In the spelled-parent shape, the
+  chain standing in the output's parent path
+  with the output spelled through it: the
+  guard's hand walk refuses onto-repo chains
+  at 990 and 991 splices with the guard's
+  line on both implementations, and at 992
+  the walk aborts into the crash class (the
+  port silent at exit 1 with both streams
+  empty, the oracle raising RecursionError);
+  and the kernel's traversal of the spelled
+  parent decides the physical write at its
+  exact points, an away chain at 40 splices
+  landing on both implementations and at 41
+  splices refused on both with the standing
+  cannot-write line, nothing landing. In the
+  head-is-output shape, the chain's head link
+  standing as the output filename itself
+  inside one real directory, which only the
+  resolver traverses: chains at 40 and at 41
+  splices both land on both implementations,
+  the write replacing the head link and the
+  chain's target file left unwritten, a chain
+  at 991 splices lands the same way, a chain
+  of 991 splices onto the repository draws
+  the guard's refusal with the head link left
+  standing, and at 992 splices the walk
+  aborts into the crash class with the head
+  link untouched. The SB-65a cell re-measured
+  fresh in the same battery: a single
+  symbolic link standing inside the read
+  repository as the output filename, pointing
+  at an outside file, passes the guard and
+  the write lands inside the repository
+  replacing the link on both implementations,
+  the outside file left unwritten. The
+  posture SB-65a contracts stands exactly as
+  contracted, and the carry against SB-11
+  stands open as SB-71 records.
