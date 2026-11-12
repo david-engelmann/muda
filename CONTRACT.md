@@ -1733,3 +1733,28 @@ after the reviews, before the repair code).
   price-book cells, and 22 output-file cells
   are the 610 measured, and no cell stands
   unmeasured in this round's battery.
+- SB-76. This round's closure: the gate
+  passes on the final tree (cargo test
+  standing at 25, 2 unit and 23 integration,
+  clippy over all targets with warnings
+  denied, the format check), the codepoint
+  scan stands at zero em dashes and zero en
+  dashes, the differential harness runs fresh
+  this round at 14 cases, 240 steps, 0
+  failures against the verified oracle, and
+  only then does the README record 11 of 100
+  in the closure commit. The round changed no
+  source: every measurement stands on the
+  base tree's code, and the debug binary
+  built from this tree carries the same md5
+  the Round 10 red team recorded for its own
+  fresh build of the same source. Checklist
+  item 3 stands as SB-43 recorded it, open,
+  and the description's attribution clause
+  stands as SB-47 recorded it, the repository
+  owner's call; both are restated in the
+  round's readiness block exactly as they
+  stand. The SB-65a carry stands open by name
+  against SB-11, as SB-71 and SB-72 record:
+  this round does not amend SB-11, changes no
+  behavior, and does not close the landing.
