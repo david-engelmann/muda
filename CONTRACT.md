@@ -1654,3 +1654,82 @@ after the reviews, before the repair code).
   at 31 digits refuses under the form line
   naming the rate as written on both, four
   cells.
+- SB-75. The realistic pass, synthetic
+  content only, sanitization absolute, with
+  the generator rebuilt for this round: 610
+  cells measured, no failures. The corpus,
+  stated from the generator itself so every
+  total re-derives: 22 team repositories,
+  each carrying a full year of history for
+  2026; in each month, in order, four base
+  commits, one revert joined by its trailer
+  to the month's first base commit, one
+  fix-forward joined by its Fixes trailer to
+  the month's second base commit, one redone
+  task repeating the month's third base
+  commit's subject on that commit's own path,
+  one shipping commit, and four further base
+  commits, 4 + 1 + 1 + 1 + 1 + 4 = 12 commits
+  in an ordinary month; and in each quarter
+  month (March, June, September, December)
+  one merge commit and the one side commit it
+  brings in, 12 + 1 + 1 = 14 commits in a
+  merge month. Per repository 8 ordinary
+  months at 12 and 4 merge months at 14, 96 +
+  56 = 152 commits, 22 times 152 = 3344
+  commits in all; the per-month composition
+  was proven from git itself, per repository
+  and month, before any cell ran. This
+  enumeration discharges the Round 10
+  enumeration note: SB-68's prose named the
+  same 12 in an ordinary month and one merge
+  commit in a quarter month, which sums to 13
+  against its stated 14, while its totals
+  closed on the 14; the rebuilt generator
+  carries the fourteenth commit as the side
+  commit the merge brings in, so the
+  enumeration and the totals close together
+  here, and SB-68's totals stand as measured.
+  The statement cells: every repository at
+  every month, 264 unpriced statements on
+  stdout and 264 priced with that
+  repository's own card, 528 cells compared
+  byte for byte between the shipped CLI and
+  the oracle, each document checked on its
+  own counts (commits_read 152, the whole
+  read; three joined items; none unjoined;
+  items_priced 3 on the priced documents).
+  The price books: 30 cards, 18 valid and 12
+  planted refusals, the valid set varying the
+  currency case and the currency itself, zero
+  rates, leading zeros, one-digit and tiny
+  fractions, integer rates, spacing and key
+  order, and integer parts of 15 and of
+  exactly 30 digits with the 30-digit part on
+  each class in turn, the refusal set
+  planting duplicate keys at the top level,
+  inside per_item, inside a class's object
+  value, and inside an object nested in an
+  array value, an unknown top-level key, an
+  unknown class, two bad currency forms, a
+  number-typed rate, an integer part of 31
+  digits, and two malformed rate forms; every
+  card runs on the file surface and on the
+  /dev/stdin surface against one fixed
+  repository and month, 60 cells, compared
+  exit for exit and byte for byte across
+  implementations and across surfaces, each
+  card's outcome matching its planted class.
+  The output-file cells, one month per
+  repository on both implementations, 22
+  cells: the landed bytes compared across
+  implementations and against each
+  implementation's own stdout bytes for the
+  same month, the surface SB-68's battery
+  left unmeasured and the Round 10 red team
+  executed on the review record, here
+  measured in the round battery itself. The
+  counts close: 528 statement cells, 60
+  price-book cells, and 22 output-file cells
+  are the 610 measured, and no cell stands
+  unmeasured in this round's battery.
