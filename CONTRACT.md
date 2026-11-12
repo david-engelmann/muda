@@ -1584,3 +1584,44 @@ after the reviews, before the repair code).
   posture SB-65a contracts stands exactly as
   contracted, and the carry against SB-11
   stands open as SB-71 records.
+- SB-73. The draw re-probed fresh at this
+  binary, in SB-66's shape with the pre-epoch
+  posture added: fourteen cells, no failures.
+  A model of the draw written from the
+  contract text is pinned against the four
+  unit vectors in src/cli.rs before any cell
+  runs (SB-56). Under entropy refusal in both
+  arms, the device open refused and a short
+  read of five bytes, the port refuses on the
+  standing cannot-write line before any
+  create and the directory is left as seeded;
+  the oracle under both refusal arms lands
+  its statement, the contracted split
+  standing, because its draw never opens the
+  device at statement time. The clock-only
+  plants stand inert at both of Round 8's
+  readings, and the oracle under the frozen
+  clock at pid 1 with the same 64 planted
+  also lands. The positive control is
+  bracketed at both ends: with the entropy
+  block fixed to a known nonzero value the 64
+  candidates are computable, planting all 64
+  refuses the write, and removing the first
+  planted candidate lands the write, as
+  removing the last (the 64th) lands it; with
+  the block zeroed the fold is zero, the
+  candidate sequence is the clock-only
+  sequence again, and its plants refuse. The
+  pre-epoch posture, at a clock frozen 100
+  seconds before the epoch: with no plants
+  the write lands byte-identical, the draw
+  proceeding on the constant seed term the
+  source names for a failed clock read; and
+  with the entropy block fixed to the same
+  nonzero value, the 64 candidates computed
+  from that constant seed planted, the write
+  refuses on the standing line. The pre-epoch
+  draw is therefore the constant-seed draw
+  folded with entropy, neither a refusal of
+  its own nor a return to a public sequence
+  alone.
