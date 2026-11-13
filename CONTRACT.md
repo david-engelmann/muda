@@ -2153,3 +2153,376 @@ after the reviews, before the repair code).
   supplies the route its figures ride
   on, and Round 13's read-back states
   the route beside the figures.
+- SB-84. PR 16's read-back, in full, read
+  through the API on 2026-11-13: no reviews,
+  no review comments, and 4 issue comments,
+  every body read to its end, and the body
+  read to its end including the owner's
+  repair note appended to it. The issue
+  comments are the bot's shell 6848605488,
+  the owner's trigger 6848615770, the bot's
+  auto-reply 6848665310, and the landing
+  comment 6849847469. The shell in its true
+  final form, moment-bounded at this read:
+  11,346 characters by a Python count over
+  the API body, created 2026-11-13T09:01:54Z
+  and last edited 2026-11-13T10:01:31Z, and
+  no rate-limit banner stands anywhere in
+  it. It states that no actionable comments
+  were generated in the recent review; its
+  walkthrough covers SB-77 to SB-82 over
+  CONTRACT.md and README.md with the change
+  assessment pinned to the gate head
+  03b02d3470c32d542a25e01246982d1016c5a671
+  and an estimated effort of 2; its merge
+  risk reads Minimal up to 03b02; its
+  pre-merge table lists four passed checks,
+  Title check, Linked Issues check, Out of
+  Scope Changes check, and Description
+  Check, with the word Docstring occurring
+  zero times in it; and its recent review
+  section names the reviewed range as the
+  base fb5ad6a5 to the gate head 03b02d34
+  over CONTRACT.md and README.md, run ID
+  1098049e-2594-4674-b994-c799cf5e1d29, the
+  included allowance used and none
+  remaining. The earlier counts stand on
+  the record at their own reads: the step 0
+  disposition the owner patched into the
+  body reads the shell at 11,338 characters
+  with the last edit then at
+  2026-11-13T09:03:51Z, and the landing
+  comment reads it at 11,340 characters;
+  the shell's last edit on the record, at
+  2026-11-13T10:01:31Z, moved no disposition
+  fact, the no-actionable line, the four
+  passed checks, and the run ID standing as
+  the disposition states. Step 0's coverage
+  on PR 16 is the gate head alone, as the
+  disposition states: the bot never
+  reviewed the repair head b368546c, and
+  the trigger drew the auto-reply in its
+  exact form, action not completed, already
+  reviewed the last commit. No late
+  CodeRabbit finding stands on PR 16: no
+  review or review comment exists on it at
+  all, and the shell's final form carries
+  no actionable comment, so nothing stands
+  undisposed. The owner's body patches
+  stand read as part of the closed record:
+  the step 0 disposition patched in after
+  the build lane was interrupted in a
+  restart with the round fully banked, and
+  the repair note recording the red team's
+  Minor, the SB-83 repair appended on tree
+  e30a7688 with SB-78 byte-identical, and
+  this body's rename spot count corrected
+  to two spots in cli.py. The route beside
+  the boundary figures, per SB-83's
+  charge: SB-78's oracle figures at 990,
+  991, and 992 splices stand measured at
+  the oracle's module route, python3 -m
+  muda.cli, through which the oracle
+  refuses by name at 990 and 991 and raises
+  RecursionError at 992; through a
+  console-script-shaped launcher and
+  through a -c import route the same oracle
+  refuses by name through 993 and raises
+  RecursionError only at 994, the
+  interpreter-limit point riding the
+  invocation baseline by exactly two
+  splices. SB-85 re-runs the boundary at
+  the module route. The SB-65a carry stands
+  open by name against SB-11 exactly as
+  SB-77 and SB-78 record it: SB-11 is not
+  amended, no behavior changes, and the
+  landing is not closed; SB-85 re-measures
+  the cell fresh on both arms.
+- SB-85. The two-laws boundary re-probed
+  fresh at this binary against the verified
+  oracle, at exact points by path shape, the
+  two laws never conflated, the oracle at
+  its module route (python3 -m muda.cli) for
+  every figure below: eleven cells, no
+  failures. In the spelled-parent shape, the
+  chain standing in the output's parent path
+  with the output spelled through it: the
+  guard's hand walk refuses onto-repo chains
+  at 990 and 991 splices with the guard's
+  line on both implementations, and at 992
+  the walk aborts into the crash class (the
+  port silent at exit 1 with both streams
+  empty, the oracle raising RecursionError);
+  and the kernel's traversal of the spelled
+  parent decides the physical write at its
+  exact points, an away chain at 40 splices
+  landing on both implementations and at 41
+  splices refused on both with the standing
+  cannot-write line, nothing landing. In the
+  head-is-output shape, the chain's head
+  link standing as the output filename
+  itself inside one real directory, which
+  only the resolver traverses: chains at 40
+  and at 41 splices both land on both
+  implementations, the write replacing the
+  head link and the chain's target file left
+  unwritten, a chain at 991 splices lands
+  the same way, a chain of 991 splices onto
+  the repository draws the guard's refusal
+  with the head link left standing, and at
+  992 splices the walk aborts into the crash
+  class with the head link untouched. The
+  SB-65a cell re-measured fresh in the same
+  battery: a single symbolic link standing
+  inside the read repository as the output
+  filename, pointing at an outside file,
+  passes the guard and the write lands
+  inside the repository replacing the link
+  on both implementations, the outside file
+  left unwritten. The posture SB-65a
+  contracts stands exactly as contracted,
+  and the carry against SB-11 stands open
+  by name: SB-11 is not amended, no behavior
+  changes, and the landing is not closed.
+- SB-86. The draw re-probed fresh at this
+  binary, in SB-73's shape, under exactly
+  the fourteen names SB-77 enumerates:
+  fourteen cells, no failures. A model of
+  the draw written from the contract text
+  is pinned against the four unit vectors
+  in src/cli.rs before any cell runs
+  (SB-56). The plain control lands
+  byte-identical under no interposition.
+  Under entropy refusal in both arms, the
+  device open refused and a short read of
+  five bytes, the port refuses on the
+  standing cannot-write line before any
+  create and the directory is left as
+  seeded; the oracle under both refusal
+  arms lands its statement, the contracted
+  split standing, because its draw never
+  opens the device at statement time. The
+  clock-only plants stand inert at both of
+  Round 8's readings, the port's write
+  landing under a frozen clock at pid 1 at
+  the first reading and seated at pid 250
+  at the second, and the oracle under the
+  frozen clock at pid 1 with the same 64
+  planted also lands. The positive control
+  is bracketed at both ends: with the
+  entropy block fixed to a known nonzero
+  value the 64 candidates are computable,
+  planting all 64 refuses the write, and
+  removing the first planted candidate
+  lands the write, as removing the last
+  (the 64th) lands it; with the block
+  zeroed the fold is zero, the candidate
+  sequence is the clock-only sequence
+  again, and its plants refuse. The
+  pre-epoch posture, at a clock frozen 100
+  seconds before the epoch: with no plants
+  the write lands byte-identical, and with
+  the 64 candidates computed from the
+  constant seed term planted under the
+  fixed block, the write refuses on the
+  standing line. The pre-epoch draw is
+  therefore the constant-seed draw folded
+  with entropy, as SB-73 contracts.
+- SB-87. The counting joints re-probed
+  fresh at this binary, in SB-74's shape
+  with the rate bound run on both
+  surfaces: nine cells, no failures. A
+  priced statement never counts: over one
+  fixture (a revert, a fix-forward, and a
+  redone item, all three joined), the
+  priced document on both implementations
+  is the unpriced counts document with the
+  priced section added and nothing else
+  moved, totals standing identical between
+  the priced and unpriced documents,
+  items_priced counting only the three
+  joined items, and the priced total
+  closing at 13.43 under the fixture card
+  (revert 10.00, fix-forward 2.43, redone
+  1.00, the three rates over one joined
+  item per class). Duplicate keys refuse
+  by name at a nested level on both
+  surfaces that exist, the file surface and
+  the /dev/stdin surface: a key repeated
+  inside a class's object value inside
+  per_item refuses as names amount twice,
+  and a key repeated inside an object
+  nested in an array value under an unknown
+  key refuses as names k twice,
+  byte-identically on both implementations
+  and across surfaces, four cells. A rate's
+  integer part at exactly 30 digits prices
+  on both implementations on both surfaces,
+  and at 31 digits refuses under the form
+  line naming the rate as written on both,
+  four cells.
+- SB-88. The realistic battery re-run whole
+  at this binary, in SB-75's shape: 660
+  cells over 24 team repositories of 152
+  commits each, 3,648 commits in all, the
+  per-month composition proven from git
+  itself before any cell runs, no
+  failures. Every repository at every
+  month, 576 statement cells compared byte
+  for byte between the shipped CLI and
+  the oracle, unpriced and priced with
+  that repository's own card, each
+  document checked on its own counts,
+  commits_read 152 the whole read, three
+  joined items, none unjoined, items_priced
+  3 on the priced documents. The price
+  books, 30 cards on the file and
+  /dev/stdin surfaces against one fixed
+  repository and month, 60 cells: 18 valid
+  cards (currency case and currency
+  varied, zero rates, leading zeros,
+  one-digit and tiny fractions, integer
+  rates, spacing and key order, integer
+  parts of 15 and 29 digits and exactly 30
+  digits with the 30-digit part on each
+  class in turn, 30-digit with fraction,
+  and leading zeros running to a 30-digit
+  part) and 12 planted refusals (duplicate
+  keys at the top level, inside per_item,
+  inside a class's object value, and inside
+  an object nested in an array value, an
+  unknown top-level key, an unknown class,
+  two bad currency forms, a number-typed
+  rate, a 31-digit integer part, and two
+  malformed rate forms), compared exit for
+  exit and byte for byte across
+  implementations and across surfaces, each
+  card's outcome matching its planted
+  class. The output-file cells, one month
+  per repository on both implementations,
+  24 cells: the landed bytes compared
+  across implementations and against each
+  implementation's own stdout bytes for
+  the same month. The differential harness
+  runs fresh at 14 cases and 240 steps
+  with no failures. The flighttape pin
+  re-confirmed: commit
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e
+  stands on the host with tree
+  afd4d7d13520411e003762548fc79082a1b9cf6e
+  carrying exactly 50 blobs untruncated,
+  and the golden fixture digests to
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401
+  f297b5d61f6776903fa955a3 with verify
+  accepting, executed at the pinned
+  checkout.
+- SB-89. Round 13 closes. The round
+  re-proved the whole surface fresh at
+  this binary: PR 16 read back whole on
+  its closed record under SB-84, the
+  boundary battery at 11 cells under
+  SB-85, the draw at its fourteen named
+  cells under SB-86, the counting joints
+  at nine cells under SB-87, and the
+  realistic battery at 660 cells with the
+  differential harness and the flighttape
+  pin under SB-88. The full gate runs
+  clean at this tree: cargo test 25 (23
+  integration in tests/test_statement.rs
+  and 2 unit in the library target),
+  clippy under --all-targets with
+  warnings denied, rustfmt --check, and
+  the codepoint scan runs clean over the
+  tree and over every blob at the head.
+  SB-65a stands carried open against
+  SB-11 exactly as SB-83 left it,
+  re-measured fresh on both
+  implementations this round under SB-85:
+  a single link inside the repository as
+  the output filename, pointing outside,
+  passes the guard, and the write lands
+  inside the repository replacing the
+  link, the outside file unwritten.
+  Thirteen of one hundred rounds stand
+  closed.
+- SB-90. Repair record, appended after this
+  round's reviews and standing outside the
+  round's item range: the standards
+  review's Minor 2 on SB-88. SB-88 states
+  its 18 valid cards as a category list
+  whose per-category multiplicities are
+  nowhere pinned: the enumeration does not
+  pin the multiplicities, and the prose
+  expands to 16 under a uniform
+  one-phrase-one-card reading at a stated
+  18. The count is pinned here from the
+  generator itself, the VALID_CARDS list in
+  the build lane's realistic battery
+  script, read directly and counted entry
+  by entry. The 18 valid cards, in the
+  generator's order: (1) baseline, the
+  unvaried card, USD with revert 10.00,
+  fix-forward 5.00, redone 2.50; (2)
+  currency-lower, the currency case lowered
+  to usd, the rates standing; (3)
+  currency-mixed-eur, the currency itself
+  changed and its case mixed, Eur with
+  revert 3.00; (4) zero-rates, every class
+  at zero, GBP with revert 0.00,
+  fix-forward 0, redone 0.0; (5)
+  zero-one-class, revert alone at 0.00, the
+  other classes standing; (6)
+  leading-zeros, leading zeros on every
+  class, 007.50, 05.00, and 02.50; (7)
+  one-digit-fractions, one fraction digit
+  on every class, JPY with 80.5, 5.5, and
+  2.5; (8) tiny-fractions, 0.01, 0.07, and
+  0.09; (9) integer-rates, no fraction on
+  any class, CHF with 150, 80, and 7; (10)
+  spacing, the baseline card's values with
+  the spacing around keys and values
+  varied; (11) key-order, per_item set
+  before currency and the classes reordered
+  within it, AUD; (12) int-15, an integer
+  part of 15 digits on revert,
+  123456789012345.00; (13) int-29, an
+  integer part of 29 digits on revert,
+  99999999999999999999999999999.09; (14)
+  int-30-revert, an integer part of exactly
+  30 digits on revert, bare; (15)
+  int-30-fix, an integer part of exactly 30
+  digits on fix-forward, carrying .99; (16)
+  int-30-redone, an integer part of exactly
+  30 digits on redone, bare; (17)
+  int-30-fraction, an integer part of
+  exactly 30 digits carrying a fraction, on
+  redone,
+  123456789012345678901234567890.99; (18)
+  int-30-padded, leading zeros running to a
+  30-digit integer part on revert,
+  000009999999999999999999999999. The
+  phrases resolve against this list: the
+  baseline card is named by no phrase in
+  SB-88's list, the variations being stated
+  as variations from it; the currency case
+  and the currency itself are two cards,
+  (2) and (3); zero rates is two cards, (4)
+  and (5); one-digit and tiny fractions are
+  (7) and (8); spacing and key order are
+  (10) and (11); the 30-digit part on each
+  class in turn is three cards, (14), (15),
+  and (16); and the two descriptors SB-88
+  adds to SB-81's list, 30-digit with
+  fraction and leading zeros running to a
+  30-digit part, are one card each, (17)
+  and (18). The 12 planted refusals
+  enumerate exactly from SB-88's prose and
+  are not restated. No total moves: 18
+  valid cards and 12 refusals are the 30
+  cards, the 30 cards on two surfaces are
+  the 60 price-book cells, and the 660
+  realistic cells and the 694 measured
+  cells stand as SB-88 and SB-89 record
+  them. SB-88's text stands unamended; this
+  record supplies the multiplicities its
+  enumeration left unpinned.
