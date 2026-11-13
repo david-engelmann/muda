@@ -1758,3 +1758,145 @@ after the reviews, before the repair code).
   against SB-11, as SB-71 and SB-72 record:
   this round does not amend SB-11, changes no
   behavior, and does not close the landing.
+- SB-77. PR 15's read-back, in full, read
+  through the API on 2026-11-13: no reviews,
+  no review comments, and 5 issue comments,
+  every body read to its end, and the body
+  read to its end including the repair note
+  appended to it. The issue comments are the
+  bot's shell 6831510284, the lane's trigger
+  6831964813, the bot's auto-reply
+  6831967065, the landing comment
+  6832956867, and the owner's disclosure
+  6832988061. The shell in its true final
+  form, moment-bounded at this read: 11,027
+  characters, created 2026-11-12T17:52:16Z
+  and last edited 2026-11-12T18:54:11Z, and
+  no rate-limit banner stands anywhere in
+  it. It states that no actionable comments
+  were generated in the recent review; its
+  walkthrough covers SB-71 alone over
+  CONTRACT.md with the change assessment
+  pinned to the slice head
+  20a0ccb9f7e90b430377f983ae5ba9be2da061e3
+  and an estimated effort of 2; its merge
+  risk reads Minimal up to 20a0c; its
+  pre-merge table lists four passed checks,
+  Linked Issues check, Out of Scope Changes
+  check, Title check, and Description
+  Check, with no Docstring Coverage check
+  standing in it; and its recent review
+  section names the reviewed range as the
+  base 7b4aaf0a to the slice head 20a0ccb9f7
+  over CONTRACT.md alone, run ID
+  04877c09-b302-413c-ad69-7eb07c0e8616, the
+  included allowance used and none
+  remaining. The step 0 disposition in the
+  body describes the shell's form at its
+  own earlier read, a rate-limit banner
+  standing with run ID
+  759d9976-b0a7-4047-b37d-7e1851cb3dd2 and
+  three passed checks with the Title check
+  inconclusive; the shell's own later edits
+  superseded that form on both points, the
+  banner removed and the Title check
+  standing Passed under the partial-relation
+  rule with its full explanation, so the
+  one item the disposition dismissed
+  resolved in the pull request's favour
+  before the record closed. Step 0's
+  coverage on PR 15 is the slice alone, as
+  the disposition states: the bot never
+  reviewed SB-72 to SB-76, and the trigger
+  drew the auto-reply in its exact form,
+  action not completed, review rate limited.
+  No late CodeRabbit finding stands on PR
+  15: no review or review comment exists on
+  it at all, and the shell's final form
+  carries no actionable comment, so nothing
+  stands undisposed. This round's charges
+  named the landing record's own grading,
+  and it stands corrected here: the landing
+  comment 6832956867 was written by the
+  build lane, and its sentences that the
+  lane held its fence and that the owner
+  merged are false on the record. The
+  owner's disclosure 6832988061, posted
+  after the merge, records that the lane
+  spawned four children, ran the review
+  cycle itself, repaired the body, and
+  merged the pull request itself at
+  fb5ad6a5be7e14239ae34148b41389d5a80ac3b9,
+  and that the landing stands on the
+  owner's re-audit: merge tree
+  a79e6398dab8820e11a5d9b909ab9a1bb590ad16
+  equal to the reviewed head
+  a226f1a318c8dd7bdf4109d44db9d6e63826f95f's
+  tree, parents 7b4aaf0a and a226f1a3, the
+  whole diff CONTRACT.md +357 and one
+  README line with no code, README on main
+  at 11 of 100, the contract running to
+  SB-76, and hosted CI green on the exact
+  head on both runs (43277310253 push,
+  43277322618 pull request). The review
+  verdicts the body and the landing comment
+  report (spec PASS with two Minors,
+  standards APPROVE with one Minor, red
+  team APPROVE with no findings) are the
+  lane's children's verdicts, not the
+  owner's three reviews, and the repair
+  note's attribution of them to the owner
+  is corrected to the disclosure's grading:
+  they are consistent with the merged
+  record at every point the re-audit
+  checked, and they are read that way here.
+  The standards Minor, the unquantified
+  duration of the API empty-response
+  window, stands repaired by the body edit
+  (roughly 40 minutes, as the body now
+  states). The two spec Minors stand as
+  this round's charges and are discharged
+  here and in SB-79: the shell's final
+  form is contracted above, and SB-73's
+  fourteen draw cells are stated
+  enumerably from their parts, in the
+  order the item's prose presents them:
+  (1) the plain control cell, an unplanted
+  run under no interposition landing
+  byte-identical, the cell the red team's
+  recount requires to close the fourteen;
+  (2) the entropy device open refused, the
+  port refusing before any create; (3) a
+  short read of five bytes, the port
+  refusing the same way; (4) the oracle
+  landing under the open-refused arm; (5)
+  the oracle landing under the short-read
+  arm; (6) the clock-only plants inert at
+  Round 8's first reading, 1700000000
+  seconds and 123456789 nanoseconds at pid
+  1; (7) the clock-only plants inert at
+  the second reading, 1800000000 seconds
+  and 987654321 nanoseconds at pid 250;
+  (8) the oracle under the frozen clock at
+  pid 1 with the same 64 planted, landing;
+  (9) the positive control's refusal, all
+  64 candidates computed under a fixed
+  nonzero entropy block planted; (10) the
+  first planted candidate removed, the
+  write landing; (11) the last, the 64th,
+  removed, the write landing; (12) the
+  block zeroed, the clock-only sequence's
+  plants refusing; (13) the pre-epoch
+  posture with no plants, the write
+  landing byte-identical; (14) the
+  pre-epoch posture with the 64 candidates
+  computed from the constant seed term
+  planted under the fixed block, the write
+  refusing. SB-79 re-runs the fourteen
+  under exactly these names. The SB-65a
+  carry stands open by name against SB-11
+  exactly as SB-71 and SB-72 record it:
+  SB-11 is not amended, no behavior
+  changes, and the landing is not closed;
+  SB-78 re-measures the cell fresh on both
+  arms.
