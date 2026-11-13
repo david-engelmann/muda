@@ -2153,3 +2153,88 @@ after the reviews, before the repair code).
   supplies the route its figures ride
   on, and Round 13's read-back states
   the route beside the figures.
+- SB-84. PR 16's read-back, in full, read
+  through the API on 2026-11-13: no reviews,
+  no review comments, and 4 issue comments,
+  every body read to its end, and the body
+  read to its end including the owner's
+  repair note appended to it. The issue
+  comments are the bot's shell 6848605488,
+  the owner's trigger 6848615770, the bot's
+  auto-reply 6848665310, and the landing
+  comment 6849847469. The shell in its true
+  final form, moment-bounded at this read:
+  11,346 characters by a Python count over
+  the API body, created 2026-11-13T09:01:54Z
+  and last edited 2026-11-13T10:01:31Z, and
+  no rate-limit banner stands anywhere in
+  it. It states that no actionable comments
+  were generated in the recent review; its
+  walkthrough covers SB-77 to SB-82 over
+  CONTRACT.md and README.md with the change
+  assessment pinned to the gate head
+  03b02d3470c32d542a25e01246982d1016c5a671
+  and an estimated effort of 2; its merge
+  risk reads Minimal up to 03b02; its
+  pre-merge table lists four passed checks,
+  Title check, Linked Issues check, Out of
+  Scope Changes check, and Description
+  Check, with the word Docstring occurring
+  zero times in it; and its recent review
+  section names the reviewed range as the
+  base fb5ad6a5 to the gate head 03b02d34
+  over CONTRACT.md and README.md, run ID
+  1098049e-2594-4674-b994-c799cf5e1d29, the
+  included allowance used and none
+  remaining. The earlier counts stand on
+  the record at their own reads: the step 0
+  disposition the owner patched into the
+  body reads the shell at 11,338 characters
+  with the last edit then at
+  2026-11-13T09:03:51Z, and the landing
+  comment reads it at 11,340 characters;
+  the shell's last edit on the record, at
+  2026-11-13T10:01:31Z, moved no disposition
+  fact, the no-actionable line, the four
+  passed checks, and the run ID standing as
+  the disposition states. Step 0's coverage
+  on PR 16 is the gate head alone, as the
+  disposition states: the bot never
+  reviewed the repair head b368546c, and
+  the trigger drew the auto-reply in its
+  exact form, action not completed, already
+  reviewed the last commit. No late
+  CodeRabbit finding stands on PR 16: no
+  review or review comment exists on it at
+  all, and the shell's final form carries
+  no actionable comment, so nothing stands
+  undisposed. The owner's body patches
+  stand read as part of the closed record:
+  the step 0 disposition patched in after
+  the build lane was interrupted in a
+  restart with the round fully banked, and
+  the repair note recording the red team's
+  Minor, the SB-83 repair appended on tree
+  e30a7688 with SB-78 byte-identical, and
+  this body's rename spot count corrected
+  to two spots in cli.py. The route beside
+  the boundary figures, per SB-83's
+  charge: SB-78's oracle figures at 990,
+  991, and 992 splices stand measured at
+  the oracle's module route, python3 -m
+  muda.cli, through which the oracle
+  refuses by name at 990 and 991 and raises
+  RecursionError at 992; through a
+  console-script-shaped launcher and
+  through a -c import route the same oracle
+  refuses by name through 993 and raises
+  RecursionError only at 994, the
+  interpreter-limit point riding the
+  invocation baseline by exactly two
+  splices. SB-85 re-runs the boundary at
+  the module route. The SB-65a carry stands
+  open by name against SB-11 exactly as
+  SB-77 and SB-78 record it: SB-11 is not
+  amended, no behavior changes, and the
+  landing is not closed; SB-85 re-measures
+  the cell fresh on both arms.
