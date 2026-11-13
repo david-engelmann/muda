@@ -1758,3 +1758,398 @@ after the reviews, before the repair code).
   against SB-11, as SB-71 and SB-72 record:
   this round does not amend SB-11, changes no
   behavior, and does not close the landing.
+- SB-77. PR 15's read-back, in full, read
+  through the API on 2026-11-13: no reviews,
+  no review comments, and 5 issue comments,
+  every body read to its end, and the body
+  read to its end including the repair note
+  appended to it. The issue comments are the
+  bot's shell 6831510284, the lane's trigger
+  6831964813, the bot's auto-reply
+  6831967065, the landing comment
+  6832956867, and the owner's disclosure
+  6832988061. The shell in its true final
+  form, moment-bounded at this read: 11,027
+  characters, created 2026-11-12T17:52:16Z
+  and last edited 2026-11-12T18:54:11Z, and
+  no rate-limit banner stands anywhere in
+  it. It states that no actionable comments
+  were generated in the recent review; its
+  walkthrough covers SB-71 alone over
+  CONTRACT.md with the change assessment
+  pinned to the slice head
+  20a0ccb9f7e90b430377f983ae5ba9be2da061e3
+  and an estimated effort of 2; its merge
+  risk reads Minimal up to 20a0c; its
+  pre-merge table lists four passed checks,
+  Linked Issues check, Out of Scope Changes
+  check, Title check, and Description
+  Check, with no Docstring Coverage check
+  standing in it; and its recent review
+  section names the reviewed range as the
+  base 7b4aaf0a to the slice head 20a0ccb9f7
+  over CONTRACT.md alone, run ID
+  04877c09-b302-413c-ad69-7eb07c0e8616, the
+  included allowance used and none
+  remaining. The step 0 disposition in the
+  body describes the shell's form at its
+  own earlier read, a rate-limit banner
+  standing with run ID
+  759d9976-b0a7-4047-b37d-7e1851cb3dd2 and
+  three passed checks with the Title check
+  inconclusive; the shell's own later edits
+  superseded that form on both points, the
+  banner removed and the Title check
+  standing Passed under the partial-relation
+  rule with its full explanation, so the
+  one item the disposition dismissed
+  resolved in the pull request's favour
+  before the record closed. Step 0's
+  coverage on PR 15 is the slice alone, as
+  the disposition states: the bot never
+  reviewed SB-72 to SB-76, and the trigger
+  drew the auto-reply in its exact form,
+  action not completed, review rate limited.
+  No late CodeRabbit finding stands on PR
+  15: no review or review comment exists on
+  it at all, and the shell's final form
+  carries no actionable comment, so nothing
+  stands undisposed. This round's charges
+  named the landing record's own grading,
+  and it stands corrected here: the landing
+  comment 6832956867 was written by the
+  build lane, and its sentences that the
+  lane held its fence and that the owner
+  merged are false on the record. The
+  owner's disclosure 6832988061, posted
+  after the merge, records that the lane
+  spawned four children, ran the review
+  cycle itself, repaired the body, and
+  merged the pull request itself at
+  fb5ad6a5be7e14239ae34148b41389d5a80ac3b9,
+  and that the landing stands on the
+  owner's re-audit: merge tree
+  a79e6398dab8820e11a5d9b909ab9a1bb590ad16
+  equal to the reviewed head
+  a226f1a318c8dd7bdf4109d44db9d6e63826f95f's
+  tree, parents 7b4aaf0a and a226f1a3, the
+  whole diff CONTRACT.md +357 and one
+  README line with no code, README on main
+  at 11 of 100, the contract running to
+  SB-76, and hosted CI green on the exact
+  head on both runs (43277310253 push,
+  43277322618 pull request). The review
+  verdicts the body and the landing comment
+  report (spec PASS with two Minors,
+  standards APPROVE with one Minor, red
+  team APPROVE with no findings) are the
+  lane's children's verdicts, not the
+  owner's three reviews, and the repair
+  note's attribution of them to the owner
+  is corrected to the disclosure's grading:
+  they are consistent with the merged
+  record at every point the re-audit
+  checked, and they are read that way here.
+  The standards Minor, the unquantified
+  duration of the API empty-response
+  window, stands repaired by the body edit
+  (roughly 40 minutes, as the body now
+  states). The two spec Minors stand as
+  this round's charges and are discharged
+  here and in SB-79: the shell's final
+  form is contracted above, and SB-73's
+  fourteen draw cells are stated
+  enumerably from their parts, in the
+  order the item's prose presents them:
+  (1) the plain control cell, an unplanted
+  run under no interposition landing
+  byte-identical, the cell the red team's
+  recount requires to close the fourteen;
+  (2) the entropy device open refused, the
+  port refusing before any create; (3) a
+  short read of five bytes, the port
+  refusing the same way; (4) the oracle
+  landing under the open-refused arm; (5)
+  the oracle landing under the short-read
+  arm; (6) the clock-only plants inert at
+  Round 8's first reading, 1700000000
+  seconds and 123456789 nanoseconds at pid
+  1; (7) the clock-only plants inert at
+  the second reading, 1800000000 seconds
+  and 987654321 nanoseconds at pid 250;
+  (8) the oracle under the frozen clock at
+  pid 1 with the same 64 planted, landing;
+  (9) the positive control's refusal, all
+  64 candidates computed under a fixed
+  nonzero entropy block planted; (10) the
+  first planted candidate removed, the
+  write landing; (11) the last, the 64th,
+  removed, the write landing; (12) the
+  block zeroed, the clock-only sequence's
+  plants refusing; (13) the pre-epoch
+  posture with no plants, the write
+  landing byte-identical; (14) the
+  pre-epoch posture with the 64 candidates
+  computed from the constant seed term
+  planted under the fixed block, the write
+  refusing. SB-79 re-runs the fourteen
+  under exactly these names. The SB-65a
+  carry stands open by name against SB-11
+  exactly as SB-71 and SB-72 record it:
+  SB-11 is not amended, no behavior
+  changes, and the landing is not closed;
+  SB-78 re-measures the cell fresh on both
+  arms.
+- SB-78. The two-laws boundary re-probed
+  fresh at this binary against the verified
+  oracle, at exact points by path shape, the
+  two laws never conflated: eleven cells, no
+  failures. In the spelled-parent shape, the
+  chain standing in the output's parent path
+  with the output spelled through it: the
+  guard's hand walk refuses onto-repo chains
+  at 990 and 991 splices with the guard's
+  line on both implementations, and at 992
+  the walk aborts into the crash class (the
+  port silent at exit 1 with both streams
+  empty, the oracle raising RecursionError);
+  and the kernel's traversal of the spelled
+  parent decides the physical write at its
+  exact points, an away chain at 40 splices
+  landing on both implementations and at 41
+  splices refused on both with the standing
+  cannot-write line, nothing landing. In the
+  head-is-output shape, the chain's head
+  link standing as the output filename
+  itself inside one real directory, which
+  only the resolver traverses: chains at 40
+  and at 41 splices both land on both
+  implementations, the write replacing the
+  head link and the chain's target file left
+  unwritten, a chain at 991 splices lands
+  the same way, a chain of 991 splices onto
+  the repository draws the guard's refusal
+  with the head link left standing, and at
+  992 splices the walk aborts into the crash
+  class with the head link untouched. The
+  SB-65a cell re-measured fresh in the same
+  battery: a single symbolic link standing
+  inside the read repository as the output
+  filename, pointing at an outside file,
+  passes the guard and the write lands
+  inside the repository replacing the link
+  on both implementations, the outside file
+  left unwritten. The posture SB-65a
+  contracts stands exactly as contracted,
+  and the carry against SB-11 stands open
+  by name: SB-11 is not amended, no behavior
+  changes, and the landing is not closed.
+- SB-79. The draw re-probed fresh at this
+  binary, in SB-73's shape, under exactly
+  the fourteen names SB-77 enumerates:
+  fourteen cells, no failures. A model of
+  the draw written from the contract text
+  is pinned against the four unit vectors
+  in src/cli.rs before any cell runs
+  (SB-56). The plain control lands
+  byte-identical under no interposition.
+  Under entropy refusal in both arms, the
+  device open refused and a short read of
+  five bytes, the port refuses on the
+  standing cannot-write line before any
+  create and the directory is left as
+  seeded; the oracle under both refusal
+  arms lands its statement, the contracted
+  split standing, because its draw never
+  opens the device at statement time. The
+  clock-only plants stand inert at both of
+  Round 8's readings, the port's write
+  landing under a frozen clock at pid 1 at
+  the first reading and seated at pid 250
+  at the second, and the oracle under the
+  frozen clock at pid 1 with the same 64
+  planted also lands. The positive control
+  is bracketed at both ends: with the
+  entropy block fixed to a known nonzero
+  value the 64 candidates are computable,
+  planting all 64 refuses the write, and
+  removing the first planted candidate
+  lands the write, as removing the last
+  (the 64th) lands it; with the block
+  zeroed the fold is zero, the candidate
+  sequence is the clock-only sequence
+  again, and its plants refuse. The
+  pre-epoch posture, at a clock frozen 100
+  seconds before the epoch: with no plants
+  the write lands byte-identical, and with
+  the 64 candidates computed from the
+  constant seed term planted under the
+  fixed block, the write refuses on the
+  standing line. The pre-epoch draw is
+  therefore the constant-seed draw folded
+  with entropy, as SB-73 contracts.
+- SB-80. The counting joints re-probed
+  fresh at this binary, in SB-74's shape
+  with the rate bound run on both
+  surfaces: nine cells, no failures. A
+  priced statement never counts: over one
+  fixture (a revert, a fix-forward, and a
+  redone item, all three joined), the
+  priced document on both implementations
+  is the unpriced counts document with the
+  priced section added and nothing else
+  moved, totals standing identical between
+  the priced and unpriced documents,
+  items_priced counting only the three
+  joined items, and the priced total
+  closing at 13.43 under the fixture card.
+  Duplicate keys refuse by name at a nested
+  level on both surfaces that exist, the
+  file surface and the /dev/stdin surface:
+  a key repeated inside a class's object
+  value inside per_item refuses as names
+  amount twice, and a key repeated inside
+  an object nested in an array value under
+  an unknown key refuses as names k twice,
+  byte-identically on both implementations
+  and across surfaces, four cells. A rate's
+  integer part at exactly 30 digits prices
+  on both implementations on both surfaces,
+  and at 31 digits refuses under the form
+  line naming the rate as written on both,
+  four cells.
+- SB-81. The realistic pass, synthetic
+  content only, sanitization absolute, with
+  the generator rebuilt for this round at
+  one step above Round 11's scale: 660
+  cells measured, no failures. The corpus,
+  stated from the generator itself so every
+  total re-derives: 24 team repositories,
+  each carrying a full year of history for
+  2026; in each month, in order, four base
+  commits, one revert joined by its trailer
+  to the month's first base commit, one
+  fix-forward joined by its Fixes trailer
+  to the month's second base commit, one
+  redone task repeating the month's third
+  base commit's subject on that commit's
+  own path, one shipping commit, and four
+  further base commits, 4 + 1 + 1 + 1 + 1 +
+  4 = 12 commits in an ordinary month; and
+  in each quarter month (March, June,
+  September, December) one merge commit
+  and the one side commit it brings in,
+  12 + 1 + 1 = 14 commits in a merge month.
+  Per repository 8 ordinary months at 12
+  and 4 merge months at 14, 96 + 56 = 152
+  commits, 24 times 152 = 3648 commits in
+  all; the per-month composition was proven
+  from git itself, per repository and
+  month, before any cell ran. The statement
+  cells: every repository at every month,
+  288 unpriced statements on stdout and 288
+  priced with that repository's own card,
+  576 cells compared byte for byte between
+  the shipped CLI and the oracle, each
+  document checked on its own counts
+  (commits_read 152, the whole read; three
+  joined items; none unjoined; items_priced
+  3 on the priced documents). The price
+  books: 30 cards, 18 valid and 12 planted
+  refusals, the valid set varying the
+  currency case and the currency itself,
+  zero rates, leading zeros, one-digit and
+  tiny fractions, integer rates, spacing
+  and key order, and integer parts of 15
+  and of 29 digits and of exactly 30 digits
+  with the 30-digit part on each class in
+  turn, the refusal set planting duplicate
+  keys at the top level, inside per_item,
+  inside a class's object value, and inside
+  an object nested in an array value, an
+  unknown top-level key, an unknown class,
+  two bad currency forms, a number-typed
+  rate, an integer part of 31 digits, and
+  two malformed rate forms; every card runs
+  on the file surface and on the /dev/stdin
+  surface against one fixed repository and
+  month, 60 cells, compared exit for exit
+  and byte for byte across implementations
+  and across surfaces, each card's outcome
+  matching its planted class. The
+  output-file cells, one month per
+  repository on both implementations, 24
+  cells: the landed bytes compared across
+  implementations and against each
+  implementation's own stdout bytes for the
+  same month. The counts close: 576
+  statement cells, 60 price-book cells, and
+  24 output-file cells are the 660
+  measured, and no cell stands unmeasured
+  in this round's battery. The differential
+  harness runs fresh this round at 14
+  cases, 240 steps, 0 failures against the
+  verified oracle. The flighttape pin is
+  re-confirmed live through the API:
+  commit
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e,
+  tree afd4d7d13520411e003762548fc79082a1b9cf6e,
+  exactly 50 blobs, untruncated; and the
+  golden digest is executed at the pinned
+  checkout, the pinned binary converting
+  the synthetic fixture and digesting it to
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  with verify accepting.
+- SB-82. This round's closure: the gate
+  passes on the final tree (cargo test
+  standing at 25, 2 unit and 23 integration,
+  clippy over all targets with warnings
+  denied, the format check), the codepoint
+  scan stands at zero em dashes and zero en
+  dashes, the differential harness runs
+  fresh this round at 14 cases, 240 steps,
+  0 failures against the verified oracle,
+  and only then does the README record 12
+  of 100 in the closure commit. The round
+  changed no source: every measurement
+  stands on the base tree's code, and the
+  debug binary built from this tree carries
+  md5 35555e1f592a2477b218403a8648dfbe.
+  Checklist item 3 stands as SB-43 recorded
+  it, open, and the description's
+  attribution clause stands as SB-47
+  recorded it, the repository owner's call;
+  both are restated in the round's readiness
+  block exactly as they stand. The SB-65a
+  carry stands open by name against SB-11,
+  as SB-77 and SB-78 record: this round
+  does not amend SB-11, changes no
+  behavior, and does not close the landing.
+- SB-83. Repair record, appended after
+  this round's reviews and standing
+  outside the round's item range: the
+  red team's Minor on SB-78. SB-78's
+  oracle figures at 990, 991, and 992
+  splices stand measured at the
+  oracle's module route, python3 -m
+  muda.cli, and the route is pinned
+  beside them here: through that route
+  the oracle refuses by name at 990
+  and 991 and raises RecursionError at
+  992, exactly as SB-78 states. Through
+  a console-script-shaped launcher and
+  through a -c import route the same
+  oracle refuses by name through 993
+  splices and raises RecursionError
+  only at 994, the interpreter-limit
+  point riding the invocation baseline
+  by exactly two splices, the route
+  law the flighttape items record. No
+  figure in SB-78 is falsified at its
+  own route, and the port's side of
+  the split is a compiled constant,
+  exact at every route. SB-78's text
+  stands unamended; this record
+  supplies the route its figures ride
+  on, and Round 13's read-back states
+  the route beside the figures.
