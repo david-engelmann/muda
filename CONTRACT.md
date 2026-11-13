@@ -2416,3 +2416,32 @@ after the reviews, before the repair code).
   f297b5d61f6776903fa955a3 with verify
   accepting, executed at the pinned
   checkout.
+- SB-89. Round 13 closes. The round
+  re-proved the whole surface fresh at
+  this binary: PR 16 read back whole on
+  its closed record under SB-84, the
+  boundary battery at 11 cells under
+  SB-85, the draw at its fourteen named
+  cells under SB-86, the counting joints
+  at nine cells under SB-87, and the
+  realistic battery at 660 cells with the
+  differential harness and the flighttape
+  pin under SB-88. The full gate runs
+  clean at this tree: cargo test 25 (23
+  integration in tests/test_statement.rs
+  and 2 unit in the library target),
+  clippy under --all-targets with
+  warnings denied, rustfmt --check, and
+  the codepoint scan runs clean over the
+  tree and over every blob at the head.
+  SB-65a stands carried open against
+  SB-11 exactly as SB-83 left it,
+  re-measured fresh on both
+  implementations this round under SB-85:
+  a single link inside the repository as
+  the output filename, pointing outside,
+  passes the guard, and the write lands
+  inside the repository replacing the
+  link, the outside file unwritten.
+  Thirteen of one hundred rounds stand
+  closed.
