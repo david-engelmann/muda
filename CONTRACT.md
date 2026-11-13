@@ -2445,3 +2445,84 @@ after the reviews, before the repair code).
   link, the outside file unwritten.
   Thirteen of one hundred rounds stand
   closed.
+- SB-90. Repair record, appended after this
+  round's reviews and standing outside the
+  round's item range: the standards
+  review's Minor 2 on SB-88. SB-88 states
+  its 18 valid cards as a category list
+  whose per-category multiplicities are
+  nowhere pinned: the enumeration does not
+  pin the multiplicities, and the prose
+  expands to 16 under a uniform
+  one-phrase-one-card reading at a stated
+  18. The count is pinned here from the
+  generator itself, the VALID_CARDS list in
+  the build lane's realistic battery
+  script, read directly and counted entry
+  by entry. The 18 valid cards, in the
+  generator's order: (1) baseline, the
+  unvaried card, USD with revert 10.00,
+  fix-forward 5.00, redone 2.50; (2)
+  currency-lower, the currency case lowered
+  to usd, the rates standing; (3)
+  currency-mixed-eur, the currency itself
+  changed and its case mixed, Eur with
+  revert 3.00; (4) zero-rates, every class
+  at zero, GBP with revert 0.00,
+  fix-forward 0, redone 0.0; (5)
+  zero-one-class, revert alone at 0.00, the
+  other classes standing; (6)
+  leading-zeros, leading zeros on every
+  class, 007.50, 05.00, and 02.50; (7)
+  one-digit-fractions, one fraction digit
+  on every class, JPY with 80.5, 5.5, and
+  2.5; (8) tiny-fractions, 0.01, 0.07, and
+  0.09; (9) integer-rates, no fraction on
+  any class, CHF with 150, 80, and 7; (10)
+  spacing, the baseline card's values with
+  the spacing around keys and values
+  varied; (11) key-order, per_item set
+  before currency and the classes reordered
+  within it, AUD; (12) int-15, an integer
+  part of 15 digits on revert,
+  123456789012345.00; (13) int-29, an
+  integer part of 29 digits on revert,
+  99999999999999999999999999999.09; (14)
+  int-30-revert, an integer part of exactly
+  30 digits on revert, bare; (15)
+  int-30-fix, an integer part of exactly 30
+  digits on fix-forward, carrying .99; (16)
+  int-30-redone, an integer part of exactly
+  30 digits on redone, bare; (17)
+  int-30-fraction, an integer part of
+  exactly 30 digits carrying a fraction, on
+  redone,
+  123456789012345678901234567890.99; (18)
+  int-30-padded, leading zeros running to a
+  30-digit integer part on revert,
+  000009999999999999999999999999. The
+  phrases resolve against this list: the
+  baseline card is named by no phrase in
+  SB-88's list, the variations being stated
+  as variations from it; the currency case
+  and the currency itself are two cards,
+  (2) and (3); zero rates is two cards, (4)
+  and (5); one-digit and tiny fractions are
+  (7) and (8); spacing and key order are
+  (10) and (11); the 30-digit part on each
+  class in turn is three cards, (14), (15),
+  and (16); and the two descriptors SB-88
+  adds to SB-81's list, 30-digit with
+  fraction and leading zeros running to a
+  30-digit part, are one card each, (17)
+  and (18). The 12 planted refusals
+  enumerate exactly from SB-88's prose and
+  are not restated. No total moves: 18
+  valid cards and 12 refusals are the 30
+  cards, the 30 cards on two surfaces are
+  the 60 price-book cells, and the 660
+  realistic cells and the 694 measured
+  cells stand as SB-88 and SB-89 record
+  them. SB-88's text stands unamended; this
+  record supplies the multiplicities its
+  enumeration left unpinned.
