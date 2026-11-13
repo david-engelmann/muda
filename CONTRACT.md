@@ -2100,3 +2100,28 @@ after the reviews, before the repair code).
   the synthetic fixture and digesting it to
   cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
   with verify accepting.
+- SB-82. This round's closure: the gate
+  passes on the final tree (cargo test
+  standing at 25, 2 unit and 23 integration,
+  clippy over all targets with warnings
+  denied, the format check), the codepoint
+  scan stands at zero em dashes and zero en
+  dashes, the differential harness runs
+  fresh this round at 14 cases, 240 steps,
+  0 failures against the verified oracle,
+  and only then does the README record 12
+  of 100 in the closure commit. The round
+  changed no source: every measurement
+  stands on the base tree's code, and the
+  debug binary built from this tree carries
+  md5 35555e1f592a2477b218403a8648dfbe.
+  Checklist item 3 stands as SB-43 recorded
+  it, open, and the description's
+  attribution clause stands as SB-47
+  recorded it, the repository owner's call;
+  both are restated in the round's readiness
+  block exactly as they stand. The SB-65a
+  carry stands open by name against SB-11,
+  as SB-77 and SB-78 record: this round
+  does not amend SB-11, changes no
+  behavior, and does not close the landing.
