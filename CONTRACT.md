@@ -2125,3 +2125,31 @@ after the reviews, before the repair code).
   as SB-77 and SB-78 record: this round
   does not amend SB-11, changes no
   behavior, and does not close the landing.
+- SB-83. Repair record, appended after
+  this round's reviews and standing
+  outside the round's item range: the
+  red team's Minor on SB-78. SB-78's
+  oracle figures at 990, 991, and 992
+  splices stand measured at the
+  oracle's module route, python3 -m
+  muda.cli, and the route is pinned
+  beside them here: through that route
+  the oracle refuses by name at 990
+  and 991 and raises RecursionError at
+  992, exactly as SB-78 states. Through
+  a console-script-shaped launcher and
+  through a -c import route the same
+  oracle refuses by name through 993
+  splices and raises RecursionError
+  only at 994, the interpreter-limit
+  point riding the invocation baseline
+  by exactly two splices, the route
+  law the flighttape items record. No
+  figure in SB-78 is falsified at its
+  own route, and the port's side of
+  the split is a compiled constant,
+  exact at every route. SB-78's text
+  stands unamended; this record
+  supplies the route its figures ride
+  on, and Round 13's read-back states
+  the route beside the figures.
