@@ -2361,3 +2361,58 @@ after the reviews, before the repair code).
   and at 31 digits refuses under the form
   line naming the rate as written on both,
   four cells.
+- SB-88. The realistic battery re-run whole
+  at this binary, in SB-75's shape: 660
+  cells over 24 team repositories of 152
+  commits each, 3,648 commits in all, the
+  per-month composition proven from git
+  itself before any cell runs, no
+  failures. Every repository at every
+  month, 576 statement cells compared byte
+  for byte between the shipped CLI and
+  the oracle, unpriced and priced with
+  that repository's own card, each
+  document checked on its own counts,
+  commits_read 152 the whole read, three
+  joined items, none unjoined, items_priced
+  3 on the priced documents. The price
+  books, 30 cards on the file and
+  /dev/stdin surfaces against one fixed
+  repository and month, 60 cells: 18 valid
+  cards (currency case and currency
+  varied, zero rates, leading zeros,
+  one-digit and tiny fractions, integer
+  rates, spacing and key order, integer
+  parts of 15 and 29 digits and exactly 30
+  digits with the 30-digit part on each
+  class in turn, 30-digit with fraction,
+  and leading zeros running to a 30-digit
+  part) and 12 planted refusals (duplicate
+  keys at the top level, inside per_item,
+  inside a class's object value, and inside
+  an object nested in an array value, an
+  unknown top-level key, an unknown class,
+  two bad currency forms, a number-typed
+  rate, a 31-digit integer part, and two
+  malformed rate forms), compared exit for
+  exit and byte for byte across
+  implementations and across surfaces, each
+  card's outcome matching its planted
+  class. The output-file cells, one month
+  per repository on both implementations,
+  24 cells: the landed bytes compared
+  across implementations and against each
+  implementation's own stdout bytes for
+  the same month. The differential harness
+  runs fresh at 14 cases and 240 steps
+  with no failures. The flighttape pin
+  re-confirmed: commit
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e
+  stands on the host with tree
+  afd4d7d13520411e003762548fc79082a1b9cf6e
+  carrying exactly 50 blobs untruncated,
+  and the golden fixture digests to
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401
+  f297b5d61f6776903fa955a3 with verify
+  accepting, executed at the pinned
+  checkout.
