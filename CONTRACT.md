@@ -2952,3 +2952,32 @@ after the reviews, before the repair code).
   refuses on the standing line. The pre-epoch
   draw is therefore the constant-seed draw
   folded with entropy, as SB-73 contracts.
+- SB-101. The counting joints re-probed fresh at
+  this binary, in SB-74's shape with the rate
+  bound run on both surfaces: nine cells, no
+  failures. A priced statement never counts:
+  over one fixture (a revert, a fix-forward, and
+  a redone item, all three joined), the priced
+  document on both implementations is the
+  unpriced counts document with the priced
+  section added and nothing else moved, totals
+  standing identical between the priced and
+  unpriced documents, items_priced counting only
+  the three joined items, and the priced total
+  closing at 13.43 under the fixture card
+  (revert 10.00, fix-forward 2.43, redone 1.00,
+  the three rates over one joined item per
+  class). Duplicate keys refuse by name at a
+  nested level on both surfaces that exist, the
+  file surface and the /dev/stdin surface: a key
+  repeated inside a class's object value inside
+  per_item refuses as names amount twice, and a
+  key repeated inside an object nested in an
+  array value under an unknown key refuses as
+  names k twice, byte-identically on both
+  implementations and across surfaces, four
+  cells. A rate's integer part at exactly 30
+  digits prices on both implementations on both
+  surfaces, and at 31 digits refuses under the
+  form line naming the rate as written on both,
+  four cells.
