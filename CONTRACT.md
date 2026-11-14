@@ -2526,3 +2526,127 @@ after the reviews, before the repair code).
   them. SB-88's text stands unamended; this
   record supplies the multiplicities its
   enumeration left unpinned.
+- SB-91. PR 17's read-back, in full, read
+  through the API on 2026-11-14: no reviews, no
+  review comments, and 4 issue comments, every
+  body read to its end, and the body read to its
+  end including the owner's repair note appended
+  to it and the bot's auto-appended release
+  notes standing in it. The issue comments are
+  the bot's shell 6864385350, the owner's
+  trigger 6864388960, the bot's auto-reply
+  6864466078, and the landing comment
+  6865090387. The shell in its true final form,
+  moment-bounded at this read: 10,973 characters
+  by a Python count over the API body, created
+  2026-11-13T20:40:45Z and last edited
+  2026-11-13T21:08:16Z, and no rate-limit banner
+  stands anywhere in it. It states that no
+  actionable comments were generated in the
+  recent review; its walkthrough covers SB-84 to
+  SB-89 over CONTRACT.md and README.md with the
+  change assessment pinned to the reviewed head
+  93d9decd9a7386f634bbc64eb18721b5cdb1be17 and
+  an estimated effort of 2; its merge risk reads
+  Minimal up to 93d9d; its pre-merge table lists
+  four passed checks, Title check, Linked Issues
+  check, Out of Scope Changes check, and
+  Description Check, with the word Docstring
+  occurring zero times in it; and its recent
+  review section names the reviewed range as the
+  base afe62af29a0655511630fe32d2c7f0bcb2594c90
+  to the reviewed head 93d9decd over CONTRACT.md
+  and README.md, run ID
+  260510f2-ca2d-4a70-8ebf-9021bdec7e98, the
+  included allowance used and none remaining.
+  The earlier counts stand on the record at
+  their own reads: the step 0 disposition in the
+  body reads the shell at 10,965 characters with
+  the last edit then at 2026-11-13T20:42:24Z,
+  and the landing comment reads a two-character
+  drift to 10,967; the shell's last edit on the
+  record, at 2026-11-13T21:08:16Z, moved no
+  disposition fact, the no-actionable line, the
+  four passed checks, and the run ID standing as
+  the disposition states. The figures this
+  round's brief carried for the shell, 11,001
+  characters at the build lane's read and 11,005
+  at the reviews' reads with the last edit at
+  2026-11-13T19:34:59Z, stand corrected here: no
+  state of this shell carries them, and the last
+  edit they name predates the pull request's own
+  creation; the shell stands as contracted
+  above. Step 0's coverage on PR 17 is the
+  reviewed head alone, as the disposition
+  states: the bot never reviewed the repair head
+  a09fd9f6404954f5e54659ac1fe50cc93375a742, and
+  the trigger drew the auto-reply in its exact
+  form, action not completed, already reviewed
+  the last commit. No late CodeRabbit finding
+  stands on PR 17: no review or review comment
+  exists on it at all, nothing stands on the
+  record after the landing comment, and the
+  shell's final form carries no actionable
+  comment, so nothing stands undisposed. The
+  owner's body edits stand read as part of the
+  closed record and are graded here: the
+  checklist item 8 repair stands as repaired,
+  the badge item recording that no rendered
+  inspection of the badge stands in that round's
+  record and item 10 of the same body recording
+  the same for the README, the two standing in
+  agreement; and the repair note appended to the
+  body records the standards review's two
+  Minors, the SB-90 repair appended on tree
+  d915e03d4749aee243a2c898b626d9f6b630e8bc with
+  SB-89's text byte-identical, and the delta
+  reviews owed on the repair head. SB-90's
+  enumeration repair is graded as repaired, from
+  the generator's list as SB-90 states it
+  against SB-88's prose: the 18 valid cards
+  stand enumerated card for card in the
+  generator's order, and SB-88's phrases resolve
+  against that list exactly, the baseline card
+  named by no phrase in SB-88's list, the
+  currency case and the currency itself two
+  cards, (2) and (3), zero rates two cards, (4)
+  and (5), leading zeros (6), one-digit and tiny
+  fractions (7) and (8), integer rates (9),
+  spacing and key order (10) and (11), integer
+  parts of 15 and of 29 digits (12) and (13),
+  the 30-digit part on each class in turn three
+  cards, (14), (15), and (16), 30-digit with
+  fraction (17), and leading zeros running to a
+  30-digit part (18); the phrases under a
+  uniform one-phrase-one-card reading expand to
+  16, as SB-90 states, and the 12 planted
+  refusals enumerate exactly from SB-88's prose,
+  duplicate keys at four placements, an unknown
+  top-level key, an unknown class, two bad
+  currency forms, a number-typed rate, a
+  31-digit integer part, and two malformed rate
+  forms. No total moves: 18 valid cards and 12
+  refusals are the 30 cards, the 30 cards on two
+  surfaces are the 60 price-book cells, and the
+  660 realistic cells and the 694 measured cells
+  stand as SB-88 and SB-89 record them. The
+  Round 13 generator script itself stood in that
+  lane's temporary scratch and does not survive;
+  the enumeration is graded from the contract
+  texts here, and this round's realistic battery
+  is built to SB-90's list card for card and
+  re-proves each card's planted outcome under
+  SB-95. The route beside the boundary figures,
+  per SB-83's charge: SB-78's oracle figures at
+  990, 991, and 992 splices stand measured at
+  the oracle's module route, python3 -m
+  muda.cli; SB-92 re-runs the boundary at the
+  module route. The SB-65a carry stands open by
+  name against SB-11 exactly as SB-85 and SB-89
+  record it: SB-11 is not amended, no behavior
+  changes, the landing is not closed, and no
+  direction call stands on the record since the
+  landing comment, nothing standing after it on
+  PR 17 and no issue standing open on the
+  repository; SB-92 re-measures the cell fresh
+  on both arms.
