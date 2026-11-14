@@ -236,7 +236,7 @@ The same card over January prices that statement's two joined items, the revert 
 
 ## Status
 
-The statement command is complete at its contracted scope and runs as a Rust binary, with the Python of the first two rounds standing as its behavioral spec. The statement bills each item to the commit that caused it. Joining causes onward to the instruction, prompt, or agent behind the commit is not built yet. Closed perfection rounds, 14 of 100. A round counts only when a full cycle of work, audit, review, red team, and approval has closed.
+The statement command is complete at its contracted scope and runs as a Rust binary, with the Python of the first two rounds standing as its behavioral spec. The statement bills each item to the commit that caused it. Joining causes onward to the instruction, prompt, or agent behind the commit is not built yet. Closed perfection rounds, 15 of 100. A round counts only when a full cycle of work, audit, review, red team, and approval has closed.
 
 ## License
 
