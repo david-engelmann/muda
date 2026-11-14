@@ -3021,3 +3021,52 @@ after the reviews, before the repair code).
   round's measured cells total 694, closing
   arithmetically against Round 14's 694 redone
   in shape.
+- SB-103. The local gate and the closure of
+  Round 15. The gate ran on the final tree of
+  this round before this item was appended:
+  cargo test passes 25 tests (23 integration
+  tests in tests/test_statement.rs and 2 unit
+  tests in the library target), cargo clippy
+  --all-targets with warnings denied is clean,
+  and cargo fmt --check is clean. The oracle
+  verification stands as performed this round
+  and is stated here directly: the final Python
+  tree was read through the GitHub API at commit
+  918dc7eb13bd3a5b0c3e644147170ad0bb1607e8, tree
+  f331cd155f507c7013ccd6a3f5157670d80201f5, 13
+  blobs, not truncated; the pristine copy is
+  blob-identical to that tree on all seven
+  Python files, and the driven copy equals the
+  pristine copy with history.py and statement.py
+  byte-identical, cli.py differing only in the
+  two rename spots (the program name and the
+  guard line), and __init__.py only in its
+  docstring line. The binary provenance stands
+  as measured this round and is stated here
+  directly: the batteries drove a fresh debug
+  build from the verified base tree, and its
+  md5, 35555e1f592a2477b218403a8648dfbe, is
+  exactly the binary md5 the Round 12, Round 13,
+  and Round 14 records carry, reproduced again
+  from the fresh build. A Python codepoint scan
+  over the final tree counts no U+2014 and no
+  U+2013. SB-65a stands carried open by name
+  against SB-11, reproduced fresh this round at
+  SB-99 and undecided; SB-47 and SB-43 stand
+  carried by name, untouched, their questions
+  routed to the main chat with owner
+  recommendations. This round's scratch is
+  durable under
+  ~/workspace/retro-line/sb15-scratch/ (the work
+  tree built from the base tree read through the
+  API and verified blob for blob, the target
+  directories, the battery fixtures and journal,
+  and the battery and harness drivers and logs);
+  the differential harness's own fixture root is
+  a temporary directory under
+  ~/workspace/retro-line by its design; the
+  realistic battery completed on its first
+  detached launch this round, and only the
+  completed run's accounting stands in SB-102.
+  With this item the README rounds line moves to
+  15 of 100.
