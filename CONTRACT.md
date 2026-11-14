@@ -3070,3 +3070,114 @@ after the reviews, before the repair code).
   completed run's accounting stands in SB-102.
   With this item the README rounds line moves to
   15 of 100.
+- SB-104. PR 19's read-back, in full, read
+  through the API on 2026-11-14: no review, no
+  review comment, and 4 issue comments, every
+  body read to its end, and the body read to its
+  end including the bot's auto-appended release
+  notes standing in it. The issue comments are
+  the bot's shell 6877688854, the owner's
+  trigger 6877692407, the bot's auto-reply
+  6877752204, and the landing comment
+  6878121599. The identifiers the owner's brief
+  cited for this census (trigger 6877004730,
+  shell 6877005812, auto-reply 6877053508,
+  review 5904213373) stand nowhere on PR 19 at
+  this read; the census as it stands is stated
+  here from the live record, and the landing
+  comment's own citations agree with it. The
+  shell in its true final form, moment-bounded
+  at this read: 12,377 characters by a Python
+  count over the API body, created
+  2026-11-14T13:06:29Z and last edited
+  2026-11-14T13:21:32Z, and no rate-limit banner
+  stands anywhere in it. Its walkthrough covers
+  SB-98 to SB-103 over CONTRACT.md and README.md
+  with the change assessment pinned to the
+  closure head
+  0e5e6e08f06b5f31e94b318e8d2acce7ff1a2eba and
+  an estimated effort of 2; its merge risk reads
+  Minimal up to 0e5e6 and states the pull
+  request only updates project documentation;
+  its pre-merge table lists three passed checks,
+  Linked Issues check, Out of Scope Changes
+  check, and Description Check, and the Title
+  check inconclusive; its own recent-review line
+  stands that no actionable comments were
+  generated in the recent review; the word
+  Docstring occurs zero times in it; and it
+  carries its Run ID
+  fd65445d-970e-43be-b838-5f52d320d491 in its
+  recent review info, with the included
+  allowance used and none remaining. The earlier
+  counts stand on the record at their own reads:
+  the step 0 disposition in the body reads the
+  shell at 12,461 characters with the last edit
+  then at 2026-11-14T13:10:03Z; the shell's last
+  edit on the record, at 2026-11-14T13:21:32Z,
+  shortened it by 84 characters to the form
+  contracted here and precedes the landing
+  comment, and the landing comment's account of
+  the reviews' reads agrees with the form
+  contracted here, so no disposition fact moved.
+  Step 0's coverage on PR 19 is the closure head
+  0e5e6e08f0 alone, the branch carrying no other
+  head; the bot's review opened on the pull
+  request's creation, the shell standing 18
+  seconds before the trigger on the record, and
+  the trigger drew the auto-reply 6877752204 in
+  its exact form, action not completed, already
+  reviewed the last commit, which carries no
+  finding and no correction of any closed
+  disposition. Step 0 raised no actionable
+  finding on PR 19, and one reservation stands
+  dismissed with counted grounds, graded here
+  limb by limb: the Title check stood
+  inconclusive, calling the title a partial
+  match because it names the item range and the
+  round without a descriptive phrase; the title
+  (SB-98 to SB-103: Round 15) carries this
+  repository's standing form, identical in shape
+  to PR 18's title (SB-91 to SB-97: Round 14)
+  read through the API at this read; the range
+  it names is the range the body discharges; and
+  the check's own full details concede the title
+  is not off-topic and refers to the real
+  changeset, so the reservation is a
+  descriptiveness preference against the
+  standing form, not a defect in the record, and
+  the dismissal stands sound. The walkthrough's
+  own labels stand counted at their full scope:
+  the lagging Round 14 label stands in three
+  places in the shell, its prose summary (the
+  pull request adds Round 14 measurement records
+  and a Round 15 closure record), its changes
+  table heading (Round 14 findings and
+  measurements), and its merge risk prose (the
+  Round 14 and 15 measurement records); the
+  body's disposition addressed the walkthrough's
+  compression of SB-98 as a review finding and
+  repair as the bot's summary wording, SB-98
+  being the read-back item and stating the
+  finding and the repair as PR 18's, and the
+  fuller count of the label moves no
+  disposition, the shell's own change assessment
+  pinning the correct base and head and its
+  Title check naming Round 15, bot summary
+  wording only with no check or disposition
+  turning on it. PR 19's closure states its
+  provenance and its oracle accounting directly
+  at SB-103, the SB-97 lesson applied at the
+  source, and no repair record was needed in
+  Round 15. No late CodeRabbit finding stands on
+  PR 19: nothing stands on the record after the
+  landing comment, no review or review comment
+  stands at all, and no issue stands open on the
+  repository, so nothing stands undisposed. The
+  carries stand open by name exactly as the
+  charges direct: SB-65a against SB-11, SB-11
+  not amended and no behavior changed,
+  re-measured fresh on both arms this round at
+  SB-105; and SB-47 and SB-43, the description
+  surfaces, untouched, their questions routed to
+  the main chat with owner recommendations.
