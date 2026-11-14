@@ -2981,3 +2981,43 @@ after the reviews, before the repair code).
   surfaces, and at 31 digits refuses under the
   form line naming the rate as written on both,
   four cells.
+- SB-102. The realistic battery at Round 14's
+  shape, the differential harness fresh, and the
+  flighttape pin. The realistic battery ran its
+  standing corpus: 24 team repositories carrying
+  full 2026 histories in SB-81's composition (12
+  commits in an ordinary month, 14 in a quarter
+  month with its merge and side commit; 152
+  commits per repository, 3,648 in all), the
+  per-month composition proven from git itself
+  per repository and month before any cell ran.
+  Against that corpus the battery measured 660
+  cells with no failures: 288 unpriced
+  statements and 288 statements priced with each
+  repository's own card, compared byte for byte
+  between the shipped CLI and the oracle and
+  checked on their own counts (152 commits read,
+  three joined items, none unjoined, three
+  priced); 60 price-book cells (the 30 cards as
+  SB-90 enumerates them: 18 valid, 12 refusals;
+  each on the file and /dev/stdin surfaces); and
+  24 output-file cells whose landed bytes
+  matched the stdout bytes. The differential
+  harness ran fresh against the same two
+  implementations: 14 cases, 240 steps, no
+  failures. The flighttape pin was re-confirmed:
+  a tree read through the GitHub API at commit
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e
+  returned tree
+  afd4d7d13520411e003762548fc79082a1b9cf6e with
+  exactly 50 blobs, not truncated; a checkout of
+  the pin built under the local toolchain and
+  the golden digest executed: converting the
+  synthetic session fixture and digesting the
+  tape printed exactly
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  and verify accepted it. With the 34 boundary,
+  draw, and joint cells of SB-99 to SB-101, the
+  round's measured cells total 694, closing
+  arithmetically against Round 14's 694 redone
+  in shape.
