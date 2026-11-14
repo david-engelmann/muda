@@ -2913,3 +2913,42 @@ after the reviews, before the repair code).
   the carry against SB-11 stands open by name:
   SB-11 is not amended, no behavior changes, and
   the landing is not closed.
+- SB-100. The draw re-probed fresh at this
+  binary, in SB-73's shape, under exactly the
+  fourteen names SB-77 enumerates: fourteen
+  cells, no failures. A model of the draw
+  written from the contract text is pinned
+  against the four unit vectors in src/cli.rs
+  before any cell runs (SB-56). The plain
+  control lands byte-identical under no
+  interposition. Under entropy refusal in both
+  arms, the device open refused and a short read
+  of five bytes, the port refuses on the
+  standing cannot-write line before any create
+  and the directory is left as seeded; the
+  oracle under both refusal arms lands its
+  statement, the contracted split standing,
+  because its draw never opens the device at
+  statement time. The clock-only plants stand
+  inert at both of Round 8's readings, the
+  port's write landing under a frozen clock at
+  pid 1 at the first reading and seated at pid
+  250 at the second, and the oracle under the
+  frozen clock at pid 1 with the same 64 planted
+  also lands. The positive control is bracketed
+  at both ends: with the entropy block fixed to
+  a known nonzero value the 64 candidates are
+  computable, planting all 64 refuses the write,
+  and removing the first planted candidate lands
+  the write, as removing the last (the 64th)
+  lands it; with the block zeroed the fold is
+  zero, the candidate sequence is the clock-only
+  sequence again, and its plants refuse. The
+  pre-epoch posture, at a clock frozen 100
+  seconds before the epoch: with no plants the
+  write lands byte-identical, and with the 64
+  candidates computed from the constant seed
+  term planted under the fixed block, the write
+  refuses on the standing line. The pre-epoch
+  draw is therefore the constant-seed draw
+  folded with entropy, as SB-73 contracts.
