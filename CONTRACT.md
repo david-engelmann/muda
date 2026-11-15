@@ -3381,3 +3381,123 @@ after the reviews, before the repair code).
   completed run's accounting stands in SB-108.
   With this item the README rounds line moves to
   16 of 100.
+- SB-110. PR 20's read-back, in full, read
+  through the API on 2026-11-15: no review, no
+  review comment, and 4 issue comments, every
+  body read to its end, and the body read to its
+  end including the bot's auto-appended release
+  notes standing in it. The issue comments are
+  the owner's trigger 6885245435 (20 characters,
+  created 2026-11-14T22:33:14Z and never
+  edited), the bot's shell 6885246512, the bot's
+  auto-reply 6885282425 (573 characters, created
+  2026-11-14T22:36:22Z, in its exact form,
+  action not completed, already reviewed the
+  last commit, which carries no finding and no
+  correction of any closed disposition), and the
+  landing comment 6885576627 (2,550 characters,
+  created 2026-11-14T23:01:22Z). The identifiers
+  the owner's brief cited for this census stand
+  verified against the live record exactly as
+  cited, the brief's census having been sourced
+  from the landing comment itself; no correction
+  is owed this round. The shell in its true
+  final form, moment-bounded at this read:
+  11,294 characters by a Python count over the
+  API body, created 2026-11-14T22:33:19Z and
+  last edited 2026-11-14T22:38:55Z, unchanged
+  since the Round 16 reviews' reads, and no
+  rate-limit banner stands anywhere in it. Its
+  walkthrough covers SB-104 to SB-109 over
+  CONTRACT.md and README.md with the change
+  assessment pinned to the closure head
+  faa8d745d2061e6635f14f6c5e465855cf991fe4 and
+  an estimated effort of 2; its merge risk reads
+  Minimal up to faa8d and states the pull
+  request adds Round 16 measurement and closure
+  records to the contract and does not change
+  runtime behavior; its pre-merge table lists
+  four passed checks, Title check, Linked Issues
+  check, Out of Scope Changes check, and
+  Description Check; its own recent-review line
+  stands that no actionable comments were
+  generated in the recent review; the word
+  Docstring occurs zero times in it; and it
+  carries its Run ID
+  9d6b9103-8139-4190-a506-fc4120d2447e in its
+  recent review info, the review standing over
+  the files changed between
+  3b6ba4c7e410447b9fc45b947b491be9e2a829b1 and
+  faa8d745d2061e6635f14f6c5e465855cf991fe4 with
+  CONTRACT.md and README.md the two files
+  selected, and the included allowance used with
+  none remaining. The earlier count stands on
+  the record at its own read: the step 0
+  disposition in the body reads the shell at
+  11,292 characters with the last edit then at
+  2026-11-14T22:35:26Z; the shell's last edit on
+  the record, at 2026-11-14T22:38:55Z,
+  lengthened it by 2 characters (two added blank
+  lines and the Description Check row
+  re-rendered at a shifted position, as the
+  landing comment states) to the form contracted
+  here and precedes the landing comment, and the
+  landing comment's account of the reviews'
+  reads agrees with the form contracted here, so
+  no disposition fact moved. Step 0's coverage
+  on PR 20 is the closure head faa8d745 alone,
+  the branch carrying no other head; the bot's
+  review opened on the pull request's creation,
+  the shell standing 5 seconds after the trigger
+  on the record, and the trigger drew the
+  auto-reply 6885282425. Step 0 raised no
+  actionable finding on PR 20, and one
+  reservation stands dismissed with counted
+  grounds, graded here limb by limb: the Title
+  check passed, carrying prose that the title is
+  only partially descriptive because it does not
+  say what the round did; the title (SB-104 to
+  SB-109: Round 16) carries this repository's
+  standing form, identical in shape to PR 19's
+  title (SB-98 to SB-103: Round 15) and PR 18's
+  title (SB-91 to SB-97: Round 14) read through
+  the API at this read; the range it names is
+  the range the body discharges; and the check's
+  own full details concede the title is specific
+  to the round and related to the main change,
+  so the reservation is a descriptiveness
+  preference against the standing form, not a
+  defect in the record, and the dismissal stands
+  sound. The bot's release-notes appendix at the
+  body's foot stands censused in the whole-body
+  read: inside its own markers its first bullet
+  claims the round added "Round 15 and Round 16
+  review, measurement, verification, and closure
+  records", where the branch adds Round 16's
+  records only (SB-104 to SB-109, the first of
+  them the read-back of PR 19), and its second
+  bullet, the README updated to reflect 16
+  completed perfection rounds, is correct; the
+  appendix is the bot's own text inside its own
+  markers, its one error is the bot's, and no
+  authored sentence adopts it, so it stands
+  dispositioned at that scope and nothing turns
+  on it. The shell's walkthrough carries no such
+  overstatement at its full scope: the words
+  Round 15 occur exactly once in it, naming the
+  read-back's subject in its summary sentence,
+  and its changes table names the PR 19
+  read-back and Round 16's targeted measurements
+  and battery and closure without a lagging
+  label. No late CodeRabbit finding stands on PR
+  20: nothing stands on the record after the
+  landing comment, no review or review comment
+  stands at all, and no issue stands open on the
+  repository, so nothing stands undisposed. The
+  carries stand open by name exactly as the
+  charges direct: SB-65a against SB-11, SB-11
+  not amended and no behavior changed,
+  re-measured fresh on both arms this round at
+  SB-111; and SB-47 and SB-43, the description
+  surfaces, untouched, their questions routed to
+  the main chat with owner recommendations.
