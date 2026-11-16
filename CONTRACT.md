@@ -4311,3 +4311,122 @@ after the reviews, before the repair code).
   surfaces, and at 31 digits refuses under the
   form line naming the rate as written on both,
   four cells.
+- SB-126. The realistic battery, the
+  differential harness, the flighttape pin, and
+  the closure of Round 19. The realistic battery
+  ran its standing corpus: 24 team repositories
+  carrying full 2026 histories in SB-81's
+  composition (12 commits in an ordinary month,
+  14 in a quarter month with its merge and side
+  commit; 152 commits per repository, 3,648 in
+  all), the per-month composition proven from
+  git itself per repository and month before any
+  cell ran. Against that corpus the battery
+  measured 660 cells with no failures: 288
+  unpriced statements and 288 statements priced
+  with each repository's own card, compared byte
+  for byte between the shipped CLI and the
+  oracle and checked on their own counts (152
+  commits read, three joined items, none
+  unjoined, three priced); 60 price-book cells
+  (the 30 cards as SB-90 enumerates them: 18
+  valid, 12 refusals; each on the file and
+  /dev/stdin surfaces); and 24 output-file cells
+  whose landed bytes matched the stdout bytes.
+  The 24 output-file cells include the four
+  cells of teams 20 to 23 that the Round 18 gate
+  left untested under that round's write fault
+  wave; in this round's completed pass all four
+  stand executed inside the whole at their
+  contracted postures, their landed bytes
+  matching the stdout bytes, counted in the 660
+  like every other cell. The accounting stands
+  on the second detached launch: the box write
+  fault killed the first launch in the corpus
+  phase, in team-12's build, on a corpus commit
+  that did not land, and that launch is
+  disclosed here and counted nowhere; the
+  completed run resumed from the corpus
+  checkpoints the first launch had banked, each
+  repository's composition re-proven from git
+  before any cell ran. The differential harness
+  ran fresh against the same two implementations
+  on its first launch: 14 cases, 240 steps, no
+  failures. The flighttape pin was re-confirmed:
+  a tree read through the GitHub API at commit
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e
+  returned tree
+  afd4d7d13520411e003762548fc79082a1b9cf6e with
+  exactly 50 blobs, not truncated; the local
+  extraction of that tree failed on its writes
+  three times under the same wave and those
+  attempts are counted nowhere, the standing
+  checkout instead verified blob for blob
+  against the live tree, all 50 blobs matching;
+  a checkout of the pin built under the local
+  toolchain on the second attempt, the first
+  build's writes refused under the wave and
+  counted nowhere, and its suite passed whole at
+  241 tests; and the golden digest executed at
+  the pin's binary: converting the synthetic
+  session fixture printed the 1,663-byte tape,
+  digesting the tape printed exactly
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  and verify accepted it. One tooling incident
+  stands in the same accounting: a scratch
+  driver file for the pin fetch was zeroed by a
+  failed write under the wave and was rewritten
+  and verified by read-back; it is a scratch
+  record only and no repository file was touched
+  by it. With the 34 boundary, draw, and joint
+  cells of SB-123 to SB-125, the round's
+  measured cells total 694, the differential
+  harness's 14 cases and 240 steps stated beside
+  the total. The local gate ran on the final
+  tree of this round before this item was
+  appended: cargo test passes 25 tests (23
+  integration tests in tests/test_statement.rs
+  and 2 unit tests in the library target), cargo
+  clippy --all-targets with warnings denied is
+  clean, and cargo fmt --check is clean. The
+  oracle verification stands as performed this
+  round and is stated here directly: the final
+  Python tree was read through the GitHub API at
+  commit
+  918dc7eb13bd3a5b0c3e644147170ad0bb1607e8, tree
+  f331cd155f507c7013ccd6a3f5157670d80201f5, 13
+  blobs, not truncated; the pristine copy is
+  blob-identical to that tree on all seven
+  Python files, and the driven copy equals the
+  pristine copy with history.py and statement.py
+  byte-identical, cli.py differing only in the
+  two rename spots (the program name and the
+  guard line), and __init__.py only in its
+  docstring line. The binary provenance stands
+  as measured this round and is stated here
+  directly: the batteries drove a fresh debug
+  build from the verified base tree, and its
+  md5, 35555e1f592a2477b218403a8648dfbe, is
+  exactly the binary md5 the Round 12, Round 13,
+  Round 14, Round 15, Round 16, Round 17, and
+  Round 18 records carry, reproduced again from
+  the fresh build. A Python codepoint scan over
+  the final tree counts no U+2014 and no U+2013.
+  SB-65a stands carried open by name against
+  SB-11, reproduced fresh this round at SB-123
+  and undecided, and SB-11 itself stands carried
+  open by name on the same terms; SB-47 and
+  SB-43 stand carried by name, untouched, their
+  questions routed to the main chat with owner
+  recommendations. This round's scratch is
+  durable under
+  ~/workspace/retro-line/sb19-scratch/ (the work
+  tree built from the base tree read through the
+  API and verified blob for blob, the target
+  directories, the battery fixtures and journal,
+  and the battery and harness drivers and logs);
+  the differential harness's own fixture root is
+  a temporary directory under
+  ~/workspace/retro-line by its design. With
+  this item the README rounds line moves to 19
+  of 100.
