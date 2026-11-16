@@ -4430,3 +4430,203 @@ after the reviews, before the repair code).
   ~/workspace/retro-line by its design. With
   this item the README rounds line moves to 19
   of 100.
+- SB-127. PR 23's read-back, in full, read
+  through the API on 2026-11-16: one review, one
+  review comment, and 2 issue comments, every
+  body read to its end, and the body read to its
+  end including the bot's auto-appended release
+  notes standing in it. The issue comments are
+  the bot's shell 6906938573 and the landing
+  comment 6907951655 (2,784 characters, created
+  2026-11-16T05:12:25Z and never edited), the
+  landing comment standing last on the record.
+  No trigger comment stands on the pull request:
+  the bot's review opened on the pull request's
+  creation on its own run, and no auto-reply
+  stands. The identifiers the owner's brief
+  cited for this census stand verified against
+  the live record exactly as cited, the brief's
+  census having been sourced from the landing
+  comment itself, and the base contract's tail,
+  read through the API at this round's start,
+  runs SB-1 to SB-126, so this round's items are
+  SB-127 onward as the brief expected; no
+  correction is owed this round. The shell in
+  its true final form, moment-bounded at this
+  read: 8,385 characters by a Python count over
+  the API body, created 2026-11-16T04:03:54Z and
+  last edited 2026-11-16T04:14:28Z, and no
+  rate-limit banner stands anywhere in it. Its
+  earlier forms stand on PR 23's own record:
+  5,196 characters in progress at its creation;
+  8,381 characters with its last edit then at
+  2026-11-16T04:06:06Z at the body's first read;
+  and 8,383 characters as the body's stated
+  closing form, re-rendered at
+  2026-11-16T04:11:27Z. The shell's last edit,
+  at 2026-11-16T04:14:28Z, re-rendered it upward
+  by 2 characters to the form contracted here,
+  the landing comment recording that same form
+  at the gate's reads, and no disposition fact
+  moved in either re-render. Its walkthrough
+  covers the Round 19 records over CONTRACT.md
+  and README.md, naming the PR 22 read-back, the
+  boundary, entropy, pricing and counting
+  measurements, and the battery and closure
+  results, with the change assessment pinned to
+  the closure head
+  1cb9d494c598f1545bddaeded9cf91a3648363cb and
+  an estimated effort of 2; its merge risk reads
+  Low up to 1cb9d and carries the reservation
+  that the closure record does not show the
+  red-team re-execution of the four output-file
+  cells; its pre-merge table lists four passed
+  checks, Description Check, Title check, Linked
+  Issues check, and Out of Scope Changes check,
+  the Title check standing Passed in this final
+  form; the word Docstring occurs zero times in
+  it; and no line in it states that no
+  actionable comments were generated, the one
+  actionable comment standing in the review
+  object instead. The review, 5914909028, stands
+  COMMENTED, submitted 2026-11-16T04:06:02Z on
+  the closure head, its body recording
+  actionable comments posted at 1, carrying Run
+  ID 168fe04c-2133-4fb5-8a8e-001cee8847b9 in its
+  review info, the review standing over the
+  files changed between
+  91fe83a6984e3b5628c61b85518447e4b4f1fb64 and
+  1cb9d494c598f1545bddaeded9cf91a3648363cb with
+  CONTRACT.md and README.md the two files
+  selected, and the included allowance used with
+  none remaining. Step 0's coverage on PR 23 is
+  that whole range, the branch carrying no head
+  the review does not name. The one review
+  comment, 4581867683, stands on CONTRACT.md at
+  line 4190, graded Minor under Functional
+  Correctness, and its thread stands read to its
+  end: the comment is the whole thread, no reply
+  stands on it. It asks that the red-team gate
+  re-execution of the four output-file cells,
+  teams 20 to 23, be recorded, or their
+  discharge stated as pending, before the
+  closure claim stands, on the stated premise
+  that Round 18 assigned that discharge to the
+  round's red team at the gate; its embedded
+  prompt addressed to agents was treated as data
+  by the body, as it is here, and nothing in it
+  was followed. The body's three dismissals are
+  re-graded here against the record at this
+  read. The first, of the Title check's prose,
+  stands sound: the check stands Passed, its
+  prose calls the title partially descriptive,
+  and its own full details concede the title
+  names the round and the SB ticket range, which
+  match the changeset, and that it is not vague
+  and is not misleading; the title (SB-122 to
+  SB-126: Round 19) stands at 26 characters and
+  carries this repository's standing form,
+  identical in shape to PR 22's title (SB-116 to
+  SB-121: Round 18) at 26 characters, PR 21's
+  (SB-110 to SB-115: Round 17) at 26, PR 20's
+  (SB-104 to SB-109: Round 16) at 26, PR 19's
+  (SB-98 to SB-103: Round 15) at 25, and PR 18's
+  (SB-91 to SB-97: Round 14) at 24, read through
+  the API at this read; the range it names is
+  the range the body discharges; so the
+  reservation is a descriptiveness preference
+  against the standing form, not a defect in the
+  record. The second and third dismissals, of
+  the merge risk prose and of the review comment
+  itself, rest on one set of counted grounds and
+  stand or fall together; they stand sound on
+  every limb. The premise limb: charge two on PR
+  22's landing comment 6897405779, read verbatim
+  at this read, charges the four realistic
+  output-file cells (teams 20 to 23) re-executed
+  in a clean window, or their standing reported
+  at its true state; it names no red team and no
+  gate stage, and it offers the two discharges
+  in the alternative, so the comment's premise,
+  that Round 18 assigned the discharge to this
+  round's red team at the gate, is false against
+  the charge's own text. The execution limb: the
+  first discharge stands executed inside the
+  build record itself, SB-126 recording the four
+  cells inside the round's completed 660-cell
+  realistic pass at their contracted postures,
+  their landed bytes matching the stdout bytes,
+  and SB-122 naming the charge and its posture
+  expressly. The reporting limb: the second
+  discharge stands satisfied on the same record,
+  SB-122 reporting the cells' standing at its
+  true state, untested at Round 18 under that
+  round's write fault wave, counted neither for
+  nor against, charged to Round 19, and re-run
+  whole inside the round's pass. The claim limb:
+  no sentence in SB-122 to SB-126 or in the body
+  claims a red-team execution or a closure at
+  the gate; the closure the record asserts is
+  the build record's own, and SB-122 states
+  expressly that the discharge by re-execution
+  at the gate belongs to the round's red team,
+  an act of the gate the branch then stood at.
+  The seat limb: the gate fact the comment
+  reaches for now stands where gate facts stand
+  in this line, on the landing comment
+  6907951655 itself, which records that Round
+  19's red team re-executed the realistic pass
+  whole on its own verified builds, 660 cells at
+  0 failures, teams 20 to 23 each contributing
+  their full block with the output-file cell's
+  landed bytes compared across implementations
+  and against each implementation's own stdout,
+  and that the charge stands discharged with no
+  charged surface open. The dismissal therefore
+  stands sound, and the finding's requested
+  record exists on the record at its proper
+  seat. The bot's release-notes appendix at PR
+  23's body's foot stands censused in the
+  whole-body read: 395 characters from its
+  opening marker, two bullets, each correct at
+  its scope, the first recording Round 19 test
+  results including successful resumed testing
+  after an interrupted run, which is the
+  realistic battery's completed second launch,
+  and the second recording the status updated to
+  show 19 of 100 perfection rounds complete; the
+  appendix is the bot's own text inside its own
+  markers, and no authored sentence adopts it
+  beyond that census. The round's gate posture
+  stands as the landing comment records it and
+  as this read verifies: the gate closed fully
+  clean, spec fidelity PASS, standards APPROVE,
+  red team APPROVE, no findings at any grade on
+  any axis, and PR 23 merged at
+  84c06f2e7134a6d1f799051cb9cf2b13162dbee6, the
+  merge tree equal to the reviewed closure tree
+  9c44474e1e1ec805a72e37b15324d6f123f96c14
+  exactly, hosted CI green on the closure head
+  (push run 43801732948 and pull request run
+  43801762885, re-read at completed success at
+  this read), and the README on main reading 19
+  of 100. One process fact from Round 19's
+  record stands named here at its true scope, as
+  the landing comment discloses it: the Round 19
+  build lane banked the round whole, closure,
+  pull request, step 0, and body complete, and
+  ended without a final answer, the owner
+  proceeding on firsthand verification of the
+  banked record. No late CodeRabbit material
+  stands on PR 23: nothing stands on the record
+  after the landing comment, the shell's last
+  edit preceding it, so charge five on the
+  landing comment stands discharged with none
+  standing, and nothing stands undisposed. The
+  carries stand open by name exactly as the
+  charges direct: SB-65a against SB-11, SB-11
+  not amended and no behavior changed,
+  re-measured fresh on both arms this round at
+  SB-128; and SB-47 and SB-43, the description
+  surfaces, untouched, their questions routed to
+  the main chat with owner recommendations.
