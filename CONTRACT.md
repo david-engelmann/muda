@@ -4893,3 +4893,179 @@ after the reviews, before the repair code).
   ~/workspace/retro-line by its design. With
   this item the README rounds line moves to 20
   of 100.
+- SB-132. PR 24's read-back, in full, read
+  through the API on 2026-11-16: no reviews, no
+  review comments, and 2 issue comments, every
+  body read to its end, and the body read to its
+  end including the bot's auto-appended release
+  notes standing in it. The issue comments are
+  the bot's shell 6918621695 and the landing
+  comment 6920367320 (2,455 characters, created
+  2026-11-16T15:12:27Z and never edited), the
+  landing comment standing last on the record.
+  No trigger comment stands on the pull request:
+  the bot's review opened on the pull request's
+  creation on its own run, and no auto-reply
+  stands. The identifiers the owner's brief
+  cited for this census stand verified against
+  the live record exactly as cited, the brief's
+  census having been sourced from the landing
+  comment itself, and the base contract's tail,
+  read through the API at this round's start,
+  runs SB-1 to SB-131, each item standing
+  exactly once and in order (SB-95, SB-96, and
+  SB-97 carrying the parenthetical Round 14
+  form), so this round's items are SB-132 onward
+  as the brief expected; no correction is owed
+  this round. The shell in its true final form,
+  moment-bounded at this read: 10,930 characters
+  by a Python count over the API body, created
+  2026-11-16T14:03:56Z and last edited
+  2026-11-16T14:11:15Z, and no rate-limit banner
+  stands anywhere in it. Its earlier form stands
+  on PR 24's own record: the body's expressly
+  moment-bounded step 0 account read it at
+  10,928 characters, and its last edit
+  re-rendered it upward by 2 characters to the
+  form contracted here, the landing comment
+  recording that same closing form, and no
+  disposition fact moved in the re-render,
+  verified by reading the closing form whole.
+  Its walkthrough covers the Round 20 records
+  over CONTRACT.md and README.md, naming the PR
+  23 read-back, the boundary re-probe with the
+  unresolved output-symlink case, the entropy,
+  counting, and pricing re-probes, and the
+  battery and closure results, with the change
+  assessment pinned to the closure head
+  f59e2981d4acda68d064c6e87d1d361b056f786c and
+  an estimated effort of 2; its merge risk reads
+  Minimal up to f59e2 and carries no
+  reservation, its text recording that the pull
+  request only adds round records and updates
+  the README round count and changes no runtime
+  behavior; its pre-merge table lists four
+  passed checks, Title check, Linked Issues
+  check, Out of Scope Changes check, and
+  Description Check, the Title check standing
+  Passed in this final form; the line stating
+  that no actionable comments were generated in
+  the recent review stands in it; the word
+  Docstring occurs zero times in it; and its
+  recent review info records Run ID
+  d7cc4886-678a-427c-8d8e-6b3ae5b2f3bd, the
+  review standing over the files changed between
+  84c06f2e7134a6d1f799051cb9cf2b13162dbee6 and
+  f59e2981d4acda68d064c6e87d1d361b056f786c with
+  CONTRACT.md and README.md the two files
+  selected, and the included allowance used with
+  none remaining. Step 0's coverage on PR 24 is
+  that whole range, the branch carrying no head
+  the review does not name. PR 24's five commits
+  stand verified live in order at this read:
+  ecac5e34b1d67f057babc72ed194d091383d49aa
+  (SB-127, tree
+  3abbf38a12a30dcbbe2f858cef7592d9de6a9fd7),
+  6960c1a770ec80255609cf0a9e3e68a62fcaea9b
+  (SB-128, tree
+  7f5c6c51490c20477b15aaf3e046034b5de48bfb),
+  f3761ca33faf6544f42561122c38fac248769af5
+  (SB-129, tree
+  25c60c6a45d820dfdbc4119cdce7aae6fb2141b4),
+  44626ea566e02653ffc9567d0cca37c00ddad0b2
+  (SB-130, tree
+  b96b956a816c8a46cdf6767ef0b812bb959ce7c1), and
+  f59e2981d4acda68d064c6e87d1d361b056f786c
+  (SB-131, tree
+  e1f22a60f5a400a999eb7a4cd74924fbd422483d). The
+  body's one dismissal, of the passed Title
+  check's prose, is re-graded here against the
+  record at this read and stands sound: the
+  check stands Passed, its prose reserves only
+  that the title does not describe what the
+  round concluded or the README count change and
+  that the identifiers alone give a reader
+  little meaning without context, and its own
+  full details concede the title names the
+  change set's scope and round number, which
+  match the stated objectives and the changeset,
+  and that it is not misleading or off-topic;
+  the title (SB-127 to SB-131: Round 20) stands
+  at 26 characters and carries this repository's
+  standing form, identical in shape to PR 23's
+  title (SB-122 to SB-126: Round 19) at 26
+  characters, PR 22's (SB-116 to SB-121: Round
+  18) at 26, PR 21's (SB-110 to SB-115: Round
+  17) at 26, PR 20's (SB-104 to SB-109: Round
+  16) at 26, PR 19's (SB-98 to SB-103: Round 15)
+  at 25, and PR 18's (SB-91 to SB-97: Round 14)
+  at 24, read through the API at this read; the
+  range it names is the range the body
+  discharges; so the reservation is a
+  descriptiveness preference against the
+  standing form, not a defect in the record. The
+  standing disposition chain behind PR 23's
+  dismissal of the bot's actionable comment
+  stands confirmed at this read at its own hand:
+  charge two on PR 22's landing comment
+  6897405779, read verbatim at this read,
+  charges the four realistic output-file cells
+  (teams 20 to 23) re-executed in a clean
+  window, or their standing reported at its true
+  state; it names no red team and no gate stage,
+  and it offers the two discharges in the
+  alternative, so the premise of review comment
+  4581867683 on PR 23, that Round 18 assigned
+  that discharge to the round's red team at the
+  gate, is false against the charge's own text;
+  the comment's embedded prompt addressed to
+  agents was treated as data at SB-127, as it is
+  here, and nothing in it was followed; and the
+  grading SB-127 recorded stands confirmed on
+  its limbs, the execution limb in SB-126's
+  completed 660-cell pass carrying the four
+  cells inside the whole, the reporting limb in
+  SB-122's statement of their standing, and the
+  seat limb in PR 23's landing comment
+  6907951655, which records Round 19's red team
+  re-executing the realistic pass whole, so the
+  dismissal stands sound and the finding's
+  requested record exists on the record at its
+  proper seat. The bot's release-notes appendix
+  at PR 24's body's foot stands censused in the
+  whole-body read: 479 characters from its
+  opening marker, its Documentation section
+  carrying three bullets, each correct at its
+  scope, the first recording Round 19 review,
+  verification, and test-result records and the
+  Round 20 closure status, the second recording
+  the README updated to 20 perfection rounds
+  closed, and the third recording several
+  questions and a carry item as still open; the
+  appendix is the bot's own text inside its own
+  markers, and no authored sentence adopts it
+  beyond that census. The round's gate posture
+  stands as the landing comment records it and
+  as this read verifies: the gate closed fully
+  clean, spec fidelity PASS, standards APPROVE,
+  red team APPROVE, no findings at any grade on
+  any axis, and PR 24 merged at
+  f53d8278d9ace73f78ddfa268b756396098a1239, the
+  merge tree equal to the reviewed closure tree
+  e1f22a60f5a400a999eb7a4cd74924fbd422483d
+  exactly, hosted CI green on the closure head
+  (push run 43881376094 and pull request run
+  43881853481), and the README on main reading
+  20 of 100. No late CodeRabbit material stands
+  on PR 24: nothing stands on the record after
+  the landing comment, the shell's last edit
+  preceding it, so charge five on the landing
+  comment stands discharged with none standing,
+  and nothing stands undisposed. The carries
+  stand open by name exactly as the charges
+  direct: SB-65a against SB-11, SB-11 not
+  amended and no behavior changed, re-measured
+  fresh on both arms this round at SB-133; and
+  SB-47 and SB-43, the description surfaces,
+  untouched, their questions routed to the main
+  chat with owner recommendations.
