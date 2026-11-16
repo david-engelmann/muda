@@ -4059,3 +4059,144 @@ after the reviews, before the repair code).
   completed run's accounting stands in SB-120.
   With this item the README rounds line moves to
   18 of 100.
+- SB-122. PR 22's read-back, in full, read
+  through the API on 2026-11-15: no review, no
+  review comment, and 2 issue comments, every
+  body read to its end, and the body read to its
+  end including the bot's auto-appended release
+  notes standing in it. The issue comments are
+  the bot's shell 6895612298 and the landing
+  comment 6897405779 (2,441 characters, created
+  2026-11-15T16:10:46Z and never edited), the
+  landing comment standing last on the record.
+  No trigger comment stands on the pull request:
+  the bot's review opened on the pull request's
+  creation on its own run, and no auto-reply
+  stands. The identifiers the owner's brief
+  cited for this census stand verified against
+  the live record exactly as cited, the brief's
+  census having been sourced from the landing
+  comment itself; no correction is owed this
+  round. The shell in its true final form,
+  moment-bounded at this read: 11,172 characters
+  by a Python count over the API body, created
+  2026-11-15T14:06:37Z and last edited
+  2026-11-15T14:21:22Z, and no rate-limit banner
+  stands anywhere in it. The form the pull
+  request's own body read stands on that record
+  at 11,170 characters with its last edit then
+  at 2026-11-15T14:08:43Z; the shell's last
+  edit, at 2026-11-15T14:21:22Z, re-rendered it
+  upward by 2 characters to the form contracted
+  here, and that edit precedes the landing
+  comment, so no disposition fact moved. Its
+  walkthrough covers SB-116 to SB-121 over
+  CONTRACT.md and README.md with the change
+  assessment pinned to the closure head
+  30f3e648a7331efb977a2ba8bedc6e78432ac28a and
+  an estimated effort of 2; its merge risk reads
+  Minimal up to 30f3e and states the pull
+  request changes documentation only, has no
+  runtime impact, and is ready to merge; its
+  pre-merge table lists four passed checks,
+  Description Check, Title check, Linked Issues
+  check, and Out of Scope Changes check, the
+  Title check standing Passed in this final
+  form; its own recent-review line stands that
+  no actionable comments were generated in the
+  recent review; the word Docstring occurs zero
+  times in it; and it carries its Run ID
+  eb460e63-e78c-45ec-af92-f4c179498637 in its
+  recent review info, the review standing over
+  the files changed between
+  6af9c13d6c4ae33983973c5ee0c1343848ff52f5 and
+  30f3e648a7331efb977a2ba8bedc6e78432ac28a with
+  CONTRACT.md and README.md the two files
+  selected, and the included allowance used with
+  none remaining. Step 0's coverage on PR 22 is
+  that whole range, the branch carrying no head
+  the review does not name. Step 0 raised no
+  actionable finding on PR 22, and the body's
+  one dismissal is re-graded here limb by limb
+  against the shell's final form and stands
+  sound: the Title check stands Passed, and its
+  prose calls the title partially related,
+  naming the round and the SB range without
+  saying what the change does; the title (SB-116
+  to SB-121: Round 18) stands at 26 characters
+  and carries this repository's standing form,
+  identical in shape to PR 21's title (SB-110 to
+  SB-115: Round 17), PR 20's (SB-104 to SB-109:
+  Round 16), PR 19's (SB-98 to SB-103: Round
+  15), and PR 18's (SB-91 to SB-97: Round 14)
+  read through the API at this read; the range
+  it names is the range the body discharges; and
+  the check's own full details concede the title
+  refers to a real part of the change, is not
+  off-topic, and is not vague enough to be
+  inconclusive, so the reservation is a
+  descriptiveness preference against the
+  standing form, not a defect in the record, and
+  the check's own verdict stands Passed. The
+  bot's release-notes appendix at PR 22's body's
+  foot stands censused in the whole-body read
+  and stands dispositioned in that body itself
+  at its true scope: its first bullet, the
+  status section updated to reflect 18 completed
+  perfection rounds, is correct; its second, the
+  Round 18 records covering output-path
+  boundaries, entropy draws, pricing and
+  counting behavior, and realistic comparisons,
+  with completed runs reporting no failures and
+  runs affected by write faults retried, is
+  correct at its scope; its third, the open case
+  where writing through an output symlink inside
+  the repository replaces the symlink, is
+  SB-65a, carried open by name against SB-11;
+  the appendix is the bot's own text inside its
+  own markers, and no authored sentence adopts
+  it beyond that census. The shell's walkthrough
+  carries no lagging label at its full scope: it
+  names the PR 21 read-back, Round 18's
+  boundary, draw, pricing and counting
+  measurements, and the realistic battery and
+  closure under their own round. One process
+  fact stands disclosed on PR 22's body's face
+  and is named here at its true scope: the Round
+  18 build lane banked all six items and the
+  closure on the branch and ended before the
+  body was finished, and the body was completed
+  afterward by a second lane from the banked
+  record, every figure in it re-read from the
+  contract at the head, the run logs, or the
+  live record at the completion, and graded
+  accurate by all three of the round's review
+  axes. One charge from the Round 18 landing
+  stands named here with its posture: at that
+  round's gate the owner's realistic
+  re-execution ran all 660 cells and 656 passed
+  outright, and the final four output-file
+  cells, teams 20 to 23, stand untested under
+  the box write fault wave then live, both
+  implementations refusing identically at the
+  content-write step and a raw write probe
+  failing across four filesystems while file
+  creation succeeded; they are counted neither
+  for nor against, their re-execution in a clean
+  window is charged to this round, this round's
+  build re-runs the realistic battery whole
+  including those four cells at SB-126, and
+  their discharge by re-execution at the gate
+  belongs to this round's red team. No late
+  CodeRabbit finding stands on PR 22: nothing
+  stands on the record after the landing
+  comment, no review or review comment stands at
+  all, and no issue stands open on the
+  repository, so nothing stands undisposed. The
+  carries stand open by name exactly as the
+  charges direct: SB-65a against SB-11, SB-11
+  not amended and no behavior changed,
+  re-measured fresh on both arms this round at
+  SB-123; and SB-47 and SB-43, the description
+  surfaces, untouched, their questions routed to
+  the main chat with owner recommendations.
