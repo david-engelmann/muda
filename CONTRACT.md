@@ -5333,3 +5333,221 @@ SB-136. Round 21 gate record and closure. The
   ~/workspace/retro-line by its design. The
   README rounds line moves to 21 of 100 in this
   closure commit.
+- SB-137. PR 25's read-back, in full, read
+  through the API on 2026-11-17: 1 review, 1
+  review comment, and 2 issue comments, every
+  body read to its end, and the body read to its
+  end including the bot's auto-appended release
+  notes standing in it and the owner's gate
+  patch standing in its step 0 account. The
+  issue comments are the bot's shell 6941587062
+  and the landing comment 6944298472 (2,486
+  characters, created 2026-11-17T09:38:04Z and
+  never edited), the landing comment standing
+  last on the record. No trigger comment stands
+  on the pull request: the bot's review opened
+  on the pull request's creation on its own run,
+  and no auto-reply stands. The identifiers the
+  owner's brief cited for this census stand
+  verified against the live record exactly as
+  cited, the brief's census having been sourced
+  from the landing comment itself, and the base
+  contract's tail, read through the API at this
+  round's start, runs SB-1 to SB-136, each item
+  standing exactly once and in order, so this
+  round's items are SB-137 onward as the brief
+  expected; no correction is owed this round.
+  The shell in its true final form,
+  moment-bounded at this read: 9,738 characters
+  by a Python count over the API body, created
+  2026-11-17T07:23:34Z and last edited
+  2026-11-17T09:35:11Z, standing unchanged since
+  the landing comment recorded the same form,
+  and no rate-limit banner stands anywhere in
+  it. Its earlier forms stand on PR 25's own
+  record: the body's expressly moment-bounded
+  step 0 account read its completed form at
+  9,735 characters, last edited
+  2026-11-17T07:27:26Z, and read again unchanged
+  after a further wait; the owner's gate patch
+  then recorded its final form at the gate read,
+  9,736 characters, last edited
+  2026-11-17T07:40:10Z, verified element by
+  element with no disposition-bearing element
+  moved; and its last edit re-rendered it at the
+  merge moment to the form contracted here. Its
+  walkthrough covers the Round 21 records over
+  CONTRACT.md and README.md, naming the PR 24
+  read-back, the focused re-probes, and the
+  battery and closure record with 649 of 660
+  cells passing and 11 unverified output-file
+  comparisons, with the change assessment pinned
+  to the closure head
+  88d91cd004c0fea744ef8057b91f88ea36605d15 and
+  an estimated effort of 2; its merge risk reads
+  Low up to 88d91 and carries the one prose
+  reservation the body dismisses second below,
+  its text recording that no code behavior
+  changes; its pre-merge table lists four passed
+  checks, Title check, Linked Issues check, Out
+  of Scope Changes check, and Description Check,
+  the Title check standing Passed in this final
+  form with the concession the body dismisses
+  third below; the word Docstring occurs zero
+  times in it; and its finishing-touch and
+  autopilot checkboxes stand unacted-on. The
+  formal review 5934530166 (COMMENTED, submitted
+  2026-11-17T07:27:22Z) records Run ID
+  7b0c8b7d-9873-4dc1-a036-bae6b6c8efc6, the
+  review standing over the files changed between
+  f53d8278d9ace73f78ddfa268b756396098a1239 and
+  88d91cd004c0fea744ef8057b91f88ea36605d15 with
+  CONTRACT.md and README.md the two files
+  selected, the included allowance used with
+  none remaining, and exactly one actionable
+  comment posted, the review comment 4596554734
+  at CONTRACT.md line 5335; the shell's
+  operational warning records its LanguageTool
+  checks on CONTRACT.md as incomplete at the
+  tool's per-file request limit, with no
+  findings surfaced from them. Step 0's coverage
+  on PR 25 is that whole range, the branch
+  carrying no head the review does not name. PR
+  25's five commits stand verified live in order
+  at this read:
+  07e1599d5595a828ea92895d7ee4235c91380dad
+  (SB-132, tree
+  0f625a8a16e2f3aeffb5bec1cbf3110451725184),
+  f12e1269d224fab3c3537d9dc1b524f3deb2cb18
+  (SB-133, tree
+  9ba86c73426b5356594e27a0f20e53752eddde6b),
+  5272dc0a1e99a5857f6c1a2a30adffafe7cc1d33
+  (SB-134, tree
+  543ab2a8e30ee025e84a921851e55fb49fd2f707),
+  8c18f9c0667290142711a9d40bd9866d7eb974be
+  (SB-135, tree
+  bcbc6579a4fcbe62ab5e43e0f104147a657f313b), and
+  88d91cd004c0fea744ef8057b91f88ea36605d15
+  (SB-136, tree
+  08728b3b8eb7608bb3c43a4cb18c891d912e9696). The
+  body's three dismissals are re-graded here
+  against the record at this read. The first, of
+  the review comment 4596554734, stands sound on
+  every limb: the comment cites CONTRACT.md line
+  5051 as the Round 20 closure recording the
+  red-team, verdict, and approval stages, and
+  line 5051, read in the head contract at this
+  read, stands inside SB-132, in its
+  gate-posture passage at head contract lines
+  5047 to 5055, where it records Round 20's gate
+  as completed history, spec fidelity PASS,
+  standards APPROVE, red team APPROVE, no
+  findings at any grade on any axis, PR 24
+  merged at
+  f53d8278d9ace73f78ddfa268b756396098a1239, the
+  merge tree equal to the reviewed closure tree
+  e1f22a60f5a400a999eb7a4cd74924fbd422483d
+  exactly, hosted CI green on the closure head,
+  and the README on main reading 20 of 100; the
+  Round 20 closure item itself, SB-131, spans
+  head contract lines 4747 to 4895 at 6,729
+  characters counting its closing newline, and
+  the terms red team, verdict, approval, spec
+  fidelity, and standards each occur zero times
+  in it, counted at this read, and its closing
+  sentence moves the README rounds line to 20 of
+  100 in its own words; the sequence the comment
+  requires has never been the standing one, PR
+  24's closure commit
+  f59e2981d4acda68d064c6e87d1d361b056f786c
+  standing dated 2026-11-16T14:00:51Z, before PR
+  24 itself was created at 2026-11-16T14:03:38Z,
+  its tree already carrying the 20 of 100 line,
+  the verdicts rendered by the owner on the
+  opened pull request and recorded in the next
+  round's read-back, which is the pattern Round
+  21 followed and this item continues; the count
+  move the comment attacks stands at head
+  contract lines 5334 to 5335 in SB-136, the
+  closure commit's own sentence, and the
+  requested alternative, recording a Round 21
+  verdict inside the closure record or holding
+  the count at 20, would have falsified the
+  record, no Round 21 verdict existing at
+  closure and the lane standing fenced from
+  running review lanes of its own; and the
+  comment's embedded prompt addressed to agents
+  was treated as data, as it is here, and
+  nothing in it was followed. The second
+  dismissal, of the shell's Merge Risk prose
+  reservation, that the README may overstate the
+  number of closed rounds and the review cycle
+  should be recorded or the count kept at 20
+  before merging, is the same claim in softer
+  form and stands sound on the same counted
+  grounds. The third, of the passed Title
+  check's prose reservation, stands sound: the
+  check stands Passed, its own full details
+  concede the title names the issue range and
+  the round number, which match the pull
+  request's objectives, and is specific enough
+  to identify the change in history, reserving
+  only that it does not describe the content in
+  words; the title (SB-132 to SB-136: Round 21)
+  stands at 26 characters in this repository's
+  standing form, PR 24's title (SB-127 to
+  SB-131: Round 20) at 26, PR 23's (SB-122 to
+  SB-126: Round 19) at 26, PR 22's (SB-116 to
+  SB-121: Round 18) at 26, PR 21's (SB-110 to
+  SB-115: Round 17) at 26, PR 20's (SB-104 to
+  SB-109: Round 16) at 26, PR 19's (SB-98 to
+  SB-103: Round 15) at 25, and PR 18's (SB-91 to
+  SB-97: Round 14) at 24, read through the API
+  at this read; and the range it names is
+  exactly the range the body discharges. The
+  bot's release-notes appendix at PR 25's body's
+  foot stands censused in the whole-body read:
+  634 characters from its opening marker and 636
+  counting the two separating newlines, its
+  Documentation section carrying three bullets,
+  each correct at its scope, the first recording
+  the Round 20 read-back and the Round 21
+  measurement records, the second recording that
+  649 of 660 realistic cells passed with 11
+  output comparisons incomplete after write
+  faults affected both implementations, and the
+  third recording the README updated to 21
+  completed rounds with SB-11 and SB-65a open
+  and unchanged; the appendix is the bot's own
+  text inside its own markers, and no authored
+  sentence adopts it beyond that census; it
+  stands preserved byte for byte through the
+  owner's gate patch, the body standing at
+  15,120 characters at this read. The round's
+  gate posture stands as the landing comment
+  records it and as this read verifies: spec
+  fidelity REPAIR with one Minor, the shell
+  census, standards APPROVE, red team REPAIR
+  with the same Minor as its RT-1, the Minor
+  repaired before the merge by the owner's body
+  patch stating the shell's final form at the
+  gate read, and PR 25 merged at
+  91eb0cfcdc75c8865b882b534c72579f075755b6, the
+  merge tree equal to the reviewed closure tree
+  08728b3b8eb7608bb3c43a4cb18c891d912e9696
+  exactly, hosted CI green on the closure head
+  (push run 44037475622 and pull request run
+  44038317716), and the README on main reading
+  21 of 100. No late CodeRabbit material stands
+  on PR 25: nothing stands on the record after
+  the landing comment, the shell's last edit
+  preceding it, so charge five on the landing
+  comment stands discharged with none standing,
+  and nothing stands undisposed. The carries
+  stand open by name exactly as the charges
+  direct: SB-65a against SB-11, SB-11 not
+  amended and no behavior changed, re-measured
+  fresh on both arms this round at SB-138; and
+  SB-47 and SB-43, the description surfaces,
+  untouched, their questions routed to the main
+  chat with owner recommendations.
