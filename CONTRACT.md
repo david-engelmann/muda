@@ -5183,3 +5183,153 @@ after the reviews, before the repair code).
   surfaces, and at 31 digits refuses under the
   form line naming the rate as written on both,
   four cells.
+SB-136. Round 21 gate record and closure. The
+  realistic battery's standing measurement is
+  its thirteenth attempt's completed pass, run
+  detached under the build slot on 2026-11-17
+  with the slot held from about 05:43Z: the
+  corpus stood proven from git at 24
+  repositories and 3,648 commits in the SB-81
+  composition, every fixture was written, and
+  all 660 cells ran (288 unpriced statement
+  cells, 288 priced statement cells, 60
+  price-book cells, 24 output-file cells), with
+  649 cells passing and the pass exiting 1. The
+  60 price-book cells and all 576 statement
+  cells passed, and the output-file cells of
+  teams 00 to 12 passed; the output-file cells
+  of teams 13 to 23, eleven cells, each failed
+  on both implementations' writes with the
+  identical line, error, cannot write the
+  statement, the box write fault hardening
+  mid-pass and refusing the temporary writes in
+  the output directories on the port and the
+  oracle alike. The output-file cells of teams
+  20 to 23 stand executed inside the whole, and
+  their statements passed as statement cells in
+  the same pass, but their landed-byte
+  comparisons stand unlanded this round on the
+  refused writes, so the Round 18 discharge does
+  not stand re-verified inside this pass and is
+  stated exactly so. The differential battery
+  stands beside the totals at 14 cases and 240
+  steps with no failures, on its fourth launch,
+  the first three launches dead at the fixture
+  build's first git init inside the fault wave.
+  The flighttape pin stands reconfirmed through
+  the API at commit
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e with
+  tree afd4d7d13520411e003762548fc79082a1b9cf6e
+  and exactly 50 blobs, and its counted build
+  ran on the pin build's sixth launch: its 241
+  tests pass with no failures, and the golden
+  tape stands executed at 1,663 bytes with
+  digest
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  the digest printed and matched and verify
+  accepting at exit 0. The round's cells trace
+  as 34 battery cells (boundary 11, draw 14,
+  joints 9) plus the realistic pass's 660 cells,
+  694 cells measured in the round, of which 683
+  stand at no failure (the 34 battery cells and
+  649 realistic cells) and 11 stand failed on
+  the refused writes as recorded above, the
+  differential's 14 cases and 240 steps standing
+  beside the total. The closure gate ran whole
+  on the gate tree on its third launch: cargo
+  test passes 25 tests (2 unit, 0 bin, 23
+  integration, 0 doc) with no failures, clippy
+  with warnings denied stands clean, fmt stands
+  clean, the build stands, the codepoint scan
+  over the gate tree reads em dash 0 and en dash
+  0, and the three batteries re-ran on the
+  closure build at boundary 11 cells, draw 14
+  cells, and joints 9 cells with no failures.
+  The base gate stands at the same figures on
+  the base tree: 25 tests (2 unit, 0 bin, 23
+  integration, 0 doc) with no failures, clippy
+  and fmt clean, the three batteries at 11, 14,
+  and 9 cells with no failures, and the
+  codepoint scan at em dash 0 and en dash 0. The
+  oracle stands as verified directly above: the
+  pristine commit
+  918dc7eb13bd3a5b0c3e644147170ad0bb1607e8 at 13
+  blobs, the driven copy differing only in the
+  two rename spots and the docstring line.
+  Provenance stands as stated directly: the md5
+  figure 35555e1f592a2477b218403a8648dfbe is
+  carried by the Round 12 through Round 20
+  records, and the fresh build of this tree and
+  the closure build of the gate tree reproduce
+  it. The attempt history stands whole and
+  counted nowhere except where a completed run's
+  figures are counted above. The realistic
+  battery's attempts 1 to 6 each died at the
+  price-book currency fixture write inside the
+  battery's own retries as the write fault
+  hardened (attempt 1 built the corpus whole and
+  banked its checkpoints; the later attempts
+  resumed from them with the composition
+  re-proven each time); attempt 7 and its
+  relaunch loop were killed queued by a box
+  restart on the evening of 2026-11-16; attempt
+  8 waited some forty minutes behind a sibling
+  lane's self-deadlocked nested flock, then ran
+  and died at the first repo card write; attempt
+  9 queued over ninety minutes behind
+  fault-riding holds, one sibling probe loop
+  among them holding ninety-seven minutes at
+  zero CPU, then ran and died at the first repo
+  card write; attempt 10 queued over seventy
+  minutes behind a sibling hold of one hour
+  forty-five minutes, then ran and died at the
+  first repo card write; attempts 11 and 12 were
+  killed queued by the box restarts of about
+  03:28Z and about 05:30Z without holding the
+  slot or running a cell; attempt 13 completed
+  as recorded above; attempt 14 queued
+  fifty-eight minutes behind a sibling lane's
+  chain hold without holding the slot or running
+  a cell and was stood down by the lane at the
+  closure on the owner's order to land the round
+  without another wait cycle, its launch wrapper
+  and flock killed and the stand-down recorded
+  with its state evidence in attempts21.md. The
+  pin build's first five launches are counted
+  nowhere (two setsid launches and one tracked
+  launch died silently in their flock waits, and
+  two more were killed queued by the two
+  small-hours restarts) with the counted build
+  on the sixth launch, and the closure gate's
+  first two launches are counted nowhere (the
+  first SIGTERM-reaped in its tracked wait as
+  the 03:28Z restart hit, the second killed
+  queued by the 05:30Z restart) with the counted
+  gate on the third launch. The gate tree's own
+  assembly stands disclosed: the blob-for-blob
+  fetch route's writes were refused whole in a
+  hard phase, per-file copier launches landed
+  nothing in sustained hard phases, one
+  wrapper's log redirections were refused at
+  redirection time so its cycles never ran, a
+  contract build script ground some eighteen
+  minutes at zero bytes and was killed (its
+  wrapper's removal of the stale tree is why the
+  tree was rebuilt whole), a reflink clone was
+  refused, and an append loop's stage writes
+  were refused and it was killed before
+  transcription; the tree stands assembled by
+  file-tool transcription from the verified base
+  extraction with the contract's base content
+  placed by hardlink, every one of its 21 files
+  verified by recomputed git blob id. SB-11 and
+  SB-65a stand carried open by name, untouched,
+  and SB-47 and SB-43 stand carried open by
+  name, untouched, neither description surface
+  changed. The round's scratch stands durable at
+  ~/workspace/retro-line/sb21-scratch/, and the
+  differential battery's fixture root is a
+  temporary directory under
+  ~/workspace/retro-line by its design. The
+  README rounds line moves to 21 of 100 in this
+  closure commit.
