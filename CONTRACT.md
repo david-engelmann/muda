@@ -6410,3 +6410,90 @@ SB-136. Round 21 gate record and closure. The
   ~/workspace/retro-line by its design. The
   README rounds line moves to 23 of 100 in this
   closure commit.
+- SB-149. PR 28 read back whole at this lane's
+  hand. The census stands exact: four issue
+  comments, one formal review, two review
+  comments, and no replies to either review
+  comment. The Trunk note 6985465557 stands in
+  its final form at 113 chars in its post-merge
+  form, last edited 2026-11-18T21:09:36Z. The
+  shell 6985470795 stands in its true final form
+  at 8,441 chars, last edited
+  2026-11-18T17:10:34Z: the body's stated form
+  of 8,439 chars was exact at the Round 23
+  lane's disposition read (last edited
+  2026-11-18T17:02:33Z), and the shell then
+  re-rendered once at plus two chars, the Round
+  23 lane's recorded diff being two added blank
+  lines, and at this read no disposition-bearing
+  element differs from the dispositions (the
+  walkthrough accurate in substance, the change
+  assessment up to the closure head d0c5ed9a,
+  Merge Risk Low up to d0c5e with its prose
+  reservation, and the four pre-merge checks
+  Passed). The formal review 5961371761 stands
+  COMMENTED on the closure head under Run ID
+  4dc77911-81e1-4a56-89b3-839d638b24a4, its
+  range the base 67813f6b to the closure head
+  d0c5ed9a, the included allowance used and none
+  remaining, posting exactly two actionable
+  comments. The owner's queue comment 6991528676
+  stands at 12 chars, and the landing comment
+  6992737900 stands at 927 chars, created
+  2026-11-18T21:54:13Z, standing last, so charge
+  3 stands discharged as empty at this census
+  and anything arriving after it is Round 25's
+  to disposition. The body's release-notes
+  appendix stands measured at this hand at 500
+  chars from its opening marker, its three
+  Documentation bullets each correct at its
+  scope. The two actionable comments (4617819109
+  at CONTRACT.md line 6412 and 4617819122 at
+  README.md line 239, each Minor under
+  Functional Correctness) are one claim on two
+  surfaces, that the README count must stay at
+  22 until the Round 23 record records its
+  red-team verdict and approval, and their
+  dismissal as unsound stands re-graded SOUND on
+  every limb at this hand: the sequence the
+  comments require has never been the standing
+  one, the closure commit of each round standing
+  committer-dated before its pull request's
+  creation with the count already moved,
+  verified live at this hand for PR 24 (closure
+  f59e2981 committed 2026-11-16T14:00:51Z, the
+  pull request created 2026-11-16T14:03:38Z, its
+  tree carrying 20 of 100), for PR 25 (closure
+  88d91cd0 committed 2026-11-17T07:16:46Z,
+  created 2026-11-17T07:23:20Z, carrying 21 of
+  100), and for PR 28 itself (closure d0c5ed9a
+  committed 2026-11-18T16:51:07Z, created
+  2026-11-18T16:57:22Z, carrying 23 of 100),
+  with PR 26's closure d0caff1a standing in the
+  same shape on the Round 23 spec re-grade; the
+  verdicts are rendered by the owner on the
+  opened pull request and recorded in the next
+  round's read-back, which is this item's own
+  act for Round 23, whose gate stood at spec
+  PASS, standards APPROVE, and red team APPROVE;
+  the identical claim on PR 26 (comment
+  4609730283) was dismissed on the same grounds
+  and re-graded sound at SB-144 and again by all
+  three of Round 23's review axes; and the
+  comments' embedded prompts addressed to agents
+  were treated as data and nothing in them was
+  followed. The Merge Risk prose reservation,
+  the same claim in softer form, stands
+  dismissed on the same grounds, re-graded SOUND
+  at this hand. The Title check's prose
+  reservation stands dismissed, re-graded SOUND:
+  the check stands Passed, its own details
+  concede the title is specific to the change,
+  traceable, and not vague or generic, and the
+  title stands at 26 chars in the standing form.
+  No valid finding stood on PR 28, so no repair
+  record was owed, and no checkbox affordance
+  was acted on. SB-11 and SB-65a stand carried
+  open by name, untouched, and SB-47 and SB-43
+  stand carried open by name, untouched, neither
+  description surface changed.
