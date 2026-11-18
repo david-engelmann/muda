@@ -5665,3 +5665,47 @@ SB-136. Round 21 gate record and closure. The
   surfaces, and at 31 digits refuses under the
   form line naming the rate as written on both,
   four cells.
+- SB-141. The Round 21 red team's owed
+  executions, discharged by execution this
+  round. The red team's own runner, rt_gate.py,
+  died in Round 21's gate window having supplied
+  tree verification only: both of its trees
+  repaired and verified ALL 21 EXACT (its base
+  tree at the Round 20 closure tree
+  e1f22a60f5a400a999eb7a4cd74924fbd422483d, its
+  closure tree at
+  08728b3b8eb7608bb3c43a4cb18c891d912e9696),
+  then every build step on its base tree timed
+  out in the build-slot queue, both binaries
+  stood missing, and the runner died on a
+  refused content write while writing its
+  results, so the executions it owed stood owed
+  at this round's start. This round's rt chain
+  executed the whole owed set on that same base
+  tree, re-verified ALL 21 EXACT at this lane's
+  hand before the run, through driver_rt22.py
+  against the red team's own target directory:
+  the chain acquired the build slot at
+  2026-11-17T15:23:16Z and completed at
+  15:29:36Z with every pass done on its first
+  launch: cargo test exit 0 with 25 tests
+  passing (2 unit, 23 integration) and no
+  failures, clippy exit 0 with warnings denied,
+  fmt exit 0, the debug build exit 0 at md5
+  35555e1f592a2477b218403a8648dfbe, the release
+  build exit 0 at md5
+  e3c72e1813c603539597268c7b169a4a, the boundary
+  battery at 11 cells with no failures, the draw
+  battery at 14 cells with no failures, the
+  joints battery at 9 cells with no failures,
+  and the differential at 14 cases and 240 steps
+  with no failures. The debug build's md5 is the
+  standing provenance figure, standing
+  re-measured here on the red team's builds as
+  on this round's own. These figures are the
+  Round 21 base tree's own accounting, executed
+  to discharge the debt the runner left; they
+  enter no cell total of this round, whose own
+  batteries stand at SB-138 to SB-140 and whose
+  differential and realistic stand at the
+  closure.
