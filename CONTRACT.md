@@ -5852,3 +5852,65 @@ SB-136. Round 21 gate record and closure. The
   ~/workspace/retro-line by its design. The
   README rounds line moves to 22 of 100 in this
   closure commit.
+- SB-143. Repair record, appended after this
+  round's reviews and standing outside the
+  round's item range: the spec review's Minor on
+  SB-141 and the standards review's two Minors
+  on SB-142. Three clauses stand qualified here,
+  the originals unrewritten. First, SB-141's
+  discharge of the Round 21 red team's owed
+  executions stood incomplete by one figure at
+  the gate: the release binary md5 on the Round
+  21 closure tree 08728b3b, on which the round
+  had executed cargo test, clippy, fmt, and the
+  debug build only. That figure stands executed
+  in this repair lane: the tree was assembled
+  through the API blob by blob (21 blobs, 0
+  mismatches) at the lane's scratch and built in
+  the release profile through the build slot,
+  the build running whole on its first launch
+  with no failed attempt standing to count, and
+  the release binary stands at md5
+  e3c72e1813c603539597268c7b169a4a at build-path
+  scope, agreeing with the release figure SB-141
+  recorded on the Round 21 base tree e1f22a60,
+  the two trees' code standing blob-identical at
+  this lane's comparison of their trees, and
+  SB-141's discharge is complete only with this
+  record. Second, SB-142's attempt summary,
+  restated in the body's Known deviations
+  paragraph, states that the batteries and
+  realistic chains died queued in the restarts
+  of about 19:50Z, 20:44Z, 22:01Z, and 23:50Z on
+  2026-11-17; the posture word overdistributes
+  over two of the four restarts. At 19:50Z and
+  23:50Z both chains died queued, and the
+  realistic chain died queued at all four; at
+  20:44Z the batteries chain died after it had
+  acquired the slot, its three battery logs
+  created at zero bytes and no pass completing a
+  launch; at 22:01Z the batteries chain was
+  killed inside its slot hold, its log echoes
+  refused whole and no pass completing a launch.
+  The two chains died on the slot queue or in
+  the hold before any pass completed a launch,
+  the exact postures standing in attempts22.md,
+  and the summary's conclusion, every death
+  counted nowhere with no figure standing in
+  any, stands unaffected. Third, SB-142 states
+  the closure gate ran whole on the closure
+  tree, this round's final tree before this
+  item, differing from the verified base tree
+  only in CONTRACT.md and README.md; the
+  difference set overstates by one file. The
+  tree the gate ran on, the SB-141 head's tree
+  2dfc112e, differs from the base tree in
+  CONTRACT.md only, its README blob standing
+  identical to the base's, the rounds line
+  reading 21 of 100 in both, until the closure
+  commit moved it. The clause's load-bearing
+  content, the gate tree's code standing
+  identical to the closure tree's code, holds
+  exactly. SB-141 and SB-142 stand unamended;
+  this record qualifies the three clauses and
+  supplies the one figure.
