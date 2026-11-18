@@ -5914,3 +5914,258 @@ SB-136. Round 21 gate record and closure. The
   exactly. SB-141 and SB-142 stand unamended;
   this record qualifies the three clauses and
   supplies the one figure.
+- SB-144. PR 26's read-back, in full, read
+  through the API on 2026-11-18: 1 review, 2
+  review comments, and 4 issue comments, every
+  body read to its end, and the body read to its
+  end at 16,055 characters in its final
+  owner-patched form, including the bot's
+  auto-appended release notes standing in it and
+  the owner's gate patch standing in its step 0
+  account and its Verified block. The issue
+  comments are the bot's shell 6970345427, the
+  Trunk notice 6970342609 standing in its
+  post-merge form at 113 characters, last edited
+  2026-11-18T13:59:47Z, the owner's queue
+  comment 6980567665 (12 characters, created
+  2026-11-18T13:52:15Z and never edited), and
+  the landing comment 6982808825 (1,818
+  characters, created 2026-11-18T15:18:39Z and
+  never edited), the landing comment standing
+  last on the record. No trigger comment stands
+  on the pull request: the bot's review opened
+  on the pull request's creation on its own run,
+  and no auto-reply stands. The base contract's
+  tail, read through the API at this round's
+  start, runs SB-1 to SB-142 in the round's
+  range with the repair record SB-143 standing
+  outside the range, so this round's items are
+  SB-144 onward as the brief expected; the
+  identifiers the brief cited stand verified
+  against the live record, main at
+  67813f6bc675d7f5a62dbf952a068560b43f4e28 with
+  tree 145437ddd4f7bb2c3d968cecf4cd81899038b311,
+  and the one correction owed is the shell's
+  final form, contracted next. The shell in its
+  true final form at this read: 11,771
+  characters by a Python count over the API
+  body, created 2026-11-18T05:49:47Z and last
+  edited 2026-11-18T13:52:16Z, and no rate-limit
+  banner stands anywhere in it. Its earlier
+  forms stand on PR 26's own record: the body's
+  step 0 account read its completed closure-head
+  form, and the owner's gate patch then recorded
+  its final form at the gate read, 11,769
+  characters, last edited 2026-11-18T11:09:26Z;
+  its last edit re-rendered it at the queue
+  moment to the form contracted here, two
+  characters longer, carrying the repair head in
+  its change assessment and its merge risk where
+  the gate form named the closure head. Its
+  walkthrough covers the Round 22 records over
+  CONTRACT.md and README.md, naming the PR 25
+  read-back, the two-laws boundary battery, the
+  draw battery, the counting joints, the red
+  team's discharged executions, and the gate
+  record and closure with the repair record
+  appended, with the change assessment pinned to
+  the repair head
+  03de64f70f62233fafc6e30cd1ff2079c35e9dfa and
+  an estimated code review effort of 3; its
+  merge risk reads Low up to 03de6 and carries
+  the one prose reservation the body dismisses
+  second below; its pre-merge table lists four
+  passed checks, Title check, Linked Issues
+  check, Out of Scope Changes check, and
+  Description Check, the Title check standing
+  Passed in this final form with the concession
+  the body dismisses fourth below; its
+  recent-review section records Run ID 4b7dc132
+  over the incremental range d0caff1a to
+  03de64f7 with CONTRACT.md the one file
+  selected and no actionable comments generated
+  in the recent review; the word Docstring
+  occurs zero times in it; and its
+  finishing-touch checkboxes stand unacted-on.
+  The formal review 5951471611 (COMMENTED,
+  submitted 2026-11-18T05:53:25Z) records Run ID
+  f56e111b-9afd-4417-a560-9377d956d0bd, the
+  review standing over the files changed between
+  91eb0cfcdc75c8865b882b534c72579f075755b6 and
+  d0caff1a675bf1afbd1b51335af6f12a9562861b with
+  CONTRACT.md and README.md the two files
+  selected, the included allowance used with
+  none remaining, and exactly two actionable
+  comments posted, the review comment 4609730278
+  at CONTRACT.md line 5730 and the review
+  comment 4609730283 at README.md line 239,
+  neither answered by any reply; each of the two
+  carries an embedded prompt addressed to an AI
+  agent, and each stands treated as data,
+  nothing in either followed. Step 0's coverage
+  on PR 26 is the closure range in the formal
+  review and the repair commit in the shell's
+  incremental review, the branch carrying no
+  head neither names. PR 26's seven commits
+  stand verified live in order at this read:
+  7c22c6577274f099469c4508987408fea9844145
+  (SB-137, tree
+  571c6857c3b780a0e1a05c9924df2764a1db5690),
+  ef9d1a092be2bcea23a249ed09d95d78268cb170
+  (SB-138, tree
+  8ab3f988f6f4878c6d42593a5f06949e0a1f9103),
+  858f4138f494326f7f259010d3d98a75726e8ec1
+  (SB-139, tree
+  2ca2e20a9e172578cbad0cd710f4d2fd75aebb8d),
+  ea5aa7fa794dfce86902462d38febd97c720912d
+  (SB-140, tree
+  d9aa1d453fc80686a03364504720beb1e910b1e4),
+  ed544ca6ac0042c8c487b9e57fe3d468218d9454
+  (SB-141, tree
+  2dfc112ea70066343ef5960ebfa93b2de4122995),
+  d0caff1a675bf1afbd1b51335af6f12a9562861b
+  (SB-142, tree
+  83a2b7ebc24e6618e0a70400e576cab9ba68c9fb), and
+  03de64f70f62233fafc6e30cd1ff2079c35e9dfa
+  (SB-143, tree
+  145437ddd4f7bb2c3d968cecf4cd81899038b311). The
+  owner's gate patch on the body stands graded
+  here against the record: its Verified head
+  moved to SB-143 at 03de64f7 with the tree at
+  145437dd and seven commits standing, exact;
+  its died-queued restatement stands qualified
+  in place in the body's Known deviations, the
+  unscoped clause replaced by the postures
+  SB-143 contracts, exact; its statement of the
+  shell's final form at 11,769 characters, last
+  edited 2026-11-18T11:09:26Z, was exact at the
+  owner's read and stands superseded by the
+  queue-moment re-render contracted above at
+  11,771 characters, last edited
+  2026-11-18T13:52:16Z; and the correction owed
+  on the patch itself is punctuation, stated
+  plainly: the insertion landed inside the step
+  0 census sentence and cost it its sentence
+  boundary at the insertion point, so two
+  clauses now run together there and a stray
+  mark stands at the join, with every figure the
+  patch states unaffected. The body's step 0
+  appendix figure stands corrected the same way:
+  the body states the appendix at 535 characters
+  from its opening marker with three bullets,
+  true of the closure-head form; the bot's own
+  re-render for the repair head added a fourth
+  bullet recording SB-143's clarifications to
+  SB-141 and SB-142, and the appendix stands in
+  its true final form at 696 characters from its
+  opening marker with four bullets, each bullet
+  correct at its scope; the superseded
+  closure-head form is not recoverable
+  byte-exactly, no body-history read existing,
+  and the supersession rests on the fourth
+  bullet's content and on the incremental
+  review's existence in the shell. The body's
+  dismissals are re-graded here against the
+  record at this read. The first, of the review
+  comment 4609730283, which would hold the
+  README rounds line at 21 of 100 until verdicts
+  land, stands sound on every limb: PR 24's
+  closure commit f59e2981 stands committer-dated
+  2026-11-16T14:00:51Z, before PR 24's creation
+  at 2026-11-16T14:03:38Z, its tree e1f22a60
+  carrying the line at 20 of 100; PR 25's
+  closure commit 88d91cd0 stands committer-dated
+  2026-11-17T07:16:46Z, before PR 25's creation
+  at 2026-11-17T07:23:20Z, its tree 08728b3b
+  carrying the line at 21 of 100; and PR 26's
+  own closure commit d0caff1a carries the line
+  at 22 of 100 in the same shape, so the
+  sequence the comment requires has never been
+  the standing one on this repository; verdicts
+  are rendered by the owner on the opened pull
+  request and recorded in the next round's
+  read-back item, this item being Round 22's.
+  The second, of the shell's Merge Risk prose
+  reservation, stands sound on both its limbs:
+  the reservation restates the two actionable
+  comments' claims in softer form, that the
+  eleven write-fault comparison cells are not
+  individually identified and that the README
+  counts Round 22 as closed without a recorded
+  red-team verdict or approval, and it is
+  answered by the first dismissal's grounds on
+  the count limb and by the third dismissal's
+  grounds on the cells limb. The third, of the
+  review comment 4609730278, which would name
+  the eleven cells cell by cell and re-scope
+  SB-142's re-verification claim, stands sound
+  on every limb: the eleven cells stand
+  identified in the record at SB-136 as the
+  output-file cells of teams 13 to 23, each
+  failed on both implementations' writes with
+  the identical refusal line in Round 21's
+  thirteenth attempt; charge two of PR 25's
+  landing comment 6944298472, read live at this
+  read, scopes the owed re-verification to the
+  four output-file cells of teams 20 to 23,
+  whose landed-byte comparisons that attempt
+  left unlanded; SB-142's claim stands written
+  at exactly that scope; and the counted pass
+  behind it executed all 24 output-file cells
+  inside its 660 cells with no failures and the
+  pass exiting 0, teams 20 to 23 built fresh
+  inside the counted launch and teams 00 to 19
+  standing as checkpoint hits, so the claim's
+  scope is the charge's scope and its evidence
+  is the whole pass; the comment's own statement
+  that the claim depends on the 24 output-file
+  cells of teams 20 to 23 misstates the record,
+  the 24 output-file cells spanning teams 00 to
+  23 with four of them in the charge's scope.
+  The fourth, of the Title check's prose
+  reservation, stands sound: the check stands
+  Passed, the title stands at 26 characters in
+  this repository's standing form, the titles of
+  PRs 23, 24, 25, and 26 read live at this read
+  at 26, 26, 26, and 26 characters, and the
+  check's own details concede the title is
+  specific enough to stand. SB-143's three
+  qualifications stand contracted here as they
+  stand in it. First, SB-141's discharge of the
+  Round 21 red team's owed executions stood
+  incomplete by the one execution it did not
+  run, the release binary's md5 on the Round 21
+  closure tree, and that execution stands
+  supplied in SB-143 at md5
+  e3c72e1813c603539597268c7b169a4a on the tree
+  08728b3b assembled blob by blob through the
+  API at 21 blobs with no mismatches and built
+  in release through the build slot whole on its
+  first launch, agreeing with SB-141's figure on
+  the Round 21 base tree e1f22a60, the two
+  trees' code standing blob-identical, so
+  SB-141's discharge is complete only with
+  SB-143 standing beside it. Second, SB-142's
+  sentence that the batteries and realistic
+  chains died queued in the restarts of about
+  19:50Z, 20:44Z, 22:01Z, and 23:50Z stands
+  qualified to the postures the scratch record
+  supports: at 19:50Z and at 23:50Z both chains
+  died queued, and the realistic chain died
+  queued at all four restarts; at 20:44Z the
+  batteries chain died after acquiring the slot,
+  its three battery logs standing at zero bytes;
+  at 22:01Z the batteries chain was killed
+  inside its slot hold, its log echoes refused
+  whole by the write fault; and every death
+  stands counted nowhere. Third, SB-142's
+  difference-set sentence stands qualified: the
+  closure gate ran on the gate tree
+  2dfc112ea70066343ef5960ebfa93b2de4122995, the
+  SB-141 head's tree, which differs from the
+  base tree in CONTRACT.md only, its README blob
+  identical to the base tree's with the rounds
+  line at 21 of 100 in both, until the closure
+  commit moved it. Nothing stands on PR 26 after
+  the landing comment at this census; anything
+  arriving later is Round 24's to disposition.
