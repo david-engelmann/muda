@@ -7236,3 +7236,8 @@ SB-136. Round 21 gate record and closure. The
   implementations, the outside file unwritten.
   SB-11 and SB-65a stand carried open by name,
   untouched.
+- SB-161. The draw battery stands re-run at this
+  round on the base build and stands at 14
+  cells, 0 failures, its single launch
+  completing on the base build (its journal at
+  sb26-scratch/draw26.log).
