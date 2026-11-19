@@ -7241,3 +7241,8 @@ SB-136. Round 21 gate record and closure. The
   cells, 0 failures, its single launch
   completing on the base build (its journal at
   sb26-scratch/draw26.log).
+- SB-162. The joints battery stands re-run at
+  this round on the base build and stands at 9
+  cells, 0 failures, its single launch
+  completing on the base build (its journal at
+  sb26-scratch/joints26.log).
