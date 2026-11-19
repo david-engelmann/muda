@@ -6611,3 +6611,142 @@ SB-136. Round 21 gate record and closure. The
   surfaces, and at 31 digits refuses under the
   form line naming the rate as written on both,
   four cells.
+- SB-153. Round 24 gate record and closure. The
+  realistic battery's standing measurement is
+  its counted pass under the completion lane's
+  chain, run detached under the build slot on
+  2026-11-19 and completed at 03:56:41Z on the
+  driver's first launch: the corpus stood proven
+  from git at 24 repositories and 3,648 commits
+  in the SB-81 composition, every team built
+  fresh inside the counted launch, and all 660
+  cells ran (288 unpriced statement cells, 288
+  priced statement cells, 60 price-book cells,
+  24 output-file cells) with no failures and the
+  pass exiting 0. The output-file cells of teams
+  20 to 23 stand executed and passing inside
+  this whole. The differential battery stands
+  beside the totals at 14 cases and 240 steps
+  with no failures, on the batteries chain's
+  first launch. The flighttape pin stands
+  reconfirmed through the API at commit
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e with
+  tree afd4d7d13520411e003762548fc79082a1b9cf6e
+  and exactly 50 blobs, and its counted run
+  completed whole on 2026-11-19 at 04:20:56Z on
+  the verified pin tree assembled blob by blob
+  into this round's scratch: its 241 tests pass
+  with no failures, and the golden tape stands
+  executed at 1,663 bytes with digest
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  the digest printed and matched and verify
+  accepting at exit 0. The round's cells trace
+  as 34 battery cells (boundary 11, draw 14,
+  joints 9) plus the realistic pass's 660 cells,
+  694 cells measured in the round, all at no
+  failure, the differential's 14 cases and 240
+  steps standing beside the total. The closure
+  gate ran whole on the closure tree (the SB-152
+  head's tree
+  75d4f3b64f0316e10e1f356ad5b1e131f3ce0cdc,
+  differing from the verified base tree only in
+  CONTRACT.md): cargo test passes 25 tests (2
+  unit, 0 bin, 23 integration, 0 doc) with no
+  failures, clippy with warnings denied stands
+  clean, fmt stands clean, the build stands at
+  md5 35555e1f592a2477b218403a8648dfbe, the
+  codepoint scan over that tree reads em dash 0
+  and en dash 0 by this lane's own Python count
+  over every blob fetched through the API, and
+  the three batteries re-ran on the closure
+  build at boundary 11 cells, draw 14 cells, and
+  joints 9 cells with no failures, the
+  differential on the closure build at 14 cases
+  and 240 steps with no failures, every closure
+  stage on its first launch of the completed
+  gate run. The base gate stands at the same
+  figures on the base tree: 25 tests (2 unit, 0
+  bin, 23 integration, 0 doc) with no failures,
+  clippy and fmt clean, the three batteries at
+  11, 14, and 9 cells with no failures on their
+  first launches, the differential at 14 cases
+  and 240 steps with no failures, and the
+  codepoint scan at em dash 0 and en dash 0. The
+  oracle stands verified through the API at the
+  pristine commit
+  918dc7eb13bd3a5b0c3e644147170ad0bb1607e8 (tree
+  f331cd155f507c7013ccd6a3f5157670d80201f5, 13
+  blobs): history.py and statement.py
+  blob-identical to the driven copy, and
+  __init__.py and cli.py differing in exactly
+  the three contracted lines, the __init__
+  docstring line, cli.py's prog name, and
+  cli.py's guard line, each secondbill to muda.
+  Provenance stands as stated directly: the md5
+  figure 35555e1f592a2477b218403a8648dfbe is
+  carried by the Round 12 through Round 23
+  records, and the fresh builds of the base tree
+  and the closure tree reproduce it. The attempt
+  history stands whole in attempts24.md in the
+  round's scratch and counted nowhere except
+  where a completed run's figures are counted
+  above: the round opened on a file-count quota
+  window, the first lane's first two scratch
+  writes refused with EDQUOT against empty uv
+  and pip caches and the window cured by pruning
+  the spent target directories of Rounds 22 and
+  23; the first lane's grounds script died once
+  on a KeyError of its own making and was
+  corrected and rerun whole; the first lane's
+  base chain died queued on the build slot
+  behind an onrecord lane's realistic hold,
+  killed by a runtime restart before acquiring
+  it, and was relaunched whole, its base gate
+  completing clean on acquiring the slot; its
+  batteries stage then ran inside a hard wave of
+  the write fault, every log write refused or
+  zeroed and no figure evidenced, and the lane
+  stopped the chain inside the realistic's slot
+  wait with no cell executed; chain-b,
+  relaunched to ride the flicker, was killed by
+  a second runtime restart during its batteries
+  stage, the boundary stage's outcome
+  unevidenced in a zeroed log with no journal
+  and the draw battery standing at its fifth
+  launch, the joints, differential, realistic,
+  and pin stages never running under it; and the
+  first lane's session ended there, SB-149
+  banked, the execution figures outstanding, and
+  the round finished by a completion lane that
+  re-verified the base, the branch, SB-149, and
+  the oracle at its own hand, preserved the
+  first lane's banked logs, removed the chain-b
+  fixture roots with no journal standing in any
+  of them, ran the whole base set on its chain's
+  first launches, and landed SB-150 to SB-152;
+  under the completion lane the pin's first
+  launch died queued in a third runtime restart
+  before acquiring the slot and completed whole
+  on its relaunch, the closure gate's first
+  acquisition ran its cargo stages into that
+  restart's teardown at exit 101 on test,
+  clippy, and build with fmt clean and died
+  before its battery stages, one silent relaunch
+  never stood, and the verified relaunch
+  completed the gate whole; and one interim
+  delivery of the completion lane's landing
+  output carried a commit and a contract figure
+  the remote never held, the branch state
+  verified through the API at every step
+  instead. No runner of this round stands armed
+  undisclosed. SB-11 and SB-65a stand carried
+  open by name, untouched, and SB-47 and SB-43
+  stand carried open by name, untouched, neither
+  description surface changed. The round's
+  scratch stands durable at
+  ~/workspace/retro-line/sb24-scratch/, and the
+  differential battery's fixture root is a
+  temporary directory under
+  ~/workspace/retro-line by its design. The
+  README rounds line moves to 24 of 100 in this
+  closure commit.
