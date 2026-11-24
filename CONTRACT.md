@@ -7572,3 +7572,117 @@ SB-136. Round 21 gate record and closure. The
   cells, 0 failures, its single launch
   completing on the base build (its journal at
   sb27-scratch/joints27.log).
+- SB-168. Round 27 gate record and closure. The
+  realistic battery's counted pass stands
+  completed under the round's realistic driver,
+  run detached under the build slot on
+  2026-11-24 and completed at 05:51:10Z on that
+  driver's first launch: the corpus stood built
+  fresh inside the launch and proven from git at
+  24 repositories and 3,648 commits in the SB-81
+  composition, and all 660 cells ran (288
+  unpriced statement cells, 288 priced statement
+  cells, 60 price-book cells, 24 output-file
+  cells) with no failures and the pass exiting
+  0, its final accounting standing at the foot
+  of realistic27.log in the round's scratch with
+  no FAIL line inside the counted launch. No
+  other realistic seating stands counted: the
+  driver was first launched paired with the pin
+  stage at 05:35Z, that pairing started the pin
+  only and the realistic half never stood as a
+  process, and the driver was relaunched
+  standalone at 05:37:36Z, the seating whose
+  first launch is the counted pass. The
+  differential battery stands beside the totals
+  at 14 cases and 240 steps with no failures, on
+  the base chain's completing launch. The
+  flighttape pin stands reconfirmed through the
+  API at commit
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e (tree
+  afd4d7d13520411e003762548fc79082a1b9cf6e,
+  exactly 50 blobs, assembled into the round's
+  scratch and SHA-verified file by file), and
+  the pin suite stands re-run at 241 tests over
+  19 targets (lib 3, binary unit 0, cli 22,
+  compare 19, convert 34, digest_cli 5, identity
+  13, json 8, play 17, redaction 12, robustness
+  15, rollup 22, scale 3, schema 5, screen 15,
+  slice 24, timestamps 1, validate 25, doc 0)
+  with the golden tape at 1,663 bytes and digest
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  the verify at exit 0. The base chain stands at
+  its recorded figures on the new base: cargo
+  test at 25 tests (23 integration, 2 unit) with
+  no failures, clippy clean, fmt at exit 0, and
+  the debug build's md5 standing at
+  35555e1f592a2477b218403a8648dfbe at the
+  round's base target path
+  (sb27-scratch/target), the value build-path
+  scoped and reproduced there exactly. The
+  closure gate ran whole on the SB-167 head's
+  tree 95c7822daa0d190cc8f37f4a0bc650ffb01dda68
+  (the head e6ae5e3a before this closure item;
+  the tree differs from the base tree only in
+  CONTRACT.md), in SB-158's construction: cargo
+  test at 25 tests (23 integration, 2 unit) with
+  no failures, clippy clean, fmt at exit 0, the
+  debug build's md5 reproduced at the closure
+  target path (sb27-scratch/h27/target-closure)
+  at the same value, and the boundary, draw, and
+  joints batteries at 11, 14, and 9 cells and
+  the differential at 14 cases and 240 steps on
+  the closure build, no failures anywhere. The
+  oracle stands verified whole before reliance
+  in this round: the pristine
+  918dc7eb13bd3a5b0c3e644147170ad0bb1607e8 reads
+  through the API at 13 blobs and tree
+  f331cd155f507c7013ccd6a3f5157670d80201f5,
+  history.py and statement.py stand
+  byte-identical to the driven copy in sb21's
+  oracle source tree (the line's
+  muda7-scratch/oracle-src), and the driven copy
+  differs from the pristine in exactly the three
+  contracted lines (the docstring line of
+  __init__.py and the prog-name and guard lines
+  of cli.py, each secondbill to muda). The
+  round's attempt history stands in brief: the
+  read-back's evidence was banked twice over,
+  the first API saves zeroed or missing in the
+  box write fault's truncation class and every
+  text re-banked through the file tools with md5
+  verification against the API bytes before it
+  stood relied on; the setup assembly lost one
+  blob to a write-refusal window and a resumable
+  assembler verified both trees whole; the base
+  gate queued about an hour and fifty-two
+  minutes on the build slot behind a sibling
+  lane's live realistic hold, verified in the
+  lock table at this lane's hand, then ran every
+  stage clean on its first attempt; the
+  batteries driver's first seating was killed by
+  the box restart of about 05:31Z inside its
+  first boundary launch before any cell ran, and
+  its relaunched seating completed every pass on
+  its first launches; and the realistic's
+  counted pass completed on its driver's first
+  launch as recorded above. The codepoint scan
+  stands run at this lane's hand over both trees
+  with the planted control counted first (the
+  control at one U+2014 and one U+2013): the
+  base tree at 21 files and the closure tree at
+  21 files, each printing zero U+2014 and zero
+  U+2013. SB-11 and SB-65a stand carried open by
+  name, untouched, and SB-47 and SB-43 stand
+  carried open by name, untouched, neither
+  description surface changed. The contract's
+  record stands at SB-1 to SB-168 with this
+  item, with SB-143 standing outside that range
+  as the repair record. The round's scratch
+  stands durable at
+  ~/workspace/retro-line/sb27-scratch/, and the
+  differential battery's fixture root is a
+  temporary directory under
+  ~/workspace/retro-line by its design. The
+  README rounds line moves to 27 of 100 in this
+  closure commit.
