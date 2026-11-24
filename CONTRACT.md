@@ -7246,3 +7246,148 @@ SB-136. Round 21 gate record and closure. The
   cells, 0 failures, its single launch
   completing on the base build (its journal at
   sb26-scratch/joints26.log).
+- SB-163. Round 26 gate record and closure. The
+  realistic battery's counted pass stands
+  completed under the second completion lane's
+  twelfth realistic driver, run detached under
+  the build slot on 2026-11-20 and completed at
+  15:47:17Z on that driver's first launch: the
+  corpus stood proven from git at 24
+  repositories and 3,648 commits in the SB-81
+  composition, every team checkpoint-hit from
+  the banked corpus inside the counted launch,
+  and all 660 cells ran (288 unpriced statement
+  cells, 288 priced statement cells, 60
+  price-book cells, 24 output-file cells) with
+  no failures and the pass exiting 0, its final
+  accounting standing at the foot of
+  realistic26.log in the round's scratch with no
+  FAIL line inside the counted launch. The
+  eleven earlier drivers of this round stand
+  counted nowhere: the first chain's driver and
+  its first relaunches died in slot queues at
+  the box restarts of 2026-11-19T22:01Z and
+  23:46Z and 2026-11-20T01:43Z without a launch
+  reaching a cell; the 22:22Z relaunch loop died
+  on all fifteen launches at team-00's first git
+  init inside a long write-refusal wave,
+  bisected at the lane's hand to the box write
+  fault and not the harness; later drivers
+  banked the corpus team by team under the
+  harness's checkpointing (11 of 24 teams by
+  02:50Z, 18 by driver run 4, 23 by driver run
+  7, and team-23 built and proven inside driver
+  run 10, completing the corpus) while dying at
+  the next team's git init in the same waves or
+  in slot queues at the restarts of 04:02Z,
+  05:43Z, 07:21Z, 09:23Z, 11:24Z, 13:42Z, and
+  15:23Z; and driver run 10's fifteen launches,
+  the corpus complete, each closed with failures
+  on output-file cells in file-count-quota and
+  write-fault waves and counted nowhere, and
+  driver run 11 died queued at the 15:23Z
+  restart. The differential battery stands
+  beside the totals at 14 cases and 240 steps
+  with no failures, on the base chain's first
+  launch. The flighttape pin stands reconfirmed
+  through the API at commit
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e with
+  tree afd4d7d13520411e003762548fc79082a1b9cf6e
+  and exactly 50 blobs, verified blob by blob at
+  this round's setup, and its counted run
+  completed whole on 2026-11-20 at 00:00:22Z on
+  that verified assembly in this round's
+  scratch: its 241 tests pass with no failures,
+  and the golden tape stands executed at 1,663
+  bytes with digest
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  the digest printed and matched and verify
+  accepting at exit 0. The round's cells trace
+  as 34 battery cells (boundary 11, draw 14,
+  joints 9) plus the realistic pass's 660 cells,
+  694 cells measured in the round, all at no
+  failure, the differential's 14 cases and 240
+  steps standing beside the total. The closure
+  gate ran whole on the closure tree (the SB-162
+  head's tree
+  24411575b4efce7fdfd4b605ed6d5773734b343c,
+  differing from the verified base tree only in
+  CONTRACT.md): cargo test passes 25 tests (2
+  unit, 0 bin, 23 integration, 0 doc) with no
+  failures, clippy with warnings denied stands
+  clean, fmt stands clean, the build stands at
+  md5 35555e1f592a2477b218403a8648dfbe, the
+  codepoint scan over that tree reads em dash 0
+  and en dash 0 by the completion lane's own
+  Python count over the tree assembled on disk
+  and SHA-verified against the API tree, and the
+  three batteries re-ran on the closure build at
+  boundary 11 cells, draw 14 cells, and joints 9
+  cells with no failures, the differential on
+  the closure build at 14 cases and 240 steps
+  with no failures, every closure stage on its
+  first launch, the gate queueing on the build
+  slot from its 2026-11-24T01:22:25Z launch
+  behind sibling lanes' holds, acquiring the
+  slot at 01:47:13Z, and completing at
+  01:50:28Z. The base gate stands at the same
+  figures on the base tree: 25 tests (2 unit, 0
+  bin, 23 integration, 0 doc) with no failures,
+  clippy and fmt clean, the three batteries at
+  11, 14, and 9 cells with no failures on their
+  first launches, the differential at 14 cases
+  and 240 steps with no failures, and the
+  codepoint scan at em dash 0 and en dash 0. The
+  oracle stands verified through the API at the
+  pristine commit
+  918dc7eb13bd3a5b0c3e644147170ad0bb1607e8 (tree
+  f331cd155f507c7013ccd6a3f5157670d80201f5, 13
+  blobs): history.py and statement.py
+  blob-identical to the driven copy, and
+  __init__.py and cli.py differing in exactly
+  the three contracted lines, the __init__
+  docstring line, cli.py's prog name, and
+  cli.py's guard line, each secondbill to muda.
+  Provenance stands as stated directly: the md5
+  figure 35555e1f592a2477b218403a8648dfbe is
+  carried by the Round 12 through Round 25
+  records, and the fresh builds of the base tree
+  and the closure tree reproduce it. The attempt
+  history stands whole in attempts26.md in the
+  round's scratch and counted nowhere except
+  where a completed run's figures are counted
+  above: the round's first seven script writes
+  were refused at setup on the file-count quota
+  and landed after the download caches were
+  cleared; the base chain's gate completed on
+  its second cargo test attempt after a first
+  attempt died on the same quota; the closure
+  tree's assembly was refused across a long
+  write-fault window on 2026-11-20, was landed
+  file by file with size and md5 verification by
+  the first completion lane after an exec copy
+  loop racing the file tools was found and
+  killed, and stands SHA-verified whole against
+  the head tree at 21 blobs; and the round was
+  carried by four lanes in sequence, the first
+  build lane landing SB-159 to SB-162 and
+  banking the base set, the first completion
+  lane banking the closure assembly before dying
+  on a transport error with no final answer, the
+  second completion lane carrying the realistic
+  through drivers run 5 to run 12 to its counted
+  pass, and this completion lane running the
+  closure gate, landing this item, and opening
+  the round's pull request. SB-11 and SB-65a
+  stand carried open by name, untouched, and
+  SB-47 and SB-43 stand carried open by name,
+  untouched, neither description surface
+  changed. The contract's record stands at SB-1
+  to SB-163 with this item. The round's scratch
+  stands durable at
+  ~/workspace/retro-line/sb26-scratch/, and the
+  differential battery's fixture root is a
+  temporary directory under
+  ~/workspace/retro-line by its design. The
+  README rounds line moves to 26 of 100 in this
+  closure commit.
