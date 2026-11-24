@@ -7717,3 +7717,310 @@ SB-136. Round 21 gate record and closure. The
   its repair. The contract's record stands at
   SB-1 to SB-168, with SB-143 and this record
   standing outside that range as repair records.
+SB-170. Round 28 opens with the read-back of
+  pull request 36, Round 27's pull request, read
+  whole at this lane's hand from the live
+  record, every figure below measured on the
+  fetched bytes. The pull request stands merged
+  as 602420ff522654004f67e11501f85e2b9879ccbc, a
+  single-parent commit over
+  326a1d5a5c93797a1561eb67ca07a704f2756931, its
+  merge tree
+  a1b02ba040dc13ea2229a4f048c86fb3f28ee994 equal
+  to the reviewed tree, the tree of the round's
+  reviewed head
+  7866d97a1d7a812bdd627be4d474d7e3db70ad6b, and
+  main stands at the merge commit. The title
+  stands at "SB-164 to SB-169: Round 27", 26
+  chars, naming the full span including the
+  repair record. The body measures 21,207 chars
+  in its live form, the build lane's final body
+  of 20,179 chars with the owner's gate record
+  standing after the appendix, the gate record
+  at 1,026 chars standing from offset 20,181;
+  the bot appendix stands measured from its
+  opening marker at offset 19,638, spanning 541
+  chars, the pair summing to 20,179, the lane
+  body's length exactly, and the appendix in the
+  live body is byte-identical to the lane's
+  banked appendix, so it stands preserved byte
+  for byte through the patch. The census stands
+  at four issue comments, one review, and one
+  review comment. The Trunk note 7123411409
+  stands at 113 chars in its merged form,
+  created 2026-11-24T05:55:57Z and last edited
+  at the merge, 2026-11-24T07:56:10Z. The bot
+  shell 7123413900 stands read whole at this
+  hand in its true final form at 8,690 chars,
+  last edited 2026-11-24T07:48:13Z, standing
+  unchanged since that edit with the landing
+  comment standing after it, settling the figure
+  the lane's Step 0 charged to this read-back.
+  Its forms chain stands whole: the in-progress
+  form at 5,196 chars at its creation,
+  2026-11-24T05:56:06Z, counted nowhere in Round
+  27's graded reading; the completed form at
+  8,616 chars, last edited 2026-11-24T05:58:15Z;
+  the re-rendered forms at 8,686 chars, last
+  edited 2026-11-24T06:02:24Z, and at 8,688
+  chars, last edited 2026-11-24T06:03:33Z, at
+  which figure the red team's read and the
+  lane's final census read it; and 8,690 chars
+  at the owner's landing read and at this read.
+  The shell's walkthrough names the two changed
+  files in three rows, and the three rows match
+  the changeset exactly, the contract holding
+  the read-back, the batteries, the pin, the
+  realistic, and the closure records and the
+  README holding the rounds move in the closure
+  commit alone; the shell's statement that SB-11
+  and SB-65a remain open is correct against the
+  contract. The Merge Risk section stands Low up
+  to 989361b7806ddac3e60ed6f6e956064d3d4d344b,
+  the source and covered commits both the
+  closure head, kind reviewed, and it carries
+  one substantive claim, that a reported test
+  total disagrees with its breakdown, the
+  sustained point below. The pre-merge checks
+  stand at 4 Passed and 0 Inconclusive,
+  Description, Title, Linked Issues, and Out of
+  Scope, and the Title check stands Passed in
+  this final form, its full details conceding
+  the title names a real part of the changeset
+  while noting the range did not match the
+  opening body's cited objectives, SB-164 to
+  SB-168, before the repair record extended the
+  span to SB-169. The word Docstring occurs zero
+  times in the shell. The included allowance
+  stands used with none remaining, and the
+  finishing-touch and autopilot checkboxes stand
+  unacted-on. The shell carries no Run ID; the
+  Run ID stands in the review it carries. Review
+  6034401030 stands COMMENTED at 3,715 chars,
+  submitted 2026-11-24T05:58:11Z on the closure
+  head 989361b7806ddac3e60ed6f6e956064d3d4d344b,
+  posting one actionable comment, its Run ID
+  be91e5cf-7514-4e78-a756-c555084401c9. Review
+  comment 4676095374 stands read to its end at
+  this hand: 1,952 chars, created
+  2026-11-24T05:58:10Z, Minor, on CONTRACT.md,
+  headed "Reconcile the pin suite test count
+  with its per-target counts.", its ground that
+  the pin suite breakdown printed in SB-168 sums
+  to 243 against the stated total of 241, the
+  screen figure printed at 15 where the suite's
+  own 19 lines sum to 241 with screen at 13, the
+  15 carried from the FT-220 pairing. The
+  comment stands dispositioned in the body as
+  sustained, repaired by the appended repair
+  record SB-169 with SB-168's span standing
+  byte-identical and unrewritten, and the repair
+  stands verified against the suite's own lines
+  at all three review axes; the disposition
+  stands graded sound at this hand. The owner's
+  enqueue comment 7125387386 stands at 12 chars,
+  created 2026-11-24T07:48:08Z and never edited.
+  The owner's landing comment 7125675686 stands
+  at 1,439 chars, created 2026-11-24T08:03:31Z,
+  never edited, and standing last on the record.
+  The owner's gate record stands read whole at
+  this hand: the three reviews complete and the
+  gate fully clean. Round 27's gate stands
+  graded in the open at this hand: spec PASS
+  with no findings, its one observation the
+  shell's further re-render, the situation its
+  charge to this read-back covered; standards
+  APPROVE with no findings; red team APPROVE
+  with no findings, every limb executed at its
+  own hand and no limb untested, the draw
+  battery, Round 26's charged first business,
+  run whole at its hand at 14 cells and 0
+  failures, discharging the one limb Round 26
+  left untested; one gate launch killed by the
+  box restart of about 2026-11-24T05:31Z stands
+  disclosed in its report and counted nowhere.
+  Hosted CI on the pull request stands re-read
+  at this hand: the closure head's runs, push
+  45336609022 and pull_request 45336737790, and
+  the final head's runs, push 45337443472 and
+  pull_request 45337449342, each completed
+  success. Trunk queue pull request 37 stands
+  closed unmerged, its head ref
+  trunk-merge/pr-36/61407aeb-0256-4da6-8489-39a8a4300822,
+  so this round's pull request takes the next
+  number on opening. The GitHub description
+  stands read live at this hand in its
+  contracted form, unchanged. SB-11, SB-65a,
+  SB-47, and SB-43 stand carried open by name,
+  untouched by this item.
+SB-171. The boundary battery stands re-run at
+  this round on the base build and stands at 11
+  cells, 0 failures, its completing launch on
+  the base build (its journal at
+  sb28-scratch/boundary28.log). The seam stands
+  re-probed at its exact points on both
+  implementations inside it: the spelled-parent
+  guard refuses the onto-repo chain at 990 and
+  at 991 splices and aborts into the crash class
+  at 992; the kernel write lands at exactly 40
+  splices and refuses at 41; and in the
+  head-is-output shape the write lands replacing
+  the head link at 40, 41, and 991 splices, a
+  chain of 991 onto the repository is refused,
+  and 992 stands in the crash class with the
+  head link untouched. SB-65a stands reproduced
+  fresh on both arms inside it as a carried
+  measurement, never as a fix: a single link
+  inside the read repository serving as the
+  output filename and pointing outside, the
+  guard passing and the write landing inside the
+  repository replacing the link on both
+  implementations, the outside file unwritten,
+  the fixture state on both arms standing
+  verified at this lane's hand (the statement
+  file inside each repository at 630 bytes as a
+  regular file, the outside file standing at its
+  original 8 bytes). SB-11 and SB-65a stand
+  carried open by name, untouched.
+SB-172. The draw battery stands re-run at this
+  round on the base build and stands at 14
+  cells, 0 failures, its single launch
+  completing on the base build (its journal at
+  sb28-scratch/draw28.log).
+SB-173. The joints battery stands re-run at this
+  round on the base build and stands at 9 cells,
+  0 failures, its single launch completing on
+  the base build (its journal at
+  sb28-scratch/joints28.log).
+SB-174. Round 28 gate record and closure. The
+  realistic battery's counted pass stands
+  completed under the round's realistic driver,
+  run detached under the build slot on
+  2026-11-24 and completed at 13:44:37Z on that
+  driver's first launch, that driver the round's
+  fifth seating of the realistic: the corpus
+  stood proven from git inside the counted
+  launch at 24 repositories and 3,648 commits in
+  the SB-81 composition (the earlier seatings'
+  checkpoints carrying teams 00 to 06 into it),
+  and all 660 cells ran (288 unpriced statement
+  cells, 288 priced statement cells, 60
+  price-book cells, 24 output-file cells) with
+  no failures and the pass exiting 0, its final
+  accounting standing at the foot of
+  realistic28.log in the round's scratch with no
+  FAIL line inside the counted launch. No other
+  realistic seating stands counted: the first
+  seating died queued without a launch and
+  without a line in its log, the second and
+  fourth seatings died queued in the box
+  restarts of about 11:49Z and about 13:31Z, and
+  the third seating exhausted its fifteen
+  launches on fixture-write refusals inside the
+  write-fault wave, its corpus checkpoints
+  advancing the frontier to team-07 before it
+  stood down. The differential battery stands
+  beside the totals at 14 cases and 240 steps
+  with no failures, on its standalone driver's
+  completing relaunch, after the batteries
+  driver's pass and an earlier standalone run
+  each exhausted fifteen launches on git-init
+  template-copy refusals and one further seating
+  died queued in the 11:49Z restart; the refusal
+  stands isolated at this lane's hand to writes
+  spawned from Python subprocesses, the
+  harness's exact git invocation reproducing it
+  from a Python subprocess while the identical
+  command run directly in the shell succeeded.
+  The flighttape pin stands reconfirmed through
+  the API at commit
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e (tree
+  afd4d7d13520411e003762548fc79082a1b9cf6e,
+  exactly 50 blobs, assembled into the round's
+  scratch and SHA-verified file by file), and
+  the pin suite stands re-run at 241 tests over
+  19 targets (lib 3, binary unit 0, cli 22,
+  compare 19, convert 34, digest_cli 5, identity
+  13, json 8, play 17, redaction 12, robustness
+  15, rollup 22, scale 3, schema 5, screen 13,
+  slice 24, timestamps 1, validate 25, doc 0),
+  summed from the suite's own 19 lines at this
+  lane's hand, with the golden tape at 1,663
+  bytes and digest
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  the verify at exit 0. The base chain stands at
+  its recorded figures on the new base: cargo
+  test at 25 tests (23 integration, 2 unit) with
+  no failures, clippy clean, fmt at exit 0, and
+  the debug build's md5 standing at
+  35555e1f592a2477b218403a8648dfbe at the
+  round's base target path
+  (sb28-scratch/target), the value build-path
+  scoped and reproduced there exactly. The
+  closure gate ran whole on the SB-173 head's
+  tree d199d7c39aac4a47fe0ceadc2a3eabdfb0e40bcc
+  (the head
+  bf096fe641f338f5d00e29059085182408121348
+  before this closure item; the tree differs
+  from the base tree only in CONTRACT.md), in
+  SB-158's construction: cargo test at 25 tests
+  (23 integration, 2 unit) with no failures,
+  clippy clean, fmt at exit 0, the debug build's
+  md5 reproduced at the closure target path
+  (sb28-scratch/h28/target-closure) at the same
+  value, and the boundary, draw, and joints
+  batteries at 11, 14, and 9 cells and the
+  differential at 14 cases and 240 steps on the
+  closure build, no failures anywhere. The
+  oracle stands verified whole before reliance
+  in this round: the pristine
+  918dc7eb13bd3a5b0c3e644147170ad0bb1607e8 reads
+  through the API at 13 blobs and tree
+  f331cd155f507c7013ccd6a3f5157670d80201f5,
+  history.py and statement.py stand
+  byte-identical to the driven copy in the
+  line's muda7-scratch/oracle-src, and the
+  driven copy differs from the pristine in
+  exactly the three contracted lines (the
+  docstring line of __init__.py and the
+  prog-name and guard lines of cli.py, each
+  secondbill to muda). The round's attempt
+  history stands in brief: the base gate took
+  the build slot directly and ran every stage
+  clean on its first attempts; the batteries and
+  pin drivers queued behind sibling lanes' holds
+  from 08:19Z and both died as they took the
+  slot in the box restart and write-fault wave
+  of about 09:28Z, the pin's first run void on
+  this lane's own script defect (an unexported
+  variable inside its flock shell, where the
+  standing script carries literal paths; the
+  script stands corrected and the relaunched pin
+  stands counted), and the relaunched batteries
+  driver completed the boundary, draw, and
+  joints passes on its first launches while its
+  differential pass exhausted in the wave; the
+  differential's and the realistic's later
+  seatings stand as recorded above, each
+  interrupted launch, queue, and restart counted
+  nowhere and disclosed whole in the round's
+  attempt record. The codepoint scan stands run
+  at this lane's hand over both trees with the
+  planted control counted first (the control at
+  one U+2014 and one U+2013): the base tree at
+  21 files and the closure tree at 21 files,
+  each printing zero U+2014 and zero U+2013.
+  SB-11 and SB-65a stand carried open by name,
+  untouched, and SB-47 and SB-43 stand carried
+  open by name, untouched, neither description
+  surface changed. The contract's record stands
+  at SB-1 to SB-174 with this item, with SB-143
+  and SB-169 standing outside that range as
+  repair records. The round's scratch stands
+  durable at
+  ~/workspace/retro-line/sb28-scratch/, and the
+  differential battery's fixture root is a
+  temporary directory under
+  ~/workspace/retro-line by its design. The
+  README rounds line moves to 28 of 100 in this
+  closure commit.
