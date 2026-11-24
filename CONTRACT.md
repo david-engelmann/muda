@@ -7882,3 +7882,8 @@ SB-171. The boundary battery stands re-run at
   regular file, the outside file standing at its
   original 8 bytes). SB-11 and SB-65a stand
   carried open by name, untouched.
+SB-172. The draw battery stands re-run at this
+  round on the base build and stands at 14
+  cells, 0 failures, its single launch
+  completing on the base build (its journal at
+  sb28-scratch/draw28.log).
