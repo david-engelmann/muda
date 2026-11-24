@@ -7391,3 +7391,149 @@ SB-136. Round 21 gate record and closure. The
   ~/workspace/retro-line by its design. The
   README rounds line moves to 26 of 100 in this
   closure commit.
+- SB-164. PR 34 read back whole at this lane's
+  hand. The census stands exact: four issue
+  comments, one formal review, and two review
+  comments. The Trunk note 7119520938 stands in
+  its final form at 113 chars in its post-merge
+  form, created 2026-11-24T01:51:58Z and last
+  edited 2026-11-24T03:13:09Z at the merge. The
+  shell 7119523222 stands in its true final form
+  at 10,213 chars, last edited
+  2026-11-24T01:58:31Z, across its forms: an
+  in-progress form at 5,196 chars at its
+  creation, 2026-11-24T01:52:05Z, counted
+  nowhere; the completed form at 10,377 chars,
+  last edited 2026-11-24T01:54:59Z, the form
+  standing at the body's patch; and one
+  re-render to the true final form above at
+  01:58:31Z, standing unchanged at the standards
+  read, the red team read, the owner's landing
+  read, and this read, the live form banked
+  byte-exact against the API at this hand (its
+  walkthrough accurate at every point the body's
+  step 0 graded; Run ID
+  5ee3d405-0f8e-4a50-8d76-8088b5da02db standing
+  in the review it carries; its range the base
+  23a3f84f to the closure head 0a589325 over
+  CONTRACT.md and README.md; files selected for
+  processing 2; the statement that two
+  actionable comments were posted; Merge Risk
+  Low up to 0a589325 with the closure head as
+  both source and covered commit, kind reviewed;
+  the pre-merge checks at three Passed and one
+  Inconclusive, the Title check; the word
+  Docstring occurring zero times; the included
+  allowance used with none remaining; and the
+  finishing-touch and autopilot checkboxes
+  unacted-on; its Merge Risk prose carries the
+  same two characterizations the review comments
+  carry, dispositioned with them below). The
+  formal review 6032463927 stands COMMENTED at
+  4,020 chars, submitted 2026-11-24T01:54:55Z on
+  the closure head, carrying the round's two
+  review comments, each Minor and each created
+  2026-11-24T01:54:54Z inside it: 4674513730 on
+  CONTRACT.md at 1,991 chars, that the gate
+  record name the tested tree the pre-closure
+  tree rather than the closure tree, and
+  4674513733 on README.md at 2,415 chars, that
+  the closed-round count stay at 25 until Round
+  26 approval is recorded. Both stand
+  dispositioned on the body as dismissed, not
+  sustained, and the dispositions stand graded
+  SOUND passage by passage at the spec review
+  and SOUND at the red team: the first because
+  SB-163 identifies the tested tree by its full
+  SHA as the SB-162 head's tree at the point of
+  the claim, closure tree is the contract's
+  standing term for exactly that tree in
+  SB-158's identical construction, no sentence
+  in the record claims the gate ran on the
+  SB-163 commit's tree, and the checks run on
+  the final tree stand separately on the body as
+  hosted CI; the second because the rounds line
+  moves to the new count in the closure commit
+  by the programme's standing shape and because
+  its premise that no review stands on the pull
+  request was false at its own posting, the
+  comment created inside the bot's formal review
+  standing COMMENTED on the closure head and
+  carrying it. The Title check stands
+  Inconclusive this round, its reservation the
+  standing prose one, that the title names a
+  round and a set of tickets but does not say
+  what the change does, and it stands dismissed
+  on counted grounds on the body and graded
+  SOUND at all three axes: the check's own full
+  details concede the title does refer to real
+  parts of the change (Round 26), and the title
+  stands at 26 chars in the standing form, PR
+  34's title counted at 26 chars at this hand
+  and PR 32's verified at 26 at SB-159. No valid
+  finding stood on PR 34 beyond the two comments
+  and the check dispositioned there, so no
+  repair record was owed, and no checkbox
+  affordance was acted on. The owner's queue
+  comment 7120770523 stands at 12 chars, created
+  2026-11-24T03:06:01Z and never edited, and the
+  landing comment 7120956860 stands at 1,292
+  chars, created 2026-11-24T03:17:51Z, standing
+  last and never edited, so nothing stands
+  posted after it at this census and anything
+  arriving later is Round 28's to disposition.
+  The body's release-notes appendix stands
+  measured at this hand at 414 chars from its
+  opening marker at offset 33,577 on the
+  33,991-char body, the pair summing to the
+  body's length exactly, its Documentation
+  section carrying two bullets, each correct at
+  its scope, and the appendix stands
+  byte-identical in the live body, the live body
+  itself byte-identical to the composed final
+  text the round's lane banked, so the body's
+  single patch preserved it exactly as the gate
+  record states. The Round 26 gate stands
+  contracted from the review reports read at
+  this hand: spec PASS with no findings, its
+  three observations standing as observations
+  only, the first, the shell's further
+  re-render, discharged at the true final form
+  above; standards APPROVE with no findings, its
+  one observation the same re-render; and red
+  team APPROVE with no findings, nine of its ten
+  limbs executed at its own hand and one limb
+  untested, the draw battery's 14 cells, its
+  first launch failed on its own driver's
+  pointing and its relaunched battery queued 56
+  minutes on the build slot behind a sibling
+  lane's live run before being stood down, the
+  build lane's draw logs standing as the lane's
+  evidence only, and the limb standing charged
+  to Round 27's red team as its first business
+  on the landing comment and in the red team's
+  report, the charge recorded here as standing
+  and the red team's to discharge, not this
+  lane's. PR 34 stands merged
+  2026-11-24T03:13:06Z as squash
+  326a1d5a5c93797a1561eb67ca07a704f2756931, its
+  merge tree 5deb4728 equal to the reviewed
+  closure tree and the README on main at 26 of
+  100, and its hosted CI stands re-read at this
+  hand on the closure head, the push run
+  45308116023 and the pull request run
+  45308174758, each completed success. Trunk's
+  own queue pull request 35, on the trunk-merge
+  branch for PR 34, opened at
+  2026-11-24T03:12:41Z and closed unmerged at
+  2026-11-24T03:12:57Z inside the merge; it is
+  the queue's artifact and no part of this
+  round's record beyond this note, and this
+  round's pull request therefore takes number 36
+  on opening. SB-11 and SB-65a stand carried
+  open by name, untouched, and SB-47 and SB-43
+  stand carried open by name, untouched, neither
+  description surface changed, the GitHub
+  description read live at this round's setup in
+  its standing form and Cargo.toml standing at
+  100 bytes with no description field.
