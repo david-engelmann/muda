@@ -7887,3 +7887,8 @@ SB-172. The draw battery stands re-run at this
   cells, 0 failures, its single launch
   completing on the base build (its journal at
   sb28-scratch/draw28.log).
+SB-173. The joints battery stands re-run at this
+  round on the base build and stands at 9 cells,
+  0 failures, its single launch completing on
+  the base build (its journal at
+  sb28-scratch/joints28.log).
