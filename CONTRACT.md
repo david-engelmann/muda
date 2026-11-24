@@ -7717,3 +7717,139 @@ SB-136. Round 21 gate record and closure. The
   its repair. The contract's record stands at
   SB-1 to SB-168, with SB-143 and this record
   standing outside that range as repair records.
+SB-170. Round 28 opens with the read-back of
+  pull request 36, Round 27's pull request, read
+  whole at this lane's hand from the live
+  record, every figure below measured on the
+  fetched bytes. The pull request stands merged
+  as 602420ff522654004f67e11501f85e2b9879ccbc, a
+  single-parent commit over
+  326a1d5a5c93797a1561eb67ca07a704f2756931, its
+  merge tree
+  a1b02ba040dc13ea2229a4f048c86fb3f28ee994 equal
+  to the reviewed tree, the tree of the round's
+  reviewed head
+  7866d97a1d7a812bdd627be4d474d7e3db70ad6b, and
+  main stands at the merge commit. The title
+  stands at "SB-164 to SB-169: Round 27", 26
+  chars, naming the full span including the
+  repair record. The body measures 21,207 chars
+  in its live form, the build lane's final body
+  of 20,179 chars with the owner's gate record
+  standing after the appendix, the gate record
+  at 1,026 chars standing from offset 20,181;
+  the bot appendix stands measured from its
+  opening marker at offset 19,638, spanning 541
+  chars, the pair summing to 20,179, the lane
+  body's length exactly, and the appendix in the
+  live body is byte-identical to the lane's
+  banked appendix, so it stands preserved byte
+  for byte through the patch. The census stands
+  at four issue comments, one review, and one
+  review comment. The Trunk note 7123411409
+  stands at 113 chars in its merged form,
+  created 2026-11-24T05:55:57Z and last edited
+  at the merge, 2026-11-24T07:56:10Z. The bot
+  shell 7123413900 stands read whole at this
+  hand in its true final form at 8,690 chars,
+  last edited 2026-11-24T07:48:13Z, standing
+  unchanged since that edit with the landing
+  comment standing after it, settling the figure
+  the lane's Step 0 charged to this read-back.
+  Its forms chain stands whole: the in-progress
+  form at 5,196 chars at its creation,
+  2026-11-24T05:56:06Z, counted nowhere in Round
+  27's graded reading; the completed form at
+  8,616 chars, last edited 2026-11-24T05:58:15Z;
+  the re-rendered forms at 8,686 chars, last
+  edited 2026-11-24T06:02:24Z, and at 8,688
+  chars, last edited 2026-11-24T06:03:33Z, at
+  which figure the red team's read and the
+  lane's final census read it; and 8,690 chars
+  at the owner's landing read and at this read.
+  The shell's walkthrough names the two changed
+  files in three rows, and the three rows match
+  the changeset exactly, the contract holding
+  the read-back, the batteries, the pin, the
+  realistic, and the closure records and the
+  README holding the rounds move in the closure
+  commit alone; the shell's statement that SB-11
+  and SB-65a remain open is correct against the
+  contract. The Merge Risk section stands Low up
+  to 989361b7806ddac3e60ed6f6e956064d3d4d344b,
+  the source and covered commits both the
+  closure head, kind reviewed, and it carries
+  one substantive claim, that a reported test
+  total disagrees with its breakdown, the
+  sustained point below. The pre-merge checks
+  stand at 4 Passed and 0 Inconclusive,
+  Description, Title, Linked Issues, and Out of
+  Scope, and the Title check stands Passed in
+  this final form, its full details conceding
+  the title names a real part of the changeset
+  while noting the range did not match the
+  opening body's cited objectives, SB-164 to
+  SB-168, before the repair record extended the
+  span to SB-169. The word Docstring occurs zero
+  times in the shell. The included allowance
+  stands used with none remaining, and the
+  finishing-touch and autopilot checkboxes stand
+  unacted-on. The shell carries no Run ID; the
+  Run ID stands in the review it carries. Review
+  6034401030 stands COMMENTED at 3,715 chars,
+  submitted 2026-11-24T05:58:11Z on the closure
+  head 989361b7806ddac3e60ed6f6e956064d3d4d344b,
+  posting one actionable comment, its Run ID
+  be91e5cf-7514-4e78-a756-c555084401c9. Review
+  comment 4676095374 stands read to its end at
+  this hand: 1,952 chars, created
+  2026-11-24T05:58:10Z, Minor, on CONTRACT.md,
+  headed "Reconcile the pin suite test count
+  with its per-target counts.", its ground that
+  the pin suite breakdown printed in SB-168 sums
+  to 243 against the stated total of 241, the
+  screen figure printed at 15 where the suite's
+  own 19 lines sum to 241 with screen at 13, the
+  15 carried from the FT-220 pairing. The
+  comment stands dispositioned in the body as
+  sustained, repaired by the appended repair
+  record SB-169 with SB-168's span standing
+  byte-identical and unrewritten, and the repair
+  stands verified against the suite's own lines
+  at all three review axes; the disposition
+  stands graded sound at this hand. The owner's
+  enqueue comment 7125387386 stands at 12 chars,
+  created 2026-11-24T07:48:08Z and never edited.
+  The owner's landing comment 7125675686 stands
+  at 1,439 chars, created 2026-11-24T08:03:31Z,
+  never edited, and standing last on the record.
+  The owner's gate record stands read whole at
+  this hand: the three reviews complete and the
+  gate fully clean. Round 27's gate stands
+  graded in the open at this hand: spec PASS
+  with no findings, its one observation the
+  shell's further re-render, the situation its
+  charge to this read-back covered; standards
+  APPROVE with no findings; red team APPROVE
+  with no findings, every limb executed at its
+  own hand and no limb untested, the draw
+  battery, Round 26's charged first business,
+  run whole at its hand at 14 cells and 0
+  failures, discharging the one limb Round 26
+  left untested; one gate launch killed by the
+  box restart of about 2026-11-24T05:31Z stands
+  disclosed in its report and counted nowhere.
+  Hosted CI on the pull request stands re-read
+  at this hand: the closure head's runs, push
+  45336609022 and pull_request 45336737790, and
+  the final head's runs, push 45337443472 and
+  pull_request 45337449342, each completed
+  success. Trunk queue pull request 37 stands
+  closed unmerged, its head ref
+  trunk-merge/pr-36/61407aeb-0256-4da6-8489-39a8a4300822,
+  so this round's pull request takes the next
+  number on opening. The GitHub description
+  stands read live at this hand in its
+  contracted form, unchanged. SB-11, SB-65a,
+  SB-47, and SB-43 stand carried open by name,
+  untouched by this item.
