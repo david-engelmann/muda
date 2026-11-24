@@ -8200,3 +8200,109 @@ SB-178. The joints battery stands re-run at this
   0 failures, its single launch completing on
   the base build (its journal at
   sb29-scratch/joints29.log).
+SB-179. Round 29 closes. The realistic battery
+  stands re-run at this round under the round's
+  realistic driver, run detached under the build
+  slot on 2026-11-24, its launch 1 completing
+  with its driver at 2026-11-24T17:15:29Z, that
+  driver the round's first and only seating of
+  the realistic: the corpus stood proven from
+  git inside the counted launch at 24
+  repositories and 3,648 commits in the SB-81
+  composition, and all 660 cells ran on the run
+  (288 unpriced, 288 priced, 60 price-book, and
+  24 output-file cells) with no failures, the
+  pass exiting 0, the final accounting at the
+  foot of sb29-scratch/realistic29.log with no
+  FAIL line inside the counted launch or
+  anywhere in its log. The differential harness
+  stands re-run at this round on the base build
+  and stands at 14 cases, 240 steps, 0 failures
+  on the batteries driver's own pass. The
+  flighttape pin stands reconfirmed through the
+  API at commit
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e (tree
+  afd4d7d13520411e003762548fc79082a1b9cf6e,
+  exactly 50 blobs, assembled and SHA-verified);
+  its suite stands at 241 tests over 19 targets
+  (lib 3, binary unit 0, cli 22, compare 19,
+  convert 34, digest_cli 5, identity 13, json 8,
+  play 17, redaction 12, robustness 15, rollup
+  22, scale 3, schema 5, screen 13, slice 24,
+  timestamps 1, validate 25, doc 0), summed from
+  the suite's own 19 test-result lines, and the
+  golden tape stands whole at 1,663 bytes, its
+  digest
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  verify exit 0. The gate chain stands as
+  follows: the base build stood under the base
+  gate (cargo test 25 paired as 23 integration
+  plus 2 unit, clippy clean, fmt exit 0, and the
+  debug build's md5
+  35555e1f592a2477b218403a8648dfbe reproduced at
+  the sb29-scratch target path), and the closure
+  gate then ran whole on the SB-178 head's tree,
+  61aeb638b64d9474f7ecc62df60ecbadf7b7224d (the
+  head standing at
+  91d7f674448e51c03ae35556359317cbf00a8f48
+  before this closure item; that tree differs
+  from the base tree only in CONTRACT.md), in
+  SB-158's construction: launched detached
+  2026-11-24T17:17:19Z, queued on the build slot
+  behind sibling holds verified live at this
+  lane's hand, the slot acquired by
+  2026-11-24T17:30:28Z, cargo test 25 paired as
+  23 integration plus 2 unit clean on its first
+  attempt, clippy clean, fmt exit 0, the debug
+  build's md5 35555e1f592a2477b218403a8648dfbe
+  reproduced at the closure target path
+  sb29-scratch/h29/target-closure, and all four
+  passes complete on their first launches on the
+  closure build (boundary 11 cells, draw 14
+  cells, joints 9 cells, and the differential at
+  14 cases and 240 steps), no failures anywhere,
+  the gate done at 2026-11-24T17:33:31Z; no
+  claim in this item names a tree the gate did
+  not run on. The oracle stands verified whole
+  before reliance at this round (pristine commit
+  918dc7eb13bd3a5b0c3e644147170ad0bb1607e8, 13
+  blobs, tree
+  f331cd155f507c7013ccd6a3f5157670d80201f5);
+  history.py and statement.py stand
+  byte-identical between pristine and the driven
+  copy in muda7-scratch/oracle-src, and the
+  driven copy differs from pristine in exactly
+  the three contracted lines. The attempt
+  history stands as follows in brief: the base
+  gate took the slot directly at launch and ran
+  clean on first attempts; the batteries driver
+  took the slot at launch and completed every
+  pass on its first launches; the pin stage's
+  first launch command was lost in an exec
+  session teardown before the driver ever
+  started, and the relaunched pin driver
+  completed whole on its single run, the lost
+  launch counted nowhere; the realistic
+  completed on the round's first seating's first
+  launch; the closure gate queued behind
+  verified-live sibling holds and then ran
+  whole. The full attempt record stands at
+  sb29-scratch/attempts29.md and on the pull
+  request body. The codepoint scan over both
+  trees stands with the planted control counted
+  first (control U+2014 1, U+2013 1): the base
+  tree at 21 files and the closure tree at 21
+  files, each at U+2014 0 and U+2013 0.
+  /dev/full stands as the genuine character
+  device on this box (crw 1,7) and nothing in
+  this round's accounting rests on a /dev/full
+  write either way. SB-11, SB-65a, SB-47, and
+  SB-43 stand carried open by name, untouched.
+  The record stands at SB-1 to SB-179 with
+  SB-143 and SB-169 outside as repair records.
+  The round's scratch stands durable at
+  ~/workspace/retro-line/sb29-scratch/ (the
+  differential fixture root is a temporary
+  directory under ~/workspace/retro-line by
+  design). The README rounds line moves to 29 of
+  100 in this closure commit.
