@@ -7892,3 +7892,135 @@ SB-173. The joints battery stands re-run at this
   0 failures, its single launch completing on
   the base build (its journal at
   sb28-scratch/joints28.log).
+SB-174. Round 28 gate record and closure. The
+  realistic battery's counted pass stands
+  completed under the round's realistic driver,
+  run detached under the build slot on
+  2026-11-24 and completed at 13:44:37Z on that
+  driver's first launch, that driver the round's
+  fifth seating of the realistic: the corpus
+  stood proven from git inside the counted
+  launch at 24 repositories and 3,648 commits in
+  the SB-81 composition (the earlier seatings'
+  checkpoints carrying teams 00 to 06 into it),
+  and all 660 cells ran (288 unpriced statement
+  cells, 288 priced statement cells, 60
+  price-book cells, 24 output-file cells) with
+  no failures and the pass exiting 0, its final
+  accounting standing at the foot of
+  realistic28.log in the round's scratch with no
+  FAIL line inside the counted launch. No other
+  realistic seating stands counted: the first
+  seating died queued without a launch and
+  without a line in its log, the second and
+  fourth seatings died queued in the box
+  restarts of about 11:49Z and about 13:31Z, and
+  the third seating exhausted its fifteen
+  launches on fixture-write refusals inside the
+  write-fault wave, its corpus checkpoints
+  advancing the frontier to team-07 before it
+  stood down. The differential battery stands
+  beside the totals at 14 cases and 240 steps
+  with no failures, on its standalone driver's
+  completing relaunch, after the batteries
+  driver's pass and an earlier standalone run
+  each exhausted fifteen launches on git-init
+  template-copy refusals and one further seating
+  died queued in the 11:49Z restart; the refusal
+  stands isolated at this lane's hand to writes
+  spawned from Python subprocesses, the
+  harness's exact git invocation reproducing it
+  from a Python subprocess while the identical
+  command run directly in the shell succeeded.
+  The flighttape pin stands reconfirmed through
+  the API at commit
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e (tree
+  afd4d7d13520411e003762548fc79082a1b9cf6e,
+  exactly 50 blobs, assembled into the round's
+  scratch and SHA-verified file by file), and
+  the pin suite stands re-run at 241 tests over
+  19 targets (lib 3, binary unit 0, cli 22,
+  compare 19, convert 34, digest_cli 5, identity
+  13, json 8, play 17, redaction 12, robustness
+  15, rollup 22, scale 3, schema 5, screen 13,
+  slice 24, timestamps 1, validate 25, doc 0),
+  summed from the suite's own 19 lines at this
+  lane's hand, with the golden tape at 1,663
+  bytes and digest
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  the verify at exit 0. The base chain stands at
+  its recorded figures on the new base: cargo
+  test at 25 tests (23 integration, 2 unit) with
+  no failures, clippy clean, fmt at exit 0, and
+  the debug build's md5 standing at
+  35555e1f592a2477b218403a8648dfbe at the
+  round's base target path
+  (sb28-scratch/target), the value build-path
+  scoped and reproduced there exactly. The
+  closure gate ran whole on the SB-173 head's
+  tree d199d7c39aac4a47fe0ceadc2a3eabdfb0e40bcc
+  (the head
+  bf096fe641f338f5d00e29059085182408121348
+  before this closure item; the tree differs
+  from the base tree only in CONTRACT.md), in
+  SB-158's construction: cargo test at 25 tests
+  (23 integration, 2 unit) with no failures,
+  clippy clean, fmt at exit 0, the debug build's
+  md5 reproduced at the closure target path
+  (sb28-scratch/h28/target-closure) at the same
+  value, and the boundary, draw, and joints
+  batteries at 11, 14, and 9 cells and the
+  differential at 14 cases and 240 steps on the
+  closure build, no failures anywhere. The
+  oracle stands verified whole before reliance
+  in this round: the pristine
+  918dc7eb13bd3a5b0c3e644147170ad0bb1607e8 reads
+  through the API at 13 blobs and tree
+  f331cd155f507c7013ccd6a3f5157670d80201f5,
+  history.py and statement.py stand
+  byte-identical to the driven copy in the
+  line's muda7-scratch/oracle-src, and the
+  driven copy differs from the pristine in
+  exactly the three contracted lines (the
+  docstring line of __init__.py and the
+  prog-name and guard lines of cli.py, each
+  secondbill to muda). The round's attempt
+  history stands in brief: the base gate took
+  the build slot directly and ran every stage
+  clean on its first attempts; the batteries and
+  pin drivers queued behind sibling lanes' holds
+  from 08:19Z and both died as they took the
+  slot in the box restart and write-fault wave
+  of about 09:28Z, the pin's first run void on
+  this lane's own script defect (an unexported
+  variable inside its flock shell, where the
+  standing script carries literal paths; the
+  script stands corrected and the relaunched pin
+  stands counted), and the relaunched batteries
+  driver completed the boundary, draw, and
+  joints passes on its first launches while its
+  differential pass exhausted in the wave; the
+  differential's and the realistic's later
+  seatings stand as recorded above, each
+  interrupted launch, queue, and restart counted
+  nowhere and disclosed whole in the round's
+  attempt record. The codepoint scan stands run
+  at this lane's hand over both trees with the
+  planted control counted first (the control at
+  one U+2014 and one U+2013): the base tree at
+  21 files and the closure tree at 21 files,
+  each printing zero U+2014 and zero U+2013.
+  SB-11 and SB-65a stand carried open by name,
+  untouched, and SB-47 and SB-43 stand carried
+  open by name, untouched, neither description
+  surface changed. The contract's record stands
+  at SB-1 to SB-174 with this item, with SB-143
+  and SB-169 standing outside that range as
+  repair records. The round's scratch stands
+  durable at
+  ~/workspace/retro-line/sb28-scratch/, and the
+  differential battery's fixture root is a
+  temporary directory under
+  ~/workspace/retro-line by its design. The
+  README rounds line moves to 28 of 100 in this
+  closure commit.
