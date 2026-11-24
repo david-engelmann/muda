@@ -7686,3 +7686,34 @@ SB-136. Round 21 gate record and closure. The
   ~/workspace/retro-line by its design. The
   README rounds line moves to 27 of 100 in this
   closure commit.
+- SB-169. Repair record, appended in Round 27
+  after SB-168, the original unrewritten.
+  SB-168's per-target breakdown of the
+  flighttape pin suite misstates one figure: it
+  prints the screen target at 15, and its listed
+  figures therefore sum to 243 against the total
+  of 241 stated in the same sentence. The pin
+  suite's own output in this round (pin27.log in
+  the round's scratch, 19 test-result lines)
+  sums to 241, and the breakdown corrected is:
+  lib 3, binary unit 0, cli 22, compare 19,
+  convert 34, digest_cli 5, identity 13, json 8,
+  play 17, redaction 12, robustness 15, rollup
+  22, scale 3, schema 5, screen 13, slice 24,
+  timestamps 1, validate 25, doc 0, summing to
+  241 exactly. The misstated figure was carried
+  from the FT-220 pairing of the same suite at
+  its own head, where lib stands at 7 and screen
+  at 15 in a 247-test suite; at the pin, lib
+  stands at 3 and screen at 13. The total of
+  241, the 19 targets, the golden tape at 1,663
+  bytes, and the digest in SB-168 stand as
+  measured and are not disturbed; the correction
+  is to the one per-target figure and to any
+  sentence resting on the 243 sum. The point was
+  raised at step 0 by CodeRabbit's review
+  comment 4676095374 on this round's pull
+  request and stands sustained; this record is
+  its repair. The contract's record stands at
+  SB-1 to SB-168, with SB-143 and this record
+  standing outside that range as repair records.
