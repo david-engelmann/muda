@@ -8648,3 +8648,77 @@ SB-184. Round 30 closes. The realistic battery
  directory under ~/workspace/retro-line by
  design). The README rounds line moves to 30 of
  100 in this closure commit.
+
+SB-185. Repair record, appended in Round 30
+ after SB-184, the original unrewritten.
+ SB-184's accounting of the completion lane's
+ vigil misstates the vigil's first completed
+ launch, and the same misstatement stands in
+ attempts30.md entries 16 and 17 and in the pull
+ request body's Verified block. SB-184 states
+ that fifteen launches ran their cells to a
+ final accounting and every one printed 660
+ cells, 48 failures, the 48 standing at the 24
+ output-file cells counted on both arms. The
+ vigil's log (sb30-scratch/realistic30.log,
+ 4,604 lines, audited whole and mechanically at
+ the round's three review axes, the reports
+ standing at sb30-reviews in the owner's
+ scratch) shows fifteen completed accountings of
+ which fourteen print 660 cells, 48 failures,
+ standing at the 24 output-file cells counted on
+ both arms, and the first, closing the launch
+ begun 2026-11-25T07:31:24Z at log line 2386,
+ prints 660 cells, 46 failures: in that launch
+ team-00's output-file cell passed on both arms
+ and teams 01 to 23 failed on both arms, its 46
+ standing at 23 output-file cells counted on
+ both arms. The failure class is uniform across
+ the whole log: its 1,474 FAIL lines, standing
+ as each completed launch's failures printed
+ once as its cells ran and again after its
+ accounting with the sixteenth launch's 38
+ counted once, every one match the single shape,
+ a statement write to the fresh output directory
+ refused with Operation not permitted, the port
+ and the oracle identically, and the arms never
+ split at any failing cell. Entry 16's account
+ of the same launch is likewise corrected: the
+ launch was not killed at 360 cells and does not
+ stand counted nowhere. Its output continues
+ past the interleaved realistic driver done line
+ of 2026-11-25T07:43:33Z (log line 2339) and
+ past the 360-cell mark at team-11's close,
+ through team-23 to the completed accounting at
+ log line 2386 and its exit line at log line
+ 2433; the kill at 2026-11-25T07:44Z took the
+ driver wrapper while the harness child ran on,
+ the inherited lock descriptor shape entry 17
+ itself discloses for the runner loop, a second
+ driver banner standing interleaved at log line
+ 2349; its refusals stand at teams 01 to 23 on
+ both arms, not at teams 05 and 11, and its
+ accounting stands as the first of the fifteen
+ entry 17 counts. The sixteenth launch, the
+ second cycle's first, begun
+ 2026-11-25T09:44:14Z, stands killed at 535
+ cells exactly as recorded, its 38 FAIL lines
+ standing at teams 00 to 18 on both arms with
+ the kill landing inside team-19's block, so the
+ vigil's enumeration now sums as told: sixteen
+ launches, fifteen running to a completed
+ accounting and the sixteenth killed at 535
+ cells. SB-184 and attempts30.md stand
+ unrewritten, and the correction changes no
+ operative claim: no accounting stands at 0
+ failures at 46 any more than at 48, no counted
+ pass is claimed for the realistic at this
+ round, and the battery stands charged forward
+ as standing business to Round 31 exactly as
+ SB-184 charged it. The point was raised at this
+ round's gate, where the spec, standards, and
+ red team axes each returned REPAIR on this one
+ Minor finding from the log independently; this
+ record is its repair. The record stands at SB-1
+ to SB-184 with SB-143, SB-169, and SB-185
+ outside as repair records.
