@@ -8460,3 +8460,34 @@ SB-180. Round 30 opens with the read-back of
  form, unchanged. SB-11, SB-65a, SB-47, and
  SB-43 stand carried open by name, untouched by
  this item.
+
+SB-181. The boundary battery stands re-run at
+ this round on the base build and stands at 11
+ cells, 0 failures, its single launch completing
+ on the base build (its journal at
+ sb30-scratch/boundary30.log). The seam stands
+ re-probed at its exact points on both
+ implementations inside it: the spelled-parent
+ guard refuses the onto-repo chain at 990 and at
+ 991 splices and aborts into the crash class at
+ 992; the kernel write lands at exactly 40
+ splices and refuses at 41; and in the
+ head-is-output shape the write lands replacing
+ the head link at 40, 41, and 991 splices, a
+ chain of 991 onto the repository is refused,
+ and 992 stands in the crash class with the head
+ link untouched. SB-65a stands reproduced fresh
+ on both arms inside it as a carried
+ measurement, never as a fix: a single link
+ inside the read repository serving as the
+ output filename and pointing outside, the guard
+ passing and the write landing inside the
+ repository replacing the link on both
+ implementations, the outside file unwritten,
+ the fixture state on both arms standing
+ verified at this lane's hand by metadata
+ viewing only (the statement file inside each
+ repository at 630 bytes as a regular file, the
+ outside file standing at its original 8 bytes).
+ SB-11 and SB-65a stand carried open by name,
+ untouched.
