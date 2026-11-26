@@ -9184,3 +9184,123 @@ SB-190. Round 31 closes. The realistic battery
  directory under ~/workspace/retro-line by
  design). The README rounds line moves to 31 of
  100 in this closure commit.
+
+SB-191 (Round 32 read-back). Round 31's pull
+ request 44 stands read back whole at this
+ lane's hand, and its record settles here. The
+ pull request merged through the owner's Trunk
+ queue as commit
+ e95f5f7326227933bf0a9f7ab72f48278d8f8616 at
+ 2026-11-26T03:40:58Z, a squash of head
+ 780b9b61487cab5625fbda21589d8d430acba037 onto
+ base 45a8bd1d0c0c10fd6b2085a8305e0d7bd01497ee;
+ the merge commit's tree stands at
+ 0ce714d588b90e5f54744b8066aa310185b0a958, the
+ reviewed head's tree, verified at this lane's
+ hand from the merge commit itself. The contract
+ on main stands at 411,320 bytes. The title
+ stands in its standing form, SB-186 to SB-190:
+ Round 31. The body stands at 22,442 characters
+ in its final form: 22,007 as the lane composed
+ it and 435 of the owner's gate record standing
+ after the release-notes appendix, the appendix
+ itself at offset 21,503 spanning 504, measured
+ from its opening marker, the offset and span
+ summing to the composed length exactly. The
+ comment census at this lane's read stands at
+ three issue comments, no reviews, and no review
+ comments: the Trunk note, the review shell, and
+ the owner's enqueue comment, which stands added
+ at the landing; at the gate the census stood at
+ two issue comments, the enqueue not yet posted.
+ The Trunk note 7178590526 stands at 113
+ characters in its merged form. The queue pull
+ request 45 stands closed and unmerged, its head
+ on the queue branch. No separate Trunk landing
+ comment stands on the pull request, and no
+ separate landing comment stands; the record
+ stands as stated. The continuous integration
+ runs on the head and on the merge commit stand
+ completed with success. The review shell
+ 7178594268 stands settled at its true final
+ form: 10,915 characters, last edited
+ 2026-11-26T03:32:56Z, read whole at this lane's
+ hand. Its forms ran 10,911 characters at the
+ build lane's read, 10,913 at the reviewers'
+ reads, and 10,915 at the owner's landing read
+ and at this lane's read, the figure settled. In
+ its final form the shell states that no
+ actionable comments were generated in the
+ recent review; the one Nitpick finding recorded
+ at the gate, a contract wrap-width note outside
+ the diff, belonged to the shell's earlier form
+ and does not stand in the final form. Its
+ walkthrough describes the round accurately (the
+ Round 31 read-back and closure record for pull
+ request 42, the battery reruns and closure
+ evidence, the README count moving from 30 to 31
+ of 100, the four carried items standing open),
+ its change assessment stands at effort 2,
+ Simple, against the head commit, its merge risk
+ stands at Minimal with no merge-blocking risk
+ found, and its four pre-merge checks stand
+ passed, the title check passed with the note
+ that the title names the scope and the round
+ but not the records' content. It selected the
+ two changed files, CONTRACT.md and README.md,
+ reviewing the range from the base to the head.
+ Every claim in the settled shell grades true
+ against the record at this lane's hand. The
+ Round 31 gate grades against the three reports
+ on disk as follows. The spec axis returned PASS
+ with no findings (its report at 10,172 bytes):
+ the read-back item's settlement of pull request
+ 42 verified figure for figure, the family
+ figures traced, the realistic claim matching
+ its log line for line, the closure item's
+ attribution of its gate to the pre-closure tree
+ cf8c23a2be55b86315948ec7484e03e140e7eb47
+ standing as contracted, and the appendix
+ figures summing exactly. The standards axis
+ returned APPROVE with no findings (11,378
+ bytes): every total traced from its stated
+ parts, no combined round total asserted
+ anywhere, the subjects and trailers in form,
+ the description and the manifest read live. The
+ red team returned PASS with no findings (17,935
+ bytes): every limb executed at its own hand on
+ fresh API assembly, the base gate re-run whole
+ including a cargo-clean rebuild reproducing the
+ binary of record, the pin tree fetched fresh
+ and the golden taken by the file route, and the
+ oracle driven copy differing from pristine in
+ exactly the three contracted lines; its one
+ limb not executed to completion is the
+ realistic, which it graded on the whole
+ mechanical audit route its brief provided, its
+ own reproduction launch stood down under
+ build-slot contention with no failure standing
+ in its partial course and the lane's log
+ audited whole. The gate stands graded clean on
+ all three axes. The round's two-lane history
+ stands disclosed whole. Round 31's first build
+ lane stopped at an execution-risk flag before
+ executing anything; the owner issued the scoped
+ execution ruling standing from bluepencil Round
+ 43, and the continuation lane executed the
+ round whole under it, every gate input
+ assembled fresh through the API at its own
+ paths and verified blob for blob against the
+ pinned SHAs before reliance. This round runs
+ under the same ruling, restated at the head of
+ this lane's progress record. Round 32 opens
+ from this read-back. The base stands at the
+ merge: the contract at 411,320 bytes carrying
+ the Status range SB-1 to SB-190 with SB-143,
+ SB-169, and SB-185 standing outside it as
+ repair records, the README at 31 of 100. The
+ carried items SB-11, SB-65a, SB-47, and SB-43
+ stand open and untouched, and this round
+ re-measures SB-65a fresh on both arms as a
+ carried measurement, amends nothing, and closes
+ nothing it was not charged to close.
