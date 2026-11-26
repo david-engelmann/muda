@@ -9052,3 +9052,135 @@ SB-189. The joints battery stands re-run at this
  0 failures, its single launch completing on the
  base build (its journal at
  sb31-scratch/joints31.log).
+
+SB-190. Round 31 closes. The realistic battery
+ stands completed fresh at this round under the
+ round's realistic driver, discharging the
+ charge SB-184 and SB-185 carried forward: its
+ single launch, begun 2026-11-25T23:45:40Z, ran
+ whole, the corpus built and proven from git at
+ 24 repositories and 3,648 commits, and its
+ final accounting prints 660 cells, 0 failures,
+ the 660 standing as 288 unpriced plus 288
+ priced plus 60 price-book plus 24 output-file
+ cells, the launch exiting 0. The launch's log
+ stands audited whole and mechanically at this
+ lane's hand before this item was composed: 80
+ lines, one launch banner, one completed
+ accounting, and no FAIL line anywhere in it,
+ the cell counts tracing through its own phase
+ lines (the price books closing at 60 cells and
+ the statement teams closing in order at 660).
+ The output-file refusal class that met every
+ completed launch at Round 30 did not recur in
+ this launch, and the battery's counted pass
+ stands fresh at this round. The differential
+ harness stands re-run at this round on the base
+ build and stands at 14 cases, 240 steps, 0
+ failures on the batteries driver's own pass.
+ The flighttape pin stands reconfirmed through
+ the API at commit
+ 74a83298aeb31c82e62b9fb0c613f5bc8600799e (tree
+ afd4d7d13520411e003762548fc79082a1b9cf6e,
+ exactly 50 blobs, assembled and SHA-verified);
+ its suite stands at 241 tests over 19 targets
+ (lib 3, binary unit 0, cli 22, compare 19,
+ convert 34, digest_cli 5, identity 13, json 8,
+ play 17, redaction 12, robustness 15, rollup
+ 22, scale 3, schema 5, screen 13, slice 24,
+ timestamps 1, validate 25, doc 0), summed from
+ the suite's own 19 test-result lines, and the
+ golden tape stands whole at 1,663 bytes, its
+ digest
+ cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+ verify exit 0. The gate chain stands as
+ follows: the base build stood under the base
+ gate (cargo test 25 paired as 23 integration
+ plus 2 unit, clippy clean, fmt exit 0, and the
+ debug build's md5
+ 35555e1f592a2477b218403a8648dfbe reproduced at
+ the sb31-scratch target path), and the closure
+ gate then ran whole on the SB-189 head's tree,
+ cf8c23a2be55b86315948ec7484e03e140e7eb47 (the
+ head standing at
+ 902d1b57e49b953fbe11b30e52354cbf81a1b3b8 before
+ this closure item; that tree differs from the
+ base tree only in CONTRACT.md), in SB-158's
+ construction: launched detached
+ 2026-11-25T23:55:07Z and queued behind this
+ round's realistic cycle, its cargo stage taken
+ up at 2026-11-26T00:09:56Z, cargo test 25
+ paired as 23 integration plus 2 unit clean on
+ its first attempt, clippy clean, fmt exit 0,
+ the debug build's md5
+ 35555e1f592a2477b218403a8648dfbe reproduced at
+ the closure target path
+ sb31-scratch/h31/target-closure, and all four
+ passes complete on their first launches on the
+ closure build (boundary 11 cells, draw 14
+ cells, joints 9 cells, and the differential at
+ 14 cases and 240 steps), no failures anywhere,
+ the gate done at 2026-11-26T00:12:37Z; no claim
+ in this item names a tree the gate did not run
+ on. The oracle stands verified whole before
+ reliance at this round (pristine commit
+ 918dc7eb13bd3a5b0c3e644147170ad0bb1607e8, 13
+ blobs, tree
+ f331cd155f507c7013ccd6a3f5157670d80201f5);
+ history.py and statement.py stand
+ byte-identical between pristine and the driven
+ copy in muda7-scratch/oracle-src, and the
+ driven copy differs from pristine in exactly
+ the three contracted lines. The attempt history
+ stands as follows in brief: the round's
+ original build lane stopped at an
+ execution-risk flag before executing anything,
+ and this continuation lane was seated under the
+ owner's scoped ruling, stated at the head of
+ the round's progress record, on inputs
+ assembled fresh through the API at this lane's
+ own target paths and verified blob for blob
+ before reliance (the base tree at 21 of 21
+ blobs, the pin tree at 50 of 50, the oracle
+ whole); the gate runners queued on the shared
+ build slot behind the onrecord Round 30 red
+ team's hold and the wayside chain, whose
+ payloads stood live throughout and were never
+ touched, the base gate seated at
+ 2026-11-25T22:47:40Z taking the slot at
+ 2026-11-25T23:36:39Z and running whole with
+ every stage clean on its first attempt, the pin
+ suite completing in the following hold, the
+ batteries and the differential each completing
+ on their single launches, and the realistic
+ completing on its single launch as recorded
+ above; the pin runner's first seating and the
+ realistic runner's first seating each ended at
+ the seating command's output drain before the
+ runner's process started, no process and no log
+ standing from either, and each stands
+ relaunched clean and verified standing in the
+ record; no launch of this round's was
+ interrupted, killed, or refused, and every
+ runner carried the round's bounded attempt
+ count of three per segment, no segment needing
+ a second attempt. The full attempt record
+ stands at sb31-scratch/attempts31.md and on the
+ pull request body. The codepoint scan over both
+ trees stands with the planted control counted
+ first (control U+2014 1, U+2013 1): the base
+ tree at 21 files and the closure tree at 21
+ files, each at U+2014 0 and U+2013 0. /dev/full
+ stands as the genuine character device on this
+ box (crw 1,7) at this round's seating and
+ nothing in this round's accounting rests on a
+ /dev/full write either way. SB-11, SB-65a,
+ SB-47, and SB-43 stand carried open by name,
+ untouched. The record stands at SB-1 to SB-190
+ with SB-143, SB-169, and SB-185 outside as
+ repair records. The round's scratch stands
+ durable at ~/workspace/retro-line/sb31-scratch/
+ (the differential fixture root is a temporary
+ directory under ~/workspace/retro-line by
+ design). The README rounds line moves to 31 of
+ 100 in this closure commit.
