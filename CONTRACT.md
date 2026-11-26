@@ -9341,3 +9341,9 @@ SB-193. The draw battery stands re-run at this
  0 failures, its single launch completing on the
  base build (its journal at
  sb32-scratch/draw32.log).
+
+SB-194. The joints battery stands re-run at this
+ round on the base build and stands at 9 cells,
+ 0 failures, its single launch completing on the
+ base build (its journal at
+ sb32-scratch/joints32.log).
