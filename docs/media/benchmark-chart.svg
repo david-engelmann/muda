@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 288" width="980" height="288" role="img" aria-label="muda benchmark latency and throughput chart">
+  <rect width="980" height="288" rx="14" fill="#0B0F17" stroke="#1E293B" stroke-width="2"/>
+  <text x="28" y="36" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" font-weight="700" fill="#F8FAFC">muda  //  SYNTHETIC SCALE BENCHMARK PROFILE</text>
+  <text x="28" y="56" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" fill="#94A3B8">Measured on Apple M3 Max  |  Zero-dep stripped thin-LTO binary: 599.6 KiB  |  Full Git DAG read</text>
+  <line x1="28" y1="72" x2="952" y2="72" stroke="#1E293B" stroke-width="1.2"/>
+  <text x="28" y="122" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12.5" font-weight="600" fill="#E2E8F0">50 reachable commits</text>
+  <rect x="268" y="104" width="370" height="26" rx="6" fill="#131C2E" stroke="#1E293B" stroke-width="1"/>
+  <rect x="268" y="104" width="269" height="26" rx="6" fill="#FB923C" opacity="0.88"/>
+  <text x="654" y="122" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="600" fill="#FB923C">1631.77 ms statement  |  31 commits/s</text>
+  <text x="28" y="178" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12.5" font-weight="600" fill="#E2E8F0">200 reachable commits</text>
+  <rect x="268" y="160" width="370" height="26" rx="6" fill="#131C2E" stroke="#1E293B" stroke-width="1"/>
+  <rect x="268" y="160" width="360" height="26" rx="6" fill="#FB923C" opacity="0.88"/>
+  <text x="654" y="178" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="600" fill="#FB923C">2180.49 ms statement  |  92 commits/s</text>
+  <text x="28" y="234" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12.5" font-weight="600" fill="#E2E8F0">500 reachable commits</text>
+  <rect x="268" y="216" width="370" height="26" rx="6" fill="#131C2E" stroke="#1E293B" stroke-width="1"/>
+  <rect x="268" y="216" width="181" height="26" rx="6" fill="#FB923C" opacity="0.88"/>
+  <text x="654" y="234" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="600" fill="#FB923C">1101.31 ms statement  |  454 commits/s</text>
+</svg>

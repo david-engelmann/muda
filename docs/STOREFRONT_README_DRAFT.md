@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/media/lockup-dark.svg">
-    <img src="docs/media/lockup-light.svg" alt="muda" width="780">
+    <source media="(prefers-color-scheme: dark)" srcset="media/lockup-dark.svg">
+    <img src="media/lockup-light.svg" alt="muda" width="780">
   </picture>
 </p>
 
@@ -14,12 +14,12 @@
 
 # muda
 
-Meters the rework tax across a fleet. Every reverted diff, redone task, and fix-forward is charged to the instruction that caused it, and the charges come back as an itemized statement.
+Meters the rework tax across a fleet. Every reverted diff, redone task, and fix-forward is charged to the commit that caused it, and the charges come back as an itemized statement.
 
 Muda is a command line tool that reads one git repository's whole history and writes an itemized statement for one stated calendar month as JSON. The read covers the commits reachable from the checked out HEAD, so work that lives only on unmerged branches is not read. Check out the branch whose history the statement should cover. It finds the month's rework, commits that revert an earlier commit, commits that fix one forward, and tasks done twice, and it bills every item to the commit that caused it, with the join stated on the item itself. An item whose cause cannot be named from the record is listed as unjoined with the reason, never silently billed and never dropped. Catchledger prices checks, muda prices work.
 
 <p align="center">
-  <img src="docs/media/money-shot.gif" alt="muda monthly rework statement CLI showcase" width="880">
+  <img src="media/money-shot.gif" alt="muda monthly rework statement CLI showcase" width="880">
 </p>
 
 ## Install
@@ -42,7 +42,9 @@ $ cargo install --path . --locked
 
 ## Quickstart
 
-Build a deterministic two-commit repository with one January revert and bill `2026-01` with [`examples/rates.json`](examples/rates.json):
+From a local checkout of this repository:
+
+Build a deterministic two-commit repository with one January revert and bill `2026-01` with [`examples/rates.json`](../examples/rates.json):
 
 ```console
 $ git init -q demo && cd demo
@@ -58,7 +60,7 @@ $ muda statement --month 2026-01 --rates examples/rates.json demo
 ## Architecture
 
 <p align="center">
-  <img src="docs/media/architecture.svg" alt="muda Git DAG rework billing architecture" width="900">
+  <img src="media/architecture.svg" alt="muda Git DAG rework billing architecture" width="900">
 </p>
 
 ## Usage
@@ -69,29 +71,33 @@ $ muda statement --month 2026-01 --rates examples/rates.json demo
 
 ## Performance
 
-Measured on Apple M3 Max (`--release`, `791.4 KiB` zero-dep binary; details in [docs/PERFORMANCE.md](docs/PERFORMANCE.md)):
+<p align="center">
+  <img src="media/benchmark-chart.svg" alt="benchmark profile" width="900">
+</p>
 
-| Reachable Commits | Modules | `muda statement` Latency | Scan Rate |
+Measured on Apple M3 Max (`--release`, `791.4 KiB` zero-dep binary; details in [docs/PERFORMANCE.md](PERFORMANCE.md)):
+
+| Commits Reachable from `HEAD` | Tracked Modules | `muda statement` Latency | Effective Commit Scan Rate |
 | ---: | ---: | ---: | ---: |
-| `50` | `10` | `875.52 ms` | `57 commits/s` |
-| `200` | `10` | `915.96 ms` | `218 commits/s` |
-| `500` | `10` | `699.6 ms` | `715 commits/s` |
+| `50` | `10` | `1631.77 ms` | `31 commits/s` |
+| `200` | `10` | `2180.49 ms` | `92 commits/s` |
+| `500` | `10` | `1101.31 ms` | `454 commits/s` |
 
 ## Where `muda` Fits in the Retrospective Line
 
 <p align="center">
-  <img src="docs/media/retrospective-arc.svg" alt="Retrospective Line ten-repository architecture" width="900">
+  <img src="media/retrospective-arc.svg" alt="Retrospective Line ten-repository architecture" width="900">
 </p>
 
 ## Documentation
 
-- [Documentation Index](docs/README.md) & [Searchable Handbook](https://david-engelmann.github.io/muda/)
-- [Operator & Integrator Guide](docs/GUIDE.md)
-- [Technical Architecture](docs/ARCHITECTURE.md)
-- [Wire Formats & JSON Schemas](docs/FORMATS.md)
-- [Ecosystem Comparison](docs/COMPARISON.md)
-- [Performance Benchmarks](docs/PERFORMANCE.md)
-- [FAQ](docs/FAQ.md)
+- [Documentation Index](README.md) & [Searchable Handbook](https://david-engelmann.github.io/muda/)
+- [Operator & Integrator Guide](GUIDE.md)
+- [Technical Architecture](ARCHITECTURE.md)
+- [Wire Formats & JSON Schemas](FORMATS.md)
+- [Ecosystem Comparison](COMPARISON.md)
+- [Performance Benchmarks](PERFORMANCE.md)
+- [FAQ](FAQ.md)
 
 ## Status
 
@@ -99,4 +105,4 @@ The statement command is complete at its contracted scope and runs as a Rust bin
 
 ## License
 
-MIT. See the [LICENSE](LICENSE) file.
+MIT. See the [LICENSE](../LICENSE) file.

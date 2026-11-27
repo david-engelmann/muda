@@ -13,8 +13,8 @@
 }
 ```
 
-- `currency`: Exact 3-letter uppercase ASCII ISO currency code (`USD`, `EUR`, `GBP`, ...).
-- `per_item`: Non-negative decimal string rates for all three classes (`revert`, `fix-forward`, `redone`).
+- `currency`: Three ASCII letters (`A-Z` or `a-z`, e.g. `USD`, `EUR`, `GBP`).
+- `per_item`: Non-negative decimal string rates for all three classes (`revert`, `fix-forward`, `redone`), each holding `1` to `30` integer digits and an optional `.` followed by `1` or `2` fractional digits.
 
 ## 2. Monthly Statement Output (`schema/statement.schema.json`)
 

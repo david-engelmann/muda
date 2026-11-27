@@ -8,7 +8,7 @@ Session telemetry (`flighttape`) ends the moment an agent exits: a 30-second run
 
 ## 1. Zero-Dependency Design
 
-`muda` compiles with **zero crate dependencies** (`[dependencies]` is empty) and invokes the system `git` binary with sanitized environment guards (`GIT_CEILING_DIRECTORIES`, disabled pagers/hooks/config overrides) to read commit metadata and touched paths deterministically.
+`muda` compiles with **zero crate dependencies** (`[dependencies]` is empty) and invokes the system `git` binary with scrubbed redirect environment variables (`GIT_DIR`, `GIT_WORK_TREE`, `GIT_INDEX_FILE`, `GIT_OBJECT_DIRECTORY`, `GIT_ALTERNATE_OBJECT_DIRECTORIES`, `GIT_NAMESPACE`, `GIT_PREFIX`, `GIT_CEILING`), `GIT_GRAFT_FILE=/dev/null`, and `--no-replace-objects --no-optional-locks` to read commit metadata and touched paths deterministically.
 
 ## 2. The Three Rework Classes & Cause Joins
 

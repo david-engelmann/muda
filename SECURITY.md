@@ -2,24 +2,13 @@
 
 ## Supported Versions
 
-| Version | Supported |
-| --- | --- |
-| `0.1.x` | Yes |
+Security fixes land on `main` and the latest tagged release.
+
+## Security Boundaries
+
+1. **Read-only Git subprocess isolation**: `muda` passes `--no-replace-objects` and `--no-optional-locks`, sets `GIT_GRAFT_FILE=/dev/null`, and removes the eight repository-redirect variables (`GIT_DIR`, `GIT_WORK_TREE`, `GIT_INDEX_FILE`, `GIT_OBJECT_DIRECTORY`, `GIT_ALTERNATE_OBJECT_DIRECTORIES`, `GIT_NAMESPACE`, `GIT_PREFIX`, `GIT_CEILING`) before invoking `git`. Run in a trusted environment when evaluating untrusted repositories, as standard `GIT_CONFIG_*` or host Git configuration still applies.
+2. **Repository write-refusal guard**: `muda` resolves `-o` against the target repository's worktree and `.git` directory and refuses to write inside either (`exit 1`).
 
 ## Reporting a Vulnerability
 
-Please do **not** open a public GitHub issue for suspected security vulnerabilities (such as `git` subprocess argument/environment injection, `-o` output-guard traversal, symlink clobbering, or JSON parser denial-of-service).
-
-Report vulnerabilities privately through [GitHub Security Advisories](https://github.com/david-engelmann/muda/security/advisories/new) on `david-engelmann/muda`, including:
-
-1. A minimal reproduction command, Git repository layout, or rates card triggering the issue.
-2. Affected version or commit SHA and operating system.
-3. Expected vs observed behavior and potential impact.
-
-Reports are acknowledged within 72 hours, and coordinated fixes ship with regression tests before public disclosure.
-
-## Security Model Notes
-
-- `muda` scrubs ambient `GIT_*` environment variables, disables replace objects (`--no-replace-objects`) and optional locks (`--no-optional-locks`), and isolates grafts before invoking `git`.
-- Atomic `-o` writes draw fresh OS CSPRNG entropy for sibling temporary file suffixes (`0600` permissions on Unix) and enforce a repository-interior guard so `muda` refuses to overwrite files inside the audited repository.
-- Rate-card JSON parsing enforces container depth (`9,994`) and integer digit (`4,300`) bounds with zero external crate dependencies.
+Report security vulnerabilities privately via [GitHub Security Advisories](https://github.com/david-engelmann/muda/security/advisories/new).

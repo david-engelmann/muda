@@ -12,7 +12,7 @@
   <text x="34" y="115" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.2" font-weight="600" fill="#FB923C">{ &quot;month&quot;: &quot;2026-01&quot;, &quot;window&quot;: { &quot;from&quot;: &quot;2026-01-01&quot;, &quot;to&quot;: &quot;2026-02-01&quot; }, &quot;commits_read&quot;: 6,</text>
   <text x="34" y="146" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.2" fill="#E2E8F0">  &quot;causes&quot;: [</text>
   <text x="34" y="177" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.2" fill="#F87171">    { &quot;cause&quot;: &quot;6b103c2866...&quot;, &quot;items&quot;: [{ &quot;class&quot;: &quot;revert&quot;,      &quot;join&quot;: &quot;revert subject&quot; }] },</text>
-  <text x="34" y="208" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.2" fill="#FBBF24">    { &quot;cause&quot;: &quot;8aecd5aba2...&quot;, &quot;items&quot;: [{ &quot;class&quot;: &quot;fix-forward&quot;, &quot;join&quot;: &quot;Fixes trailer&quot;  }] },</text>
+  <text x="34" y="208" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.2" fill="#FBBF24">    { &quot;cause&quot;: &quot;8aecd5aba2...&quot;, &quot;items&quot;: [{ &quot;class&quot;: &quot;fix-forward&quot;, &quot;join&quot;: &quot;fixes trailer&quot;  }] },</text>
   <text x="34" y="239" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.2" fill="#38BDF8">    { &quot;cause&quot;: &quot;a9d4e12b...&quot;,   &quot;items&quot;: [{ &quot;class&quot;: &quot;redone&quot;,      &quot;join&quot;: &quot;redone task&quot;    }] }</text>
   <text x="34" y="270" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.2" fill="#E2E8F0">  ], &quot;unjoined&quot;: [],</text>
   <text x="34" y="301" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.2" font-weight="600" fill="#34D399">  &quot;totals&quot;: { &quot;items&quot;: 3, &quot;per_class&quot;: { &quot;revert&quot;: 1, &quot;fix-forward&quot;: 1, &quot;redone&quot;: 1 }, &quot;unjoined&quot;: 0 },</text>
@@ -21,5 +21,6 @@
   <text x="34" y="363" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.2" font-weight="600" fill="#F8FAFC">$ muda statement --month 2026-01 -o ./service-repo/bill.json ./service-repo</text>
   <text x="34" y="394" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.2" fill="#F87171">error, muda writes nothing inside the repository it reads   [exit 1]</text>
   <line x1="12" y1="492" x2="948" y2="492" stroke="#1E293B" stroke-width="1"/>
-  <text x="32" y="514" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11.5" font-weight="600" fill="#FB923C">ITEMIZED STATEMENT  |  Exact integer minor-unit pricing  |  200-commit DAG billed in 915.96 ms</text>
+  <circle cx="32" cy="510" r="4.5" fill="#10B981"/>
+  <text x="44" y="514" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11.5" font-weight="600" fill="#FB923C">ITEMIZED STATEMENT  |  599.6 KiB LTO binary  |  500-commit DAG billed in 1101.31 ms (454 commits/s)</text>
 </svg>
