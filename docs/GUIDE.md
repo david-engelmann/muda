@@ -1,3 +1,18 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="media/lockup-dark.svg">
+    <img src="media/lockup-light.svg" alt="muda" width="760">
+  </picture>
+</p>
+
+<p align="center">
+  <img src="media/money-shot.gif" alt="muda monthly rework statement showcase" width="880">
+</p>
+
+<p align="center">
+  <img src="media/architecture.svg" alt="muda Git DAG rework billing architecture" width="900">
+</p>
+
 # Muda Operator and Library Guide
 
 `muda` is a zero-dependency Rust CLI and library (`muda statement`) that audits a Git repository's commit history and emits a deterministic monthly rework statement as JSON. While `catchledger` prices checks, `muda` prices work by attributing reverts, fix-forwards, and redone tasks back to the earlier commits that caused them.
@@ -223,3 +238,17 @@ fn run_audit(repo_path: &str, month: &str, card_bytes: &[u8]) -> Result<Vec<u8>,
 | `0` | Statement emitted cleanly to stdout or `-o <path>`, or `-h` / `--help` printed help. |
 | `1` | Refusal (`error, <reason>` on stderr, such as shallow repo, invalid `--month`, invalid `--rates`, or `-o` inside the read repo) or unrecoverable runtime failure. |
 | `2` | CLI argument parse error (`argparse`-compatible usage and error diagnostic on stderr). |
+
+---
+
+## Shell Completions
+
+Static shell completions ship under `completions/` (and inside GitHub Release archives):
+
+```sh
+source completions/muda.bash                       # Bash
+fpath=(./completions $fpath) && compinit           # Zsh
+cp completions/muda.fish ~/.config/fish/completions/  # Fish
+. ./completions/muda.ps1                           # PowerShell
+```
+

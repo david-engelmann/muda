@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 108" width="820" height="108" role="img" aria-label="muda brand lockup">
+  <rect x="1" y="1" width="818" height="106" rx="14" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <rect x="20" y="20" width="68" height="68" rx="14" fill="#FFEDD5" stroke="#EA580C" stroke-width="2"/>
+  <line x1="36.3" y1="62.2" x2="71.7" y2="62.2" stroke="#EA580C" stroke-width="2.4"/>
+  <circle cx="40.4" cy="62.2" r="5.2" fill="#EA580C"/>
+  <circle cx="67.6" cy="62.2" r="5.2" fill="#FFEDD5" stroke="#EA580C" stroke-width="2.5"/>
+  <path d="M 67.6 56.7 C 67.6 36.3, 40.4 36.3, 40.4 54.0" fill="none" stroke="#EA580C" stroke-width="2.3" stroke-dasharray="4 3"/>
+  <text x="106" y="48" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="28" font-weight="700" fill="#0F172A" letter-spacing="-0.5">muda</text>
+  <rect x="186" y="26" width="288" height="24" rx="12" fill="#FFEDD5" stroke="#EA580C" stroke-opacity="0.45" stroke-width="1"/>
+  <text x="197" y="42" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="600" fill="#EA580C" letter-spacing="0.4">FLEET REWORK METER  |  GIT DAG BILLING</text>
+  <text x="106" y="77" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="500" fill="#475569">Meters reverted diffs, fix-forwards, and redone work back to their cause.</text>
+</svg>

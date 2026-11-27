@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use muda in research or production systems, please cite this software."
+title: "muda: Monthly Git Rework Meter and Itemized Statement Generator"
+type: software
+authors:
+  - family-names: Engelmann
+    given-names: David
+version: "0.1.0"
+date-released: "2026-11-27"
+license: MIT
+repository-code: "https://github.com/david-engelmann/muda"
+url: "https://david-engelmann.github.io/muda/"
+abstract: "Zero-dependency Rust CLI that reads Git history for a calendar month and bills reverts, fix-forwards, and redone tasks back to originating commits."

@@ -1,0 +1,15 @@
+#compdef muda
+
+_muda() {
+    local -a subcommands
+    subcommands=(
+        'statement:muda statement subcommand'
+    )
+    if (( CURRENT == 2 )); then
+        _describe -t commands 'muda subcommand' subcommands
+        return
+    fi
+    _arguments -s '--month' '--rates' '-o' '--output' '-h' '--help' '*:file:_files'
+}
+
+_muda "$@"
