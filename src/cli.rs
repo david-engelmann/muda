@@ -16,7 +16,9 @@ use crate::emit::{dumps_document, Mode};
 use crate::helptext::{STATEMENT_HELP, STATEMENT_USAGE, TOP_HELP, TOP_USAGE};
 use crate::history::{read_history, Fail};
 use crate::statement::{build_statement, price_statement};
-use crate::util::{closed_at_launch, fsdecode_units, os_path_from_units, Msg};
+#[cfg(not(windows))]
+use crate::util::fsdecode_units;
+use crate::util::{closed_at_launch, os_path_from_units, Msg};
 use crate::value::Value;
 
 struct ClosedFlags {
