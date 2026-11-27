@@ -162,6 +162,7 @@ fn git(repo: &[u16], args: &[&str], check: bool) -> Result<String, Fail> {
         buf
     });
     let deadline = Instant::now() + Duration::from_secs(60);
+    let mut poll_sleep = Duration::from_micros(200);
     let status = loop {
         match child.try_wait() {
             Ok(Some(status)) => break Some(status),
@@ -171,7 +172,8 @@ fn git(repo: &[u16], args: &[&str], check: bool) -> Result<String, Fail> {
                     let _ = child.wait();
                     break None;
                 }
-                std::thread::sleep(Duration::from_millis(5));
+                std::thread::sleep(poll_sleep);
+                poll_sleep = (poll_sleep * 2).min(Duration::from_millis(5));
             }
             Err(_) => break None,
         }
