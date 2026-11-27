@@ -9504,3 +9504,153 @@ SB-195. Round 32 closes. The realistic battery
  directory under ~/workspace/retro-line by
  design). The README rounds line moves to 32 of
  100 in this closure commit.
+
+SB-196 (Round 33 read-back). Round 32's pull
+ request 46 stands read back whole at this
+ lane's hand, and its record settles here. The
+ pull request merged through the owner's Trunk
+ queue as commit
+ 256bf3c791fcb73d5b9e47ae3213564d461bdac8 at
+ 2026-11-27T03:40:15Z, a squash of head
+ 459c973f205be0b43816adbb877715c8b10b4686 onto
+ base e95f5f7326227933bf0a9f7ab72f48278d8f8616;
+ the merge commit's tree stands at
+ 6f6a0c62388d6a94b6b0d0533199bd1af4f79ce0, the
+ reviewed head's tree, verified at this lane's
+ hand from the merge commit itself. The contract
+ on main stands at 425,404 bytes. The title
+ stands in its standing form, SB-191 to SB-195:
+ Round 32. The body stands at 23,210 characters
+ in its final form, the release-notes appendix
+ at offset 22,709 spanning 501, measured from
+ its opening marker, the offset and span summing
+ to the body's length exactly, and no gate
+ record standing after the appendix. The comment
+ census at this lane's read stands at three
+ issue comments, no reviews, and no review
+ comments: the Trunk note, the review shell, and
+ the owner's enqueue comment, which stands added
+ at the landing; at the gate the census stood at
+ two issue comments, the enqueue not yet posted.
+ The Trunk note 7196969843 stands at 113
+ characters in its merged form. The queue pull
+ request 47 stands closed and unmerged, its head
+ on the queue branch. No separate Trunk landing
+ comment stands on the pull request, and no
+ separate landing comment stands; the record
+ stands as stated. The continuous integration
+ runs on the head and on the merge commit stand
+ completed with success. The review shell
+ 7196974313 stands settled at its true final
+ form: 11,668 characters, last edited
+ 2026-11-26T16:03:51Z, read whole at this lane's
+ hand, discharging the charge the Round 32 body
+ laid in its moment-bounded form. Its forms ran
+ 11,666 characters at the build lane's Step 0
+ read (last edited 2026-11-26T15:58:53Z at that
+ reading) and 11,668 at the standards axis's
+ read, at the owner's landing read, and at this
+ lane's read, the figure settled and unmoved
+ through the merge. In its final form the shell
+ states that no actionable comments were
+ generated in the recent review. Its walkthrough
+ describes the round accurately (the Round 31
+ read-back and boundary results, the draw and
+ joints battery records, the Round 32 closure
+ with the 660-cell realistic and the README
+ count moving from 31 to 32 of 100, the four
+ carried items standing open), its change
+ assessment stands at effort 2, Simple, against
+ the head commit, its merge risk stands at
+ Minimal with no merge-blocking risk found, the
+ risk-unassessed icon again lagging its Minimal
+ label as in Round 31's shell, and its four
+ pre-merge checks stand passed, the title check
+ passed with its terseness note standing in the
+ open (the title names the range and the round
+ but not what the change does). Its possibly
+ related pull requests stand at three, each
+ described accurately (PR 14, which defines the
+ SB-65a output-filename symlink case this
+ round's predecessor re-measured; PR 17 and PR
+ 21, which re-measure SB-65a and the same
+ battery types and carry the same qualification
+ items forward). It selected the two changed
+ files, CONTRACT.md and README.md, reviewing the
+ range from the base to the head. Every claim in
+ the settled shell grades true against the
+ record at this lane's hand. The Round 32 gate
+ grades against the three reports on disk as
+ follows. The spec axis returned PASS with no
+ findings (its report at 13,614 bytes): the
+ read-back item's settlement of pull request 44
+ verified figure for figure, the family figures
+ traced, the realistic claim matching its log
+ line for line, the closure item's attribution
+ of its gate to the pre-closure tree
+ d92c510531957228cff846e1834aa9fa3dc7fa6e
+ standing as contracted, the appendix figures
+ summing exactly, and the cross-lane dead-flock
+ kill graded lawful on its merits under the
+ standing dead-weight law. The standards axis
+ returned APPROVE with no findings (11,668
+ bytes): every total traced from its stated
+ parts, the combined round total asserted
+ nowhere and searched for in vain, the subjects
+ and trailers in form, the description and the
+ manifest read live; it carries one observation
+ below severity (the shell's two-character
+ re-render after the build lane's read, the
+ moment-bounded handling confirmed as exactly
+ what was contracted) and one disclosed limit on
+ its own reads (its live re-read of the head's
+ check runs did not land in the REST
+ connection-drop wave, so that one cell rested
+ on the body's Step 0 record, concordant with
+ the owner's brief). The red team returned PASS
+ (36,811 bytes) across four seatings: the first
+ seating ended silently at 2026-11-26T20:14:48Z
+ with the report standing at 9,136 bytes and its
+ verdict PENDING, its head gate completing
+ detached at 20:23:24Z and standing as that
+ limb's evidence; the second seating re-verified
+ every readable limb figure by figure, received
+ two system execution-risk notices mid-seating,
+ executed nothing in compliance with them, and
+ entered NOT DISCHARGED with the execution limbs
+ returned to the owner; the third seating,
+ seated under the owner's express scoped ruling,
+ executed the owed limbs (the head build's
+ batteries, the closure gate's cargo stages, and
+ the pin suite and golden re-execution) and died
+ on a database write admission timeout after
+ 5000ms before appending any continuation, its
+ closure batteries launch producing no output at
+ all; the fourth seating audited the third
+ seating's banked evidence mechanically at its
+ own hand, re-derived its pin suite from the
+ suite's own output file, re-executed the one
+ limb whose logs did not stand whole (the
+ closure build's four passes, on fresh inputs at
+ its own paths, its differential's first launch
+ killed by a runtime restart and counted
+ nowhere, its second launch whole), and entered
+ PASS with every limb discharged at a red team
+ hand. The gate stands discharged whole on all
+ three axes, with no Critical and no Major
+ standing anywhere. The correction charged by
+ the red team's one Minor stands stated here in
+ one line: SB-195's "57 lines" for the
+ realistic's completing segment reads 56 by the
+ driver-banner measure and 55 from the launch
+ banner, and SB-195 itself stands unrewritten.
+ Round 33 opens from this read-back. The base
+ stands at the merge: the contract at 425,404
+ bytes carrying the Status range SB-1 to SB-195
+ with SB-143, SB-169, and SB-185 standing
+ outside it as repair records, the README at 32
+ of 100. The carried items SB-11, SB-65a, SB-47,
+ and SB-43 stand open and untouched, and this
+ round re-measures SB-65a fresh on both arms as
+ a carried measurement, amends nothing, and
+ closes nothing it was not charged to close.
