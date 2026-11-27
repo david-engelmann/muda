@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 112" width="880" height="112" role="img" aria-label="muda brand lockup">
+  <rect x="1" y="1" width="878" height="110" rx="14" fill="#0B1120" stroke="#1E293B" stroke-width="1.5"/>
+  <rect x="1" y="1" width="6" height="110" rx="3" fill="#FB923C"/>
+  <rect x="20" y="22" width="68" height="68" rx="14" fill="#2C1206" stroke="#FB923C" stroke-width="2"/>
+  <line x1="36.3" y1="64.2" x2="71.7" y2="64.2" stroke="#FB923C" stroke-width="2.4"/>
+  <circle cx="40.4" cy="64.2" r="5.2" fill="#FB923C"/>
+  <circle cx="67.6" cy="64.2" r="5.2" fill="#2C1206" stroke="#FB923C" stroke-width="2.5"/>
+  <path d="M 67.6 58.7 C 67.6 38.3, 40.4 38.3, 40.4 56.0" fill="none" stroke="#FB923C" stroke-width="2.3" stroke-dasharray="4 3"/>
+  <text x="108" y="50" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="28" font-weight="700" fill="#F8FAFC" letter-spacing="-0.4">muda</text>
+  <rect x="195" y="28" width="272" height="24" rx="12" fill="#2C1206" stroke="#FB923C" stroke-opacity="0.5" stroke-width="1"/>
+  <text x="207" y="44" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="600" fill="#FB923C" letter-spacing="0.4">FLEET REWORK METER  |  ZERO-DEP RUST</text>
+  <text x="108" y="80" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="500" fill="#94A3B8">Meters reverted diffs, fix-forwards, and redone work back to their cause.</text>
+</svg>

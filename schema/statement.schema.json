@@ -1,0 +1,306 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/david-engelmann/muda/blob/main/schema/statement.schema.json",
+  "title": "Muda Monthly Rework Statement",
+  "description": "Deterministic monthly rework statement emitted by 'muda statement --month YYYY-MM'.",
+  "$defs": {
+    "sha40": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$",
+      "description": "Full 40-character lowercase hexadecimal Git commit SHA."
+    },
+    "rework_class": {
+      "type": "string",
+      "enum": [
+        "revert",
+        "fix-forward",
+        "redone"
+      ]
+    },
+    "money_amount": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]{2}$",
+      "description": "Exact minor-unit decimal amount formatted with two fractional digits."
+    },
+    "joined_item": {
+      "type": "object",
+      "required": [
+        "sha",
+        "class",
+        "join"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "sha": {
+          "$ref": "#/$defs/sha40"
+        },
+        "class": {
+          "$ref": "#/$defs/rework_class"
+        },
+        "join": {
+          "type": "string",
+          "enum": [
+            "revert trailer",
+            "revert subject",
+            "fixes trailer",
+            "redone task",
+            "redone task, earliest of several matches"
+          ]
+        }
+      }
+    },
+    "cause_group": {
+      "type": "object",
+      "required": [
+        "cause",
+        "items"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "cause": {
+          "$ref": "#/$defs/sha40"
+        },
+        "items": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/joined_item"
+          }
+        }
+      }
+    },
+    "unjoined_item": {
+      "type": "object",
+      "required": [
+        "sha",
+        "class",
+        "join",
+        "reason"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "sha": {
+          "$ref": "#/$defs/sha40"
+        },
+        "class": {
+          "type": "string",
+          "enum": [
+            "revert",
+            "fix-forward"
+          ]
+        },
+        "join": {
+          "type": "string",
+          "enum": [
+            "revert trailer",
+            "revert subject",
+            "fixes trailer"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Named reason why no unique cause commit could be resolved."
+        }
+      }
+    },
+    "priced_class": {
+      "type": "object",
+      "required": [
+        "items",
+        "rate",
+        "amount"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "items": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "rate": {
+          "$ref": "#/$defs/money_amount"
+        },
+        "amount": {
+          "$ref": "#/$defs/money_amount"
+        }
+      }
+    },
+    "priced_cause": {
+      "type": "object",
+      "required": [
+        "cause",
+        "amount"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "cause": {
+          "$ref": "#/$defs/sha40"
+        },
+        "amount": {
+          "$ref": "#/$defs/money_amount"
+        }
+      }
+    },
+    "priced_section": {
+      "type": "object",
+      "required": [
+        "currency",
+        "items_priced",
+        "per_class",
+        "per_cause",
+        "total"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "currency": {
+          "type": "string",
+          "pattern": "^[A-Za-z]{3}$"
+        },
+        "items_priced": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "per_class": {
+          "type": "object",
+          "required": [
+            "revert",
+            "fix-forward",
+            "redone"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "revert": {
+              "$ref": "#/$defs/priced_class"
+            },
+            "fix-forward": {
+              "$ref": "#/$defs/priced_class"
+            },
+            "redone": {
+              "$ref": "#/$defs/priced_class"
+            }
+          }
+        },
+        "per_cause": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/priced_cause"
+          }
+        },
+        "total": {
+          "$ref": "#/$defs/money_amount"
+        }
+      }
+    }
+  },
+  "type": "object",
+  "required": [
+    "month",
+    "window",
+    "commits_read",
+    "merges_read",
+    "causes",
+    "unjoined",
+    "totals"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "month": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])$"
+    },
+    "window": {
+      "type": "object",
+      "required": [
+        "from",
+        "to"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "from": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-01$"
+        },
+        "to": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-01$"
+        }
+      }
+    },
+    "commits_read": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "merges_read": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "causes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/cause_group"
+      }
+    },
+    "unjoined": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/unjoined_item"
+      }
+    },
+    "totals": {
+      "type": "object",
+      "required": [
+        "items",
+        "per_class",
+        "per_cause",
+        "unjoined"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "items": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "per_class": {
+          "type": "object",
+          "required": [
+            "revert",
+            "fix-forward",
+            "redone"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "revert": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "fix-forward": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "redone": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        "per_cause": {
+          "type": "object",
+          "propertyNames": {
+            "pattern": "^[0-9a-f]{40}$"
+          },
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "unjoined": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "priced": {
+      "$ref": "#/$defs/priced_section"
+    }
+  }
+}

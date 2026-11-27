@@ -1,0 +1,56 @@
+name: clean-install
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-archive-and-smoke:
+    name: clean archive smoke (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install Rust stable
+        uses: dtolnay/rust-toolchain@stable
+      - name: Verify installer and shell completion syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          sh -n install.sh
+          bash -n "completions/muda.bash"
+      - name: Build release archive, verify SHA256SUMS, and run clean-room smoke check
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo build --release --locked
+          STAGE_DIR="$RUNNER_TEMP/release-stage"
+          INSTALL_BIN="$RUNNER_TEMP/clean-bin"
+          mkdir -p "$STAGE_DIR" "$INSTALL_BIN"
+          cp "target/release/muda" "$STAGE_DIR/muda"
+          cp LICENSE README.md "$STAGE_DIR/"
+          cp -r completions "$STAGE_DIR/completions"
+          tar -C "$STAGE_DIR" -czf "$STAGE_DIR/muda-ci.tar.gz" "muda" LICENSE README.md completions
+          if command -v sha256sum >/dev/null 2>&1; then
+            (cd "$STAGE_DIR" && sha256sum "muda-ci.tar.gz" > SHA256SUMS && sha256sum -c SHA256SUMS)
+          else
+            (cd "$STAGE_DIR" && shasum -a 256 "muda-ci.tar.gz" > SHA256SUMS && shasum -a 256 -c SHA256SUMS)
+          fi
+          tar -xzf "$STAGE_DIR/muda-ci.tar.gz" -C "$INSTALL_BIN"
+          chmod 0755 "$INSTALL_BIN/muda"
+          export PATH="$INSTALL_BIN:$PATH"
+          command -v "muda"
+          "muda" --help >/dev/null
+          git init -q "$RUNNER_TEMP/muda_smoke" && git -C "$RUNNER_TEMP/muda_smoke" config user.name Smoke && git -C "$RUNNER_TEMP/muda_smoke" config user.email smoke@example.com && echo x > "$RUNNER_TEMP/muda_smoke/f.txt" && git -C "$RUNNER_TEMP/muda_smoke" add f.txt && GIT_AUTHOR_DATE="2026-01-05T10:00:00Z" GIT_COMMITTER_DATE="2026-01-05T10:00:00Z" git -C "$RUNNER_TEMP/muda_smoke" commit -q -m init && muda statement --month 2026-01 --rates examples/rates.json "$RUNNER_TEMP/muda_smoke" >/dev/null

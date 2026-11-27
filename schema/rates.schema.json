@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/david-engelmann/muda/blob/main/schema/rates.schema.json",
+  "title": "Muda Rates Card",
+  "description": "Per-item rework rate card consumed by 'muda statement --rates <card.json>'. Duplicate JSON keys are rejected.",
+  "type": "object",
+  "required": [
+    "currency",
+    "per_item"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "currency": {
+      "type": "string",
+      "pattern": "^[A-Za-z]{3}$",
+      "description": "Three-letter ASCII currency code (for example USD, EUR, GBP)."
+    },
+    "per_item": {
+      "type": "object",
+      "required": [
+        "revert",
+        "fix-forward",
+        "redone"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "revert": {
+          "$ref": "#/$defs/decimal_rate",
+          "description": "Unit price per joined revert commit."
+        },
+        "fix-forward": {
+          "$ref": "#/$defs/decimal_rate",
+          "description": "Unit price per joined fix-forward commit."
+        },
+        "redone": {
+          "$ref": "#/$defs/decimal_rate",
+          "description": "Unit price per joined redone commit."
+        }
+      }
+    }
+  },
+  "$defs": {
+    "decimal_rate": {
+      "type": "string",
+      "pattern": "^[0-9]{1,30}(\\.[0-9]{1,2})?$",
+      "description": "Non-negative ASCII decimal string with 1 to 30 integer digits and an optional decimal point followed by 1 or 2 fraction digits."
+    }
+  }
+}

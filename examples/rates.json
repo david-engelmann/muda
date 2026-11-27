@@ -1,0 +1,8 @@
+{
+  "currency": "USD",
+  "per_item": {
+    "revert": "15.00",
+    "fix-forward": "7.50",
+    "redone": "4.00"
+  }
+}
