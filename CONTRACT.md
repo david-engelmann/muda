@@ -9698,3 +9698,12 @@ SB-198: The Round 33 draw battery stands at
  for every candidate, the SB-56 construction,
  and its cells re-ran clean on the fresh
  fixtures of this round.
+
+SB-199: The Round 33 joints battery stands at
+ nine cells and no failures, run whole at this
+ lane's own hand on the round's base build, the
+ journal at sb33-scratch/joints33.log. The
+ battery total for the round stands at
+ thirty-four cells across the boundary, draw,
+ and joints batteries, with the differential and
+ realistic accounts carried to the closure item.
