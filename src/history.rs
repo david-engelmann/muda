@@ -33,7 +33,7 @@ pub enum Fail {
     Crash,
 }
 
-const SCRUBBED: [&str; 8] = [
+const SCRUBBED: [&str; 9] = [
     "GIT_DIR",
     "GIT_WORK_TREE",
     "GIT_INDEX_FILE",
@@ -42,6 +42,7 @@ const SCRUBBED: [&str; 8] = [
     "GIT_NAMESPACE",
     "GIT_PREFIX",
     "GIT_CEILING",
+    "GIT_CEILING_DIRECTORIES",
 ];
 
 fn repo_msg(repo: &[u16]) -> Msg {
@@ -124,6 +125,9 @@ fn git(repo: &[u16], args: &[&str], check: bool) -> Result<String, Fail> {
     for name in SCRUBBED {
         command.env_remove(name);
     }
+    #[cfg(windows)]
+    command.env("GIT_GRAFT_FILE", "NUL");
+    #[cfg(not(windows))]
     command.env("GIT_GRAFT_FILE", "/dev/null");
     let mut child = match command.spawn() {
         Ok(child) => child,
