@@ -235,7 +235,12 @@ pub fn os_path_from_units(units: &[u16]) -> std::path::PathBuf {
         use std::os::unix::ffi::OsStringExt;
         std::path::PathBuf::from(std::ffi::OsString::from_vec(fsencode_bytes(units)))
     }
-    #[cfg(not(unix))]
+    #[cfg(windows)]
+    {
+        use std::os::windows::ffi::OsStringExt;
+        std::path::PathBuf::from(std::ffi::OsString::from_wide(units))
+    }
+    #[cfg(not(any(unix, windows)))]
     {
         std::path::PathBuf::from(String::from_utf16_lossy(units))
     }
@@ -300,29 +305,95 @@ pub fn py_is_space_char(ch: char) -> bool {
 /// table this platform's CPython prints; errnos
 /// outside the table fall back to the Rust display
 /// (a named deviation in the round dossier).
+#[cfg(any(
+    target_os = "macos",
+    target_os = "ios",
+    target_os = "tvos",
+    target_os = "watchos",
+    target_os = "freebsd",
+    target_os = "openbsd",
+    target_os = "netbsd",
+    target_os = "dragonfly",
+))]
+pub const ENAMETOOLONG: i32 = 63;
+
+#[cfg(all(
+    unix,
+    not(any(
+        target_os = "macos",
+        target_os = "ios",
+        target_os = "tvos",
+        target_os = "watchos",
+        target_os = "freebsd",
+        target_os = "openbsd",
+        target_os = "netbsd",
+        target_os = "dragonfly",
+    ))
+))]
+pub const ENAMETOOLONG: i32 = 36;
+
+#[cfg(any(
+    target_os = "macos",
+    target_os = "ios",
+    target_os = "tvos",
+    target_os = "watchos",
+    target_os = "freebsd",
+    target_os = "openbsd",
+    target_os = "netbsd",
+    target_os = "dragonfly",
+))]
+pub const ELOOP: i32 = 62;
+
+#[cfg(all(
+    unix,
+    not(any(
+        target_os = "macos",
+        target_os = "ios",
+        target_os = "tvos",
+        target_os = "watchos",
+        target_os = "freebsd",
+        target_os = "openbsd",
+        target_os = "netbsd",
+        target_os = "dragonfly",
+    ))
+))]
+pub const ELOOP: i32 = 40;
+
 pub fn strerror_text(err: &std::io::Error) -> String {
-    match err.raw_os_error() {
-        Some(errno) => {
-            let text = match errno {
-                1 => "Operation not permitted",
-                2 => "No such file or directory",
-                13 => "Permission denied",
-                20 => "Not a directory",
-                21 => "Is a directory",
-                24 => "Too many open files",
-                28 => "No space left on device",
-                30 => "Read-only file system",
-                32 => "Broken pipe",
-                36 => "File name too long",
-                40 => "Too many levels of symbolic links",
-                _ => "",
-            };
-            if text.is_empty() {
-                format!("{}", err)
-            } else {
-                text.to_string()
+    #[cfg(unix)]
+    {
+        match err.raw_os_error() {
+            Some(errno) => {
+                let text = match errno {
+                    1 => "Operation not permitted",
+                    2 => "No such file or directory",
+                    13 => "Permission denied",
+                    20 => "Not a directory",
+                    21 => "Is a directory",
+                    24 => "Too many open files",
+                    28 => "No space left on device",
+                    30 => "Read-only file system",
+                    32 => "Broken pipe",
+                    ENAMETOOLONG => "File name too long",
+                    ELOOP => "Too many levels of symbolic links",
+                    _ => "",
+                };
+                if text.is_empty() {
+                    format!("{}", err)
+                } else {
+                    text.to_string()
+                }
             }
+            None => format!("{}", err),
         }
-        None => format!("{}", err),
+    }
+    #[cfg(not(unix))]
+    {
+        match err.kind() {
+            std::io::ErrorKind::NotFound => "No such file or directory".to_string(),
+            std::io::ErrorKind::PermissionDenied => "Permission denied".to_string(),
+            std::io::ErrorKind::BrokenPipe => "Broken pipe".to_string(),
+            _ => format!("{}", err),
+        }
     }
 }

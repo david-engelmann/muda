@@ -22,6 +22,8 @@ fn git(repo: &Path, args: &[&str], date: Option<&str>, author: Option<&str>) -> 
         .arg("user.email=synthetic@example.invalid")
         .arg("-c")
         .arg("commit.gpgsign=false")
+        .arg("-c")
+        .arg("core.autocrlf=false")
         .args(args)
         .env("GIT_CONFIG_NOSYSTEM", "1")
         .env_remove("GIT_DIR")
@@ -134,6 +136,10 @@ fn fixture() -> &'static Fixture {
             .arg("user.name=Synthetic")
             .arg("-c")
             .arg("user.email=synthetic@example.invalid")
+            .arg("-c")
+            .arg("commit.gpgsign=false")
+            .arg("-c")
+            .arg("core.autocrlf=false")
             .args(["merge", "-q", "--no-ff", "-m", "Merge branch side", "side"])
             .env("GIT_CONFIG_NOSYSTEM", "1")
             .env("GIT_AUTHOR_DATE", "2026-01-07T09:00:00Z")
@@ -625,7 +631,13 @@ fn a_shallow_repository_is_refused() {
     let clone = dir.join("shallow");
     let out = Command::new("git")
         .args(["clone", "-q", "--depth", "1"])
-        .arg(format!("file://{}", f.repo.display()))
+        .arg(format!(
+            "file:///{}",
+            f.repo
+                .to_string_lossy()
+                .replace('\\', "/")
+                .trim_start_matches('/')
+        ))
         .arg(&clone)
         .env("GIT_CONFIG_NOSYSTEM", "1")
         .output()

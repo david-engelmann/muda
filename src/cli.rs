@@ -16,7 +16,9 @@ use crate::emit::{dumps_document, Mode};
 use crate::helptext::{STATEMENT_HELP, STATEMENT_USAGE, TOP_HELP, TOP_USAGE};
 use crate::history::{read_history, Fail};
 use crate::statement::{build_statement, price_statement};
-use crate::util::{closed_at_launch, fsdecode_units, os_path_from_units, Msg};
+#[cfg(not(windows))]
+use crate::util::fsdecode_units;
+use crate::util::{closed_at_launch, os_path_from_units, Msg};
 use crate::value::Value;
 
 struct ClosedFlags {
@@ -29,20 +31,30 @@ pub fn run_cli() -> i32 {
         stdout: closed_at_launch(1),
         stderr: closed_at_launch(2),
     };
-    let os_args: Vec<Vec<u8>> = std::env::args_os()
-        .map(|arg| {
-            #[cfg(unix)]
-            {
-                use std::os::unix::ffi::OsStrExt;
-                arg.as_os_str().as_bytes().to_vec()
-            }
-            #[cfg(not(unix))]
-            {
-                arg.to_string_lossy().into_owned().into_bytes()
-            }
-        })
-        .collect();
-    let argv: Vec<Vec<u16>> = os_args.iter().map(|arg| fsdecode_units(arg)).collect();
+    #[cfg(windows)]
+    let argv: Vec<Vec<u16>> = {
+        use std::os::windows::ffi::OsStrExt;
+        std::env::args_os()
+            .map(|arg| arg.as_os_str().encode_wide().collect())
+            .collect()
+    };
+    #[cfg(not(windows))]
+    let argv: Vec<Vec<u16>> = {
+        let os_args: Vec<Vec<u8>> = std::env::args_os()
+            .map(|arg| {
+                #[cfg(unix)]
+                {
+                    use std::os::unix::ffi::OsStrExt;
+                    arg.as_os_str().as_bytes().to_vec()
+                }
+                #[cfg(not(unix))]
+                {
+                    arg.to_string_lossy().into_owned().into_bytes()
+                }
+            })
+            .collect();
+        os_args.iter().map(|arg| fsdecode_units(arg)).collect()
+    };
     run_with_args(&argv[1.min(argv.len())..], &closed)
 }
 
@@ -635,6 +647,7 @@ fn fail_out(failure: Fail, closed: &ClosedFlags) -> i32 {
 /// pathlib's string form over units: redundant
 /// separators collapse (a leading pair survives),
 /// dot components drop, the empty path is ".".
+#[cfg(not(windows))]
 fn normalize_pathlib(units: &[u16]) -> Vec<u16> {
     if units.is_empty() {
         return vec![0x2E];
@@ -663,8 +676,60 @@ fn normalize_pathlib(units: &[u16]) -> Vec<u16> {
     out
 }
 
+#[cfg(windows)]
+fn normalize_pathlib(units: &[u16]) -> Vec<u16> {
+    let is_sep = |unit: u16| unit == 0x2F || unit == 0x5C;
+    if units.is_empty() {
+        return vec![0x2E];
+    }
+    let has_drive = units.len() >= 2
+        && units[1] == 0x3A
+        && ((0x41..=0x5A).contains(&units[0]) || (0x61..=0x7A).contains(&units[0]));
+    if has_drive {
+        let rooted = units.get(2).is_some_and(|&u| is_sep(u));
+        let rest = if rooted { &units[3..] } else { &units[2..] };
+        let parts: Vec<&[u16]> = rest
+            .split(|&u| is_sep(u))
+            .filter(|part| !(part.is_empty() || (part.len() == 1 && part[0] == 0x2E)))
+            .collect();
+        let mut out = vec![units[0], 0x3A];
+        if rooted {
+            out.push(0x5C);
+        }
+        for (index, part) in parts.iter().enumerate() {
+            if index > 0 {
+                out.push(0x5C);
+            }
+            out.extend_from_slice(part);
+        }
+        return out;
+    }
+    let leading = units.iter().take_while(|&&u| is_sep(u)).count();
+    let parts: Vec<&[u16]> = units[leading..]
+        .split(|&u| is_sep(u))
+        .filter(|part| !(part.is_empty() || (part.len() == 1 && part[0] == 0x2E)))
+        .collect();
+    let mut out: Vec<u16> = Vec::new();
+    if leading >= 2 {
+        out.extend_from_slice(&[0x5C, 0x5C]);
+    } else if leading == 1 {
+        out.push(0x5C);
+    }
+    for (index, part) in parts.iter().enumerate() {
+        if index > 0 {
+            out.push(0x5C);
+        }
+        out.extend_from_slice(part);
+    }
+    if out.is_empty() {
+        out.push(0x2E);
+    }
+    out
+}
+
 /// A path's components in normalized unit form,
 /// for the output guard's comparisons.
+#[cfg(not(windows))]
 fn path_components(units: &[u16]) -> Vec<Vec<u16>> {
     let normalized = normalize_pathlib(units);
     normalized
@@ -674,6 +739,27 @@ fn path_components(units: &[u16]) -> Vec<Vec<u16>> {
         .collect()
 }
 
+#[cfg(windows)]
+fn path_components(units: &[u16]) -> Vec<Vec<u16>> {
+    let normalized = normalize_pathlib(units);
+    normalized
+        .split(|&unit| unit == 0x2F || unit == 0x5C)
+        .filter(|part| !part.is_empty())
+        .map(|part| {
+            part.iter()
+                .map(|&u| {
+                    if (0x41..=0x5A).contains(&u) {
+                        u + 0x20
+                    } else {
+                        u
+                    }
+                })
+                .collect()
+        })
+        .collect()
+}
+
+#[cfg(not(windows))]
 fn os_bytes(value: &std::ffi::OsStr) -> Vec<u8> {
     #[cfg(unix)]
     {
@@ -686,29 +772,10 @@ fn os_bytes(value: &std::ffi::OsStr) -> Vec<u8> {
     }
 }
 
-/// The kernel's symlink-loop errno on this
-/// platform family.
-const ELOOP: i32 = 40;
-
-/// The walk's recursion budget (SB-25): at the
-/// shipped CLI the interpreter's default recursion
-/// limit leaves room for 991 nested splices, and
-/// the 992nd raises RecursionError out of
-/// resolve(). The count is of nesting depth, not
-/// of splices in total: the top call of a
-/// resolution stands at depth 0 and each splice's
-/// call stands one deeper, so a spelling carrying
-/// two sequential chains nests only as deep as
-/// the deeper one. The number belongs to this
-/// CLI's stack as measured at it, not to the
-/// line: unheard's CLI, deeper at its call site,
-/// flips one splice earlier.
+#[cfg(not(windows))]
 const MAX_WALK_DEPTH: usize = 991;
 
-/// os.path.join on byte strings: an absolute
-/// second part stands alone, an empty or
-/// separator-ending first part takes the second
-/// as it is, anything else joins on a separator.
+#[cfg(not(windows))]
 fn join_bytes(first: &[u8], second: &[u8]) -> Vec<u8> {
     if second.first() == Some(&0x2F) {
         return second.to_vec();
@@ -721,10 +788,7 @@ fn join_bytes(first: &[u8], second: &[u8]) -> Vec<u8> {
     out
 }
 
-/// os.path.split on byte strings: the head is
-/// everything up to the last separator, trailing
-/// separators stripped unless the head is nothing
-/// but separators, and the tail is what follows.
+#[cfg(not(windows))]
 fn split_bytes(path: &[u8]) -> (Vec<u8>, Vec<u8>) {
     let index = path
         .iter()
@@ -739,43 +803,12 @@ fn split_bytes(path: &[u8]) -> (Vec<u8>, Vec<u8>) {
     (head, tail)
 }
 
-/// A transient path over raw bytes, for the
-/// walk's stats and link reads.
+#[cfg(not(windows))]
 fn path_from_bytes(bytes: &[u8]) -> PathBuf {
     os_path_from_units(&fsdecode_units(bytes))
 }
 
-/// The interpreter's realpath walk itself
-/// (posixpath._joinrealpath with strict=False):
-/// `path` is the resolved prefix, `rest` the
-/// spelling still to walk, and `seen` the links
-/// already met, an open entry (None) marking a
-/// resolution still in progress and a finished
-/// one carrying its result. A component that is
-/// a symlink hands the walk its target spelling,
-/// resolved against the prefix the link stands
-/// in, and the walk continues against the splice,
-/// however long the chain runs and wherever in
-/// the spelling the link stands; a dangling link
-/// therefore lands the resolution on its target
-/// spelling rather than on its own name. A stat
-/// failure on a component (a missing name, an
-/// unsearchable prefix) reads the component as
-/// no link and the walk carries it lexically,
-/// the interpreter's non-strict rule. `depth` is
-/// the nesting of this call, the top call of a
-/// resolution standing at 0; a call entered past
-/// MAX_WALK_DEPTH aborts the walk, read here as
-/// None, the way the interpreter's RecursionError
-/// aborts the resolution. A link met again while
-/// its own resolution is still open is a loop:
-/// the walk leaves that component and the rest
-/// of the spelling standing in the result
-/// unresolved, and resolve_path's closing stat
-/// judges the finished path. A link whose target
-/// bytes cannot be read aborts the walk the way
-/// the interpreter's uncaught raise does,
-/// likewise read as None.
+#[cfg(not(windows))]
 fn joinrealpath(
     mut path: Vec<u8>,
     rest: Vec<u8>,
@@ -844,46 +877,18 @@ fn joinrealpath(
     Some((path, true))
 }
 
-/// pathlib's resolve, in unit form: absolute
-/// against the working directory, then the
-/// interpreter's own walk (joinrealpath),
-/// finished lexically. It fails (None) where the
-/// interpreter's resolve raises: the working
-/// directory read behind a relative spelling
-/// failing, the walk nested past its budget, a
-/// link whose target bytes cannot be read, or
-/// the closing stat of the finished path
-/// reporting the kernel's loop errno. The output
-/// guard reads the failure as the interpreter's
-/// crash (SB-25).
+#[cfg(not(windows))]
 fn resolve_path(units: &[u16]) -> Option<Vec<u16>> {
     let path = os_path_from_units(units);
     let absolute = if path.is_absolute() {
         path
     } else {
-        // A relative spelling anchors at the
-        // working directory; from a deleted
-        // working directory the interpreter's
-        // getcwd raises out of resolve(), so a
-        // failed read fails the resolution rather
-        // than anchoring the walk at a fiction
-        // (SB-25a). An absolute spelling never
-        // consults the directory.
         std::env::current_dir().ok()?.join(&path)
     };
     let spelling = os_bytes(absolute.as_os_str());
     let mut seen = std::collections::HashMap::new();
     let (resolved, _ok) = joinrealpath(Vec::new(), spelling, &mut seen, 0)?;
     let walked = fsdecode_units(&resolved);
-    // The lexical finish over the walk's result:
-    // a dot component drops and a dot-dot pops
-    // the component before it, whatever kind of
-    // component that is, so the tail a standing
-    // loop remainder left behind (a cancelled
-    // loop's spelling) finishes the way the
-    // interpreter's resolve returns it, and an
-    // uncancelled remainder reaches the closing
-    // stat still naming its loop.
     let mut parts: Vec<&[u16]> = Vec::new();
     for part in walked.split(|&unit| unit == 0x2F) {
         if part.is_empty() || (part.len() == 1 && part[0] == 0x2E) {
@@ -902,29 +907,90 @@ fn resolve_path(units: &[u16]) -> Option<Vec<u16>> {
         }
         finished.extend_from_slice(part);
     }
-    // The closing stat of resolve(): only the
-    // kernel's loop report fails the resolution;
-    // any other stat failure (a missing tail, an
-    // unsearchable prefix) is swallowed there,
-    // as the interpreter swallows it.
     if let Err(error) = std::fs::metadata(os_path_from_units(&finished)) {
-        if error.raw_os_error() == Some(ELOOP) {
+        #[cfg(unix)]
+        if error.raw_os_error() == Some(crate::util::ELOOP) {
             return None;
         }
     }
     Some(finished)
 }
 
-/// posixpath.normpath over raw bytes: redundant
-/// separators collapse (a leading pair survives
-/// as the anchor, a longer run collapses to one),
-/// dot components drop, and a dotdot pops the
-/// component it follows lexically, standing only
-/// where a relative spelling leads with it and
-/// vanishing at an absolute spelling's root. The
-/// empty result reads as a dot. No link is
-/// consulted at any point: the computation is
-/// over the spelling alone.
+#[cfg(windows)]
+fn resolve_path(units: &[u16]) -> Option<Vec<u16>> {
+    use std::os::windows::ffi::{OsStrExt, OsStringExt};
+    use std::path::Component;
+
+    let raw = os_path_from_units(&normalize_pathlib(units));
+    let absolute = if raw.is_absolute() {
+        raw
+    } else {
+        std::env::current_dir().ok()?.join(raw)
+    };
+    if let Err(error) = std::fs::metadata(&absolute) {
+        if error.raw_os_error() == Some(1921) {
+            return None;
+        }
+    }
+    let mut tail_parts: Vec<std::ffi::OsString> = Vec::new();
+    let mut cursor = absolute.as_path();
+    let resolved_base = loop {
+        match std::fs::canonicalize(cursor) {
+            Ok(canon) => break Some(canon),
+            Err(err) => {
+                if err.raw_os_error() == Some(1921) {
+                    return None;
+                }
+                if let Some(name) = cursor.file_name() {
+                    tail_parts.push(name.to_os_string());
+                }
+                match cursor.parent() {
+                    Some(parent) if !parent.as_os_str().is_empty() && parent != cursor => {
+                        cursor = parent;
+                    }
+                    _ => break None,
+                }
+            }
+        }
+    };
+    let mut combined = match resolved_base {
+        Some(canon) => {
+            let wide: Vec<u16> = canon.as_os_str().encode_wide().collect();
+            let stripped: Vec<u16> = if wide
+                .starts_with(&[0x5C, 0x5C, 0x3F, 0x5C, 0x55, 0x4E, 0x43, 0x5C])
+                || wide.starts_with(&[0x5C, 0x5C, 0x3F, 0x5C, 0x75, 0x6E, 0x63, 0x5C])
+            {
+                let mut unc = vec![0x5C, 0x5C];
+                unc.extend_from_slice(&wide[8..]);
+                unc
+            } else if wide.starts_with(&[0x5C, 0x5C, 0x3F, 0x5C]) {
+                wide[4..].to_vec()
+            } else {
+                wide
+            };
+            PathBuf::from(std::ffi::OsString::from_wide(&stripped))
+        }
+        None => absolute,
+    };
+    for part in tail_parts.into_iter().rev() {
+        combined.push(part);
+    }
+    let mut normalized = PathBuf::new();
+    for comp in combined.components() {
+        match comp {
+            Component::Prefix(p) => normalized.push(p.as_os_str()),
+            Component::RootDir => normalized.push(comp.as_os_str()),
+            Component::CurDir => {}
+            Component::ParentDir => {
+                let _ = normalized.pop();
+            }
+            Component::Normal(part) => normalized.push(part),
+        }
+    }
+    Some(normalized.as_os_str().encode_wide().collect())
+}
+
+#[cfg(not(windows))]
 fn normpath_bytes(path: &[u8]) -> Vec<u8> {
     if path.is_empty() {
         return vec![0x2E];
@@ -963,16 +1029,7 @@ fn normpath_bytes(path: &[u8]) -> Vec<u8> {
     out
 }
 
-/// os.path.abspath over a parent path: a relative
-/// spelling joins the working directory, and the
-/// joined spelling is normalized lexically. An
-/// absolute spelling never consults the working
-/// directory. A failed working-directory read
-/// fails the step the way the interpreter's
-/// getcwd raises inside abspath (a relative
-/// output from a deleted working directory has
-/// already died at the guard, so at the write
-/// seam the failure is mkstemp's own shape).
+#[cfg(not(windows))]
 fn lexical_abspath(parent: &Path) -> std::io::Result<PathBuf> {
     let bytes = os_bytes(parent.as_os_str());
     let joined = if bytes.first() == Some(&0x2F) {
@@ -984,11 +1041,32 @@ fn lexical_abspath(parent: &Path) -> std::io::Result<PathBuf> {
     Ok(path_from_bytes(&normpath_bytes(&joined)))
 }
 
-/// Sixteen bytes of operating system entropy for
-/// one temp candidate (SB-56): the urandom device
-/// on unix, read exactly. Any failure yields None,
-/// and the caller refuses the write rather than
-/// fall back to the computable draw.
+#[cfg(windows)]
+fn lexical_abspath(parent: &Path) -> std::io::Result<PathBuf> {
+    use std::path::Component;
+    let joined = if parent.is_absolute() {
+        parent.to_path_buf()
+    } else {
+        std::env::current_dir()?.join(parent)
+    };
+    let mut out = PathBuf::new();
+    for comp in joined.components() {
+        match comp {
+            Component::Prefix(p) => out.push(p.as_os_str()),
+            Component::RootDir => out.push(comp.as_os_str()),
+            Component::CurDir => {}
+            Component::ParentDir => {
+                let _ = out.pop();
+            }
+            Component::Normal(part) => out.push(part),
+        }
+    }
+    if out.as_os_str().is_empty() {
+        out.push(".");
+    }
+    Ok(out)
+}
+
 fn os_entropy() -> Option<[u8; 16]> {
     #[cfg(unix)]
     {
@@ -998,7 +1076,34 @@ fn os_entropy() -> Option<[u8; 16]> {
         file.read_exact(&mut bytes).ok()?;
         Some(bytes)
     }
-    #[cfg(not(unix))]
+    #[cfg(windows)]
+    {
+        const BCRYPT_USE_SYSTEM_PREFERRED_RNG: u32 = 0x0000_0002;
+        #[link(name = "bcrypt")]
+        extern "system" {
+            fn BCryptGenRandom(
+                h_algorithm: *mut core::ffi::c_void,
+                pb_buffer: *mut u8,
+                cb_buffer: u32,
+                dw_flags: u32,
+            ) -> i32;
+        }
+        let mut bytes = [0u8; 16];
+        let status = unsafe {
+            BCryptGenRandom(
+                core::ptr::null_mut(),
+                bytes.as_mut_ptr(),
+                bytes.len() as u32,
+                BCRYPT_USE_SYSTEM_PREFERRED_RNG,
+            )
+        };
+        if status == 0 {
+            Some(bytes)
+        } else {
+            None
+        }
+    }
+    #[cfg(not(any(unix, windows)))]
     {
         None
     }
@@ -1049,7 +1154,6 @@ fn temp_suffix(state: u64, entropy: &[u8; 16]) -> String {
 /// an entropy failure refuses the write before
 /// any create.
 fn write_atomically(path: &Path, bytes: &[u8]) -> std::io::Result<()> {
-    use std::os::unix::fs::OpenOptionsExt;
     let parent = path.parent().unwrap_or(Path::new(""));
     let parent = if parent.as_os_str().is_empty() {
         Path::new(".")
@@ -1058,11 +1162,10 @@ fn write_atomically(path: &Path, bytes: &[u8]) -> std::io::Result<()> {
     };
     let parent = lexical_abspath(parent)?;
     // SB-37: the temp's name is assembled from the
-    // path's raw bytes. A name carrying bytes that
-    // are not valid UTF-8 keeps its byte count at
-    // the temp, where a lossy decode would expand
-    // each raw byte to three and move the boundary
-    // of SB-35 two lengths early.
+    // path's raw bytes on Unix (or wide units on
+    // Windows) so non-UTF-8 / unpaired units keep
+    // their exact length.
+    #[cfg(not(windows))]
     let name = os_bytes(path.file_name().unwrap_or_default());
     let mut seed = std::time::SystemTime::now()
         .duration_since(std::time::UNIX_EPOCH)
@@ -1087,16 +1190,29 @@ fn write_atomically(path: &Path, bytes: &[u8]) -> std::io::Result<()> {
             .wrapping_mul(6364136223846793005)
             .wrapping_add(1442695040888963407);
         let random = temp_suffix(seed, &entropy);
-        let mut tail = name.clone();
-        tail.push(b'.');
-        tail.extend_from_slice(random.as_bytes());
-        candidate = path_from_bytes(&join_bytes(&os_bytes(parent.as_os_str()), &tail));
-        match std::fs::OpenOptions::new()
-            .write(true)
-            .create_new(true)
-            .mode(0o600)
-            .open(&candidate)
+        #[cfg(not(windows))]
         {
+            let mut tail = name.clone();
+            tail.push(b'.');
+            tail.extend_from_slice(random.as_bytes());
+            candidate = path_from_bytes(&join_bytes(&os_bytes(parent.as_os_str()), &tail));
+        }
+        #[cfg(windows)]
+        {
+            use std::os::windows::ffi::{OsStrExt, OsStringExt};
+            let mut wide: Vec<u16> = path.file_name().unwrap_or_default().encode_wide().collect();
+            wide.push(b'.' as u16);
+            wide.extend(random.encode_utf16());
+            candidate = parent.join(std::ffi::OsString::from_wide(&wide));
+        }
+        let mut options = std::fs::OpenOptions::new();
+        options.write(true).create_new(true);
+        #[cfg(unix)]
+        {
+            use std::os::unix::fs::OpenOptionsExt;
+            options.mode(0o600);
+        }
+        match options.open(&candidate) {
             Ok(file) => {
                 handle = Some(file);
                 break;
@@ -1129,14 +1245,24 @@ fn statement(args: &StatementArgs, closed: &ClosedFlags) -> i32 {
         // failure is swallowed, the git directory's
         // propagates (the Python's shape).
         let mut roots: Vec<Vec<Vec<u16>>> = Vec::new();
+        let root_components = |raw: &str| -> Vec<Vec<u16>> {
+            let units = text_units(raw);
+            #[cfg(windows)]
+            {
+                if let Some(resolved) = resolve_path(&units) {
+                    return path_components(&resolved);
+                }
+            }
+            path_components(&units)
+        };
         if let Ok(root) = crate::history::worktree_root(&repo) {
-            roots.push(path_components(&text_units(&root)));
+            roots.push(root_components(&root));
         }
         let git_dir = match crate::history::git_dir(&repo) {
             Ok(found) => found,
             Err(failure) => return fail_out(failure, closed),
         };
-        roots.push(path_components(&text_units(&git_dir)));
+        roots.push(root_components(&git_dir));
         // A resolution failure is the interpreter's
         // crash at resolve(): the guard never gets
         // to compare (SB-25).
