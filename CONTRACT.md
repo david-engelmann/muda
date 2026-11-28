@@ -10154,3 +10154,12 @@ SB-202: The Round 34 boundary battery stands at
  bytes. SB-11 stands unqualified against that
  landing, and SB-11 and SB-65a are both carried
  open by name.
+
+SB-203: The Round 34 draw battery stands at
+ fourteen cells and no failures, run whole on
+ the round's base build, the journal at
+ sb34-scratch/draw34.log. The draw continues to
+ take operating-system entropy for every
+ candidate, the SB-56 construction, and its
+ cells re-ran clean on the fresh fixtures of
+ this round.
