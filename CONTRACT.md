@@ -10163,3 +10163,12 @@ SB-203: The Round 34 draw battery stands at
  candidate, the SB-56 construction, and its
  cells re-ran clean on the fresh fixtures of
  this round.
+
+SB-204: The Round 34 joints battery stands at
+ nine cells and no failures, run whole on the
+ round's base build, the journal at
+ sb34-scratch/joints34.log. The battery total
+ for the round stands at thirty-four cells
+ across the boundary, draw, and joints
+ batteries, with the differential and realistic
+ accounts carried to the closure item.
