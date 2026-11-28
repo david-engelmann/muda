@@ -10120,3 +10120,37 @@ SB-201 (Round 34 read-back). Round 33's pull
  cycle on a freshly built corpus with no
  checkpoint resume, its whole ledger recorded
  whether it completes or not.
+
+SB-202: The Round 34 boundary battery stands at
+ eleven cells and no failures, run whole on the
+ round's base build, the DEBUG binary at md5
+ 35555e1f592a2477b218403a8648dfbe under
+ sb34-scratch/target, the journal at
+ sb34-scratch/boundary34.log. The seam points
+ were re-probed on both implementations inside
+ it. The guard refuses a spelled-parent output
+ path onto the read repository at chain lengths
+ 990 and 991 and the run enters the crash class
+ at 992, the kernel guard of SB-62. The physical
+ write itself, exercised through a forty-link
+ spelled-parent output chain whose last link
+ lands in a plain directory, lands at exactly 40
+ links and refuses at 41, and the head-is-output
+ form lands replacing the head link at 40, 41,
+ and 991, refuses a 991 chain onto the
+ repository, and enters the crash class at 992
+ with the head link untouched, the write seam of
+ SB-62. The SB-65a configuration was reproduced
+ fresh on both arms as a carried measurement and
+ not as a fix. A single link inside the read
+ repository, named as the output file, pointing
+ outside it, passes the guard on both
+ implementations, and the write lands inside the
+ repository replacing the link, while the file
+ outside stands unwritten at its original 8
+ bytes, verified at this lane's hand by
+ directory metadata alone, and the statement
+ file inside each repository stands at 630
+ bytes. SB-11 stands unqualified against that
+ landing, and SB-11 and SB-65a are both carried
+ open by name.
