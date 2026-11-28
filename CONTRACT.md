@@ -9919,3 +9919,204 @@ SB-200. Round 33 closes. The realistic battery
  directory under ~/workspace/retro-line by
  design). The README rounds line moves to 33 of
  100 in this closure commit.
+
+SB-201 (Round 34 read-back). Round 33's pull
+ request 50 stands read back whole at this
+ lane's hand, and its record settles here. The
+ pull request merged through the owner's Trunk
+ queue as commit
+ ce49fb1aeed02cabf759362239efdfd57114fdc5 at
+ 2026-11-28T05:52:09Z, a squash of head
+ d5f3ae340fc1d8e0c2e57d0cc0af41790cc0eebe onto
+ base 256bf3c791fcb73d5b9e47ae3213564d461bdac8;
+ the merge commit's tree stands at
+ b0cf4f5b7604105c1eb348c009575d40265cc609, the
+ reviewed head's tree, verified at this lane's
+ hand from the merge commit itself. The contract
+ on main stands at 443,703 bytes. The title
+ stands in its standing form, SB-196 to SB-200:
+ Round 33. The body stands at 31,969 characters
+ in its final form: the build lane's patched
+ body at 30,410 characters, its release-notes
+ appendix at offset 29,781 spanning 629 measured
+ from its opening marker, the pair summing to
+ that body's length exactly, and the owner's
+ gate record appended after the appendix at the
+ landing, the final body reading 31,969. The
+ comment census at this lane's read stands at
+ three issue comments, no reviews, and no review
+ comments: the Trunk note, the review shell, and
+ the owner's enqueue comment, which stands added
+ at the landing; at the gate the census stood at
+ two issue comments, the enqueue not yet posted.
+ The Trunk note 7232252826 stands at 113
+ characters in its merged form. The queue pull
+ request 51 stands closed and unmerged, its head
+ on the queue branch. No separate Trunk landing
+ comment stands on the pull request, and no
+ separate landing comment stands; the record
+ stands as stated. The continuous integration
+ runs on the head and on the merge commit stand
+ completed with success. The review shell
+ 7232255203 stands settled at its true final
+ form: 11,072 characters, last edited
+ 2026-11-28T05:44:45Z, read whole at this lane's
+ hand, discharging the charge the Round 33 body
+ laid in its moment-bounded form. Its forms ran
+ 11,068 characters at the build lane's Step 0
+ patch read (last edited 2026-11-28T02:18:23Z at
+ that reading), 11,070 at the standards axis's
+ read, and 11,072 at the owner's landing read
+ and at this lane's read, the figure settled and
+ unmoved through the merge, its last edit four
+ seconds before the owner's enqueue comment. In
+ its final form the shell states that no
+ actionable comments were generated in the
+ recent review. Its walkthrough describes the
+ round accurately (the Round 32 read-back and
+ the Round 33 starting state at SB-196, the
+ boundary, draw, and joints battery records at
+ SB-197 to SB-199 with 34 cells and no failures
+ reported, the Round 33 closure at SB-200 with
+ the differential and flighttape results, the
+ gate outcomes, and the realistic battery
+ standing not completed and carried to Round 34,
+ the README count advancing to 33 of 100), its
+ change assessment stands at effort 3, Moderate,
+ against the head commit, its merge risk stands
+ at Minimal with no merge-blocking risk found,
+ the risk-unassessed icon again lagging its
+ Minimal label as in the two rounds before, and
+ its four pre-merge checks stand passed, the
+ title check passed with its terseness note
+ standing in the open (the title names the range
+ and the round but not what the change does). No
+ possibly-related-pull-requests section stands
+ in this shell's final form. It selected the two
+ changed files, CONTRACT.md and README.md,
+ reviewing the range from the base to the head.
+ Every claim in the settled shell grades true
+ against the record at this lane's hand. The
+ Round 33 gate grades against the three reports
+ on disk as follows. The spec axis returned
+ REPAIR on one Minor (its report at 11,040
+ bytes), F-1, body-only: the body's Step 0
+ paragraph printed the appendix offset as 29,770
+ where it measures 29,781, the span 629 correct
+ and the appendix itself preserved byte for
+ byte; every other claim charged to that axis
+ graded PASS at its hand, the read-back
+ settlement figure for figure, the family totals
+ traced from their stated parts, the realistic's
+ non-completion matching its ledger entry for
+ entry, the closure discipline verified by
+ diffing the chain, and the round total of 694
+ asserted nowhere in the items or the body. The
+ standards axis returned REPAIR on the same
+ Minor (16,396 bytes), S-1 convergent with F-1,
+ with one observation below severity (the
+ shell's re-render to 11,070 characters at its
+ read against the body's moment-bounded 11,068,
+ the true final form charged to this round's
+ read-back, discharged above). The red team
+ returned APPROVE across two seatings (28,472
+ bytes): the first seating stood down its
+ execution limbs on a system execution-risk
+ notice and entered NOT DISCHARGED, the correct
+ handling, its non-execution limbs passing whole
+ with one Minor at L9; the completion seating,
+ seated under the owner's express re-issued
+ scoped ruling, executed the stood-down limbs
+ whole at its own clean targets (the base gate,
+ the closure gate on the pre-closure tree, the
+ batteries and differential with the fresh
+ SB-65a re-measurement, and the pin suite's
+ re-execution) and entered APPROVE, the L9 Minor
+ carried forward un-regraded. The owner's body
+ patch at the landing discharged F-1 and S-1 in
+ the standing form (the offset corrected in
+ place to 29,781, length-preserving, the patched
+ body read back byte-identical before the
+ enqueue), and no delta review was owed for the
+ body edit. The gate stands discharged whole on
+ all three axes, with no Critical and no Major
+ standing anywhere. The red team's L9 Minor
+ stands discharged here, the reconciliation
+ stated exactly, SB-200 unrewritten. The closure
+ gate's log (gate_closure33.log in the Round 33
+ scratch) carries seven launch lines, at
+ 2026-11-27T08:11:03Z, 09:05:26Z, 10:48:20Z,
+ 15:54:40Z, 19:39:31Z, 19:59:51Z, and the
+ completing launch of 2026-11-28T01:22:27Z, and
+ one cargo test stage header stamped
+ 2026-11-27T17:24:54Z with no launch line of its
+ own. The Round 33 entries name gate launches at
+ six of the seven stamps: the first seating at
+ 08:11:03Z, killed still queued by the runtime
+ restart near 09:03Z; the second seating at
+ 09:05:26Z, killed still queued by the restart
+ near 10:46Z; the third seating at 10:48:20Z,
+ dying queued without executing a stage; the
+ second completion lane's outer-flock launch at
+ 15:54:40Z, deadlocked against the gate script's
+ own internal flock; the unwrapped relaunch at
+ 19:59:51Z, killed still queued by the restart
+ before 21:36:51Z; and the completing launch at
+ 01:22:27Z, which ran the gate whole. The
+ 19:39:31Z launch line (pid 373719) stands
+ unnamed as a gate launch in the entries: entry
+ 22 of the Round 33 ledger names that second
+ only as the realistic driver's slot
+ acquisition, and the realistic's own log
+ carries its driver's relaunch 2 at the same
+ second under pid 373628, the two drivers having
+ been relaunched together; the gate's launch is
+ real but was never entered as a gate launch,
+ and it is named here. No stage header follows
+ the 19:39:31Z line in the log (the next line is
+ the 19:59:51Z launch), no stage executed under
+ it, and no figure derives from it. Entry 23
+ states the 19:10:12Z deadlocked launch stood
+ with its launch line written; no 19:10:12Z line
+ stands in the surviving log. The 19:10:12Z
+ launch itself stands as entry 23 records it in
+ every other particular (the outer flock
+ deadlock, the deadlocked processes killed at
+ that lane's hand, the gate relaunched unwrapped
+ at 19:59:51Z); only its launch-line clause is
+ uncorroborated by the surviving log. The
+ 17:24:54Z stage header stands as entry 20
+ records it: the one partial trace of an
+ unwrapped launch acquiring in that minute and
+ dying mid-stage in the restart before
+ 17:35:41Z, no stage completed under it and no
+ figure from it. The closure gate relaunches of
+ 21:37:17Z and 23:30:18Z wrote no launch line
+ and executed no stage, exactly as entry 26
+ records, no line standing in the log between
+ the 19:59:51Z launch and the completing launch.
+ The accounting therefore reconciles whole:
+ seven launch lines, six named in the entries
+ and the seventh, at 19:39:31Z, named here; one
+ stage header without a launch line, named in
+ entry 20; one entry clause, entry 23's launch
+ line for the 19:10:12Z launch, not standing in
+ the surviving log; no stage executed under
+ either unreconciled launch, and no figure
+ derives from either. SB-200's own claims each
+ stand as stated, and SB-200 stands unrewritten.
+ Round 34 opens from this read-back. The base
+ stands at the merge: the contract at 443,703
+ bytes carrying the Status range SB-1 to SB-200
+ with SB-143, SB-169, and SB-185 standing
+ outside it as repair records, the README at 33
+ of 100. The carried items SB-11, SB-65a, SB-47,
+ and SB-43 stand open and untouched, and this
+ round re-measures SB-65a fresh on both arms as
+ a carried measurement, amends nothing, and
+ closes nothing it was not charged to close. The
+ realistic's completion stands as this round's
+ first business, charged from SB-200: a fresh
+ cycle on a freshly built corpus with no
+ checkpoint resume, its whole ledger recorded
+ whether it completes or not.
